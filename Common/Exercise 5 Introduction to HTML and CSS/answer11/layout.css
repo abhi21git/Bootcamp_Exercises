@@ -18,8 +18,7 @@ tabs ul{margin:0; padding:0;}
 h1, h2, h3, h4, h5, h6{margin:0; padding:0; font-size:16px;}
 input, textarea, select{font-size:12px; font-family:Georgia,"Times New Roman";}
 
-.one_quarter{display:block; float:left; width:225px; margin:0 20px 0 0;}
-.lastbox{margin-right:0;}
+.one_quarter{display:block; float:left; width:225px; margin:0 20px 0 10px; margin-right:0;}
 
 #header{padding:20px 0;}
 
@@ -37,7 +36,6 @@ tabs li a:hover{color:#FF9900; background-color:#232323;}
 #container{padding:30px 0;}
 #container section{display:block; width:100%; margin:0 0 30px 0; padding:0;}
 #container .last{margin:0;}
-#container .more{text-align:right;}
 
 #shout{display:block; width:930px; padding:15px; font-size:16px; line-height:29px; color:#979797; background-color:#EEEEEE;}
 #shout p{margin:0; padding:0;}
@@ -45,12 +43,10 @@ tabs li a:hover{color:#FF9900; background-color:#232323;}
 #homepage{display:block; width:100%; line-height:29px;}
 #homepage h1{margin-bottom:25px; padding-bottom:10px; border-bottom:1px solid #D6D6D6;}
 
-#services{}
+
 #services article{display:inline; float:left; width:300px; margin:0 30px 0 0; padding:0;}
 #services .last{margin-right:0;}
 #services figure{display:inline; float:left;}
 #services p{display:block; margin:0; padding:5px 0 0 0; clear:both; line-height:29px;}
 
-#latest{}
-#latest article{}
 #latest figure{padding:4px; border:1px solid #D6D6D6; text-align:center;}
