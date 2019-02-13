@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <style>
+      h3 {
+          color: #C42847;
+      }
+
+      .style{
+        color: #631D76;
+        margin-left: 30px;
+      }
+      table, td, th {
+        border: 2px solid #C42847;
+        border-radius: 4px;
+        border-collapse: collapse;
+        text-align: left;
+        padding: 4px;
+      }
+    li{
+      color: #00A878;
+    }
+      div{
+        border: 2px solid #ECEBE4;
+        background: #ECEBE4;
+        border-radius: 8px;
+        margin: 20px;
+        padding: 10px;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div>
+    <h3>Question 1: Prompt for amount, interest rate and no. of years and calculate simple interest.</h3>
+      <button onclick="simpleInterest()">Get Simple Interest</button>
+      <p id="amount" class="style"></p>
+      <p id="interest" class="style"></p>
+      <p id="years" class="style"></p>
+      <p id="SI" class="style"s></p>
+    </div>
+
+    <div>
+      <h3>Question 2: is palindrome string</h3>
+      <button onclick="isPalindrome()">is Palindrome ?</button>
+    </div>
+
+    <div>
+      <h3>Question 3: Area of circle</h3>
+      <button onclick="areaCircle()">Area of circle</button>
+    </div>
+
+    <div>
+      <h3>Question 4: Copy information of one object to another and log it to console.</h3>
+      <button onclick="copyObj()">Copy obj and console it:</button>
+    </div>
+
+    <div>
+      <h3>Question 5:Create a list of objets of Employee with info as follow:</h3>
+      <ol>
+        <li>Name, age, salary ,DOB</li>
+          <table id="emp"class="style"></table><br>
+          <li>Filter all employees with salary greater than 5000.</li>
+          <p id="salary_less" class="style"></p>
+
+          <li>Group employee on the basis of their age.</li>
+          <p id="trainee" class="style"></p>
+          <p id="software_engineer" class="style"></p>
+          <p id="senior_engineer" class="style"></p>
+
+          <li>Fetch employees with salary less than 1000 and age greater than 20.
+              Then give them an increment 5 times their salary.</li>
+          <p id="salary_inc" class="style"></p>
+      <button onclick="listEmployee()">List of objects of Employee</button>
+    </div>
+
+    <script src="app.js" charset="utf-8"></script>
+  </body>
+</html>
