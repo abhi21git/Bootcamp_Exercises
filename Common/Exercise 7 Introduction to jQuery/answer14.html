@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Answer 14</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+      $(document).ready(function(){
+        var arr=$("td");
+        for (var i = 0; i < arr.length; i++) {
+  	       if (parseInt((arr[i]).textContent)>10)
+  		       $(arr[i]).css("background-color","mediumaquamarine");
+        }
+      });
+    </script>
+  </head>
+  <body>
+    <p>Question 14: Change color of every cell which has number larger than 10.</p>
+    <table>
+      <tr>
+        <td>16</td>
+        <td>76</td>
+        <td>9</td>
+      </tr>
+      <tr>
+        <td>10</td>
+        <td>61</td>
+        <td>22</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>1</td>
+        <td>2</td>
+      </tr>
+      <tr>
+        <td>125</td>
+        <td>9</td>
+        <td>28</td>
+      </tr>
+      <tr>
+        <td>75</td>
+        <td>6</td>
+        <td>8</td>
+      </tr>
+    </table>
+  </body>
+</html>

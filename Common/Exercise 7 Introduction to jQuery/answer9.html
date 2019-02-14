@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+	<title>Answer 9</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("select").on("change",function(){
+				$("div").append(this.value);
+			});
+		});
+	</script>
+  </head>
+  <body>
+    <p>Question 9: Get dropdown selected value on onchanage event and append in div container</p>
+    <label>Select City</label>
+    <select name="City">
+	     <option value="Android">Android</option>
+	     <option value="iOS">iOS</option>
+	     <option value="Java">Java</option>
+	     <option value="Feen">Feen</option>
+	     <option value="Bigdata">Bigdata</option>
+    </select>
+    <div>Selected fileds are: </div>
+  </body>
+</html>

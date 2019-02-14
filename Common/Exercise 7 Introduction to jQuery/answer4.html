@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Answer 4</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#btn2").click(function(){
+                $("#btn1").attr("disabled", true)
+            })
+        })
+    </script>
+  </head>
+  <body>
+    <p>Question 4: Disable submit button using jquery attr method</p>
+    <div>
+      <button id="btn1" type="button"> Button </button>
+        <br><br>
+      <button id="btn2" type="button"> Click Here to Disable</button>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Answer 12</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+      $(document).ready(function(){
+        $("div").on("click",function(){alert("You clicked on a parent element")}).children().on("click",function(){return false;});
+      });
+    </script>
+  </head>
+  <body>
+    <p>Question 12: We have bind a click function to parent div but we want to stop it from performing when user clicks on its child li</p>
+    <div>Parent div<br>
+      <ul>
+ 	      <li>Child 1</li>
+ 	      <li>Child 2</li>
+ 	      <li>Child 3</li>
+ 	      <li>Child 4</li>
+      </ul>
+    </div>
+  </body>
+</html>

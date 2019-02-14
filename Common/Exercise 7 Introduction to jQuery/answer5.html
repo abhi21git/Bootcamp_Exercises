@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Answer 5</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+          $("#btn2").click(function(){
+            $("#main > .target").css("font-size", "30px")
+          })
+        })
+    </script>
+  </head>
+  <body>
+    <p>Question 5: Change the font size of ".target" which has parent element with id name "#main"</p>
+    <div id="main">
+      <p class="notarget">Example 1</p>
+      <p class="target">Example 2</p>
+    </div>
+    <div id="non-main">
+      <p class="target">Example 4</p>
+    </div>
+    <button id="btn2" type="button"> Click to change</button>
+  </body>
+</html>
