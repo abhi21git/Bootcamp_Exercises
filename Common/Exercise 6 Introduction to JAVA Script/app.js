@@ -39,11 +39,12 @@ function areaCircle() {
 
   alert("Required Circle Area: " + area);
 }
+
 var person = {
-  firstName:"John",
-  lastName:"Doe",
-  age:50,
-  eyeColor:"blue"
+  firstName:"Abhishek",
+  lastName:"Maurya",
+  age:21,
+  City:"Ghaziabad"
 };
 
 var personCopy = {};
