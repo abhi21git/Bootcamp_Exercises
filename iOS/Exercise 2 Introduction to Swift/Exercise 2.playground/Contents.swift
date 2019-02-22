@@ -23,6 +23,7 @@ var personalArray: [PersonalInformation] = []
     personalArray.append(PersonalInformation(employeeID: 124, name: "Sachio Li", country: definedCountry.Japan, address: "Heroshima", hobbies: "Martial Arts"))
     personalArray.append(PersonalInformation(employeeID: 125, name: "Lui Resh", country: definedCountry.China, address: "Tibet", hobbies: nil))
 
+
 //Professional Information Structure
 struct ProfessionalInformation {
     var employeeID: Int
@@ -75,32 +76,32 @@ for index in empArray {
 }
 
 //Question 2: write a function that takes the two structure and give me list of all the employee that live in certain country
-func answer2(ans: String) -> String{
-    print(ans)
+func answer2(country: String) -> String{
+    print("\nAnswer 2:")
     for personalEmp in personalArray {
         for professionalEmp in professionalArray{
-            if (personalEmp.employeeID == professionalEmp.employeeID && personalEmp.country=="India")
+            if (personalEmp.employeeID == professionalEmp.employeeID && personalEmp.country==country)
             {
                 print(personalEmp)
             }
         }
     }
-    return ans
+    return country
 }
-answer2(ans: "\nAnswer 2:")
+answer2(country: "India")
 
 //Question 3: write a function that give me list of all the employee that live in certain department
-func answer3(ans: String) -> String{
-    print(ans)
+func answer3(department: String) -> String{
+    print("\nAnswer 3:")
     for emp in empArray {
-        if (emp.department=="iOS")
+        if (emp.department==department)
         {
             print(emp)
         }
     }
-    return ans
+    return department
 }
-answer3(ans: "\nAnswer 3:")
+answer3(department: "iOS")
 
 //Question 4: write a function that give me list of all the employee that live in same country and work in the same branch.
 func answer4(ans: String) -> String{
@@ -127,13 +128,13 @@ func answer5(ans :String) -> String{
 answer5(ans: "\nAnswer 5:")
 
 //Question 6: write a function that return me list of all the employee name that starts with any “S”
-func answer6(ans: String) -> String{
-    print(ans)
+func answer6(prefix: String) -> String{
+    print("\nAnswer6")
     for emp in empArray {
-        if (emp.name.prefix(1)=="S") {
+        if (emp.name.prefix(1)==prefix) {
             print(emp)
         }
     }
-    return ans
+    return prefix
 }
-answer6(ans: "\nAnswer 6:")
+answer6(prefix: "S")
