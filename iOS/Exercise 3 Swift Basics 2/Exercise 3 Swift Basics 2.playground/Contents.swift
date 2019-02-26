@@ -86,5 +86,67 @@ let farmAnimals: Set = ["🐮", "🐓", "🐏", "🐶", "🐱"]
 let cityAnimals: Set = ["🐦", "🐭"]
 
 //Question 3.1: Determine whether the set of house animals is a subset of farm animals.
+if houseAnimals.isSubset(of: farmAnimals) {
+    print("True")
+}
+
+//Question 3.2: Determine whether the set of farm animals is a superset of house animals.
+if houseAnimals.isSuperset(of: houseAnimals) {
+    print("True")
+}
+
+//Question 3.3: Determine if the set of farm animals is disjoint with city animals.
+if houseAnimals.isDisjoint(with: cityAnimals) {
+    print("True")
+}
+
+//Question 3.4: Create a set that only contains farm animals that are not also house animals.
+let ans3_4 = farmAnimals.subtracting(houseAnimals)
+
+//Question 3.5: Create a set that contains all the animals from all sets.
+let ans3_5 = farmAnimals.union(cityAnimals)
+
+//: # Dictionary
+
+//Question 4.1: Create an empty dictionary with keys of type String and values of type Int and assign it to a variable in as many ways as you can think of (there's at least 4 ways).
+let dictionary1: Dictionary<String, Int> = [:] //Type 1
+let dictionary2: [String: Int] = [:] //Type 2
+let dictionary3 = Dictionary<String, Int>() //Type 3
+let dictionary4 = [String: Int]() //Type 4
+
+//Question 4.2: Create a mutable dictionary named secretIdentities where the key value pairs are "Hulk" -> "Bruce Banner", "Batman" -> "Bruce Wayne", and "Superman" -> "Clark Kent".
+var secretIdentities: [String:String] = ["Hulk":"Bruce Banner", "Batman":"Bruce Wayne", "Superman":"Clark Kent"]
+
+//Question 4.3: Create a nesters structure of Key-value pair
+var nestedDictionary: [Int:[Int:String]]=[1:[1:"Hulk",2:"Bruce Banner"],2:[1:"Batman",2:"Bruce Wayne"]]
+
+//Question 4.4: Print all the keys in the dictionary
+print(nestedDictionary.keys)
+
+//: # Subscript
+
+//Question 5.1: What is subscript? Write down the declaration syntax.
+/*
+ Classes, structures, and enumerations can define subscripts, which are shortcuts for accessing the member elements of a collection, list, or sequence.
+ 
+subscript(index: Int) -> Int {
+    //return code
+}
+*/
+
+//Question 5.2: Create a simple subscript that outputs true if a string contains a substring and false otherwise.
+class daysofaweek {
+    private var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+    subscript(index: Int) -> Bool {
+        get {
+            if days[index].contains("Sunday"){
+                return true
+            }
+            else{
+                return false
+            }
+        }
+    }
+}
 
 
