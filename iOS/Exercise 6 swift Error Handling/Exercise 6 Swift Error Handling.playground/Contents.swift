@@ -62,7 +62,7 @@ catch {
 let obj2 = try! checkForVal(num1: 102) // if value changed to 10 it will crash
 print(obj2)
 let obj3 = try? checkForVal(num1: 10) // if value changed to 10 also then it will show the error
-print(obj3)
+print(obj3!)
 
 //Question 4: Write a program which loads the data from a datasource of 10 employees looks like below, Program would help to give salary bonus to employees. Which is based on some conditions but if employee is not able to satisfy the condition program should throw the error with specific error condition and its description should be printed.
 struct toTheNew {
