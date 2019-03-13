@@ -90,10 +90,6 @@
                                         <color key="onTintColor" red="0.9726362824" green="0.80177170040000001" blue="0.8040918708" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="thumbTintColor" red="0.94645339250000005" green="0.37093615530000001" blue="0.2522021532" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </switch>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="avatar_2x" translatesAutoresizingMaskIntoConstraints="NO" id="aj0-ZA-y1l">
-                                        <rect key="frame" x="121" y="0.0" width="100" height="100"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GmN-Ty-V9K">
                                         <rect key="frame" x="99" y="102" width="144" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -101,9 +97,14 @@
                                             <color key="titleColor" red="0.94645339250000005" green="0.37093615530000001" blue="0.2522021532" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
-                                            <action selector="uploadPic" destination="BYZ-38-t0r" eventType="touchUpInside" id="GR4-sh-Whu"/>
+                                            <action selector="uploadPicture:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gUW-nM-p4I"/>
                                         </connections>
                                     </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="avatar_2x" translatesAutoresizingMaskIntoConstraints="NO" id="aj0-ZA-y1l">
+                                        <rect key="frame" x="121" y="0.0" width="100" height="100"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.98349934816360474" green="0.89133960008621216" blue="0.88925105333328247" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </imageView>
                                 </subviews>
                             </view>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w7M-zk-re1">
@@ -131,8 +132,8 @@
                     <connections>
                         <outlet property="date" destination="bgu-ab-7eu" id="YAy-yo-RlJ"/>
                         <outlet property="datePicker" destination="GtN-hq-Wsh" id="YQq-HB-WBi"/>
-                        <outlet property="profilePicture" destination="aj0-ZA-y1l" id="1rq-8E-Sei"/>
-                        <outlet property="profilePictureSelector" destination="GmN-Ty-V9K" id="ibN-uO-sVE"/>
+                        <outlet property="profilePicture" destination="aj0-ZA-y1l" id="a0b-v5-ZpO"/>
+                        <outlet property="profilePictureSelectorButton" destination="GmN-Ty-V9K" id="hT3-Bt-4G3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
