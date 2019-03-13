@@ -33,6 +33,9 @@
                                         <color key="textColor" red="0.94645339250000005" green="0.37093615530000001" blue="0.2522021532" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="1hl-je-gLB"/>
+                                        </connections>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Date of Birth" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bgu-ab-7eu">
                                         <rect key="frame" x="0.0" y="178" width="343" height="30"/>
@@ -41,6 +44,9 @@
                                         <color key="textColor" red="0.94645339250000005" green="0.37093615530000001" blue="0.2522021532" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="iz0-IW-ZZq"/>
+                                        </connections>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Place of Birth" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Id1-lb-nHw">
                                         <rect key="frame" x="0.0" y="254" width="343" height="30"/>
@@ -49,6 +55,9 @@
                                         <color key="textColor" red="0.94645339250000005" green="0.37093615530000001" blue="0.2522021532" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="next" textContentType="address-level2"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="HSm-V5-FRF"/>
+                                        </connections>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fRT-Qd-gIE">
                                         <rect key="frame" x="0.0" y="292" width="343" height="30"/>
@@ -56,7 +65,10 @@
                                         <color key="tintColor" red="0.94645339250000005" green="0.37093615530000001" blue="0.2522021532" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="textColor" red="0.94645339250000005" green="0.37093615530000001" blue="0.2522021532" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" returnKeyType="done" textContentType="tel"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done" textContentType="tel"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="dzh-cN-sQa"/>
+                                        </connections>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E-Mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7eg-lm-d95">
                                         <rect key="frame" x="0.0" y="216" width="343" height="30"/>
@@ -64,7 +76,10 @@
                                         <color key="tintColor" red="0.94645339250000005" green="0.37093615530000001" blue="0.2522021532" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="textColor" red="0.94645339250000005" green="0.37093615530000001" blue="0.2522021532" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" returnKeyType="next" textContentType="email"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next" textContentType="email"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="P3l-LB-7js"/>
+                                        </connections>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Keep account private" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nnd-61-ngU">
                                         <rect key="frame" x="8" y="330" width="270" height="31"/>
@@ -89,6 +104,9 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="onTintColor" red="0.9726362824" green="0.80177170040000001" blue="0.8040918708" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="thumbTintColor" red="0.94645339250000005" green="0.37093615530000001" blue="0.2522021532" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <action selector="makeAccountPrivate" destination="BYZ-38-t0r" eventType="valueChanged" id="EZT-Fr-Pdd"/>
+                                        </connections>
                                     </switch>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GmN-Ty-V9K">
                                         <rect key="frame" x="99" y="102" width="144" height="30"/>
@@ -107,33 +125,41 @@
                                     </imageView>
                                 </subviews>
                             </view>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w7M-zk-re1">
+                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="GtN-hq-Wsh">
                                 <rect key="frame" x="0.0" y="451" width="375" height="216"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            </pickerView>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="GtN-hq-Wsh">
-                                <rect key="frame" x="0.0" y="451" width="375" height="216"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <date key="date" timeIntervalSinceReferenceDate="573833409.65199304">
                                     <!--2019-03-09 14:10:09 +0000-->
                                 </date>
+                                <connections>
+                                    <action selector="pickingDate" destination="BYZ-38-t0r" eventType="valueChanged" id="vSa-5E-iT5"/>
+                                </connections>
                             </datePicker>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="w7M-zk-re1">
+                                <rect key="frame" x="0.0" y="451" width="375" height="216"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="M2j-MB-XAD"/>
+                                </connections>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="w7M-zk-re1"/>
-                                <exclude reference="GtN-hq-Wsh"/>
-                            </mask>
-                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Sign up" id="fTA-5N-fct"/>
                     <connections>
-                        <outlet property="date" destination="bgu-ab-7eu" id="YAy-yo-RlJ"/>
+                        <outlet property="dateOfBirthTextField" destination="bgu-ab-7eu" id="q15-Qt-mt7"/>
                         <outlet property="datePicker" destination="GtN-hq-Wsh" id="YQq-HB-WBi"/>
+                        <outlet property="eMailtextField" destination="7eg-lm-d95" id="kfM-jV-250"/>
+                        <outlet property="phoneNumberTextField" destination="fRT-Qd-gIE" id="snT-ii-DM8"/>
+                        <outlet property="placeOfBirthTextField" destination="Id1-lb-nHw" id="ZyD-49-diW"/>
+                        <outlet property="placePicker" destination="w7M-zk-re1" id="NJi-mt-Me5"/>
+                        <outlet property="privateAccountSwitch" destination="CsN-8W-B5W" id="xyx-rQ-StS"/>
+                        <outlet property="privateMsgLabel" destination="nnd-61-ngU" id="euR-je-FmM"/>
                         <outlet property="profilePicture" destination="aj0-ZA-y1l" id="a0b-v5-ZpO"/>
                         <outlet property="profilePictureSelectorButton" destination="GmN-Ty-V9K" id="hT3-Bt-4G3"/>
+                        <outlet property="userNameTextField" destination="Clb-45-fn2" id="HMT-Rt-Ojs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
