@@ -9,10 +9,13 @@
 import UIKit
 
 class DescriptionController: UIViewController {
+    
+    @IBOutlet var descriptionTextView: UITextView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Sign up completed"
+        descriptionTextView.becomeFirstResponder()
         // Do any additional setup after loading the view.
     }
     

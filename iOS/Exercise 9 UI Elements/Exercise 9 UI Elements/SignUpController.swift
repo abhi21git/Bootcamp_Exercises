@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
+class SignUpController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
     
     @IBOutlet var profilePicture: UIImageView!
     @IBOutlet var profilePictureSelectorButton: UIButton!
@@ -33,6 +33,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         profilePicker.delegate = self
         profilePicture.layer.cornerRadius = profilePicture.frame.size.height/2
         profilePicture.layer.masksToBounds = true
+    
+        
+        for textfield in [dateOfBirthTextField,eMailtextField,placeOfBirthTextField,phoneNumberTextField] {
+            textfield!.delegate = self
+            
+        }
         
     }
     override func viewDidLoad() {
@@ -100,8 +106,19 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             //phoneNumberTextField.becomeFirstResponder()
         }
     }
+
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if textField == phoneNumberTextField{
+            let phoneNumber = phoneNumberTextField.text
+            if phoneNumber?.count == 10 {
+                phoneNumberTextField.resignFirstResponder()
+            }
+
+        }
+        return true
+    }
     
-    //Picker Protocol
+    //Place Picker Protocol
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }

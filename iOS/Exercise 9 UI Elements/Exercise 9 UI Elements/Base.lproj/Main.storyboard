@@ -13,7 +13,7 @@
         <!--Sign up-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="ViewController" id="BYZ-38-t0r" customClass="ViewController" customModule="Exercise_9_UI_Elements" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewController" id="BYZ-38-t0r" customClass="SignUpController" customModule="Exercise_9_UI_Elements" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -99,7 +99,7 @@
                                             <action selector="SignUpDone" destination="BYZ-38-t0r" eventType="touchUpInside" id="8tl-qd-Qig"/>
                                         </connections>
                                     </button>
-                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CsN-8W-B5W">
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="CsN-8W-B5W">
                                         <rect key="frame" x="286" y="330" width="49" height="31"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="onTintColor" red="0.9726362824" green="0.80177170040000001" blue="0.8040918708" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -192,6 +192,9 @@
                                         <color key="textColor" red="0.94645339250000005" green="0.37093615530000001" blue="0.2522021532" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="jgI-ZQ-X3i" id="i7d-Ku-WEL"/>
+                                        </connections>
                                     </textView>
                                 </subviews>
                             </view>
@@ -212,6 +215,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="9Oz-vB-sko"/>
                     </view>
+                    <connections>
+                        <outlet property="descriptionTextView" destination="N1j-UI-A1W" id="Gvh-Me-3mF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LqJ-p1-qFw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
