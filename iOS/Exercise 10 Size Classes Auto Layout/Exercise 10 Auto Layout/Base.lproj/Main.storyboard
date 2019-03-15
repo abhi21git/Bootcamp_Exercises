@@ -100,7 +100,6 @@
                         <constraints>
                             <constraint firstItem="QXZ-B7-y2g" firstAttribute="centerX" secondItem="SnZ-qq-pzK" secondAttribute="centerX" id="5NL-zd-lKi"/>
                             <constraint firstItem="QXZ-B7-y2g" firstAttribute="leading" secondItem="SnZ-qq-pzK" secondAttribute="leading" constant="16" id="Pxn-tD-xHh"/>
-                            <constraint firstAttribute="trailing" secondItem="QXZ-B7-y2g" secondAttribute="trailing" constant="16" id="bOX-Oj-dkz"/>
                             <constraint firstItem="QXZ-B7-y2g" firstAttribute="centerY" secondItem="SnZ-qq-pzK" secondAttribute="centerY" id="w9D-Rs-Eu8"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="cSr-uK-5m4"/>
