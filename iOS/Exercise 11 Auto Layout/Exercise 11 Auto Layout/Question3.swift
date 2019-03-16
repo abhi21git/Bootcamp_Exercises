@@ -32,42 +32,98 @@ class Question3: UIViewController {
     }
     
     func autoLayoutProgramitically() {
-//        let hieghtOfFrame = view.safeAreaLayoutGuide.layoutFrame.size.height
-//        let widthOfFrame = view.safeAreaLayoutGuide.layoutFrame.size.width
-        
-        //self.view.translatesAutoresizingMaskIntoConstraints = false
+        view.translatesAutoresizingMaskIntoConstraints = false
         
         //first view
         NSLayoutConstraint(item: firstView, attribute: .top, relatedBy: .equal, toItem: self.view, attribute: .top, multiplier: 1, constant: 0).isActive = true
+        NSLayoutConstraint(item: firstView, attribute: .bottom, relatedBy: .equal, toItem: self.thirdView, attribute: .bottom, multiplier: 1, constant: 0).isActive = true
         NSLayoutConstraint(item: firstView, attribute: .left, relatedBy: .equal, toItem: self.view, attribute: .left, multiplier: 1, constant: 0).isActive = true
+        NSLayoutConstraint(item: firstView, attribute: .right, relatedBy: .equal, toItem: self.secondView, attribute: .right, multiplier: 1, constant: 0).isActive = true
         NSLayoutConstraint(item: firstView, attribute: .height, relatedBy: .equal, toItem: self.secondView, attribute: .height, multiplier: 1, constant: 0).isActive = true
-        NSLayoutConstraint(item: firstView, attribute: .height, relatedBy: .equal, toItem: self.secondView, attribute: .width, multiplier: 1, constant: 0).isActive = true
+        NSLayoutConstraint(item: firstView, attribute: .width, relatedBy: .equal, toItem: self.secondView, attribute: .width, multiplier: 1, constant: 0).isActive = true
         NSLayoutConstraint(item: firstView, attribute: .height, relatedBy: .equal, toItem: self.thirdView, attribute: .height, multiplier: 1, constant: 0).isActive = true
-        NSLayoutConstraint(item: firstView, attribute: .height, relatedBy: .equal, toItem: self.thirdView, attribute: .width, multiplier: 1, constant: 0).isActive = true
+        NSLayoutConstraint(item: firstView, attribute: .width, relatedBy: .equal, toItem: self.thirdView, attribute: .width, multiplier: 1, constant: 0).isActive = true
+        
+            //first Image
+            NSLayoutConstraint(item: firstImage, attribute: .top, relatedBy: .equal, toItem: self.firstView, attribute: .top, multiplier: 1, constant: 8).isActive = true
+            NSLayoutConstraint(item: firstImage, attribute: .bottom, relatedBy: .equal, toItem: self.firstLabel, attribute: .bottom, multiplier: 1, constant: 8).isActive = true
+            NSLayoutConstraint(item: firstImage, attribute: .left, relatedBy: .equal, toItem: self.firstView, attribute: .left, multiplier: 1, constant: 8).isActive = true
+            NSLayoutConstraint(item: firstLabel, attribute: .right, relatedBy: .equal, toItem: self.firstView, attribute: .right, multiplier: 1, constant: 8).isActive = true
+
+            //first label
+            NSLayoutConstraint(item: firstLabel, attribute: .top, relatedBy: .equal, toItem: self.firstImage, attribute: .top, multiplier: 1, constant: 8).isActive = true
+            NSLayoutConstraint(item: firstLabel, attribute: .bottom, relatedBy: .equal, toItem: self.firstLabel, attribute: .bottom, multiplier: 1, constant: 8).isActive = true
+            NSLayoutConstraint(item: firstLabel, attribute: .left, relatedBy: .equal, toItem: self.firstView, attribute: .left, multiplier: 1, constant: 8).isActive = true
+            NSLayoutConstraint(item: firstLabel, attribute: .right, relatedBy: .equal, toItem: self.firstView, attribute: .right, multiplier: 1, constant: 8).isActive = true
+
         
         //second view
         NSLayoutConstraint(item: secondView, attribute: .top, relatedBy: .equal, toItem: self.view, attribute: .top, multiplier: 1, constant: 0).isActive = true
+        NSLayoutConstraint(item: secondView, attribute: .bottom, relatedBy: .equal, toItem: self.fourthView, attribute: .bottom, multiplier: 1, constant: 0).isActive = true
+        NSLayoutConstraint(item: secondView, attribute: .left, relatedBy: .equal, toItem: self.firstView, attribute: .left, multiplier: 1, constant: 0).isActive = true
         NSLayoutConstraint(item: secondView, attribute: .right, relatedBy: .equal, toItem: self.view, attribute: .right, multiplier: 1, constant: 0).isActive = true
         NSLayoutConstraint(item: secondView, attribute: .height, relatedBy: .equal, toItem: self.firstView, attribute: .height, multiplier: 1, constant: 0).isActive = true
-        NSLayoutConstraint(item: secondView, attribute: .height, relatedBy: .equal, toItem: self.firstView, attribute: .width, multiplier: 1, constant: 0).isActive = true
+        NSLayoutConstraint(item: secondView, attribute: .width, relatedBy: .equal, toItem: self.firstView, attribute: .width, multiplier: 1, constant: 0).isActive = true
         NSLayoutConstraint(item: secondView, attribute: .height, relatedBy: .equal, toItem: self.fourthView, attribute: .height, multiplier: 1, constant: 0).isActive = true
-        NSLayoutConstraint(item: secondView, attribute: .height, relatedBy: .equal, toItem: self.fourthView, attribute: .width, multiplier: 1, constant: 0).isActive = true
+        NSLayoutConstraint(item: secondView, attribute: .width, relatedBy: .equal, toItem: self.fourthView, attribute: .width, multiplier: 1, constant: 0).isActive = true
+        
+            //second Image
+            NSLayoutConstraint(item: secondImage, attribute: .top, relatedBy: .equal, toItem: self.secondView, attribute: .top, multiplier: 1, constant: 8).isActive = true
+            NSLayoutConstraint(item: secondImage, attribute: .bottom, relatedBy: .equal, toItem: self.secondLabel, attribute: .bottom, multiplier: 1, constant: 8).isActive = true
+            NSLayoutConstraint(item: secondImage, attribute: .left, relatedBy: .equal, toItem: self.secondView, attribute: .left, multiplier: 1, constant: 8).isActive = true
+            NSLayoutConstraint(item: secondImage, attribute: .right, relatedBy: .equal, toItem: self.secondView, attribute: .right, multiplier: 1, constant: 8).isActive = true
+        
+            //second label
+            NSLayoutConstraint(item: secondLabel, attribute: .top, relatedBy: .equal, toItem: self.secondImage, attribute: .top, multiplier: 1, constant: 8).isActive = true
+            NSLayoutConstraint(item: secondLabel, attribute: .bottom, relatedBy: .equal, toItem: self.secondView, attribute: .bottom, multiplier: 1, constant: 8).isActive = true
+            NSLayoutConstraint(item: secondLabel, attribute: .left, relatedBy: .equal, toItem: self.secondView, attribute: .left, multiplier: 1, constant: 8).isActive = true
+            NSLayoutConstraint(item: secondLabel, attribute: .right, relatedBy: .equal, toItem: self.secondView, attribute: .right, multiplier: 1, constant: 8).isActive = true
+
         
         //third view
+        NSLayoutConstraint(item: thirdView, attribute: .top, relatedBy: .equal, toItem: self.firstView, attribute: .top, multiplier: 1, constant: 0).isActive = true
         NSLayoutConstraint(item: thirdView, attribute: .bottom, relatedBy: .equal, toItem: self.view, attribute: .bottom, multiplier: 1, constant: 0).isActive = true
         NSLayoutConstraint(item: thirdView, attribute: .left, relatedBy: .equal, toItem: self.view, attribute: .left, multiplier: 1, constant: 0).isActive = true
+        NSLayoutConstraint(item: thirdView, attribute: .right, relatedBy: .equal, toItem: self.fourthView, attribute: .right, multiplier: 1, constant: 0).isActive = true
         NSLayoutConstraint(item: thirdView, attribute: .height, relatedBy: .equal, toItem: self.fourthView, attribute: .height, multiplier: 1, constant: 0).isActive = true
-        NSLayoutConstraint(item: thirdView, attribute: .height, relatedBy: .equal, toItem: self.fourthView, attribute: .width, multiplier: 1, constant: 0).isActive = true
+        NSLayoutConstraint(item: thirdView, attribute: .width, relatedBy: .equal, toItem: self.fourthView, attribute: .width, multiplier: 1, constant: 0).isActive = true
         NSLayoutConstraint(item: thirdView, attribute: .height, relatedBy: .equal, toItem: self.firstView, attribute: .height, multiplier: 1, constant: 0).isActive = true
-        NSLayoutConstraint(item: thirdView, attribute: .height, relatedBy: .equal, toItem: self.firstView, attribute: .width, multiplier: 1, constant: 0).isActive = true
+        NSLayoutConstraint(item: thirdView, attribute: .width, relatedBy: .equal, toItem: self.firstView, attribute: .width, multiplier: 1, constant: 0).isActive = true
+        
+            //third Image
+            NSLayoutConstraint(item: thirdImage, attribute: .top, relatedBy: .equal, toItem: self.thirdView, attribute: .top, multiplier: 1, constant: 8).isActive = true
+            NSLayoutConstraint(item: thirdImage, attribute: .bottom, relatedBy: .equal, toItem: self.thirdLabel, attribute: .bottom, multiplier: 1, constant: 8).isActive = true
+            NSLayoutConstraint(item: thirdImage, attribute: .left, relatedBy: .equal, toItem: self.thirdView, attribute: .left, multiplier: 1, constant: 8).isActive = true
+            NSLayoutConstraint(item: thirdImage, attribute: .right, relatedBy: .equal, toItem: self.thirdView, attribute: .right, multiplier: 1, constant: 8).isActive = true
+        
+            //third label
+            NSLayoutConstraint(item: thirdLabel, attribute: .top, relatedBy: .equal, toItem: self.thirdImage, attribute: .top, multiplier: 1, constant: 8).isActive = true
+            NSLayoutConstraint(item: thirdLabel, attribute: .bottom, relatedBy: .equal, toItem: self.thirdView, attribute: .bottom, multiplier: 1, constant: 8).isActive = true
+            NSLayoutConstraint(item: thirdLabel, attribute: .left, relatedBy: .equal, toItem: self.thirdView, attribute: .left, multiplier: 1, constant: 8).isActive = true
+            NSLayoutConstraint(item: thirdLabel, attribute: .right, relatedBy: .equal, toItem: self.thirdView, attribute: .right, multiplier: 1, constant: 8).isActive = true
+        
         
         //fourth view
+        NSLayoutConstraint(item: fourthView, attribute: .top, relatedBy: .equal, toItem: self.secondView, attribute: .top, multiplier: 1, constant: 0).isActive = true
         NSLayoutConstraint(item: fourthView, attribute: .bottom, relatedBy: .equal, toItem: self.view, attribute: .bottom, multiplier: 1, constant: 0).isActive = true
+        NSLayoutConstraint(item: fourthView, attribute: .left, relatedBy: .equal, toItem: self.thirdView, attribute: .left, multiplier: 1, constant: 0).isActive = true
         NSLayoutConstraint(item: fourthView, attribute: .right, relatedBy: .equal, toItem: self.view, attribute: .right, multiplier: 1, constant: 0).isActive = true
         NSLayoutConstraint(item: fourthView, attribute: .height, relatedBy: .equal, toItem: self.thirdView, attribute: .height, multiplier: 1, constant: 0).isActive = true
-        NSLayoutConstraint(item: fourthView, attribute: .height, relatedBy: .equal, toItem: self.thirdView, attribute: .width, multiplier: 1, constant: 0).isActive = true
+        NSLayoutConstraint(item: fourthView, attribute: .width, relatedBy: .equal, toItem: self.thirdView, attribute: .width, multiplier: 1, constant: 0).isActive = true
         NSLayoutConstraint(item: fourthView, attribute: .height, relatedBy: .equal, toItem: self.secondView, attribute: .height, multiplier: 1, constant: 0).isActive = true
-        NSLayoutConstraint(item: fourthView, attribute: .height, relatedBy: .equal, toItem: self.secondView, attribute: .width, multiplier: 1, constant: 0).isActive = true
+        NSLayoutConstraint(item: fourthView, attribute: .width, relatedBy: .equal, toItem: self.secondView, attribute: .width, multiplier: 1, constant: 0).isActive = true
+        
+            //fourth Image
+            NSLayoutConstraint(item: fourthImage, attribute: .top, relatedBy: .equal, toItem: self.fourthView, attribute: .top, multiplier: 1, constant: 8).isActive = true
+            NSLayoutConstraint(item: fourthImage, attribute: .bottom, relatedBy: .equal, toItem: self.fourthLabel, attribute: .bottom, multiplier: 1, constant: 8).isActive = true
+            NSLayoutConstraint(item: fourthImage, attribute: .left, relatedBy: .equal, toItem: self.fourthView, attribute: .left, multiplier: 1, constant: 8).isActive = true
+            NSLayoutConstraint(item: fourthImage, attribute: .right, relatedBy: .equal, toItem: self.fourthView, attribute: .right, multiplier: 1, constant: 8).isActive = true
+        
+            //fourth label
+            NSLayoutConstraint(item: fourthLabel, attribute: .top, relatedBy: .equal, toItem: self.fourthImage, attribute: .top, multiplier: 1, constant: 8).isActive = true
+            NSLayoutConstraint(item: fourthLabel, attribute: .bottom, relatedBy: .equal, toItem: self.fourthView, attribute: .bottom, multiplier: 1, constant: 8).isActive = true
+            NSLayoutConstraint(item: fourthLabel, attribute: .left, relatedBy: .equal, toItem: self.fourthView, attribute: .left, multiplier: 1, constant: 8).isActive = true
+            NSLayoutConstraint(item: fourthLabel, attribute: .right, relatedBy: .equal, toItem: self.fourthView, attribute: .right, multiplier: 1, constant: 8).isActive = true
 
     }
 
