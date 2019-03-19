@@ -22,7 +22,8 @@
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="man" translatesAutoresizingMaskIntoConstraints="NO" id="bJq-5e-pDU">
                         <rect key="frame" x="16" y="11" width="58" height="58"/>
                         <constraints>
-                            <constraint firstAttribute="width" secondItem="bJq-5e-pDU" secondAttribute="height" multiplier="1:1" id="1Dp-HT-hM7"/>
+                            <constraint firstAttribute="height" constant="58" id="ENw-TG-UhV"/>
+                            <constraint firstAttribute="width" constant="58" id="GUJ-Gk-MIR"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GvV-WY-xMd">
@@ -77,13 +78,13 @@
                     <constraint firstItem="Mxk-Sx-FZr" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="INW-Ou-Mbr"/>
                     <constraint firstItem="bJq-5e-pDU" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="JSJ-dV-Yms"/>
                     <constraint firstItem="Mxk-Sx-FZr" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="Ke3-Sn-z7e"/>
-                    <constraint firstItem="56j-ad-uNc" firstAttribute="width" secondItem="bJq-5e-pDU" secondAttribute="width" id="NPs-gL-sQB"/>
                     <constraint firstItem="aYY-1J-AOj" firstAttribute="top" secondItem="GvV-WY-xMd" secondAttribute="bottom" constant="8" id="QOC-to-zub"/>
                     <constraint firstItem="GvV-WY-xMd" firstAttribute="leading" secondItem="bJq-5e-pDU" secondAttribute="trailing" constant="8" id="eLY-vb-eI0"/>
                     <constraint firstItem="aYY-1J-AOj" firstAttribute="leading" secondItem="56j-ad-uNc" secondAttribute="trailing" constant="8" id="hhJ-uc-Zno"/>
                     <constraint firstItem="56j-ad-uNc" firstAttribute="top" secondItem="bJq-5e-pDU" secondAttribute="bottom" constant="8" id="ove-wT-kWE"/>
                     <constraint firstItem="bJq-5e-pDU" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="qah-fl-U9L"/>
                     <constraint firstItem="Mxk-Sx-FZr" firstAttribute="leading" secondItem="bJq-5e-pDU" secondAttribute="trailing" constant="8" id="unN-LP-iCs"/>
+                    <constraint firstItem="56j-ad-uNc" firstAttribute="width" secondItem="bJq-5e-pDU" secondAttribute="width" id="v2b-pL-wEi"/>
                     <constraint firstItem="aYY-1J-AOj" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="ztr-E1-36i"/>
                 </constraints>
             </tableViewCellContentView>

@@ -26,29 +26,27 @@ class Question3: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        view.translatesAutoresizingMaskIntoConstraints = false
         autoLayoutProgramitically()
         // Do any additional setup after loading the view.
     }
     
     func autoLayoutProgramitically() {
-        view.translatesAutoresizingMaskIntoConstraints = false
         
         //first view
         NSLayoutConstraint(item: firstView, attribute: .top, relatedBy: .equal, toItem: self.view, attribute: .top, multiplier: 1, constant: 0).isActive = true
         NSLayoutConstraint(item: firstView, attribute: .bottom, relatedBy: .equal, toItem: self.thirdView, attribute: .bottom, multiplier: 1, constant: 0).isActive = true
         NSLayoutConstraint(item: firstView, attribute: .left, relatedBy: .equal, toItem: self.view, attribute: .left, multiplier: 1, constant: 0).isActive = true
         NSLayoutConstraint(item: firstView, attribute: .right, relatedBy: .equal, toItem: self.secondView, attribute: .right, multiplier: 1, constant: 0).isActive = true
-        NSLayoutConstraint(item: firstView, attribute: .height, relatedBy: .equal, toItem: self.secondView, attribute: .height, multiplier: 1, constant: 0).isActive = true
-        NSLayoutConstraint(item: firstView, attribute: .width, relatedBy: .equal, toItem: self.secondView, attribute: .width, multiplier: 1, constant: 0).isActive = true
-        NSLayoutConstraint(item: firstView, attribute: .height, relatedBy: .equal, toItem: self.thirdView, attribute: .height, multiplier: 1, constant: 0).isActive = true
-        NSLayoutConstraint(item: firstView, attribute: .width, relatedBy: .equal, toItem: self.thirdView, attribute: .width, multiplier: 1, constant: 0).isActive = true
+        NSLayoutConstraint(item: firstView, attribute: .height, relatedBy: .equal, toItem: self.secondView, attribute: .height, multiplier: 1, constant: 323.5).isActive = true
+        NSLayoutConstraint(item: firstView, attribute: .width, relatedBy: .equal, toItem: self.secondView, attribute: .width, multiplier: 1, constant: 187.5).isActive = true
         
             //first Image
             NSLayoutConstraint(item: firstImage, attribute: .top, relatedBy: .equal, toItem: self.firstView, attribute: .top, multiplier: 1, constant: 8).isActive = true
             NSLayoutConstraint(item: firstImage, attribute: .bottom, relatedBy: .equal, toItem: self.firstLabel, attribute: .bottom, multiplier: 1, constant: 8).isActive = true
             NSLayoutConstraint(item: firstImage, attribute: .left, relatedBy: .equal, toItem: self.firstView, attribute: .left, multiplier: 1, constant: 8).isActive = true
-            NSLayoutConstraint(item: firstLabel, attribute: .right, relatedBy: .equal, toItem: self.firstView, attribute: .right, multiplier: 1, constant: 8).isActive = true
+            NSLayoutConstraint(item: firstImage, attribute: .right, relatedBy: .equal, toItem: self.firstView, attribute: .right, multiplier: 1, constant: 8).isActive = true
 
             //first label
             NSLayoutConstraint(item: firstLabel, attribute: .top, relatedBy: .equal, toItem: self.firstImage, attribute: .top, multiplier: 1, constant: 8).isActive = true
@@ -87,8 +85,6 @@ class Question3: UIViewController {
         NSLayoutConstraint(item: thirdView, attribute: .right, relatedBy: .equal, toItem: self.fourthView, attribute: .right, multiplier: 1, constant: 0).isActive = true
         NSLayoutConstraint(item: thirdView, attribute: .height, relatedBy: .equal, toItem: self.fourthView, attribute: .height, multiplier: 1, constant: 0).isActive = true
         NSLayoutConstraint(item: thirdView, attribute: .width, relatedBy: .equal, toItem: self.fourthView, attribute: .width, multiplier: 1, constant: 0).isActive = true
-        NSLayoutConstraint(item: thirdView, attribute: .height, relatedBy: .equal, toItem: self.firstView, attribute: .height, multiplier: 1, constant: 0).isActive = true
-        NSLayoutConstraint(item: thirdView, attribute: .width, relatedBy: .equal, toItem: self.firstView, attribute: .width, multiplier: 1, constant: 0).isActive = true
         
             //third Image
             NSLayoutConstraint(item: thirdImage, attribute: .top, relatedBy: .equal, toItem: self.thirdView, attribute: .top, multiplier: 1, constant: 8).isActive = true
@@ -108,10 +104,10 @@ class Question3: UIViewController {
         NSLayoutConstraint(item: fourthView, attribute: .bottom, relatedBy: .equal, toItem: self.view, attribute: .bottom, multiplier: 1, constant: 0).isActive = true
         NSLayoutConstraint(item: fourthView, attribute: .left, relatedBy: .equal, toItem: self.thirdView, attribute: .left, multiplier: 1, constant: 0).isActive = true
         NSLayoutConstraint(item: fourthView, attribute: .right, relatedBy: .equal, toItem: self.view, attribute: .right, multiplier: 1, constant: 0).isActive = true
-        NSLayoutConstraint(item: fourthView, attribute: .height, relatedBy: .equal, toItem: self.thirdView, attribute: .height, multiplier: 1, constant: 0).isActive = true
-        NSLayoutConstraint(item: fourthView, attribute: .width, relatedBy: .equal, toItem: self.thirdView, attribute: .width, multiplier: 1, constant: 0).isActive = true
         NSLayoutConstraint(item: fourthView, attribute: .height, relatedBy: .equal, toItem: self.secondView, attribute: .height, multiplier: 1, constant: 0).isActive = true
         NSLayoutConstraint(item: fourthView, attribute: .width, relatedBy: .equal, toItem: self.secondView, attribute: .width, multiplier: 1, constant: 0).isActive = true
+        NSLayoutConstraint(item: fourthView, attribute: .height, relatedBy: .equal, toItem: self.thirdView, attribute: .height, multiplier: 1, constant: 0).isActive = true
+        NSLayoutConstraint(item: fourthView, attribute: .width, relatedBy: .equal, toItem: self.thirdView, attribute: .width, multiplier: 1, constant: 0).isActive = true
         
             //fourth Image
             NSLayoutConstraint(item: fourthImage, attribute: .top, relatedBy: .equal, toItem: self.fourthView, attribute: .top, multiplier: 1, constant: 8).isActive = true

@@ -11,27 +11,14 @@ import UIKit
 class TableViewData: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet var tableView: UITableView!
-    
-//    struct dataOfUser {
-//        let profilePicture: UIImage
-//        let name: String
-//        let age: Int
-//        let address: String
-//        let details: String
-//    }
 
     var arrayOfData = [DataForm.dataOfUser]()
     
-//    override func viewWillAppear(_ animated: Bool) {
-//        
-//        //to access data from data from directly
-//        let navigationController = self.navigationController?.viewControllers
-//        let vc = navigationController![0] as! DataForm
-//        arrayOfData.append(dataOfUser(profilePicture: vc.profilePicture.image!, name: vc.nameTextField.text!, age: Int(vc.ageTextField.text!)!, address: vc.addressTextField.text!, details: vc.detailsTextField.text!))
-//    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.title = "Data"
         
         let nib = UINib(nibName: "TableViewCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "tableCell")
@@ -39,7 +26,7 @@ class TableViewData: UIViewController, UITableViewDelegate, UITableViewDataSourc
         let navigationController = self.navigationController?.viewControllers
         let vc = navigationController![0] as! DataForm
         arrayOfData = vc.arrayOfData
-        
+
         tableView.delegate = self
         tableView.dataSource = self
         
@@ -67,8 +54,8 @@ class TableViewData: UIViewController, UITableViewDelegate, UITableViewDataSourc
         cell.ageLabel.text = String(arrayOfData[indexPath.row].age)
         cell.adressLabel.text = arrayOfData[indexPath.row].address
         cell.detailsLabel.text = arrayOfData[indexPath.row].details
-        
         if indexPath.row%5 == 4 {
+            refreshTable()
             //add activity indicator at bottom
         }
         return cell

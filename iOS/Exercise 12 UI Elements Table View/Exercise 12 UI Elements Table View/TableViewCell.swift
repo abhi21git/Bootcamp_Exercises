@@ -19,7 +19,8 @@ class TableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.profilePicture.layer.cornerRadius = self.profilePicture.frame.size.width / 2
+        let cornerRadius: Float = Float(self.profilePicture.frame.size.width/2)
+        self.profilePicture.layer.cornerRadius = CGFloat(cornerRadius)
         profilePicture.layer.masksToBounds = true
         // Initialization code
     }
@@ -29,5 +30,5 @@ class TableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
+ 
 }
