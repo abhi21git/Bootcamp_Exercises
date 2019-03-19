@@ -20,6 +20,9 @@ class TableViewData: UIViewController, UITableViewDelegate, UITableViewDataSourc
         
         self.title = "Data"
         
+        tableView.delegate = self
+        tableView.dataSource = self
+
         let nib = UINib(nibName: "TableViewCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "tableCell")
         
@@ -27,8 +30,6 @@ class TableViewData: UIViewController, UITableViewDelegate, UITableViewDataSourc
         let vc = navigationController![0] as! DataForm
         arrayOfData = vc.arrayOfData
 
-        tableView.delegate = self
-        tableView.dataSource = self
         
         // Do any additional setup after loading the view, typically from a nib.
     }

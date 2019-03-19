@@ -15,6 +15,8 @@ class DataForm: UIViewController, UIImagePickerControllerDelegate, UINavigationC
     @IBOutlet var ageTextField: UITextField!
     @IBOutlet var addressTextField: UITextField!
     @IBOutlet var detailsTextField: UITextField!
+    @IBOutlet var saveDataButton: UIButton!
+    @IBOutlet var submitButton: UIButton!
     
     struct dataOfUser {
         let profilePicture: UIImage
@@ -50,11 +52,22 @@ class DataForm: UIViewController, UIImagePickerControllerDelegate, UINavigationC
     
     //Save button action
     @IBAction func savaData() {
-        arrayOfData.append(dataOfUser(profilePicture: profilePicture.image!, name: nameTextField.text!, age: Int(ageTextField.text!)!, address: addressTextField.text!, details: detailsTextField.text!))
+        if (nameTextField.text! == "" || ageTextField.text! == "" || addressTextField.text! == "" || detailsTextField.text! == "") {
+            //Blank fields not allowed
+        }
+        else {
+            arrayOfData.append(dataOfUser(profilePicture: profilePicture.image!, name: nameTextField.text!, age: Int(ageTextField.text!)!, address: addressTextField.text!, details: detailsTextField.text!))
+            profilePicture.image! = UIImage(imageLiteralResourceName: "man.png")
+            nameTextField.text! = ""
+            ageTextField.text! = ""
+            addressTextField.text! = ""
+            detailsTextField.text! = ""
+            UIView.transition(with: saveDataButton, duration: 1, options: .transitionFlipFromLeft, animations: {}, completion: nil)
+        }
     }
     
     //Submit Button Action
-    @IBAction func submitButton() {
+    @IBAction func submitAction() {
         if arrayOfData.count > 0 {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let controller = storyboard.instantiateViewController(withIdentifier: "TableViewCell")

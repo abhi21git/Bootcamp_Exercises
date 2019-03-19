@@ -2,7 +2,7 @@
 //  CollectionViewCell.swift
 //  Exercise 13 UI Elements Collection View
 //
-//  Created by Abhishek Maurya on 18/03/19.
+//  Created by Abhishek Maurya on 19/03/19.
 //  Copyright © 2019 Abhishek Maurya. All rights reserved.
 //
 
