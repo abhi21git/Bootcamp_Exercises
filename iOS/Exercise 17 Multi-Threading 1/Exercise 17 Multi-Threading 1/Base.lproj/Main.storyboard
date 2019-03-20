@@ -94,7 +94,7 @@
                                     <constraint firstAttribute="bottom" secondItem="85E-8Z-wyZ" secondAttribute="bottom" id="zfS-pl-Dgn"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pV2-jf-dda">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pV2-jf-dda">
                                 <rect key="frame" x="40" y="320" width="295" height="327"/>
                                 <color key="backgroundColor" red="0.33419862389564514" green="0.56139373779296875" blue="0.84159624576568604" alpha="0.20414169520547945" colorSpace="custom" customColorSpace="sRGB"/>
                             </tableView>
@@ -121,6 +121,7 @@
                         <outlet property="startButton" destination="4S1-PY-J0S" id="lWf-mx-5pG"/>
                         <outlet property="stopButton" destination="vu8-Ug-ErQ" id="gA6-OP-0gl"/>
                         <outlet property="timeLabel" destination="xlB-bn-8SE" id="M9B-Pa-8xw"/>
+                        <outlet property="timeView" destination="nZa-GF-fYl" id="xD8-3f-VeI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
