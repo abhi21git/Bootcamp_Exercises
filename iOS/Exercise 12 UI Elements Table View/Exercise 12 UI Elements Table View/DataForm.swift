@@ -55,6 +55,9 @@ class DataForm: UIViewController, UIImagePickerControllerDelegate, UINavigationC
         if (nameTextField.text! == "" || ageTextField.text! == "" || addressTextField.text! == "" || detailsTextField.text! == "") {
             //Blank fields not allowed
         }
+        else if Int(ageTextField.text!) == nil{
+            ageTextField.text! = ""
+        }
         else {
             arrayOfData.append(dataOfUser(profilePicture: profilePicture.image!, name: nameTextField.text!, age: Int(ageTextField.text!)!, address: addressTextField.text!, details: detailsTextField.text!))
             profilePicture.image! = UIImage(imageLiteralResourceName: "man.png")

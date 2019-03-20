@@ -18,6 +18,8 @@ class Exercise13: UIViewController, UITableViewDelegate, UITableViewDataSource {
         tableView.delegate = self
         tableView.dataSource = self
         
+        self.title = "Exercise 13"
+        
         let nib = UINib(nibName: "TableViewCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "tableCell")
         // Do any additional setup after loading the view, typically from a nib.

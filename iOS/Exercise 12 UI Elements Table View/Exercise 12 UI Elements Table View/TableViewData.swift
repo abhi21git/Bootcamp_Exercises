@@ -29,13 +29,20 @@ class TableViewData: UIViewController, UITableViewDelegate, UITableViewDataSourc
         let navigationController = self.navigationController?.viewControllers
         let vc = navigationController![0] as! DataForm
         arrayOfData = vc.arrayOfData
-
         
         // Do any additional setup after loading the view, typically from a nib.
     }
-    @IBAction func refreshTable() {
-        
-    }
+    
+//    func refreshTable() {
+//        for index in 5...arrayOfData.count {
+//            let cell = tableView.dequeueReusableCell(withIdentifier: "tableCell") as! TableViewCell
+//            cell.profilePicture.image = arrayOfData[index].profilePicture
+//            cell.nameLabel.text = arrayOfData[index].name
+//            cell.ageLabel.text = String(arrayOfData[index].age)
+//            cell.adressLabel.text = arrayOfData[index].address
+//            cell.detailsLabel.text = arrayOfData[index].details
+//        }
+//    }
     
     @IBAction func addMoreData() {
         self.navigationController?.popViewController(animated: true)
@@ -44,6 +51,12 @@ class TableViewData: UIViewController, UITableViewDelegate, UITableViewDataSourc
     
     //Protocols for table
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        if arrayOfData.count < 5 {
+//            return arrayOfData.count
+//        }
+//        else {
+//            return 5
+//        }
         return arrayOfData.count
     }
     
@@ -55,10 +68,12 @@ class TableViewData: UIViewController, UITableViewDelegate, UITableViewDataSourc
         cell.ageLabel.text = String(arrayOfData[indexPath.row].age)
         cell.adressLabel.text = arrayOfData[indexPath.row].address
         cell.detailsLabel.text = arrayOfData[indexPath.row].details
-        if indexPath.row%5 == 4 {
-            refreshTable()
-            //add activity indicator at bottom
-        }
+//        if indexPath.row == self.arrayOfData.count - 1 {
+//
+//        }else {
+//            refreshTable()
+//        }
+
         return cell
     }
     
