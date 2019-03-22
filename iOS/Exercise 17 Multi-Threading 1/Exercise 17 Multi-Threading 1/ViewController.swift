@@ -17,8 +17,10 @@ class ViewController: UIViewController ,UITableViewDelegate , UITableViewDataSou
     @IBOutlet var stopButton: UIButton!
     @IBOutlet var timeView: UIView!
     @IBOutlet var backgroundImage: UIView!
+    @IBOutlet var darkThemeSwitch: UISwitch!
 
     var timeTimer = Timer()
+    var pauseFlag = false
     var timeInMS = 0
     var timeInSec = 0
     var timeInMin = 0
@@ -40,16 +42,25 @@ class ViewController: UIViewController ,UITableViewDelegate , UITableViewDataSou
     }
     
     @IBAction func startAction() {
-        UIView.transition(with: timeView, duration: 0.5, options: .transitionFlipFromRight, animations: {}, completion: nil)
-        
-        DispatchQueue.main.async {
-            self.timeTimer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(ViewController.incrementTimer), userInfo: nil, repeats: true)
+        if pauseFlag == false {
+            UIView.transition(with: timeView, duration: 0.5, options: .transitionFlipFromRight, animations: {}, completion: nil)
+            
+            DispatchQueue.main.async {
+                self.timeTimer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(ViewController.incrementTimer), userInfo: nil, repeats: true)
+            }
+            
+            pauseFlag = true
+            lapButton.isEnabled = true
+            stopButton.isEnabled = true
+            rotation(imageView: backgroundImage, oneRotationIn: 15.0)
         }
-        
-        startButton.isEnabled = false
-        lapButton.isEnabled = true
-        stopButton.isEnabled = true
-        rotation(imageView: backgroundImage, oneRotationIn: 15.0)
+        else if pauseFlag == true {
+            UIView.transition(with: timeView, duration: 0.5, options: .transitionFlipFromLeft, animations: {}, completion: nil)
+            
+            timeTimer.invalidate()
+            lapButton.isEnabled = false
+            pauseFlag = false
+        }
     }
     
     @IBAction func lapAction() {
@@ -62,7 +73,7 @@ class ViewController: UIViewController ,UITableViewDelegate , UITableViewDataSou
     }
     
     @IBAction func stopAction() {
-        startButton.isEnabled = true
+        pauseFlag = false
         lapButton.isEnabled = false
         stopButton.isEnabled = false
         
@@ -76,7 +87,15 @@ class ViewController: UIViewController ,UITableViewDelegate , UITableViewDataSou
         timeArray.removeAll()
         lapTable.reloadData()
         backgroundImage.layer.removeAllAnimations()
-
+    }
+    
+    @IBAction func darkTheme() {
+        if darkThemeSwitch.isOn == false {
+            view.backgroundColor = UIColor.white
+        }
+        else if darkThemeSwitch.isOn == true{
+            view.backgroundColor = UIColor.black
+        }
     }
     
     //Function to increase time
