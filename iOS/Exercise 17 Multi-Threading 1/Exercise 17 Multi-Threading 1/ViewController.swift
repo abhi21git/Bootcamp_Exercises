@@ -140,5 +140,6 @@ class ViewController: UIViewController ,UITableViewDelegate , UITableViewDataSou
         cell.lapTime.text = timeArray[indexPath.row]
         return cell
     }
+    
 }
 

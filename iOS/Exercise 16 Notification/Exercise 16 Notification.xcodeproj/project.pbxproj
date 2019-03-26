@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		464F81762248ED4500ABDA23 /* DataPassingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464F81752248ED4500ABDA23 /* DataPassingController.swift */; };
+		46A73BC42248E70500925DE9 /* Question1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A73BC32248E70500925DE9 /* Question1.swift */; };
+		46A73BC62248E71D00925DE9 /* Question2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A73BC52248E71D00925DE9 /* Question2.swift */; };
+		46A73BC82248E73400925DE9 /* Question3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A73BC72248E73400925DE9 /* Question3.swift */; };
 		46B6183B22451196000A3379 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B6183A22451196000A3379 /* AppDelegate.swift */; };
 		46B6183D22451196000A3379 /* Exercise16.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B6183C22451196000A3379 /* Exercise16.swift */; };
 		46B6184022451196000A3379 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46B6183E22451196000A3379 /* Main.storyboard */; };
@@ -15,6 +19,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		464F81752248ED4500ABDA23 /* DataPassingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPassingController.swift; sourceTree = "<group>"; };
+		46A73BC32248E70500925DE9 /* Question1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question1.swift; sourceTree = "<group>"; };
+		46A73BC52248E71D00925DE9 /* Question2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question2.swift; sourceTree = "<group>"; };
+		46A73BC72248E73400925DE9 /* Question3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question3.swift; sourceTree = "<group>"; };
 		46B6183722451196000A3379 /* Exercise 16 Notification.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Exercise 16 Notification.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		46B6183A22451196000A3379 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		46B6183C22451196000A3379 /* Exercise16.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercise16.swift; sourceTree = "<group>"; };
@@ -56,6 +64,10 @@
 			children = (
 				46B6183A22451196000A3379 /* AppDelegate.swift */,
 				46B6183C22451196000A3379 /* Exercise16.swift */,
+				46A73BC32248E70500925DE9 /* Question1.swift */,
+				464F81752248ED4500ABDA23 /* DataPassingController.swift */,
+				46A73BC52248E71D00925DE9 /* Question2.swift */,
+				46A73BC72248E73400925DE9 /* Question3.swift */,
 				46B6183E22451196000A3379 /* Main.storyboard */,
 				46B6184122451197000A3379 /* Assets.xcassets */,
 				46B6184322451197000A3379 /* LaunchScreen.storyboard */,
@@ -135,8 +147,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				46A73BC62248E71D00925DE9 /* Question2.swift in Sources */,
 				46B6183D22451196000A3379 /* Exercise16.swift in Sources */,
+				46A73BC42248E70500925DE9 /* Question1.swift in Sources */,
+				46A73BC82248E73400925DE9 /* Question3.swift in Sources */,
 				46B6183B22451196000A3379 /* AppDelegate.swift in Sources */,
+				464F81762248ED4500ABDA23 /* DataPassingController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,60 +9,90 @@ enum UserDetailError: Error {
     case noValidAge
 }
 
-//Question 2: Write a failable initialiser for a class which throws a error “Object not able to initialise” description a initialisationFailed case, Catch the error and print its error description.
-enum ErrorHandler : Error {
-    case initilisationFailed
+var name: String = ""
+var age: Int = 12
+
+func userEntry(name: String, age: Int) throws {
+    if (name == "some name" && age > 18) {
+        print("Valid age")
+    }
+    else{
+        if (name == "") {
+            throw UserDetailError.noValidName
+        }
+        if (age < 1) {
+            throw UserDetailError.noValidName
+        }
+    }
 }
-class ErrorCheck {
-    var numberInt : Int?
-    init? (notZero : Int) {
-        if notZero == 0 {
+
+//Question 2: Write a failable initialiser for a class which throws a error “Object not able to initialise” description a initialisationFailed case, Catch the error and print its error description.
+enum initialiserState: Error {
+    case initialisationSuccess
+    case initialisationFailed
+    
+    init?(index: Int) {
+        switch index {
+        case 0:
+            self = .initialisationSuccess
+        case 1:
+            self = .initialisationFailed
+            print("Object not able to initialise")
+        default:
             return nil
         }
-        else {
-            self.numberInt = notZero
+    }
+}
+class letsTest {
+    var testVariable: String
+    var error: Error
+    init () {
+        testVariable = ""
+        error = initialiserState.initialisationSuccess
+    }
+    func printError() {
+        if testVariable == "" {
+            error = initialiserState.init(index: 1)!
         }
+        else {
+            print(initialiserState.init(index: 0)!)
+        }
+        print(error)
     }
 }
-var obj = ErrorCheck(notZero: 0)
-do{
-    if (obj == nil) {
-        throw ErrorHandler.initilisationFailed
-    }
-    else {
-        print(obj!.numberInt!)
-    }
-}
-catch {
-    print("Object not able to initialise")
-}
+
 
 //Question 3: Explain the difference try, try?, try! , make sure to write a program to explain the difference.
 //Answer: try is used to try for the error in the following code
     //try! is used when the user is sure that the following code will surely not throw the error, but if the error thrown then the playground will crash. This can be used without do catch block.
     //try? is used when the user is not sure that it may or may not throw the error ,  This can be used without do catch block.
-enum checkadd : Error {
-    case lessThenTwenty(String)
+enum userDetailsError: Error {
+    case invalidEmailId
+    case invalidAge
 }
-func checkForVal(num1 : Int) throws -> Int {
-    if(num1 > 20 ) {
-        return num1
+
+class users {
+    var name: String
+    var email: String
+    var age: Int
+    
+    init?(name: String, email: String, age: Int) throws {
+        
+        if (email.contains("@") && age > 0) {
+            self.name = name
+            self.age = age
+            self.email = email
+        }
+        else if age < 0 {
+            throw userDetailsError.invalidAge
+        }
+            
+        else {
+            throw userDetailsError.invalidEmailId
+        }
     }
-    else{
-        throw checkadd.lessThenTwenty("Values is smaller then 20")
-    }
 }
-do {
-    let obj1 = try checkForVal(num1: 10)
-    print(obj1)
-}
-catch {
-    print(error)
-}
-let obj2 = try! checkForVal(num1: 102) // if value changed to 10 it will crash
-print(obj2)
-let obj3 = try? checkForVal(num1: 10) // if value changed to 10 also then it will show the error
-print(obj3!)
+
 
 //Question 4: Write a program which loads the data from a datasource of 10 employees looks like below, Program would help to give salary bonus to employees. Which is based on some conditions but if employee is not able to satisfy the condition program should throw the error with specific error condition and its description should be printed.
 struct toTheNew {
