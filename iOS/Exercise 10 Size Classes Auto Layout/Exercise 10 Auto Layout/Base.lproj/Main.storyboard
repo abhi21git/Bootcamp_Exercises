@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="99h-YA-jjv">
-    <device id="retina4_0" orientation="portrait">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="99h-YA-jjv">
+    <device id="retina3_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -15,48 +15,48 @@
             <objects>
                 <viewController id="wDb-kh-PDT" customClass="Exercise10" customModule="Exercise_10_Auto_Layout" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="338-Ud-weV">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="cJB-lF-tpl">
-                                <rect key="frame" x="16" y="111" width="288" height="437"/>
+                                <rect key="frame" x="16" y="116" width="288" height="344"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select a Question" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eHl-hh-EeV">
-                                        <rect key="frame" x="76.5" y="0.0" width="135" height="73"/>
+                                        <rect key="frame" x="76.5" y="0.0" width="135" height="57.5"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HIz-Qn-NTy">
-                                        <rect key="frame" x="107.5" y="73" width="73" height="72.5"/>
+                                        <rect key="frame" x="107.5" y="57.5" width="73" height="57"/>
                                         <state key="normal" title="Question 1"/>
                                         <connections>
                                             <action selector="openQuestion1" destination="wDb-kh-PDT" eventType="touchUpInside" id="178-Ji-63T"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9wm-up-eZJ">
-                                        <rect key="frame" x="106.5" y="145.5" width="75" height="73"/>
+                                        <rect key="frame" x="106.5" y="114.5" width="75" height="57.5"/>
                                         <state key="normal" title="Question 2"/>
                                         <connections>
                                             <action selector="openQuestion2" destination="wDb-kh-PDT" eventType="touchUpInside" id="ht5-vn-8Cj"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xMA-VG-ZiQ">
-                                        <rect key="frame" x="106.5" y="218.5" width="75" height="73"/>
+                                        <rect key="frame" x="106.5" y="172" width="75" height="57.5"/>
                                         <state key="normal" title="Question 3"/>
                                         <connections>
                                             <action selector="openQuestion3" destination="wDb-kh-PDT" eventType="touchUpInside" id="tbl-gE-bZ6"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ShE-EQ-xaZ">
-                                        <rect key="frame" x="106.5" y="291.5" width="75" height="72.5"/>
+                                        <rect key="frame" x="106.5" y="229.5" width="75" height="57"/>
                                         <state key="normal" title="Question 4"/>
                                         <connections>
                                             <action selector="openQuestion4" destination="wDb-kh-PDT" eventType="touchUpInside" id="iMa-vR-MoA"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o9K-nH-iWi">
-                                        <rect key="frame" x="106.5" y="364" width="75" height="73"/>
+                                        <rect key="frame" x="106.5" y="286.5" width="75" height="57.5"/>
                                         <state key="normal" title="Question 5"/>
                                         <connections>
                                             <action selector="openQuestion5" destination="wDb-kh-PDT" eventType="touchUpInside" id="OXH-rL-7GS"/>
@@ -85,11 +85,11 @@
             <objects>
                 <viewController storyboardIdentifier="Question3" id="xCD-Vc-hUQ" customClass="Question3" customModule="Exercise_10_Auto_Layout" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SnZ-qq-pzK">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter any text" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QXZ-B7-y2g">
-                                <rect key="frame" x="16" y="272" width="288" height="24"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter text here" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QXZ-B7-y2g">
+                                <rect key="frame" x="16" y="228" width="288" height="24"/>
                                 <color key="backgroundColor" red="0.37354433539999998" green="0.96443074939999995" blue="0.75985336299999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
@@ -114,14 +114,13 @@
             <objects>
                 <viewController storyboardIdentifier="Question4" id="197-xB-InO" customClass="Question4" customModule="Exercise_10_Auto_Layout" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tvS-3O-aAe">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to Auto Layout" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XAx-Da-Rdn">
-                                <rect key="frame" x="155" y="513" width="149" height="35"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" text="Welcome to Auto Layout" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XAx-Da-Rdn">
+                                <rect key="frame" x="117.5" y="425" width="186.5" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="PN9-11-JSt"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="204" id="Qkl-O2-hFO"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -146,9 +145,8 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="👻" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qZV-Ol-1M5">
-                                <rect key="frame" x="16" y="513" width="76" height="35"/>
+                                <rect key="frame" x="16" y="425" width="38.5" height="35"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="76" id="8rx-CT-lsG"/>
                                     <constraint firstAttribute="height" constant="35" id="9lU-Od-Fte"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -190,11 +188,11 @@
             <objects>
                 <viewController storyboardIdentifier="Question5" id="eac-YK-naT" customClass="Question5" customModule="Exercise_10_Auto_Layout" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Uv1-4c-kz4">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1nV-Qs-Jwe">
-                                <rect key="frame" x="16" y="20" width="288" height="91.5"/>
+                                <rect key="frame" x="16" y="20" width="288" height="76.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" priority="250" constant="288" id="zwe-Ra-VQ0"/>
@@ -204,10 +202,10 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JhJ-jR-0PT">
-                                <rect key="frame" x="0.0" y="111.5" width="320" height="91"/>
+                                <rect key="frame" x="0.0" y="96.5" width="320" height="77"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CL0-3g-6So">
-                                        <rect key="frame" x="0.0" y="0.0" width="80" height="91"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="80" height="77"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" priority="250" constant="80" id="3Bc-TG-nt1"/>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" priority="250" constant="75" id="iuG-S1-19o"/>
@@ -216,17 +214,17 @@
                                         <state key="normal" title="©"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vTe-0f-acF">
-                                        <rect key="frame" x="80" y="0.0" width="80" height="91"/>
+                                        <rect key="frame" x="80" y="0.0" width="80" height="77"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="( )"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cPo-KW-VIX">
-                                        <rect key="frame" x="160" y="0.0" width="80" height="91"/>
+                                        <rect key="frame" x="160" y="0.0" width="80" height="77"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="%"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Oy-Tu-qGx">
-                                        <rect key="frame" x="240" y="0.0" width="80" height="91"/>
+                                        <rect key="frame" x="240" y="0.0" width="80" height="77"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="÷"/>
                                     </button>
@@ -256,10 +254,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RV2-7z-JZV">
-                                <rect key="frame" x="0.0" y="202.5" width="320" height="91.5"/>
+                                <rect key="frame" x="0.0" y="173.5" width="320" height="76.5"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="84y-Mt-fPq">
-                                        <rect key="frame" x="0.0" y="0.0" width="80" height="91.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="80" height="76.5"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" priority="250" constant="75" id="S1r-YW-Zp9"/>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" priority="250" constant="80" id="fpK-gh-Ax5"/>
@@ -268,17 +266,17 @@
                                         <state key="normal" title="7"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gll-cF-GAI">
-                                        <rect key="frame" x="80" y="0.0" width="80" height="91.5"/>
+                                        <rect key="frame" x="80" y="0.0" width="80" height="76.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="8"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9bc-Ok-oNL">
-                                        <rect key="frame" x="160" y="0.0" width="80" height="91.5"/>
+                                        <rect key="frame" x="160" y="0.0" width="80" height="76.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="9"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rvz-CG-xLP">
-                                        <rect key="frame" x="240" y="0.0" width="80" height="91.5"/>
+                                        <rect key="frame" x="240" y="0.0" width="80" height="76.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="x"/>
                                     </button>
@@ -306,10 +304,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JAh-Yr-BVd">
-                                <rect key="frame" x="0.0" y="294" width="320" height="91.5"/>
+                                <rect key="frame" x="0.0" y="250" width="320" height="76.5"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Zh-x0-Rrz">
-                                        <rect key="frame" x="0.0" y="0.0" width="80" height="91.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="80" height="76.5"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" priority="250" constant="75" id="Z0s-Sq-0LA"/>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" priority="250" constant="80" id="tnJ-Xo-RsS"/>
@@ -318,17 +316,17 @@
                                         <state key="normal" title="4"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZxV-Xl-Xke">
-                                        <rect key="frame" x="80" y="0.0" width="80" height="91.5"/>
+                                        <rect key="frame" x="80" y="0.0" width="80" height="76.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="5"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jBu-EX-O9W">
-                                        <rect key="frame" x="160" y="0.0" width="80" height="91.5"/>
+                                        <rect key="frame" x="160" y="0.0" width="80" height="76.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="6"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P0g-Yr-cgl">
-                                        <rect key="frame" x="240" y="0.0" width="80" height="91.5"/>
+                                        <rect key="frame" x="240" y="0.0" width="80" height="76.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="-"/>
                                     </button>
@@ -356,10 +354,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hxD-0P-Nf1">
-                                <rect key="frame" x="0.0" y="385.5" width="320" height="91"/>
+                                <rect key="frame" x="0.0" y="326.5" width="320" height="77"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9FQ-tW-OIN">
-                                        <rect key="frame" x="0.0" y="0.0" width="80" height="91"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="80" height="77"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" priority="250" constant="75" id="PyA-rI-prU"/>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" priority="250" constant="80" id="xFg-05-ddE"/>
@@ -368,17 +366,17 @@
                                         <state key="normal" title="1"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hwp-Mn-zEO">
-                                        <rect key="frame" x="80" y="0.0" width="80" height="91"/>
+                                        <rect key="frame" x="80" y="0.0" width="80" height="77"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="2"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MPX-gQ-5hb">
-                                        <rect key="frame" x="160" y="0.0" width="80" height="91"/>
+                                        <rect key="frame" x="160" y="0.0" width="80" height="77"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="3"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CUM-ED-ns3">
-                                        <rect key="frame" x="240" y="0.0" width="80" height="91"/>
+                                        <rect key="frame" x="240" y="0.0" width="80" height="77"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="+"/>
                                     </button>
@@ -406,10 +404,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yt8-uP-EbF">
-                                <rect key="frame" x="0.0" y="476.5" width="320" height="91.5"/>
+                                <rect key="frame" x="0.0" y="403.5" width="320" height="76.5"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="29m-OP-evJ">
-                                        <rect key="frame" x="0.0" y="0.0" width="80" height="91.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="80" height="76.5"/>
                                         <constraints>
                                             <constraint firstAttribute="height" priority="250" constant="75" id="rCi-6j-9pg"/>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" priority="250" constant="80" id="tNr-Cs-dGS"/>
@@ -418,17 +416,17 @@
                                         <state key="normal" title="."/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xFD-UJ-GLu">
-                                        <rect key="frame" x="80" y="0.0" width="80" height="91.5"/>
+                                        <rect key="frame" x="80" y="0.0" width="80" height="76.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="0"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7y2-sg-f4t">
-                                        <rect key="frame" x="160" y="0.0" width="80" height="91.5"/>
+                                        <rect key="frame" x="160" y="0.0" width="80" height="76.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="±"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zld-r3-6og">
-                                        <rect key="frame" x="240" y="0.0" width="80" height="91.5"/>
+                                        <rect key="frame" x="240" y="0.0" width="80" height="76.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <state key="normal" title="="/>
                                     </button>
@@ -503,11 +501,11 @@
             <objects>
                 <viewController storyboardIdentifier="Question2" id="nCh-W2-N1F" customClass="Question2" customModule="Exercise_10_Auto_Layout" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Zww-yd-cHU">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image" translatesAutoresizingMaskIntoConstraints="NO" id="77P-ze-oLt">
-                                <rect key="frame" x="110" y="234" width="100" height="100"/>
+                                <rect key="frame" x="110" y="190" width="100" height="100"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="RQ0-4f-oRT"/>
@@ -536,7 +534,7 @@
             <objects>
                 <viewController storyboardIdentifier="Question1" id="BYZ-38-t0r" customClass="Question1" customModule="Exercise_10_Auto_Layout" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KvP-0M-ggy">
@@ -566,7 +564,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="99h-YA-jjv" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="XpY-BS-hbN">
-                        <rect key="frame" x="0.0" y="20" width="320" height="91"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="102"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="largeTitleTextAttributes">
                             <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>

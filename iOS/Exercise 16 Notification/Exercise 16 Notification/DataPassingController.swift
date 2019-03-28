@@ -8,33 +8,34 @@
 
 import UIKit
 
-protocol PassDataDelegate {
-    func passData(dictionaryData: [String: [String]] )
-}
 
-class DataPassingController: UIViewController {
+class DataPassingController: UIViewController, PassDataDelegate {
     
-    @IBOutlet var nameTextField: UITextField!
-    @IBOutlet var ageTextField: UITextField!
-    @IBOutlet var parentsNameTextField: UITextField!
+    @IBOutlet var resultLabel: UILabel!
     
-    var delegate: PassDataDelegate?
+    var nameData: String?
+    var ageData: String?
+    var parentsNameData: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.endEditing(true)
-        nameTextField.text = ""
-        ageTextField.text = ""
-        parentsNameTextField.text = ""
+        
+        resultLabel.text! = "Name: \(nameData!)\nAge: \(ageData!)\nParents Name: \(parentsNameData!)"
 
         // Do any additional setup after loading the view.
     }
     
-    @IBAction func submitAction() {
-        delegate?.passData(dictionaryData: [nameTextField.text! : [ageTextField.text! , parentsNameTextField.text!]])
-        self.navigationController?.popViewController(animated: true)
+    func passData(dictionaryData: [String : [String : String]]) {
+        for (name, value) in dictionaryData {
+            for (age, pName) in value {
+                nameData = name
+                ageData = age
+                parentsNameData = pName
+            }
+        }
     }
-    
+
 
     
     

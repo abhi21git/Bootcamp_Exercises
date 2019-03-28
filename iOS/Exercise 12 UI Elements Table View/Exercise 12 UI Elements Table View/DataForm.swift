@@ -15,17 +15,8 @@ class DataForm: UIViewController, UIImagePickerControllerDelegate, UINavigationC
     @IBOutlet var ageTextField: UITextField!
     @IBOutlet var addressTextField: UITextField!
     @IBOutlet var detailsTextField: UITextField!
-    @IBOutlet var saveDataButton: UIButton!
     @IBOutlet var submitButton: UIButton!
     
-    struct dataOfUser {
-        let profilePicture: UIImage
-        let name: String
-        let age: Int
-        let address: String
-        let details: String
-    }
-    var arrayOfData = [dataOfUser]()
     let profilePicker = UIImagePickerController()
         
     //Function for tapping on image to open gallary
@@ -50,31 +41,29 @@ class DataForm: UIViewController, UIImagePickerControllerDelegate, UINavigationC
         // Do any additional setup after loading the view.
     }
     
-    //Save button action
-    @IBAction func savaData() {
+    //Submit Button Action
+    @IBAction func submitAction() {
         if (nameTextField.text! == "" || ageTextField.text! == "" || addressTextField.text! == "" || detailsTextField.text! == "") {
-            //Blank fields not allowed
+            print("Blank fields not allowed")
         }
         else if Int(ageTextField.text!) == nil{
-            ageTextField.text! = ""
+            UIView.transition(with: ageTextField, duration: 0.5, options: .transitionFlipFromRight, animations: { self.ageTextField.text! = "" }, completion: nil)
+            print("Enter valid age")
         }
         else {
-            arrayOfData.append(dataOfUser(profilePicture: profilePicture.image!, name: nameTextField.text!, age: Int(ageTextField.text!)!, address: addressTextField.text!, details: detailsTextField.text!))
+            
+            let navigationController = self.navigationController?.viewControllers
+            let vc = navigationController![0] as! TableViewData
+            
+            vc.arrayOfData.append(TableViewData.dataOfUser(profilePicture: profilePicture.image!, name: nameTextField.text!, age: Int(ageTextField.text!)!, address: addressTextField.text!, details: detailsTextField.text!))
+            
             profilePicture.image! = UIImage(imageLiteralResourceName: "man.png")
             nameTextField.text! = ""
             ageTextField.text! = ""
             addressTextField.text! = ""
             detailsTextField.text! = ""
-            UIView.transition(with: saveDataButton, duration: 1, options: .transitionFlipFromLeft, animations: {}, completion: nil)
-        }
-    }
-    
-    //Submit Button Action
-    @IBAction func submitAction() {
-        if arrayOfData.count > 0 {
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let controller = storyboard.instantiateViewController(withIdentifier: "TableViewCell")
-            self.navigationController?.pushViewController(controller, animated: true)
+            
+            self.navigationController?.popViewController(animated: true)
         }
     }
     

@@ -31,34 +31,32 @@ enum initialiserState: Error {
     case initialisationSuccess
     case initialisationFailed
     
-    init?(index: Int) {
-        switch index {
-        case 0:
-            self = .initialisationSuccess
-        case 1:
-            self = .initialisationFailed
-            print("Object not able to initialise")
-        default:
-            return nil
+    var localizedDescription: String? {
+        switch self {
+        case .initialisationFailed:
+            return "Object not able to initialise"
+        case .initialisationSuccess:
+            return "Object successfully initialised"
         }
     }
 }
+
 class letsTest {
-    var testVariable: String
-    var error: Error
-    init () {
-        testVariable = ""
-        error = initialiserState.initialisationSuccess
+    let testVariable = "123"
+    let intVariable: Int
+    
+    
+
+}
+func check() throws -> Bool{
+    guard letsTest.intVariable == Int(letsTest.testVariable)! else {
+        throw initialiserState.initialisationFailed
     }
-    func printError() {
-        if testVariable == "" {
-            error = initialiserState.init(index: 1)!
-        }
-        else {
-            print(initialiserState.init(index: 0)!)
-        }
-        print(error)
-    }
+    return true
+}
+
+do {
+    try check()
 }
 
 

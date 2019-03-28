@@ -7,13 +7,25 @@
 //
 
 import UIKit
+import UserNotifications
 
-class Question3: UIViewController {
+class Question3: UIViewController, UNUserNotificationCenterDelegate{
+    
+    @IBOutlet var notifcationSwitch: UISwitch!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    }
+    
+    @IBAction func setNotification() {
+        if notifcationSwitch.isOn == true {
+            //set notification
+        }
+        else {
+            //remove all notification
+        }
     }
     
 

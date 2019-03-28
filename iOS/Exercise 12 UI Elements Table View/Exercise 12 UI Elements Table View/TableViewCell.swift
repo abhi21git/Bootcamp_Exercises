@@ -15,7 +15,6 @@ class TableViewCell: UITableViewCell {
     @IBOutlet weak var ageLabel: UILabel!
     @IBOutlet weak var adressLabel: UILabel!
     @IBOutlet weak var detailsLabel: UILabel!
-    
 
     override func awakeFromNib() {
         super.awakeFromNib()

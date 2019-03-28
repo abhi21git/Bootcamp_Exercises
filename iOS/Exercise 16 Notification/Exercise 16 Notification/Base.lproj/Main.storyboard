@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="tBq-Bb-c4b">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="tBq-Bb-c4b">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,122 +18,159 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="HWj-w7-abC">
-                                <rect key="frame" x="16" y="64" width="343" height="583"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ymF-El-5pT">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ojk-hb-V4I">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="116.5"/>
-                                        <state key="normal" title="Question 1"/>
-                                        <connections>
-                                            <action selector="openQuestion1" destination="BYZ-38-t0r" eventType="touchUpInside" id="de3-bn-U8m"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R1z-PZ-4sG">
-                                        <rect key="frame" x="0.0" y="116.5" width="343" height="116.5"/>
-                                        <state key="normal" title="Question 2"/>
-                                        <connections>
-                                            <action selector="openQuestion2" destination="BYZ-38-t0r" eventType="touchUpInside" id="CrB-4i-wfQ"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="idr-zf-Six">
-                                        <rect key="frame" x="0.0" y="233" width="343" height="117"/>
-                                        <state key="normal" title="Question 3"/>
-                                        <connections>
-                                            <action selector="openQuestion3" destination="BYZ-38-t0r" eventType="touchUpInside" id="Edi-Er-c5t"/>
-                                        </connections>
-                                    </button>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ZuO-eB-E7a">
-                                        <rect key="frame" x="0.0" y="350" width="343" height="116.5"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="znf-Mh-IH8">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="620"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Question 4 " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tzJ-2C-cUn">
-                                                <rect key="frame" x="0.0" y="0.0" width="343" height="24"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                <color key="textColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S7I-VP-BOG">
-                                                <rect key="frame" x="0.0" y="24" width="343" height="92.5"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <attributedString key="attributedText">
-                                                    <fragment content="Question: What is push payload size in iOS 12?">
-                                                        <attributes>
-                                                            <font key="NSFont" size="14" name="HelveticaNeue-Bold"/>
-                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                        </attributes>
-                                                    </fragment>
-                                                    <fragment>
-                                                        <string key="content" base64-UTF8="YES">
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="HWj-w7-abC">
+                                                <rect key="frame" x="20" y="0.0" width="335" height="600"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ojk-hb-V4I">
+                                                        <rect key="frame" x="0.0" y="0.0" width="335" height="120"/>
+                                                        <state key="normal" title="Question 1"/>
+                                                        <connections>
+                                                            <action selector="openQuestion1" destination="BYZ-38-t0r" eventType="touchUpInside" id="de3-bn-U8m"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R1z-PZ-4sG">
+                                                        <rect key="frame" x="0.0" y="120" width="335" height="120"/>
+                                                        <state key="normal" title="Question 2"/>
+                                                        <connections>
+                                                            <action selector="openQuestion2" destination="BYZ-38-t0r" eventType="touchUpInside" id="CrB-4i-wfQ"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="idr-zf-Six">
+                                                        <rect key="frame" x="0.0" y="240" width="335" height="120"/>
+                                                        <state key="normal" title="Question 3"/>
+                                                        <connections>
+                                                            <action selector="openQuestion3" destination="BYZ-38-t0r" eventType="touchUpInside" id="Edi-Er-c5t"/>
+                                                        </connections>
+                                                    </button>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ZuO-eB-E7a">
+                                                        <rect key="frame" x="0.0" y="360" width="335" height="120"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Question 4 " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tzJ-2C-cUn">
+                                                                <rect key="frame" x="0.0" y="0.0" width="335" height="24"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                                <color key="textColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S7I-VP-BOG">
+                                                                <rect key="frame" x="0.0" y="24" width="335" height="96"/>
+                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <attributedString key="attributedText">
+                                                                    <fragment content="Question: What is push payload size in iOS 12?">
+                                                                        <attributes>
+                                                                            <font key="NSFont" size="14" name="HelveticaNeue-Bold"/>
+                                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                        </attributes>
+                                                                    </fragment>
+                                                                    <fragment>
+                                                                        <string key="content" base64-UTF8="YES">
 IAo
 </string>
-                                                        <attributes>
-                                                            <font key="NSFont" metaFont="system" size="14"/>
-                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                        </attributes>
-                                                    </fragment>
-                                                    <fragment>
-                                                        <string key="content">For remote notification: 4KB
+                                                                        <attributes>
+                                                                            <font key="NSFont" metaFont="system" size="14"/>
+                                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                        </attributes>
+                                                                    </fragment>
+                                                                    <fragment>
+                                                                        <string key="content">For remote notification: 4KB
 For all Internet Protocol: 5KB
 </string>
-                                                        <attributes>
-                                                            <font key="NSFont" size="14" name="HelveticaNeue"/>
-                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                        </attributes>
-                                                    </fragment>
-                                                    <fragment>
-                                                        <string key="content" base64-UTF8="YES">
+                                                                        <attributes>
+                                                                            <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                        </attributes>
+                                                                    </fragment>
+                                                                    <fragment>
+                                                                        <string key="content" base64-UTF8="YES">
 Cg
 </string>
-                                                        <attributes>
-                                                            <font key="NSFont" metaFont="system" size="14"/>
-                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                        </attributes>
-                                                    </fragment>
-                                                </attributedString>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                            </textView>
+                                                                        <attributes>
+                                                                            <font key="NSFont" metaFont="system" size="14"/>
+                                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                        </attributes>
+                                                                    </fragment>
+                                                                </attributedString>
+                                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                            </textView>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="lVi-nz-BdJ">
+                                                        <rect key="frame" x="0.0" y="480" width="335" height="120"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hAg-wc-Jys">
+                                                                <rect key="frame" x="0.0" y="0.0" width="335" height="23.5"/>
+                                                                <attributedString key="attributedText">
+                                                                    <fragment content="Question 5 ">
+                                                                        <attributes>
+                                                                            <color key="NSColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                            <font key="NSFont" metaFont="system" size="20"/>
+                                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                        </attributes>
+                                                                    </fragment>
+                                                                    <fragment content="(scroll to see more)">
+                                                                        <attributes>
+                                                                            <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                            <font key="NSFont" size="18" name=".SFNSDisplay"/>
+                                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                        </attributes>
+                                                                    </fragment>
+                                                                </attributedString>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yJN-pD-7ns">
+                                                                <rect key="frame" x="0.0" y="23.5" width="335" height="96.5"/>
+                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <attributedString key="attributedText">
+                                                                    <fragment>
+                                                                        <string key="content">Question: What is push notification?How it works?
+Push notification is a method of showing alert or occurrence of event to user. First app itself registers for notification, then a token is generated by APNS, then token is send to server by the app, then whenever server want to send notification server pushes notification to that token</string>
+                                                                        <attributes>
+                                                                            <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                                            <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                        </attributes>
+                                                                    </fragment>
+                                                                </attributedString>
+                                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                            </textView>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="600" id="R05-Tk-MPF"/>
+                                                </constraints>
+                                            </stackView>
                                         </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="lVi-nz-BdJ">
-                                        <rect key="frame" x="0.0" y="466.5" width="343" height="116.5"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Question 5 " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hAg-wc-Jys">
-                                                <rect key="frame" x="0.0" y="0.0" width="343" height="24"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                <color key="textColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yJN-pD-7ns">
-                                                <rect key="frame" x="0.0" y="24" width="343" height="92.5"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <attributedString key="attributedText">
-                                                    <fragment>
-                                                        <string key="content">Question: What is push notification?How it works?
-</string>
-                                                        <attributes>
-                                                            <font key="NSFont" size="14" name="HelveticaNeue-Bold"/>
-                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                        </attributes>
-                                                    </fragment>
-                                                    <fragment content="Push notification is a method of showing alert or occurrence of event to user.">
-                                                        <attributes>
-                                                            <font key="NSFont" size="14" name="HelveticaNeue"/>
-                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                        </attributes>
-                                                    </fragment>
-                                                </attributedString>
-                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                            </textView>
-                                        </subviews>
-                                    </stackView>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="HWj-w7-abC" firstAttribute="top" secondItem="znf-Mh-IH8" secondAttribute="top" id="4km-PY-8TJ"/>
+                                            <constraint firstItem="HWj-w7-abC" firstAttribute="leading" secondItem="znf-Mh-IH8" secondAttribute="leading" constant="20" id="WMk-Oe-YVz"/>
+                                            <constraint firstAttribute="bottom" secondItem="HWj-w7-abC" secondAttribute="bottom" constant="20" id="hPr-E1-IFW"/>
+                                            <constraint firstAttribute="trailing" secondItem="HWj-w7-abC" secondAttribute="trailing" constant="20" id="rCD-Ie-pzJ"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
-                            </stackView>
+                                <constraints>
+                                    <constraint firstItem="znf-Mh-IH8" firstAttribute="height" secondItem="ymF-El-5pT" secondAttribute="height" priority="250" id="DEI-eK-Zrr"/>
+                                    <constraint firstAttribute="bottom" secondItem="znf-Mh-IH8" secondAttribute="bottom" id="KpF-ep-RGx"/>
+                                    <constraint firstItem="znf-Mh-IH8" firstAttribute="width" secondItem="ymF-El-5pT" secondAttribute="width" id="mCl-vS-zJY"/>
+                                    <constraint firstItem="znf-Mh-IH8" firstAttribute="leading" secondItem="ymF-El-5pT" secondAttribute="leading" id="qMu-9K-hwD"/>
+                                    <constraint firstAttribute="trailing" secondItem="znf-Mh-IH8" secondAttribute="trailing" id="wwW-7v-0SI"/>
+                                    <constraint firstItem="znf-Mh-IH8" firstAttribute="top" secondItem="ymF-El-5pT" secondAttribute="top" id="zKp-EJ-Tmq"/>
+                                </constraints>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="HWj-w7-abC" secondAttribute="trailing" constant="16" id="flF-dm-Omo"/>
-                            <constraint firstItem="HWj-w7-abC" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="g9o-7G-K56"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="HWj-w7-abC" secondAttribute="bottom" constant="20" id="mSa-E8-fcd"/>
-                            <constraint firstItem="HWj-w7-abC" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="p3e-e7-vgA"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ymF-El-5pT" secondAttribute="trailing" id="1D6-RX-wMN"/>
+                            <constraint firstItem="ymF-El-5pT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="5Cm-QO-YIF"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ymF-El-5pT" secondAttribute="bottom" id="XBk-Al-SWm"/>
+                            <constraint firstItem="ymF-El-5pT" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="iYJ-E3-Xw9"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -150,9 +187,50 @@ Cg
                     <view key="view" contentMode="scaleToFill" id="AGY-9P-kyu">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="72L-1v-Tx4">
+                                <rect key="frame" x="40" y="292.5" width="295" height="82"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your message" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EO9-tz-20s">
+                                        <rect key="frame" x="0.0" y="0.0" width="295" height="31"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5ep-eA-D5l">
+                                        <rect key="frame" x="0.0" y="51" width="295" height="31"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Turn on notification" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LpT-IA-xQO">
+                                                <rect key="frame" x="0.0" y="0.0" width="246" height="31"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="p6r-NF-rpj">
+                                                <rect key="frame" x="246" y="0.0" width="51" height="31"/>
+                                                <color key="onTintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="thumbTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <connections>
+                                                    <action selector="setNotification" destination="OYd-ee-TaC" eventType="valueChanged" id="LbT-be-luB"/>
+                                                </connections>
+                                            </switch>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="72L-1v-Tx4" firstAttribute="leading" secondItem="V4q-iY-ReM" secondAttribute="leading" constant="40" id="DNK-AF-X23"/>
+                            <constraint firstItem="72L-1v-Tx4" firstAttribute="centerX" secondItem="AGY-9P-kyu" secondAttribute="centerX" id="Zdf-Lm-N8R"/>
+                            <constraint firstItem="V4q-iY-ReM" firstAttribute="trailing" secondItem="72L-1v-Tx4" secondAttribute="trailing" constant="40" id="olY-Hr-o88"/>
+                            <constraint firstItem="72L-1v-Tx4" firstAttribute="centerY" secondItem="AGY-9P-kyu" secondAttribute="centerY" id="ywf-as-Hd8"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="V4q-iY-ReM"/>
                     </view>
+                    <connections>
+                        <outlet property="notifcationSwitch" destination="p6r-NF-rpj" id="fgx-C0-wAy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vWD-U9-IPr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -181,35 +259,53 @@ Cg
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Result" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4NR-FS-xYg">
-                                <rect key="frame" x="160.5" y="321.5" width="54.5" height="24"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xrW-HV-EQ2">
-                                <rect key="frame" x="147.5" y="385.5" width="80" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="Aht-9k-GMb"/>
-                                    <constraint firstAttribute="width" constant="80" id="VkJ-r6-eZt"/>
-                                </constraints>
-                                <state key="normal" title="Add Data"/>
-                                <connections>
-                                    <action selector="addData" destination="uJQ-9W-e8o" eventType="touchUpInside" id="baB-DI-HTW"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="vbO-AI-Fbm">
+                                <rect key="frame" x="50" y="213.5" width="275" height="240"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fn9-To-1MG">
+                                        <rect key="frame" x="0.0" y="0.0" width="275" height="30"/>
+                                        <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="0.10188356164383562" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter age" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wcy-wT-MRc">
+                                        <rect key="frame" x="0.0" y="70" width="275" height="30"/>
+                                        <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="0.095221532534246575" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter parent name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="q5E-xv-xRr">
+                                        <rect key="frame" x="0.0" y="140" width="275" height="30"/>
+                                        <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="0.096907106164383555" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3xY-Gy-K28">
+                                        <rect key="frame" x="0.0" y="210" width="275" height="30"/>
+                                        <state key="normal" title="SUBMIT"/>
+                                        <connections>
+                                            <action selector="submitAction" destination="uJQ-9W-e8o" eventType="touchUpInside" id="rzQ-6h-z0T"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="xrW-HV-EQ2" firstAttribute="top" secondItem="4NR-FS-xYg" secondAttribute="bottom" constant="40" id="9CY-GZ-VL7"/>
-                            <constraint firstItem="4NR-FS-xYg" firstAttribute="centerY" secondItem="WrE-qH-9Mm" secondAttribute="centerY" id="qdT-ga-4kt"/>
-                            <constraint firstItem="xrW-HV-EQ2" firstAttribute="centerX" secondItem="WrE-qH-9Mm" secondAttribute="centerX" id="t0F-nt-TmA"/>
-                            <constraint firstItem="4NR-FS-xYg" firstAttribute="centerX" secondItem="WrE-qH-9Mm" secondAttribute="centerX" id="xsO-Ox-FLV"/>
+                            <constraint firstItem="vbO-AI-Fbm" firstAttribute="centerX" secondItem="WrE-qH-9Mm" secondAttribute="centerX" id="QSt-n3-ABa"/>
+                            <constraint firstItem="vbO-AI-Fbm" firstAttribute="centerY" secondItem="WrE-qH-9Mm" secondAttribute="centerY" id="Tro-gh-GPh"/>
+                            <constraint firstItem="NR4-dP-1Ko" firstAttribute="trailing" secondItem="vbO-AI-Fbm" secondAttribute="trailing" constant="50" id="kSi-Da-hcR"/>
+                            <constraint firstItem="vbO-AI-Fbm" firstAttribute="leading" secondItem="NR4-dP-1Ko" secondAttribute="leading" constant="50" id="tTW-nz-Y0n"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="NR4-dP-1Ko"/>
                     </view>
                     <connections>
-                        <outlet property="resultLabel" destination="4NR-FS-xYg" id="ThL-Vs-76e"/>
+                        <outlet property="ageTextField" destination="wcy-wT-MRc" id="6v8-jm-OEt"/>
+                        <outlet property="nameTextField" destination="Fn9-To-1MG" id="xhg-cA-VU2"/>
+                        <outlet property="parentsNameTextField" destination="q5E-xv-xRr" id="oly-XQ-MLq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="igc-aj-gGV" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -224,52 +320,22 @@ Cg
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="vbO-AI-Fbm">
-                                <rect key="frame" x="16" y="200" width="343" height="240"/>
-                                <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fn9-To-1MG">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="30"/>
-                                        <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="0.10188356164383562" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter age" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wcy-wT-MRc">
-                                        <rect key="frame" x="0.0" y="70" width="343" height="30"/>
-                                        <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="0.095221532534246575" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter parent name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="q5E-xv-xRr">
-                                        <rect key="frame" x="0.0" y="140" width="343" height="30"/>
-                                        <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="0.096907106164383555" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3xY-Gy-K28">
-                                        <rect key="frame" x="0.0" y="210" width="343" height="30"/>
-                                        <state key="normal" title="SUBMIT"/>
-                                        <connections>
-                                            <action selector="submitAction" destination="6ZJ-xL-r6t" eventType="touchUpInside" id="msa-8f-sP6"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Result" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4NR-FS-xYg">
+                                <rect key="frame" x="160.5" y="321.5" width="54.5" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="vbO-AI-Fbm" firstAttribute="top" secondItem="3nP-jG-DhW" secondAttribute="top" constant="180" id="X6k-t4-hhf"/>
-                            <constraint firstItem="vbO-AI-Fbm" firstAttribute="leading" secondItem="3nP-jG-DhW" secondAttribute="leading" constant="16" id="mrB-oX-mIT"/>
-                            <constraint firstItem="3nP-jG-DhW" firstAttribute="trailing" secondItem="vbO-AI-Fbm" secondAttribute="trailing" constant="16" id="plv-TE-Qqp"/>
+                            <constraint firstItem="4NR-FS-xYg" firstAttribute="centerY" secondItem="jO7-jK-O4i" secondAttribute="centerY" id="8s6-K9-dyX"/>
+                            <constraint firstItem="4NR-FS-xYg" firstAttribute="centerX" secondItem="jO7-jK-O4i" secondAttribute="centerX" id="dKW-E7-VpI"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="3nP-jG-DhW"/>
                     </view>
                     <connections>
-                        <outlet property="ageTextField" destination="wcy-wT-MRc" id="1Jp-7q-DfM"/>
-                        <outlet property="nameTextField" destination="Fn9-To-1MG" id="vF8-Ya-ALL"/>
-                        <outlet property="parentsNameTextField" destination="q5E-xv-xRr" id="Clk-Y3-ky4"/>
+                        <outlet property="resultLabel" destination="4NR-FS-xYg" id="MzA-vD-6pa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pxn-sw-wTv" userLabel="First Responder" sceneMemberID="firstResponder"/>
