@@ -189,16 +189,31 @@ Push notification is a method of showing alert or occurrence of event to user. F
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="72L-1v-Tx4">
-                                <rect key="frame" x="40" y="292.5" width="295" height="82"/>
+                                <rect key="frame" x="40" y="216" width="295" height="235"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your message" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EO9-tz-20s">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Iaa-uR-ESn">
                                         <rect key="frame" x="0.0" y="0.0" width="295" height="31"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5ep-eA-D5l">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your message" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EO9-tz-20s">
                                         <rect key="frame" x="0.0" y="51" width="295" height="31"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="527-vk-K68">
+                                        <rect key="frame" x="0.0" y="102" width="295" height="31"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="OYd-ee-TaC" id="htv-wc-Cwc"/>
+                                        </connections>
+                                    </textField>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5ep-eA-D5l">
+                                        <rect key="frame" x="0.0" y="153" width="295" height="31"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Turn on notification" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LpT-IA-xQO">
                                                 <rect key="frame" x="0.0" y="0.0" width="246" height="31"/>
@@ -216,6 +231,12 @@ Push notification is a method of showing alert or occurrence of event to user. F
                                             </switch>
                                         </subviews>
                                     </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nhf-J7-agJ">
+                                        <rect key="frame" x="0.0" y="204" width="295" height="31"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -229,7 +250,10 @@ Push notification is a method of showing alert or occurrence of event to user. F
                         <viewLayoutGuide key="safeArea" id="V4q-iY-ReM"/>
                     </view>
                     <connections>
+                        <outlet property="alertLabel" destination="nhf-J7-agJ" id="aXn-gF-l8i"/>
                         <outlet property="notifcationSwitch" destination="p6r-NF-rpj" id="fgx-C0-wAy"/>
+                        <outlet property="notificationDateTextField" destination="527-vk-K68" id="ttO-ui-By1"/>
+                        <outlet property="notificationTitleTextField" destination="Iaa-uR-ESn" id="L2m-jR-jTO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vWD-U9-IPr" userLabel="First Responder" sceneMemberID="firstResponder"/>

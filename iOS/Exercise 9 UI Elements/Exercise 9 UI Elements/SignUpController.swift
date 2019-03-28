@@ -17,7 +17,6 @@ class SignUpController: UIViewController, UIImagePickerControllerDelegate, UINav
     @IBOutlet var eMailtextField: UITextField!
     @IBOutlet var placeOfBirthTextField: UITextField!
     @IBOutlet var phoneNumberTextField: UITextField!
-    @IBOutlet var datePicker: UIDatePicker!
     @IBOutlet var placePicker: UIPickerView!
     @IBOutlet var privateMsgLabel: UILabel!
     @IBOutlet var privateAccountSwitch: UISwitch!
@@ -26,14 +25,12 @@ class SignUpController: UIViewController, UIImagePickerControllerDelegate, UINav
     let citiesName = ["New Delhi", "Noida", "Greater Noida", "Ghaziabad", "Lucknow", "Mumbai", "Kolkata","Chennai"]
     
     override func viewWillAppear(_ animated: Bool) {
-        datePicker.isHidden = true
         placePicker.isHidden = true
         
         //Code to make profile picture round
         profilePicker.delegate = self
         profilePicture.layer.cornerRadius = profilePicture.frame.size.height/2
         profilePicture.layer.masksToBounds = true
-    
         
         for textfield in [dateOfBirthTextField,eMailtextField,placeOfBirthTextField,phoneNumberTextField] {
             textfield!.delegate = self
@@ -44,6 +41,11 @@ class SignUpController: UIViewController, UIImagePickerControllerDelegate, UINav
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let datePicker = UIDatePicker()
+        datePicker.datePickerMode = UIDatePicker.Mode.date
+        datePicker.addTarget(self, action: #selector(SignUpController.datePickerValueChanged(sender:)), for: .valueChanged)
+        dateOfBirthTextField.inputView = datePicker
+
         self.placePicker.delegate = self
         self.placePicker.dataSource = self
 
@@ -68,17 +70,14 @@ class SignUpController: UIViewController, UIImagePickerControllerDelegate, UINav
     }
     
     // Function for picking date if picker is scrolled
-    @IBAction func pickingDate(){
-        let selectedDate = datePicker.date
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .medium
-        let date = dateFormatter.string(from: selectedDate)
-        dateOfBirthTextField.text = date
-        datePicker.isHidden = true
-        eMailtextField.becomeFirstResponder()
+    @objc func datePickerValueChanged(sender: UIDatePicker) {
+        let formatter = DateFormatter()
+        formatter.dateStyle = DateFormatter.Style.medium
+        formatter.timeStyle = DateFormatter.Style.none
+        dateOfBirthTextField.text = formatter.string(from: sender.date)
     }
     
-    // Textfield Delegate
+    // Textfield Delegate handler
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if textField == userNameTextField {
             userNameTextField.resignFirstResponder()
@@ -95,15 +94,16 @@ class SignUpController: UIViewController, UIImagePickerControllerDelegate, UINav
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        if textField == dateOfBirthTextField {
-            //dateOfBirthTextField.keyboardAppearance = false
-            dateOfBirthTextField.resignFirstResponder()
-            datePicker.isHidden = false
-        }else if textField == placeOfBirthTextField {
-            //placeOfBirthTextField.keyboardAppearance = false
+        if textField == placeOfBirthTextField {
+            self.view.endEditing(true)
             placePicker.isHidden = false
             placeOfBirthTextField.resignFirstResponder()
-            //phoneNumberTextField.becomeFirstResponder()
+        }
+    }
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if textField == dateOfBirthTextField {
+            dateOfBirthTextField.resignFirstResponder()
+            eMailtextField.becomeFirstResponder()
         }
     }
 
@@ -113,12 +113,11 @@ class SignUpController: UIViewController, UIImagePickerControllerDelegate, UINav
             if phoneNumber?.count == 10 {
                 phoneNumberTextField.resignFirstResponder()
             }
-
         }
         return true
     }
     
-    //Place Picker Protocol
+    //Place Picker Method
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -137,6 +136,7 @@ class SignUpController: UIViewController, UIImagePickerControllerDelegate, UINav
         phoneNumberTextField.becomeFirstResponder()
     }
     
+    //Action to make account private
     @IBAction func makeAccountPrivate() {
         if privateAccountSwitch.isOn {
             privateMsgLabel.text = "Your account will be kept Private"
@@ -144,6 +144,12 @@ class SignUpController: UIViewController, UIImagePickerControllerDelegate, UINav
         else {
             privateMsgLabel.text = "Your account won't be kept Private "
         }
+    }
+    
+    //function for end editing if touched outside
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+        placePicker.isHidden = true
     }
     
     //Submit Button functionality

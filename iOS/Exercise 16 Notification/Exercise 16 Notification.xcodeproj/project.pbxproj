@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		464BEEA6224CE32500B2348E /* solemn.m4r in Resources */ = {isa = PBXBuildFile; fileRef = 464BEEA5224CE32500B2348E /* solemn.m4r */; };
 		464F81762248ED4500ABDA23 /* DataPassingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464F81752248ED4500ABDA23 /* DataPassingController.swift */; };
 		46A73BC42248E70500925DE9 /* Question1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A73BC32248E70500925DE9 /* Question1.swift */; };
 		46A73BC62248E71D00925DE9 /* Question2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A73BC52248E71D00925DE9 /* Question2.swift */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		464BEEA5224CE32500B2348E /* solemn.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; name = solemn.m4r; path = ../../../../../Downloads/solemn.m4r; sourceTree = "<group>"; };
 		464F81752248ED4500ABDA23 /* DataPassingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPassingController.swift; sourceTree = "<group>"; };
 		46A73BC32248E70500925DE9 /* Question1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question1.swift; sourceTree = "<group>"; };
 		46A73BC52248E71D00925DE9 /* Question2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question2.swift; sourceTree = "<group>"; };
@@ -71,6 +73,7 @@
 				46B6183E22451196000A3379 /* Main.storyboard */,
 				46B6184122451197000A3379 /* Assets.xcassets */,
 				46B6184322451197000A3379 /* LaunchScreen.storyboard */,
+				464BEEA5224CE32500B2348E /* solemn.m4r */,
 				46B6184622451197000A3379 /* Info.plist */,
 			);
 			path = "Exercise 16 Notification";
@@ -135,6 +138,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				46B6184522451197000A3379 /* LaunchScreen.storyboard in Resources */,
+				464BEEA6224CE32500B2348E /* solemn.m4r in Resources */,
 				46B6184222451197000A3379 /* Assets.xcassets in Resources */,
 				46B6184022451196000A3379 /* Main.storyboard in Resources */,
 			);
