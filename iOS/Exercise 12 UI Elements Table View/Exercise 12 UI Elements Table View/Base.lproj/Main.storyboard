@@ -80,10 +80,10 @@
                                 <rect key="frame" x="16" y="40" width="343" height="607"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" verticalHuggingPriority="249" translatesAutoresizingMaskIntoConstraints="NO" id="LT9-2c-tcB">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="200"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="180"/>
                                         <subviews>
                                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="man" translatesAutoresizingMaskIntoConstraints="NO" id="RbK-HK-6Dx">
-                                                <rect key="frame" x="71.5" y="0.0" width="200" height="200"/>
+                                                <rect key="frame" x="81.5" y="0.0" width="180" height="180"/>
                                                 <accessibility key="accessibilityConfiguration">
                                                     <accessibilityTraits key="traits" button="YES" image="YES"/>
                                                 </accessibility>
@@ -96,12 +96,12 @@
                                         <constraints>
                                             <constraint firstItem="RbK-HK-6Dx" firstAttribute="centerX" secondItem="LT9-2c-tcB" secondAttribute="centerX" id="CJ0-fw-F2C"/>
                                             <constraint firstItem="RbK-HK-6Dx" firstAttribute="centerY" secondItem="LT9-2c-tcB" secondAttribute="centerY" id="P2Q-rM-6AT"/>
-                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="200" id="xhN-Hh-Ao0"/>
+                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="180" id="xhN-Hh-Ao0"/>
                                             <constraint firstItem="RbK-HK-6Dx" firstAttribute="height" secondItem="LT9-2c-tcB" secondAttribute="height" id="yvi-Ra-o6b"/>
                                         </constraints>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="a1Q-Lh-sig">
-                                        <rect key="frame" x="0.0" y="208" width="343" height="30"/>
+                                        <rect key="frame" x="0.0" y="188" width="343" height="30"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pEB-KF-nmE">
                                                 <rect key="frame" x="0.0" y="0.0" width="276.5" height="30"/>
@@ -120,27 +120,41 @@
                                         </subviews>
                                     </stackView>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Address" textAlignment="natural" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="pwR-K1-LMx">
-                                        <rect key="frame" x="0.0" y="246" width="343" height="30"/>
+                                        <rect key="frame" x="0.0" y="226" width="343" height="30"/>
                                         <color key="tintColor" red="0.19533580541610718" green="0.2895081639289856" blue="0.36666965484619141" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="textColor" red="0.19533580540000001" green="0.2895081639" blue="0.36666965480000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Details" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="E4E-Ii-MbW">
-                                        <rect key="frame" x="0.0" y="284" width="343" height="30"/>
+                                        <rect key="frame" x="0.0" y="264" width="343" height="30"/>
                                         <color key="tintColor" red="0.19533580541610718" green="0.2895081639289856" blue="0.36666965484619141" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <color key="textColor" red="0.19533580540000001" green="0.2895081639" blue="0.36666965480000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lQr-kv-sXw">
-                                        <rect key="frame" x="0.0" y="322" width="343" height="285"/>
-                                        <color key="tintColor" red="0.19533580541610718" green="0.2895081639289856" blue="0.36666965484619141" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <state key="normal" title="SUBMIT"/>
-                                        <connections>
-                                            <action selector="submitAction" destination="pwV-4O-x4i" eventType="touchUpInside" id="tRR-eL-O6F"/>
-                                        </connections>
-                                    </button>
+                                    <view contentMode="scaleToFill" verticalHuggingPriority="249" translatesAutoresizingMaskIntoConstraints="NO" id="uh1-Rq-cNg">
+                                        <rect key="frame" x="0.0" y="302" width="343" height="305"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lQr-kv-sXw">
+                                                <rect key="frame" x="141.5" y="137.5" width="60" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="gYc-vH-X9o"/>
+                                                    <constraint firstAttribute="width" constant="60" id="oJx-Hl-sOh"/>
+                                                </constraints>
+                                                <color key="tintColor" red="0.19533580541610718" green="0.2895081639289856" blue="0.36666965484619141" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <state key="normal" title="SUBMIT"/>
+                                                <connections>
+                                                    <action selector="submitAction" destination="pwV-4O-x4i" eventType="touchUpInside" id="tRR-eL-O6F"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="lQr-kv-sXw" firstAttribute="centerY" secondItem="uh1-Rq-cNg" secondAttribute="centerY" id="sjc-xr-ubh"/>
+                                            <constraint firstItem="lQr-kv-sXw" firstAttribute="centerX" secondItem="uh1-Rq-cNg" secondAttribute="centerX" id="ySS-ny-qhg"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                             </stackView>
                         </subviews>
