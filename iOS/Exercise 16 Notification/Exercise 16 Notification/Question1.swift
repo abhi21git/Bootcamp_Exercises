@@ -34,7 +34,7 @@ class Question1: UIViewController{
     @IBAction func submitAction() {
         let controller: DataPassingController = self.storyboard?.instantiateViewController(withIdentifier: "DataPassingController") as! DataPassingController
         
-        //since delgate is assigned before passing I am here assigning delegate to the controller where data is sent rather than self
+        //since delgate is assigned before passing I am here assigning delegate to the controller where data is sent rather than assigning to self
         delegate = controller
         
         delegate?.passData(dictionaryData: [nameTextField.text! : [ageTextField.text! : parentsNameTextField.text!]])

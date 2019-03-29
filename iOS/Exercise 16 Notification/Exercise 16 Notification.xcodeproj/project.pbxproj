@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		464BEEA6224CE32500B2348E /* solemn.m4r in Resources */ = {isa = PBXBuildFile; fileRef = 464BEEA5224CE32500B2348E /* solemn.m4r */; };
+		4646B90F224DE53500DFF1DB /* solemn.m4r in Resources */ = {isa = PBXBuildFile; fileRef = 4646B90E224DE52E00DFF1DB /* solemn.m4r */; };
 		464F81762248ED4500ABDA23 /* DataPassingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464F81752248ED4500ABDA23 /* DataPassingController.swift */; };
+		4673ED72224DF5BD0069E902 /* notification.png in Resources */ = {isa = PBXBuildFile; fileRef = 4673ED71224DF5BC0069E902 /* notification.png */; };
 		46A73BC42248E70500925DE9 /* Question1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A73BC32248E70500925DE9 /* Question1.swift */; };
 		46A73BC62248E71D00925DE9 /* Question2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A73BC52248E71D00925DE9 /* Question2.swift */; };
 		46A73BC82248E73400925DE9 /* Question3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A73BC72248E73400925DE9 /* Question3.swift */; };
@@ -20,8 +21,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		464BEEA5224CE32500B2348E /* solemn.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; name = solemn.m4r; path = ../../../../../Downloads/solemn.m4r; sourceTree = "<group>"; };
+		4646B90E224DE52E00DFF1DB /* solemn.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = solemn.m4r; sourceTree = "<group>"; };
 		464F81752248ED4500ABDA23 /* DataPassingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPassingController.swift; sourceTree = "<group>"; };
+		4673ED71224DF5BC0069E902 /* notification.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = notification.png; path = "../../../../../Downloads/Image assests/notification.png"; sourceTree = "<group>"; };
 		46A73BC32248E70500925DE9 /* Question1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question1.swift; sourceTree = "<group>"; };
 		46A73BC52248E71D00925DE9 /* Question2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question2.swift; sourceTree = "<group>"; };
 		46A73BC72248E73400925DE9 /* Question3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question3.swift; sourceTree = "<group>"; };
@@ -73,7 +75,8 @@
 				46B6183E22451196000A3379 /* Main.storyboard */,
 				46B6184122451197000A3379 /* Assets.xcassets */,
 				46B6184322451197000A3379 /* LaunchScreen.storyboard */,
-				464BEEA5224CE32500B2348E /* solemn.m4r */,
+				4673ED71224DF5BC0069E902 /* notification.png */,
+				4646B90E224DE52E00DFF1DB /* solemn.m4r */,
 				46B6184622451197000A3379 /* Info.plist */,
 			);
 			path = "Exercise 16 Notification";
@@ -137,8 +140,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4673ED72224DF5BD0069E902 /* notification.png in Resources */,
+				4646B90F224DE53500DFF1DB /* solemn.m4r in Resources */,
 				46B6184522451197000A3379 /* LaunchScreen.storyboard in Resources */,
-				464BEEA6224CE32500B2348E /* solemn.m4r in Resources */,
 				46B6184222451197000A3379 /* Assets.xcassets in Resources */,
 				46B6184022451196000A3379 /* Main.storyboard in Resources */,
 			);

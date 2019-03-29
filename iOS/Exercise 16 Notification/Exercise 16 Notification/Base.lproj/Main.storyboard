@@ -203,14 +203,11 @@ Push notification is a method of showing alert or occurrence of event to user. F
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="527-vk-K68">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter time in min" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9vA-Sw-1Fc">
                                         <rect key="frame" x="0.0" y="102" width="295" height="31"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                        <connections>
-                                            <outlet property="delegate" destination="OYd-ee-TaC" id="htv-wc-Cwc"/>
-                                        </connections>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                     </textField>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5ep-eA-D5l">
                                         <rect key="frame" x="0.0" y="153" width="295" height="31"/>
@@ -221,7 +218,7 @@ Push notification is a method of showing alert or occurrence of event to user. F
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="p6r-NF-rpj">
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="p6r-NF-rpj">
                                                 <rect key="frame" x="246" y="0.0" width="51" height="31"/>
                                                 <color key="onTintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="thumbTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -252,7 +249,8 @@ Push notification is a method of showing alert or occurrence of event to user. F
                     <connections>
                         <outlet property="alertLabel" destination="nhf-J7-agJ" id="aXn-gF-l8i"/>
                         <outlet property="notifcationSwitch" destination="p6r-NF-rpj" id="fgx-C0-wAy"/>
-                        <outlet property="notificationDateTextField" destination="527-vk-K68" id="ttO-ui-By1"/>
+                        <outlet property="notificationMessageTextField" destination="EO9-tz-20s" id="90l-HE-7xT"/>
+                        <outlet property="notificationTimeTextField" destination="9vA-Sw-1Fc" id="W98-Qf-7Hb"/>
                         <outlet property="notificationTitleTextField" destination="Iaa-uR-ESn" id="L2m-jR-jTO"/>
                     </connections>
                 </viewController>
