@@ -10,6 +10,8 @@
 		4646B90F224DE53500DFF1DB /* solemn.m4r in Resources */ = {isa = PBXBuildFile; fileRef = 4646B90E224DE52E00DFF1DB /* solemn.m4r */; };
 		464F81762248ED4500ABDA23 /* DataPassingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 464F81752248ED4500ABDA23 /* DataPassingController.swift */; };
 		4673ED72224DF5BD0069E902 /* notification.png in Resources */ = {isa = PBXBuildFile; fileRef = 4673ED71224DF5BC0069E902 /* notification.png */; };
+		4673ED74224E385C0069E902 /* Question2a.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4673ED73224E385C0069E902 /* Question2a.swift */; };
+		4673ED76224E38720069E902 /* Question2b.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4673ED75224E38720069E902 /* Question2b.swift */; };
 		46A73BC42248E70500925DE9 /* Question1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A73BC32248E70500925DE9 /* Question1.swift */; };
 		46A73BC62248E71D00925DE9 /* Question2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A73BC52248E71D00925DE9 /* Question2.swift */; };
 		46A73BC82248E73400925DE9 /* Question3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46A73BC72248E73400925DE9 /* Question3.swift */; };
@@ -24,6 +26,8 @@
 		4646B90E224DE52E00DFF1DB /* solemn.m4r */ = {isa = PBXFileReference; lastKnownFileType = file; path = solemn.m4r; sourceTree = "<group>"; };
 		464F81752248ED4500ABDA23 /* DataPassingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPassingController.swift; sourceTree = "<group>"; };
 		4673ED71224DF5BC0069E902 /* notification.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = notification.png; path = "../../../../../Downloads/Image assests/notification.png"; sourceTree = "<group>"; };
+		4673ED73224E385C0069E902 /* Question2a.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question2a.swift; sourceTree = "<group>"; };
+		4673ED75224E38720069E902 /* Question2b.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question2b.swift; sourceTree = "<group>"; };
 		46A73BC32248E70500925DE9 /* Question1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question1.swift; sourceTree = "<group>"; };
 		46A73BC52248E71D00925DE9 /* Question2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question2.swift; sourceTree = "<group>"; };
 		46A73BC72248E73400925DE9 /* Question3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question3.swift; sourceTree = "<group>"; };
@@ -71,6 +75,8 @@
 				46A73BC32248E70500925DE9 /* Question1.swift */,
 				464F81752248ED4500ABDA23 /* DataPassingController.swift */,
 				46A73BC52248E71D00925DE9 /* Question2.swift */,
+				4673ED73224E385C0069E902 /* Question2a.swift */,
+				4673ED75224E38720069E902 /* Question2b.swift */,
 				46A73BC72248E73400925DE9 /* Question3.swift */,
 				46B6183E22451196000A3379 /* Main.storyboard */,
 				46B6184122451197000A3379 /* Assets.xcassets */,
@@ -157,10 +163,12 @@
 			files = (
 				46A73BC62248E71D00925DE9 /* Question2.swift in Sources */,
 				46B6183D22451196000A3379 /* Exercise16.swift in Sources */,
+				4673ED74224E385C0069E902 /* Question2a.swift in Sources */,
 				46A73BC42248E70500925DE9 /* Question1.swift in Sources */,
 				46A73BC82248E73400925DE9 /* Question3.swift in Sources */,
 				46B6183B22451196000A3379 /* AppDelegate.swift in Sources */,
 				464F81762248ED4500ABDA23 /* DataPassingController.swift in Sources */,
+				4673ED76224E38720069E902 /* Question2b.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

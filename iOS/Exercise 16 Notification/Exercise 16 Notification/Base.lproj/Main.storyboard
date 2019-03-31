@@ -256,7 +256,7 @@ Push notification is a method of showing alert or occurrence of event to user. F
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vWD-U9-IPr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1833" y="1273"/>
+            <point key="canvasLocation" x="833" y="1608"/>
         </scene>
         <!--Question2-->
         <scene sceneID="PB7-73-I31">
@@ -265,13 +265,86 @@ Push notification is a method of showing alert or occurrence of event to user. F
                     <view key="view" contentMode="scaleToFill" id="UG9-ID-A2z">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="PEq-fv-hoi">
+                                <rect key="frame" x="80" y="238.5" width="215" height="190"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter message" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="X6b-Kt-ave">
+                                        <rect key="frame" x="0.0" y="0.0" width="215" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M5x-HA-2YH">
+                                        <rect key="frame" x="0.0" y="80" width="215" height="30"/>
+                                        <state key="normal" title="Braodcast"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jzH-7w-b0s">
+                                        <rect key="frame" x="0.0" y="160" width="215" height="30"/>
+                                        <state key="normal" title="Open next controller"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="PEq-fv-hoi" firstAttribute="centerX" secondItem="UG9-ID-A2z" secondAttribute="centerX" id="5Jj-Ka-4Wb"/>
+                            <constraint firstItem="PEq-fv-hoi" firstAttribute="leading" secondItem="9Ya-2q-Bsk" secondAttribute="leading" constant="80" id="IF4-Jv-Efk"/>
+                            <constraint firstItem="PEq-fv-hoi" firstAttribute="centerY" secondItem="UG9-ID-A2z" secondAttribute="centerY" id="LWm-q7-wiB"/>
+                            <constraint firstItem="9Ya-2q-Bsk" firstAttribute="trailing" secondItem="PEq-fv-hoi" secondAttribute="trailing" constant="80" id="WlD-If-Vmn"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="9Ya-2q-Bsk"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KUB-40-ofJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2639" y="793"/>
+            <point key="canvasLocation" x="1880.8" y="792.95352323838085"/>
+        </scene>
+        <!--Question 2a-->
+        <scene sceneID="TlW-1L-BK3">
+            <objects>
+                <viewController id="aTg-ZE-cdm" customClass="Question2a" customModule="Exercise_16_Notification" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="n3U-B3-OTb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nhh-T6-XpJ">
+                                <rect key="frame" x="151" y="318.5" width="73" height="30"/>
+                                <state key="normal" title="Open Next"/>
+                                <connections>
+                                    <action selector="pushController" destination="aTg-ZE-cdm" eventType="touchUpInside" id="FDY-Ks-fH5"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="nhh-T6-XpJ" firstAttribute="centerX" secondItem="n3U-B3-OTb" secondAttribute="centerX" id="Rfy-uH-Hp7"/>
+                            <constraint firstItem="nhh-T6-XpJ" firstAttribute="centerY" secondItem="n3U-B3-OTb" secondAttribute="centerY" id="qRy-yi-s6f"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="x9A-TL-SMG"/>
+                    </view>
+                    <connections>
+                        <outlet property="pushButton" destination="nhh-T6-XpJ" id="WC5-Hn-2tq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9ia-6V-ezK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2663" y="793"/>
+        </scene>
+        <!--Question 2b-->
+        <scene sceneID="d91-Qx-Uri">
+            <objects>
+                <viewController id="2F8-j7-QnG" customClass="Question2b" customModule="Exercise_16_Notification" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="T5r-Yj-b04">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="M53-HL-lKc"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fuw-Th-dT5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3442" y="793"/>
         </scene>
         <!--Question1-->
         <scene sceneID="8Pl-tB-Evj">
@@ -332,7 +405,7 @@ Push notification is a method of showing alert or occurrence of event to user. F
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="igc-aj-gGV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1832.8" y="284.70764617691157"/>
+            <point key="canvasLocation" x="833" y="-66"/>
         </scene>
         <!--Data Passing Controller-->
         <scene sceneID="vkP-hA-mGm">
@@ -362,7 +435,7 @@ Push notification is a method of showing alert or occurrence of event to user. F
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pxn-sw-wTv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2637.5999999999999" y="-107.49625187406298"/>
+            <point key="canvasLocation" x="1554" y="-66"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="7ag-p0-zl8">
