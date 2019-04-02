@@ -9,13 +9,21 @@
 import UIKit
 
 class Question2b: UIViewController {
+    
+    @IBOutlet weak var messageLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: notificationIdentifier), object: nil, queue: nil, using: receiveData)
+        
     }
     
+    func receiveData(notification : Notification) {
+        let messageData: String = notification.userInfo![1] as! String
+        messageLabel.text = messageData
+    }
+
 
     /*
     // MARK: - Navigation

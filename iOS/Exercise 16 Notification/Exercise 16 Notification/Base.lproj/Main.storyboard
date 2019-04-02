@@ -150,7 +150,7 @@ Push notification is a method of showing alert or occurrence of event to user. F
                                         <constraints>
                                             <constraint firstItem="HWj-w7-abC" firstAttribute="top" secondItem="znf-Mh-IH8" secondAttribute="top" id="4km-PY-8TJ"/>
                                             <constraint firstItem="HWj-w7-abC" firstAttribute="leading" secondItem="znf-Mh-IH8" secondAttribute="leading" constant="20" id="WMk-Oe-YVz"/>
-                                            <constraint firstAttribute="bottom" secondItem="HWj-w7-abC" secondAttribute="bottom" constant="20" id="hPr-E1-IFW"/>
+                                            <constraint firstAttribute="bottom" secondItem="HWj-w7-abC" secondAttribute="bottom" constant="20" id="fIb-ZC-Vcn"/>
                                             <constraint firstAttribute="trailing" secondItem="HWj-w7-abC" secondAttribute="trailing" constant="20" id="rCD-Ie-pzJ"/>
                                         </constraints>
                                     </view>
@@ -277,11 +277,17 @@ Push notification is a method of showing alert or occurrence of event to user. F
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M5x-HA-2YH">
                                         <rect key="frame" x="0.0" y="80" width="215" height="30"/>
-                                        <state key="normal" title="Braodcast"/>
+                                        <state key="normal" title="Broadcast"/>
+                                        <connections>
+                                            <action selector="broadcastButtonAction" destination="Sk7-Ik-K4d" eventType="touchUpInside" id="A9N-8q-hPY"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jzH-7w-b0s">
                                         <rect key="frame" x="0.0" y="160" width="215" height="30"/>
                                         <state key="normal" title="Open next controller"/>
+                                        <connections>
+                                            <action selector="pushViewController" destination="Sk7-Ik-K4d" eventType="touchUpInside" id="DT4-d3-SyW"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -295,6 +301,9 @@ Push notification is a method of showing alert or occurrence of event to user. F
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="9Ya-2q-Bsk"/>
                     </view>
+                    <connections>
+                        <outlet property="broadcastMessageTextField" destination="X6b-Kt-ave" id="hAf-1D-u3m"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KUB-40-ofJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -303,44 +312,68 @@ Push notification is a method of showing alert or occurrence of event to user. F
         <!--Question 2a-->
         <scene sceneID="TlW-1L-BK3">
             <objects>
-                <viewController id="aTg-ZE-cdm" customClass="Question2a" customModule="Exercise_16_Notification" customModuleProvider="target" sceneMemberID="viewController">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9ia-6V-ezK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController storyboardIdentifier="Question2a" useStoryboardIdentifierAsRestorationIdentifier="YES" id="aTg-ZE-cdm" customClass="Question2a" customModule="Exercise_16_Notification" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="n3U-B3-OTb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nhh-T6-XpJ">
-                                <rect key="frame" x="151" y="318.5" width="73" height="30"/>
+                                <rect key="frame" x="151" y="485.5" width="73" height="30"/>
                                 <state key="normal" title="Open Next"/>
                                 <connections>
-                                    <action selector="pushController" destination="aTg-ZE-cdm" eventType="touchUpInside" id="FDY-Ks-fH5"/>
+                                    <action selector="pushViewController" destination="aTg-ZE-cdm" eventType="touchUpInside" id="0XK-Pc-44G"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Broadcasted Message" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qfl-yh-alh">
+                                <rect key="frame" x="102.5" y="212" width="170.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="nhh-T6-XpJ" firstAttribute="centerX" secondItem="n3U-B3-OTb" secondAttribute="centerX" id="Rfy-uH-Hp7"/>
-                            <constraint firstItem="nhh-T6-XpJ" firstAttribute="centerY" secondItem="n3U-B3-OTb" secondAttribute="centerY" id="qRy-yi-s6f"/>
+                            <constraint firstItem="nhh-T6-XpJ" firstAttribute="centerY" secondItem="n3U-B3-OTb" secondAttribute="centerY" multiplier="3/2" id="qRy-yi-s6f"/>
+                            <constraint firstItem="qfl-yh-alh" firstAttribute="centerY" secondItem="n3U-B3-OTb" secondAttribute="centerY" multiplier="2/3" id="wRB-1F-nmR"/>
+                            <constraint firstItem="qfl-yh-alh" firstAttribute="centerX" secondItem="n3U-B3-OTb" secondAttribute="centerX" id="y9a-vt-aDg"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="x9A-TL-SMG"/>
                     </view>
                     <connections>
+                        <outlet property="messageLabel" destination="qfl-yh-alh" id="rcQ-uD-Kr6"/>
                         <outlet property="pushButton" destination="nhh-T6-XpJ" id="WC5-Hn-2tq"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9ia-6V-ezK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2663" y="793"/>
         </scene>
         <!--Question 2b-->
         <scene sceneID="d91-Qx-Uri">
             <objects>
-                <viewController id="2F8-j7-QnG" customClass="Question2b" customModule="Exercise_16_Notification" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Question2b" id="2F8-j7-QnG" customClass="Question2b" customModule="Exercise_16_Notification" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="T5r-Yj-b04">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Broadcasted Message" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="co5-QQ-2ma">
+                                <rect key="frame" x="102.5" y="212" width="170.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="co5-QQ-2ma" firstAttribute="centerY" secondItem="T5r-Yj-b04" secondAttribute="centerY" multiplier="2/3" id="DUH-XC-Vsi"/>
+                            <constraint firstItem="co5-QQ-2ma" firstAttribute="centerX" secondItem="T5r-Yj-b04" secondAttribute="centerX" id="YdY-Zg-i8U"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="M53-HL-lKc"/>
                     </view>
+                    <connections>
+                        <outlet property="messageLabel" destination="co5-QQ-2ma" id="ClO-kE-CT8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fuw-Th-dT5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -11,17 +11,26 @@ import UIKit
 class Question2a: UIViewController {
 
     @IBOutlet weak var pushButton: UIButton!
+    @IBOutlet weak var messageLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-    
-    @IBAction func pushController() {
+        
+        NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: notificationIdentifier), object: nil, queue: nil, using: receiveData)
         
     }
     
+    func receiveData(notification : Notification) {
+        let messageData: String = notification.userInfo![1] as! String
+        messageLabel.text = messageData
+    }
+    
+    @IBAction func pushViewController() {
+        let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "Question2b")
+        navigationController?.pushViewController(controller, animated: true)
+    }
+
 
     /*
     // MARK: - Navigation
