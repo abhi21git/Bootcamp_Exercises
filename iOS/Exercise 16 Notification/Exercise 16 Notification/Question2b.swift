@@ -15,13 +15,16 @@ class Question2b: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: notificationIdentifier), object: nil, queue: nil, using: receiveData)
-        
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        
+        NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: notificationIdentifier), object: nil, queue: nil, using: receiveData)
+    }
+
+    
     func receiveData(notification : Notification) {
-        let messageData: String = notification.userInfo![1] as! String
-        messageLabel.text = messageData
+        messageLabel.text = notification.userInfo![1] as? String
     }
 
 
