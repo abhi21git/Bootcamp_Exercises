@@ -8,24 +8,39 @@
 
 import UIKit
 
-class LoginController: UIViewController, checkLogin {
+class LoginController: UIViewController, Loggable, Roundable, Borderable {
+    
 
     @IBOutlet weak var userNameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var profileImage: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        if UserDefaults.standard.bool(forKey: "UserLoggedIn") == true {
+            openProfile()
+        }
+        addBorder(view: loginButton)
+        makeRound(view: loginButton)
+        
+        makeRound(view: profileImage)
+        addBorder(view: profileImage)
     }
 
     
-    
     @IBAction func login() {
-        UserDefaults.standard.set(false, forKey: "UserLoggedIn")
+        UserDefaults.standard.set(true, forKey: "UserLoggedIn")
         
         loginCheck(state: UserDefaults.standard.bool(forKey: "UserLoggedIn"), id: userNameTextField.text!, pwd: passwordTextField.text!)
         
-        let storyboard = 
+        openProfile()
+    }
+    
+    func openProfile() {
+        let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "ProfileController") as? ProfileController
+        self.navigationController?.pushViewController(controller!, animated: true)
     }
 
 }

@@ -8,15 +8,33 @@
 
 import UIKit
 
-class ProfileController: UIViewController, checkLogin {
+class ProfileController: UIViewController, Loggable, Roundable, Borderable {
+    
+    @IBOutlet weak var usernameLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var logoutButton: UIButton!
+    @IBOutlet weak var profileImage: UIImageView!
+    
+    let date = Date()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        usernameLabel.text = UserDefaults.standard.string(forKey: "uid")
+        
+        dateLabel.text = date.toFormattedString()
+        
+        addBorder(view: logoutButton)
+        makeRound(view: logoutButton)
+        
+        makeRound(view: profileImage)
+        addBorder(view: profileImage)
+        
     }
     
     @IBAction func logout() {
-        UserDefaults.standard.set(true, forKey: "UserLoggedIn")
+        UserDefaults.standard.set(false, forKey: "UserLoggedIn")
+        self.navigationController?.popViewController(animated: true)
     }
 
 
