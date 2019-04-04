@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LoginController: UIViewController, Loggable, Roundable, Borderable {
+class LoginController: UIViewController, Loggable, Roundable, Borderable, Validator {
     
 
     @IBOutlet weak var userNameTextField: UITextField!
@@ -30,11 +30,18 @@ class LoginController: UIViewController, Loggable, Roundable, Borderable {
 
     
     @IBAction func login() {
-        UserDefaults.standard.set(true, forKey: "UserLoggedIn")
-        
-        loginCheck(state: UserDefaults.standard.bool(forKey: "UserLoggedIn"), id: userNameTextField.text!, pwd: passwordTextField.text!)
-        
-        openProfile()
+        if (emailValidator(email: userNameTextField.text!) == true && passwordValidator(password: passwordTextField.text!) == true) {
+            
+            UserDefaults.standard.set(true, forKey: "UserLoggedIn")
+            loginCheck(state: UserDefaults.standard.bool(forKey: "UserLoggedIn"), id: userNameTextField.text!, pwd: passwordTextField.text!)
+            openProfile()
+        }
+        else if emailValidator(email: userNameTextField.text!) == false{
+            UIView.transition(with: userNameTextField, duration: 0.5, options: .transitionFlipFromBottom, animations: { self.userNameTextField.text = "" }, completion: nil)
+        }
+        else if passwordValidator(password: passwordTextField.text!) == false {
+            UIView.transition(with: passwordTextField, duration: 0.5, options: .transitionFlipFromBottom, animations: { self.passwordTextField.text = "" }, completion: nil)
+        }
     }
     
     func openProfile() {

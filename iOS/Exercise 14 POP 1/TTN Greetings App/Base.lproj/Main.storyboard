@@ -22,17 +22,19 @@
                                 <rect key="frame" x="40" y="254" width="334" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" textContentType="username"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="B39-cp-sSG">
                                 <rect key="frame" x="40" y="343.5" width="334" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" textContentType="password"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aYV-pA-FfO">
                                 <rect key="frame" x="180" y="433" width="54" height="30"/>
-                                <state key="normal" title="  Login  "/>
+                                <state key="normal" title="  Login  ">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="login" destination="eXM-0I-gAn" eventType="touchUpInside" id="V88-rq-iGi"/>
                                 </connections>
@@ -66,6 +68,7 @@
                     <connections>
                         <outlet property="loginButton" destination="aYV-pA-FfO" id="dMw-F0-zui"/>
                         <outlet property="passwordTextField" destination="B39-cp-sSG" id="BBc-mJ-eRA"/>
+                        <outlet property="profileImage" destination="P47-eG-mhS" id="hO1-Kj-TJe"/>
                         <outlet property="userNameTextField" destination="Y2E-Dk-HK4" id="vZu-7i-Gcx"/>
                     </connections>
                 </viewController>
@@ -103,7 +106,9 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v1U-Zs-kcG">
                                 <rect key="frame" x="176" y="594" width="64" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="  Logout  "/>
+                                <state key="normal" title="  Logout  ">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="logout" destination="YyU-Z2-Vto" eventType="touchUpInside" id="hoF-eo-q0k"/>
                                 </connections>
