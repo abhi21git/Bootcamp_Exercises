@@ -43,7 +43,7 @@ enum initialiserState: Error {
 
 class letsTest {
     let testVariable = "123"
-    let intVariable: Int
+    let intVariable: Int = 0
     
     
 
@@ -61,34 +61,26 @@ do {
 
 
 //Question 3: Explain the difference try, try?, try! , make sure to write a program to explain the difference.
-//Answer: try is used to try for the error in the following code
-    //try! is used when the user is sure that the following code will surely not throw the error, but if the error thrown then the playground will crash. This can be used without do catch block.
-    //try? is used when the user is not sure that it may or may not throw the error ,  This can be used without do catch block.
-enum userDetailsError: Error {
-    case invalidEmailId
-    case invalidAge
+//Answer: try is used to try for the error in the throwing code and can catch error using do-catch statement
+    //try! is used when the user is sure that the throwing code will surely not throw the error, but if the error is thrown then the application will crash. This can be used without do catch block.
+    //try? is used when the user is not sure that it may or may not throw the error , This can be used without do catch block.
+enum SampleError: Error {
+    case error1
+    case error2
 }
-
-class users {
-    var name: String
-    var email: String
-    var age: Int
-    
-    init?(name: String, email: String, age: Int) throws {
-        
-        if (email.contains("@") && age > 0) {
-            self.name = name
-            self.age = age
-            self.email = email
-        }
-        else if age < 0 {
-            throw userDetailsError.invalidAge
-        }
-            
-        else {
-            throw userDetailsError.invalidEmailId
-        }
-    }
+func sampleThrowError() throws {
+    throw SampleError.error1
+}
+do {
+    try sampleThrowError()
+}
+catch SampleError.error1 {
+    print("error1")
+}
+if ((try? sampleThrowError()) != nil) {
+    print("No error")
+}else {
+    print("error1")
 }
 
 
