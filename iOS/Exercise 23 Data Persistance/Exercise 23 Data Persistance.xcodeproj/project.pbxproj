@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		463DA3572255DF2100E28FC6 /* AddRecipeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 463DA3562255DF2100E28FC6 /* AddRecipeController.swift */; };
+		466E4CC52254D5FC003D66FF /* RecipiesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466E4CC42254D5FC003D66FF /* RecipiesController.swift */; };
+		466E4CC72254D612003D66FF /* FavouritesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466E4CC62254D612003D66FF /* FavouritesController.swift */; };
+		466E4CCA2254DB73003D66FF /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 466E4CC92254DB73003D66FF /* LoginController.swift */; };
 		46AB9BC022537F5300A81273 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46AB9BBF22537F5300A81273 /* AppDelegate.swift */; };
 		46AB9BC222537F5300A81273 /* Exercise23.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46AB9BC122537F5300A81273 /* Exercise23.swift */; };
 		46AB9BC522537F5300A81273 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46AB9BC322537F5300A81273 /* Main.storyboard */; };
@@ -16,6 +20,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		463DA3562255DF2100E28FC6 /* AddRecipeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecipeController.swift; sourceTree = "<group>"; };
+		466E4CC42254D5FC003D66FF /* RecipiesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipiesController.swift; sourceTree = "<group>"; };
+		466E4CC62254D612003D66FF /* FavouritesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesController.swift; sourceTree = "<group>"; };
+		466E4CC92254DB73003D66FF /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		46AB9BBC22537F5300A81273 /* Exercise 23 Data Persistance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Exercise 23 Data Persistance.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		46AB9BBF22537F5300A81273 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		46AB9BC122537F5300A81273 /* Exercise23.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercise23.swift; sourceTree = "<group>"; };
@@ -37,9 +45,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		466E4CC22254D581003D66FF /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				46AB9BCB22537F5400A81273 /* LaunchScreen.storyboard */,
+				46AB9BC322537F5300A81273 /* Main.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		466E4CC32254D595003D66FF /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				46AB9BBF22537F5300A81273 /* AppDelegate.swift */,
+				46AB9BC122537F5300A81273 /* Exercise23.swift */,
+				466E4CC42254D5FC003D66FF /* RecipiesController.swift */,
+				466E4CC62254D612003D66FF /* FavouritesController.swift */,
+				466E4CC92254DB73003D66FF /* LoginController.swift */,
+				463DA3562255DF2100E28FC6 /* AddRecipeController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		466E4CC82254DB0A003D66FF /* Modal */ = {
+			isa = PBXGroup;
+			children = (
+				46AB9BC622537F5300A81273 /* Exercise_23_Data_Persistance.xcdatamodeld */,
+			);
+			path = Modal;
+			sourceTree = "<group>";
+		};
 		46AB9BB322537F5300A81273 = {
 			isa = PBXGroup;
 			children = (
+				466E4CC32254D595003D66FF /* Controllers */,
+				466E4CC22254D581003D66FF /* Storyboard */,
+				466E4CC82254DB0A003D66FF /* Modal */,
 				46AB9BBE22537F5300A81273 /* Exercise 23 Data Persistance */,
 				46AB9BBD22537F5300A81273 /* Products */,
 			);
@@ -56,13 +97,8 @@
 		46AB9BBE22537F5300A81273 /* Exercise 23 Data Persistance */ = {
 			isa = PBXGroup;
 			children = (
-				46AB9BBF22537F5300A81273 /* AppDelegate.swift */,
-				46AB9BC122537F5300A81273 /* Exercise23.swift */,
-				46AB9BC322537F5300A81273 /* Main.storyboard */,
-				46AB9BC922537F5400A81273 /* Assets.xcassets */,
-				46AB9BCB22537F5400A81273 /* LaunchScreen.storyboard */,
 				46AB9BCE22537F5400A81273 /* Info.plist */,
-				46AB9BC622537F5300A81273 /* Exercise_23_Data_Persistance.xcdatamodeld */,
+				46AB9BC922537F5400A81273 /* Assets.xcassets */,
 			);
 			path = "Exercise 23 Data Persistance";
 			sourceTree = "<group>";
@@ -138,9 +174,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				466E4CC72254D612003D66FF /* FavouritesController.swift in Sources */,
+				463DA3572255DF2100E28FC6 /* AddRecipeController.swift in Sources */,
+				466E4CCA2254DB73003D66FF /* LoginController.swift in Sources */,
 				46AB9BC222537F5300A81273 /* Exercise23.swift in Sources */,
 				46AB9BC022537F5300A81273 /* AppDelegate.swift in Sources */,
 				46AB9BC822537F5300A81273 /* Exercise_23_Data_Persistance.xcdatamodeld in Sources */,
+				466E4CC52254D5FC003D66FF /* RecipiesController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
