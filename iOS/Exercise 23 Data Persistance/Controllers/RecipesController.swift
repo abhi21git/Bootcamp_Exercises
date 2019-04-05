@@ -12,12 +12,13 @@ import CoreData
 class RecipiesController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var recipeTab: UITabBarItem!
-    @IBOutlet var tableView: UITableView!
+    @IBOutlet weak var tableView: UITableView!
     
     fileprivate lazy var fetchedResultController: NSFetchedResultsController<Recipe> = {
         let appDelegate = UIApplication.shared.delegate as? AppDelegate
         let context = appDelegate?.persistentContainer.viewContext
         let fetchRequest:NSFetchRequest = Recipe.fetchRequest()
+        
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "recipeName", ascending: true)]
         let fetchResultController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context!, sectionNameKeyPath: nil, cacheName: nil)
         
@@ -117,6 +118,10 @@ extension RecipiesController: NSFetchedResultsControllerDelegate {
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
         if type == .delete {
             self.tableView.deleteRows(at: [indexPath!], with: .fade)
+        }
+        if type == .insert {
+            let lastIndex = self.fetchedResultController.indexPath(forObject: anObject as! Recipe)
+            tableView.insertRows(at: [lastIndex!], with: .fade)
         }
     }
 }

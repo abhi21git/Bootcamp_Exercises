@@ -11,7 +11,7 @@ import CoreData
 
 class FavouritesController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    @IBOutlet var tableView: UITableView!
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var favouriteTab: UITabBarItem!
     
     fileprivate lazy var fetchedResultController: NSFetchedResultsController<Recipe> = {
@@ -55,6 +55,7 @@ class FavouritesController: UIViewController, UITableViewDelegate, UITableViewDa
 
 
 extension FavouritesController: NSFetchedResultsControllerDelegate {
+    // MARK: - Data Fetch
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let result = fetchedResultController.fetchedObjects else {return 0}
@@ -102,7 +103,6 @@ extension FavouritesController: NSFetchedResultsControllerDelegate {
         if type == .insert {
             let lastIndex = self.fetchedResultController.indexPath(forObject: anObject as! Recipe)
             tableView.insertRows(at: [lastIndex!], with: .fade)
-            
         }
     }
 }
