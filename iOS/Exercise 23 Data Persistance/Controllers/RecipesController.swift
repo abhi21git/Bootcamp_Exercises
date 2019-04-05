@@ -11,6 +11,7 @@ import CoreData
 
 class RecipiesController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    @IBOutlet weak var recipeTab: UITabBarItem!
     @IBOutlet var tableView: UITableView!
     
     fileprivate lazy var fetchedResultController: NSFetchedResultsController<Recipe> = {
@@ -20,7 +21,7 @@ class RecipiesController: UIViewController, UITableViewDelegate, UITableViewData
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "recipeName", ascending: true)]
         let fetchResultController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context!, sectionNameKeyPath: nil, cacheName: nil)
         
-        fetchResultController.delegate = self as? NSFetchedResultsControllerDelegate
+        fetchResultController.delegate = self
         
         try! fetchResultController.performFetch()
         return fetchResultController
@@ -70,9 +71,9 @@ class RecipiesController: UIViewController, UITableViewDelegate, UITableViewData
 extension RecipiesController: NSFetchedResultsControllerDelegate {
     // MARK: - Data Fetch
     
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let result = fetchedResultController.fetchedObjects else {return 0}
+        recipeTab.badgeValue = String(result.count)
         return result.count
         
     }
@@ -97,13 +98,11 @@ extension RecipiesController: NSFetchedResultsControllerDelegate {
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // self.tableArray.remove(at: indexPath.row)
             let appDelegate = UIApplication.shared.delegate as? AppDelegate
             let context = appDelegate?.persistentContainer.viewContext
             let recipe1 = fetchedResultController.object(at: indexPath)
             context!.delete(recipe1)
             try? context!.save()
-            
         }
     }
     

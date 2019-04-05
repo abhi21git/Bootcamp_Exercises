@@ -12,6 +12,7 @@ import CoreData
 class FavouritesController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet var tableView: UITableView!
+    @IBOutlet weak var favouriteTab: UITabBarItem!
     
     fileprivate lazy var fetchedResultController: NSFetchedResultsController<Recipe> = {
         let appDelegate = UIApplication.shared.delegate as? AppDelegate
@@ -22,7 +23,7 @@ class FavouritesController: UIViewController, UITableViewDelegate, UITableViewDa
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "recipeName", ascending: true)]
         let fetchResultController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context!, sectionNameKeyPath: nil, cacheName: nil)
         
-        fetchResultController.delegate = self as? NSFetchedResultsControllerDelegate
+        fetchResultController.delegate = self
         
         try! fetchResultController.performFetch()
         return fetchResultController
@@ -56,8 +57,9 @@ class FavouritesController: UIViewController, UITableViewDelegate, UITableViewDa
 extension FavouritesController: NSFetchedResultsControllerDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let noOfObjects = fetchedResultController.fetchedObjects else {return 0}
-        return noOfObjects.count
+        guard let result = fetchedResultController.fetchedObjects else {return 0}
+        favouriteTab.badgeValue = String(result.count)
+        return result.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

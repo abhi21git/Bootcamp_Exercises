@@ -195,8 +195,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="lgy-c6-SkB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Recipes" image="burger" id="qo2-8k-Awp"/>
+                    <tabBarItem key="tabBarItem" title="Recipes" image="burger" id="qo2-8k-Awp">
+                        <color key="badgeColor" red="0.94521898029999996" green="0.5111449361" blue="0.56591582299999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </tabBarItem>
                     <connections>
+                        <outlet property="recipeTab" destination="qo2-8k-Awp" id="T47-2N-7fK"/>
                         <outlet property="tableView" destination="Hov-TE-5Os" id="LpG-gs-S6F"/>
                     </connections>
                 </viewController>
@@ -212,62 +215,70 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="67b-nb-MO6">
-                                <rect key="frame" x="40" y="343.5" width="334" height="30"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SDk-vL-CA6">
-                                <rect key="frame" x="40" y="433" width="334" height="30"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="shD-fd-nEJ">
-                                <rect key="frame" x="177" y="545" width="60" height="30"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="taco-pin-kunchevsky" translatesAutoresizingMaskIntoConstraints="NO" id="J41-u5-v83">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="310.5"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="60" id="7uo-OM-tHD"/>
-                                </constraints>
-                                <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Login"/>
-                                <connections>
-                                    <action selector="loginCheck" destination="KzQ-WH-0AC" eventType="touchUpInside" id="cR3-41-6Ew"/>
-                                </connections>
-                            </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="watermelon" translatesAutoresizingMaskIntoConstraints="NO" id="Dvo-R7-ABj">
-                                <rect key="frame" x="147" y="90" width="120" height="119"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="Dvo-R7-ABj" secondAttribute="height" multiplier="1:1" constant="1" id="EOI-JK-mdi"/>
-                                    <constraint firstAttribute="width" constant="120" id="wCj-gQ-Bea"/>
+                                    <constraint firstAttribute="width" secondItem="J41-u5-v83" secondAttribute="height" multiplier="4:3" id="F8n-Qt-eIN"/>
                                 </constraints>
                             </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z96-qY-xmD">
+                                <rect key="frame" x="20" y="363" width="374" height="170"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="q5c-ns-goU">
+                                        <rect key="frame" x="40" y="20" width="294" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1q6-0U-WSH">
+                                        <rect key="frame" x="40" y="70" width="294" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jtn-DP-orf">
+                                        <rect key="frame" x="168" y="120" width="38" height="30"/>
+                                        <color key="tintColor" red="0.1074572578" green="0.13913419839999999" blue="0.36262348290000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="Login"/>
+                                        <connections>
+                                            <action selector="loginCheck" destination="KzQ-WH-0AC" eventType="touchUpInside" id="9ZA-Jp-R0d"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="jtn-DP-orf" firstAttribute="centerX" secondItem="Z96-qY-xmD" secondAttribute="centerX" id="5xs-vU-Fc5"/>
+                                    <constraint firstAttribute="trailing" secondItem="q5c-ns-goU" secondAttribute="trailing" constant="40" id="7E7-WA-9oJ"/>
+                                    <constraint firstAttribute="bottom" secondItem="jtn-DP-orf" secondAttribute="bottom" constant="20" id="7Nf-Uf-BNg"/>
+                                    <constraint firstItem="jtn-DP-orf" firstAttribute="top" secondItem="1q6-0U-WSH" secondAttribute="bottom" constant="20" id="Dho-Ce-NpV"/>
+                                    <constraint firstItem="q5c-ns-goU" firstAttribute="leading" secondItem="Z96-qY-xmD" secondAttribute="leading" constant="40" id="GEg-B5-V1t"/>
+                                    <constraint firstItem="1q6-0U-WSH" firstAttribute="leading" secondItem="Z96-qY-xmD" secondAttribute="leading" constant="40" id="NNI-L0-MJs"/>
+                                    <constraint firstItem="q5c-ns-goU" firstAttribute="top" secondItem="Z96-qY-xmD" secondAttribute="top" constant="20" id="dVD-36-Fbh"/>
+                                    <constraint firstAttribute="trailing" secondItem="1q6-0U-WSH" secondAttribute="trailing" constant="40" id="efm-uw-Be8"/>
+                                    <constraint firstItem="1q6-0U-WSH" firstAttribute="top" secondItem="q5c-ns-goU" secondAttribute="bottom" constant="20" id="f8a-SD-cgz"/>
+                                </constraints>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.96191102266311646" green="0.98751407861709595" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" red="0.11334437876939774" green="0.13922324776649475" blue="0.36262071132659912" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="Dvo-R7-ABj" firstAttribute="centerY" secondItem="PKJ-aM-99T" secondAttribute="centerY" multiplier="1/3" id="0UJ-xq-pYo"/>
-                            <constraint firstItem="67b-nb-MO6" firstAttribute="centerX" secondItem="PKJ-aM-99T" secondAttribute="centerX" id="1Yp-mb-uTX"/>
-                            <constraint firstItem="8tu-eS-fkz" firstAttribute="trailing" secondItem="SDk-vL-CA6" secondAttribute="trailing" constant="40" id="5Sq-rZ-t77"/>
-                            <constraint firstItem="SDk-vL-CA6" firstAttribute="centerX" secondItem="PKJ-aM-99T" secondAttribute="centerX" id="FZf-zh-CNW"/>
-                            <constraint firstItem="shD-fd-nEJ" firstAttribute="centerY" secondItem="PKJ-aM-99T" secondAttribute="centerY" multiplier="5/4" id="FbL-SS-tCx"/>
-                            <constraint firstItem="SDk-vL-CA6" firstAttribute="centerY" secondItem="PKJ-aM-99T" secondAttribute="centerY" id="TLj-ll-fJB"/>
-                            <constraint firstItem="shD-fd-nEJ" firstAttribute="centerX" secondItem="PKJ-aM-99T" secondAttribute="centerX" id="gWZ-RK-7Gk"/>
-                            <constraint firstItem="SDk-vL-CA6" firstAttribute="leading" secondItem="8tu-eS-fkz" secondAttribute="leading" constant="40" id="gYv-MX-Y3t"/>
-                            <constraint firstItem="Dvo-R7-ABj" firstAttribute="centerX" secondItem="PKJ-aM-99T" secondAttribute="centerX" id="nMp-Z5-h2V"/>
-                            <constraint firstItem="8tu-eS-fkz" firstAttribute="trailing" secondItem="67b-nb-MO6" secondAttribute="trailing" constant="40" id="obz-Qe-tDI"/>
-                            <constraint firstItem="67b-nb-MO6" firstAttribute="leading" secondItem="8tu-eS-fkz" secondAttribute="leading" constant="40" id="pcO-3B-htT"/>
-                            <constraint firstItem="67b-nb-MO6" firstAttribute="centerY" secondItem="PKJ-aM-99T" secondAttribute="centerY" multiplier="2.4/3" id="uu9-xX-z96"/>
+                            <constraint firstItem="Z96-qY-xmD" firstAttribute="centerX" secondItem="PKJ-aM-99T" secondAttribute="centerX" id="2Lz-Cs-zcp"/>
+                            <constraint firstItem="8tu-eS-fkz" firstAttribute="trailing" secondItem="Z96-qY-xmD" secondAttribute="trailing" constant="20" id="3tC-hG-3LM"/>
+                            <constraint firstItem="J41-u5-v83" firstAttribute="leading" secondItem="PKJ-aM-99T" secondAttribute="leading" id="La2-2p-F1f"/>
+                            <constraint firstItem="8tu-eS-fkz" firstAttribute="trailing" secondItem="J41-u5-v83" secondAttribute="trailing" id="QMW-dW-FeO"/>
+                            <constraint firstItem="Z96-qY-xmD" firstAttribute="leading" secondItem="8tu-eS-fkz" secondAttribute="leading" constant="20" id="TfX-MC-Ydt"/>
+                            <constraint firstItem="Z96-qY-xmD" firstAttribute="centerY" secondItem="PKJ-aM-99T" secondAttribute="centerY" id="h0R-ln-9tF"/>
+                            <constraint firstItem="J41-u5-v83" firstAttribute="top" secondItem="PKJ-aM-99T" secondAttribute="top" id="usF-g0-oFc"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="8tu-eS-fkz"/>
                     </view>
                     <connections>
-                        <outlet property="passwordTextField" destination="SDk-vL-CA6" id="Fi8-YL-zN9"/>
-                        <outlet property="userNameTextField" destination="67b-nb-MO6" id="okp-eQ-kyR"/>
+                        <outlet property="passwordTextField" destination="1q6-0U-WSH" id="sli-5D-6dS"/>
+                        <outlet property="userNameTextField" destination="q5c-ns-goU" id="owr-Wf-rI4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ng3-Hf-KMW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2129" y="425"/>
+            <point key="canvasLocation" x="2128.985507246377" y="424.55357142857139"/>
         </scene>
         <!--Favourites-->
         <scene sceneID="QCQ-3G-ZUN">
@@ -291,8 +302,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Hbz-nu-MFa"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Favourites" image="heart" id="gJI-4v-DZi"/>
+                    <tabBarItem key="tabBarItem" title="Favourites" image="heart" id="gJI-4v-DZi">
+                        <color key="badgeColor" red="0.94521898029999996" green="0.5111449361" blue="0.56591582299999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </tabBarItem>
                     <connections>
+                        <outlet property="favouriteTab" destination="gJI-4v-DZi" id="OSl-aC-Rut"/>
                         <outlet property="tableView" destination="i00-47-vca" id="vou-FW-Tto"/>
                     </connections>
                 </viewController>
@@ -306,14 +320,16 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="R47-Nb-27l" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Recipes" image="burger" id="ojZ-u8-AJE"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" largeTitles="YES" id="bys-we-A8f">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="bys-we-A8f">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="titleTextAttributes">
-                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
+                            <color key="textColor" red="0.94521898029999996" green="0.5111449361" blue="0.56591582299999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </textAttributes>
                         <textAttributes key="largeTitleTextAttributes">
                             <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                            <color key="textColor" red="0.94521898029999996" green="0.5111449361" blue="0.56591582299999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -331,37 +347,23 @@
                 <tabBarController storyboardIdentifier="Exercise23" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="vVj-an-Nzt" customClass="Exercise23" customModule="Exercise_23_Data_Persistance" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="tQV-PE-qGo">
-                        <barButtonItem key="leftBarButtonItem" style="plain" id="BSn-hR-O6x">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="9yc-lu-zcG">
-                                <rect key="frame" x="20" y="4" width="92" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Add">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="addRecipe" destination="vVj-an-Nzt" eventType="touchUpInside" id="8JU-7o-xOk"/>
-                                </connections>
-                            </button>
+                        <barButtonItem key="leftBarButtonItem" title="Add Recipe" style="plain" id="BSn-hR-O6x">
+                            <color key="tintColor" red="0.94521898029999996" green="0.5111449361" blue="0.56591582299999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="addRecipe" destination="vVj-an-Nzt" id="RlN-dv-ztd"/>
+                            </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="hdz-w4-ghS">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Kgk-Wm-1di">
-                                <rect key="frame" x="302" y="4" width="92" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Logout">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="logout" destination="vVj-an-Nzt" eventType="touchUpInside" id="POo-Zo-yuv"/>
-                                </connections>
-                            </button>
+                        <barButtonItem key="rightBarButtonItem" title="Logout" style="plain" id="hdz-w4-ghS">
+                            <color key="tintColor" red="0.94521898029999996" green="0.5111449361" blue="0.56591582299999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="logout" destination="vVj-an-Nzt" id="9DB-Nq-5oW"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="T4o-kN-IsN">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" itemPositioning="fill" id="T4o-kN-IsN">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" red="0.94521898029999996" green="0.5111449361" blue="0.56591582299999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="pcR-4S-8Bs" kind="relationship" relationship="viewControllers" id="vmg-w7-PP4"/>
@@ -377,6 +379,6 @@
         <image name="burger" width="24" height="24"/>
         <image name="heart" width="24" height="24"/>
         <image name="recipe-book" width="256" height="256"/>
-        <image name="watermelon" width="256" height="256"/>
+        <image name="taco-pin-kunchevsky" width="1600" height="1200"/>
     </resources>
 </document>
