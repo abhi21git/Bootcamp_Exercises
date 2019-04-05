@@ -27,6 +27,10 @@ class RecipiesController: UIViewController, UITableViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        urls[urls.count-1] as NSURL
+        print(urls)
 
     }
     

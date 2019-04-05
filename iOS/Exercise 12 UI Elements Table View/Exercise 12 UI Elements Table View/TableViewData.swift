@@ -44,9 +44,9 @@ class TableViewData: UIViewController, UITableViewDelegate, UITableViewDataSourc
     }
     
     @IBAction func refreshData() {
-//        if limitIndex == false{
+        if limitIndex == false{
             tableView.reloadData()
-//        }
+        }
     }
     
     //Protocols for table
@@ -79,13 +79,14 @@ class TableViewData: UIViewController, UITableViewDelegate, UITableViewDataSourc
             
             let lastElement = arrayOfData.count - 1
             if indexPath.row == lastElement {
-//                if indexPath.row > 2{
-//                    tableView.reloadData()
-//                    limitIndex = true
-//                }
+                if indexPath.row > 9{
+                    tableView.reloadData()
+                    limitIndex = true
+                }
                 tableView.tableFooterView?.isHidden = true
             }
         }
     }
+    
 
 }

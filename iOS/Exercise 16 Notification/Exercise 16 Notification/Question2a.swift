@@ -10,7 +10,6 @@ import UIKit
 
 class Question2a: UIViewController {
 
-    @IBOutlet weak var pushButton: UIButton!
     @IBOutlet weak var messageLabel: UILabel!
     
     override func viewDidLoad() {

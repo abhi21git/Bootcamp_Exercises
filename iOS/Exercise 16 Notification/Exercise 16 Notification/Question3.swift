@@ -29,7 +29,7 @@ class Question3: UIViewController, UNUserNotificationCenterDelegate{
 
         notificationTitleTextField.text = ""
         notificationMessageTextField.text = ""
-        notificationTimeTextField.text = ""
+        notificationTimeTextField.text = "1"
 
         // Do any additional setup after loading the view.
     }
