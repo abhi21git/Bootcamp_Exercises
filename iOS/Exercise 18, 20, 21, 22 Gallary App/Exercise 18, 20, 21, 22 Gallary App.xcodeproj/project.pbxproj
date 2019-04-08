@@ -18,6 +18,8 @@
 		46B81495225A116100AB4920 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46B81494225A116100AB4920 /* Assets.xcassets */; };
 		46B814A2225A12FF00AB4920 /* CustomCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B814A0225A12FF00AB4920 /* CustomCollectionCell.swift */; };
 		46B814A3225A12FF00AB4920 /* CustomCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 46B814A1225A12FF00AB4920 /* CustomCollectionCell.xib */; };
+		46B814A7225B4EFB00AB4920 /* JSONStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B814A6225B4EFB00AB4920 /* JSONStructure.swift */; };
+		46B814A9225B5D1900AB4920 /* loadImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46B814A8225B5D1900AB4920 /* loadImageExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		46B81494225A116100AB4920 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		46B814A0225A12FF00AB4920 /* CustomCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionCell.swift; sourceTree = "<group>"; };
 		46B814A1225A12FF00AB4920 /* CustomCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomCollectionCell.xib; sourceTree = "<group>"; };
+		46B814A6225B4EFB00AB4920 /* JSONStructure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONStructure.swift; sourceTree = "<group>"; };
+		46B814A8225B5D1900AB4920 /* loadImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loadImageExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +70,7 @@
 		46A7525C2259E0570080BFC8 /* Exercise 18, 20, 21, 22 Gallary App */ = {
 			isa = PBXGroup;
 			children = (
+				46B814A5225B4E8E00AB4920 /* Modal */,
 				46B8149D225A128100AB4920 /* Extensions */,
 				46B81497225A11CC00AB4920 /* Controller */,
 				46A752742259EBD90080BFC8 /* Storyboard */,
@@ -117,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				46A752782259F93B0080BFC8 /* HalfRoundedViewExtension.swift */,
+				46B814A8225B5D1900AB4920 /* loadImageExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -128,6 +134,14 @@
 				46B814A1225A12FF00AB4920 /* CustomCollectionCell.xib */,
 			);
 			path = CustomCell;
+			sourceTree = "<group>";
+		};
+		46B814A5225B4E8E00AB4920 /* Modal */ = {
+			isa = PBXGroup;
+			children = (
+				46B814A6225B4EFB00AB4920 /* JSONStructure.swift */,
+			);
+			path = Modal;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -206,8 +220,10 @@
 				46A752702259EB7C0080BFC8 /* CustomNavigationBar.swift in Sources */,
 				46A752792259F93B0080BFC8 /* HalfRoundedViewExtension.swift in Sources */,
 				46B814A2225A12FF00AB4920 /* CustomCollectionCell.swift in Sources */,
+				46B814A9225B5D1900AB4920 /* loadImageExtension.swift in Sources */,
 				46A752732259EBCC0080BFC8 /* GallaryController.swift in Sources */,
 				46A7525E2259E0570080BFC8 /* AppDelegate.swift in Sources */,
+				46B814A7225B4EFB00AB4920 /* JSONStructure.swift in Sources */,
 				46A7527C2259FBAB0080BFC8 /* PicturePreviewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

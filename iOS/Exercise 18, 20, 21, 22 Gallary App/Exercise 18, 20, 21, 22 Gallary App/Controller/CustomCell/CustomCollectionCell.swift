@@ -13,7 +13,8 @@ class CustomCollectionCell: UICollectionViewCell {
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
-
+    @IBOutlet weak var loadingView: UIView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -28,7 +29,16 @@ class CustomCollectionCell: UICollectionViewCell {
         
         self.containerView.makeHalfRounded(cornerRadius: self.titleLabel.bounds.height/2, maskCorners: [.layerMinXMaxYCorner , .layerMaxXMaxYCorner , .layerMaxXMinYCorner, .layerMinXMinYCorner])
         
-        
     }
+    
+    func loadImage(image: UIImage) {
+        self.imageView.image = image
+        self.loadingView.isHidden = true
+    }
+    
+    func loadAuthor(authorName: String) {
+        self.titleLabel.text = authorName
+    }
+
 
 }

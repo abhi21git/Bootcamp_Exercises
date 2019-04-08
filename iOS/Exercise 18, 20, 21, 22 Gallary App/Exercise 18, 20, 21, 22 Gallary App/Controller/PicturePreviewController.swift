@@ -18,7 +18,8 @@ class PicturePreviewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        customNavBar.titleButton.addTarget(self.customNavBar.titleButton, action: #selector(self.buttonClicked), for: .touchUpInside)
+        customNavBar.titleButton.addTarget(self, action: #selector(self.buttonClicked), for: .touchUpInside)
+        
         self.configUI()
         
     }

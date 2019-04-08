@@ -61,7 +61,7 @@
         <!--Picture Preview Controller-->
         <scene sceneID="yD2-9w-A4Y">
             <objects>
-                <viewController id="lVP-th-Nwp" customClass="PicturePreviewController" customModule="Exercise_18__20__21__22_Gallary_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PicturePreviewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="lVP-th-Nwp" customClass="PicturePreviewController" customModule="Exercise_18__20__21__22_Gallary_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LnY-8z-6ka">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
