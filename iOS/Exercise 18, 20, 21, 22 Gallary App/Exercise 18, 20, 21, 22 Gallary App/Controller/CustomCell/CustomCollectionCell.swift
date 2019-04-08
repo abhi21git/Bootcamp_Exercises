@@ -16,16 +16,17 @@ class CustomCollectionCell: UICollectionViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        
         // Initialization code
         self.configUI()
     }
     
     private func configUI() {
-        self.imageView.makeHalfRounded(cornerRadius: self.titleLabel.frame.height, maskCorners: [.layerMaxXMaxYCorner , .layerMinXMinYCorner])
+//        self.imageView.makeHalfRounded(cornerRadius: self.titleLabel.frame.height, maskCorners: [.layerMaxXMaxYCorner , .layerMinXMinYCorner])
         
-        self.titleLabel.makeHalfRounded(cornerRadius: self.titleLabel.frame.height/2, maskCorners: [.layerMaxXMaxYCorner , .layerMinXMinYCorner])
+        self.titleLabel.makeHalfRounded(cornerRadius: self.titleLabel.frame.height/2, maskCorners: [.layerMaxXMinYCorner , .layerMinXMinYCorner])
         
-        self.containerView.makeHalfRounded(cornerRadius: self.titleLabel.bounds.height, maskCorners: [.layerMinXMaxYCorner , .layerMaxXMaxYCorner , .layerMaxXMinYCorner, .layerMinXMinYCorner])
+        self.containerView.makeHalfRounded(cornerRadius: self.titleLabel.bounds.height/2, maskCorners: [.layerMinXMaxYCorner , .layerMaxXMaxYCorner , .layerMaxXMinYCorner, .layerMinXMinYCorner])
         
         
     }

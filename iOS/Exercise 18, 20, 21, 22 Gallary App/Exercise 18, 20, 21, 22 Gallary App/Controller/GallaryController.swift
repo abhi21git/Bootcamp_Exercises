@@ -11,19 +11,20 @@ import UIKit
 class GallaryController: UIViewController {
     
     @IBOutlet weak var photoCollectionView: UICollectionView!
-
+    @IBOutlet weak var customNavBar: CustomNavigationBar!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         photoCollectionView.dataSource = self
         photoCollectionView.delegate = self
         
+        customNavBar.leftButton.isHidden = true
+                
         let nib = UINib.init(nibName: "CustomCollectionCell", bundle: nil)
         photoCollectionView.register(nib, forCellWithReuseIdentifier: "CustomCollectionCell")
 
     }
-    
-
 }
 
 extension GallaryController: UICollectionViewDelegate , UICollectionViewDataSource , UICollectionViewDelegateFlowLayout {
@@ -36,8 +37,10 @@ extension GallaryController: UICollectionViewDelegate , UICollectionViewDataSour
         return cell
     }
     
+    
+    //    to set height and width of cell in proportion to screen size and maintaning aspect ration of 4:3
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let cellWidth = collectionView.bounds.width/2.0
+        let cellWidth = (collectionView.bounds.width/2.0)-12
         let cellHeight = cellWidth*(4/3)
         return CGSize(width: cellWidth, height: cellHeight)
     }

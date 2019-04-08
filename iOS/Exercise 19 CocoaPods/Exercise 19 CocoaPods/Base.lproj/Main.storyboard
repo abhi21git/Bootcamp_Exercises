@@ -21,13 +21,16 @@
                             <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ATv-WV-zF6">
                                 <rect key="frame" x="169.5" y="582.5" width="75" height="30"/>
                                 <state key="normal" title="Question 5"/>
+                                <connections>
+                                    <action selector="testrequest" destination="BYZ-38-t0r" eventType="touchUpInside" id="0kt-rv-zTi"/>
+                                </connections>
                             </button>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t8i-R9-HGe">
                                 <rect key="frame" x="20" y="64" width="374" height="498.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lU5-N4-mZq">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="446.5"/>
-                                        <mutableString key="text">Question 1: Explain the pod integration cycle.
+                                        <string key="text">Question 1: Explain the pod integration cycle.
 Answer:
 Pending- Pod is created, is scheduled and loaded.
 Running- Pod is operating successfully.
@@ -45,7 +48,7 @@ Answer:
 
 Question 4: update to a particular lib version
 Answer: pod update &lt;podName&gt; &lt;podVersion&gt;
-</mutableString>
+</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>

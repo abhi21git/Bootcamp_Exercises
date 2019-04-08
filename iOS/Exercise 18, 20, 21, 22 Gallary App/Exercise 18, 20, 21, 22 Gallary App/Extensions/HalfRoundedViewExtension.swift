@@ -10,6 +10,9 @@ import Foundation
 import UIKit
 
 extension UIView {
+    
+//    Function to make specific corners round of any UI element
+    
     func makeHalfRounded(cornerRadius: CGFloat, maskCorners: CACornerMask ) {
         self.clipsToBounds = true
         self.layer.cornerRadius = cornerRadius

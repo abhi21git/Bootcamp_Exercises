@@ -25,6 +25,8 @@ class CustomNavigationBar: UIView {
     }
     
     private func initialSetUps() {
+        
+//        register nib
         let bundle = Bundle(for: type(of: self))
         let nib = UINib(nibName: "CustomNavigationBar", bundle: bundle)
         if let view = nib.instantiate(withOwner: self, options: nil).first as? UIView {
@@ -36,6 +38,8 @@ class CustomNavigationBar: UIView {
     }
 
     private func configUI() {
+        
+//        set corner radius for navigation button
         self.leftButton.makeHalfRounded(cornerRadius: self.leftButton.frame.height/2, maskCorners: [.layerMaxXMaxYCorner , .layerMaxXMinYCorner])
         
         self.rightButton.makeHalfRounded(cornerRadius: self.rightButton.frame.height/2, maskCorners: [.layerMaxXMaxYCorner , .layerMaxXMinYCorner])

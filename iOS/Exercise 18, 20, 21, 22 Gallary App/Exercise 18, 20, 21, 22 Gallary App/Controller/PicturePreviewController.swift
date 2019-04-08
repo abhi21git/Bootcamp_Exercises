@@ -13,14 +13,19 @@ class PicturePreviewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var downloadButton: UIButton!
     @IBOutlet weak var authorButton: UIButton!
-
+    @IBOutlet weak var customNavBar: CustomNavigationBar!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        customNavBar.titleButton.addTarget(self.customNavBar.titleButton, action: #selector(self.buttonClicked), for: .touchUpInside)
         self.configUI()
         
     }
     
+    @objc func buttonClicked() {
+        self.navigationController?.popToRootViewController(animated: true)
+    }
 
     private func configUI() {
         self.imageView.makeHalfRounded(cornerRadius: self.downloadButton.frame.height/2, maskCorners: [.layerMaxXMaxYCorner , .layerMaxXMinYCorner])
