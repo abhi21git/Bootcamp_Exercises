@@ -22,12 +22,24 @@ class GallaryController: UIViewController {
         photoCollectionView.delegate = self
         
         customNavBar.leftButton.isHidden = true
+        
+        customNavBar.titleButton.addTarget(self, action: #selector(self.titleClicked), for: .touchUpInside)
+        
+        customNavBar.rightButton.addTarget(self, action: #selector(self.logoutClicked), for: .touchUpInside)
                 
         let nib = UINib.init(nibName: "CustomCollectionCell", bundle: nil)
         photoCollectionView.register(nib, forCellWithReuseIdentifier: "CustomCollectionCell")
         
         loadData()
 
+    }
+    
+    @objc func titleClicked() {
+        photoCollectionView.reloadData()
+    }
+    
+    @objc func logoutClicked() {
+        //        log out functionality here
     }
     
     func loadData() {
@@ -73,24 +85,19 @@ extension GallaryController: UICollectionViewDelegate , UICollectionViewDataSour
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
-        let controller =  storyBoard.instantiateViewController(withIdentifier: "PicturePreviewController") as! PicturePreviewController
+        let controller = storyBoard.instantiateViewController(withIdentifier: "PicturePreviewController") as! PicturePreviewController
         
         let imageWidth = self.view.frame.width
         let imageHeight = imageWidth*(4/3)
-        
-//        controller.authorname = arrayData[indexPath.row].author
-//        detail.authorUrl = arrayData[indexPath.row].author_url
-//        detail.posturl = arrayData[indexPath.row].post_url
-        
         let imageurl = "https://picsum.photos/\(imageWidth)/\(imageHeight)?image=\(arrayOfJSON[indexPath.row].id)"
         guard let url = URL(string: imageurl) else { return }
         
         UIImage.loadFrom(url: url) { image in
             controller.imageView.image = image
+            controller.loadingIndicator.isHidden = true
         }
         self.navigationController?.pushViewController(controller, animated: true)
     }
-    
     
     
     //    to set height and width of cell in proportion to screen size and maintaning aspect ration of 4:3

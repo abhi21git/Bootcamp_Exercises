@@ -13,7 +13,7 @@ class CustomCollectionCell: UICollectionViewCell {
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var loadingView: UIView!
+    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -33,7 +33,7 @@ class CustomCollectionCell: UICollectionViewCell {
     
     func loadImage(image: UIImage) {
         self.imageView.image = image
-        self.loadingView.isHidden = true
+        self.loadingIndicator.isHidden = true
     }
     
     func loadAuthor(authorName: String) {

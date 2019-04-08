@@ -14,18 +14,31 @@ class PicturePreviewController: UIViewController {
     @IBOutlet weak var downloadButton: UIButton!
     @IBOutlet weak var authorButton: UIButton!
     @IBOutlet weak var customNavBar: CustomNavigationBar!
+    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        customNavBar.titleButton.addTarget(self, action: #selector(self.buttonClicked), for: .touchUpInside)
+        customNavBar.leftButton.addTarget(self, action: #selector(self.backClicked), for: .touchUpInside)
+
+        customNavBar.titleButton.addTarget(self, action: #selector(self.titleClicked), for: .touchUpInside)
+        
+        customNavBar.rightButton.addTarget(self, action: #selector(self.logoutClicked), for: .touchUpInside)
         
         self.configUI()
         
     }
     
-    @objc func buttonClicked() {
+    @objc func backClicked() {
+        self.navigationController?.popViewController(animated: true)
+    }
+
+    @objc func titleClicked() {
         self.navigationController?.popToRootViewController(animated: true)
+    }
+    
+    @objc func logoutClicked() {
+//        log out functionality here
     }
 
     private func configUI() {

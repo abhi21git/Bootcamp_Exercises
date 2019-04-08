@@ -66,61 +66,69 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xRH-kc-CeL">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                            </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AJd-N7-N1o" customClass="CustomNavigationBar" customModule="Exercise_18__20__21__22_Gallary_App" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="44" width="414" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="3wN-tz-QHc"/>
                                 </constraints>
                             </view>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loading" translatesAutoresizingMaskIntoConstraints="NO" id="xRH-kc-CeL">
-                                <rect key="frame" x="0.0" y="104" width="414" height="698"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1dh-P0-GQj">
-                                <rect key="frame" x="177" y="802" width="237" height="60"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lhV-03-H3l">
+                                <rect key="frame" x="207" y="802" width="207" height="60"/>
                                 <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="gGA-ea-9ft"/>
+                                    <constraint firstAttribute="height" constant="60" id="Bxz-fg-CL5"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="16"/>
                                 <state key="normal" title="AUTHOR">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tsy-9y-9CG">
-                                <rect key="frame" x="0.0" y="802" width="207" height="60"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z9M-F1-XuK">
+                                <rect key="frame" x="0.0" y="802" width="237" height="60"/>
                                 <color key="backgroundColor" red="0.75406885150000003" green="0.75408679249999999" blue="0.75407713649999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="reI-nv-gjo"/>
+                                    <constraint firstAttribute="height" constant="60" id="887-v5-hEQ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="16"/>
                                 <state key="normal" title="DOWNLOAD">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="zbs-ka-itp">
+                                <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
+                                <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Tsy-9y-9CG" firstAttribute="width" secondItem="c8V-W9-Fbp" secondAttribute="width" multiplier="0.5" id="1wh-Df-4R2"/>
-                            <constraint firstItem="Tsy-9y-9CG" firstAttribute="leading" secondItem="c8V-W9-Fbp" secondAttribute="leading" id="4wv-jd-a7p"/>
+                            <constraint firstItem="c8V-W9-Fbp" firstAttribute="trailing" secondItem="lhV-03-H3l" secondAttribute="trailing" id="3gu-GL-jQr"/>
                             <constraint firstItem="AJd-N7-N1o" firstAttribute="trailing" secondItem="c8V-W9-Fbp" secondAttribute="trailing" id="8bO-CU-AsE"/>
-                            <constraint firstItem="1dh-P0-GQj" firstAttribute="bottom" secondItem="c8V-W9-Fbp" secondAttribute="bottom" id="99C-cR-ij2"/>
-                            <constraint firstItem="c8V-W9-Fbp" firstAttribute="trailing" secondItem="1dh-P0-GQj" secondAttribute="trailing" id="9Tq-fa-zph"/>
+                            <constraint firstItem="Z9M-F1-XuK" firstAttribute="leading" secondItem="c8V-W9-Fbp" secondAttribute="leading" id="91P-pg-5ON"/>
+                            <constraint firstItem="zbs-ka-itp" firstAttribute="centerY" secondItem="LnY-8z-6ka" secondAttribute="centerY" id="9Kd-Zn-DG3"/>
                             <constraint firstItem="c8V-W9-Fbp" firstAttribute="trailing" secondItem="xRH-kc-CeL" secondAttribute="trailing" id="G1l-U5-JjH"/>
+                            <constraint firstItem="lhV-03-H3l" firstAttribute="bottom" secondItem="c8V-W9-Fbp" secondAttribute="bottom" id="Grx-Jb-ZBE"/>
                             <constraint firstItem="AJd-N7-N1o" firstAttribute="leading" secondItem="c8V-W9-Fbp" secondAttribute="leading" id="Jnt-O8-uYj"/>
                             <constraint firstItem="xRH-kc-CeL" firstAttribute="leading" secondItem="c8V-W9-Fbp" secondAttribute="leading" id="PKa-hF-YGG"/>
-                            <constraint firstItem="Tsy-9y-9CG" firstAttribute="bottom" secondItem="c8V-W9-Fbp" secondAttribute="bottom" id="QSS-xx-9dF"/>
-                            <constraint firstItem="1dh-P0-GQj" firstAttribute="width" secondItem="c8V-W9-Fbp" secondAttribute="width" multiplier="0.5" constant="30" id="U9R-6E-XxT"/>
-                            <constraint firstItem="1dh-P0-GQj" firstAttribute="top" secondItem="xRH-kc-CeL" secondAttribute="bottom" id="peu-kk-F44"/>
-                            <constraint firstItem="xRH-kc-CeL" firstAttribute="top" secondItem="AJd-N7-N1o" secondAttribute="bottom" id="tQI-s9-zAl"/>
+                            <constraint firstItem="lhV-03-H3l" firstAttribute="width" secondItem="c8V-W9-Fbp" secondAttribute="width" multiplier="0.5" id="YDc-yz-2cf"/>
+                            <constraint firstItem="zbs-ka-itp" firstAttribute="centerX" secondItem="LnY-8z-6ka" secondAttribute="centerX" id="Zap-to-G43"/>
+                            <constraint firstItem="xRH-kc-CeL" firstAttribute="top" secondItem="c8V-W9-Fbp" secondAttribute="top" id="fph-lS-y09"/>
+                            <constraint firstItem="Z9M-F1-XuK" firstAttribute="bottom" secondItem="c8V-W9-Fbp" secondAttribute="bottom" id="jJt-fx-Uuc"/>
+                            <constraint firstItem="c8V-W9-Fbp" firstAttribute="bottom" secondItem="xRH-kc-CeL" secondAttribute="bottom" id="qNZ-5C-udc"/>
                             <constraint firstItem="AJd-N7-N1o" firstAttribute="top" secondItem="c8V-W9-Fbp" secondAttribute="top" id="uCd-Q2-HZa"/>
+                            <constraint firstItem="Z9M-F1-XuK" firstAttribute="width" secondItem="c8V-W9-Fbp" secondAttribute="width" multiplier="0.5" constant="30" id="vaq-UG-6nG"/>
+                            <constraint firstItem="c8V-W9-Fbp" firstAttribute="bottom" secondItem="xRH-kc-CeL" secondAttribute="bottom" id="zC1-XN-kbD"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="c8V-W9-Fbp"/>
                     </view>
                     <connections>
-                        <outlet property="authorButton" destination="1dh-P0-GQj" id="yT2-eo-cvF"/>
+                        <outlet property="authorButton" destination="lhV-03-H3l" id="SnN-gn-0Cd"/>
                         <outlet property="customNavBar" destination="AJd-N7-N1o" id="DiC-t6-VfV"/>
-                        <outlet property="downloadButton" destination="Tsy-9y-9CG" id="luy-uz-0Lo"/>
+                        <outlet property="downloadButton" destination="Z9M-F1-XuK" id="AZn-4E-2Ml"/>
                         <outlet property="imageView" destination="xRH-kc-CeL" id="K2A-uX-mU8"/>
+                        <outlet property="loadingIndicator" destination="zbs-ka-itp" id="1EU-5D-x72"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I6a-5v-NfH" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -145,7 +153,4 @@
             <point key="canvasLocation" x="192.75362318840581" y="18.75"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="loading" width="4460" height="3344"/>
-    </resources>
 </document>
