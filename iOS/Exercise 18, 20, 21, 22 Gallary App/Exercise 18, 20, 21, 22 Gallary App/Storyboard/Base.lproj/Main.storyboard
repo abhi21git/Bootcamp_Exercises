@@ -85,6 +85,9 @@
                                 <state key="normal" title="AUTHOR">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="viewAuthor" destination="lVP-th-Nwp" eventType="touchUpInside" id="sBd-nV-CzN"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z9M-F1-XuK">
                                 <rect key="frame" x="0.0" y="802" width="237" height="60"/>
@@ -101,6 +104,17 @@
                                 <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
                                 <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </activityIndicatorView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="odB-hW-vGs">
+                                <rect key="frame" x="79" y="772" width="256" height="30"/>
+                                <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="0.60239190919999996" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="01Q-Le-YJz"/>
+                                    <constraint firstAttribute="width" constant="256" id="lBY-cT-ezx"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -115,7 +129,9 @@
                             <constraint firstItem="lhV-03-H3l" firstAttribute="width" secondItem="c8V-W9-Fbp" secondAttribute="width" multiplier="0.5" id="YDc-yz-2cf"/>
                             <constraint firstItem="zbs-ka-itp" firstAttribute="centerX" secondItem="LnY-8z-6ka" secondAttribute="centerX" id="Zap-to-G43"/>
                             <constraint firstItem="xRH-kc-CeL" firstAttribute="top" secondItem="c8V-W9-Fbp" secondAttribute="top" id="fph-lS-y09"/>
+                            <constraint firstItem="Z9M-F1-XuK" firstAttribute="top" secondItem="odB-hW-vGs" secondAttribute="bottom" id="hct-ZP-Egk"/>
                             <constraint firstItem="Z9M-F1-XuK" firstAttribute="bottom" secondItem="c8V-W9-Fbp" secondAttribute="bottom" id="jJt-fx-Uuc"/>
+                            <constraint firstItem="odB-hW-vGs" firstAttribute="centerX" secondItem="LnY-8z-6ka" secondAttribute="centerX" id="mLa-g6-nTh"/>
                             <constraint firstItem="c8V-W9-Fbp" firstAttribute="bottom" secondItem="xRH-kc-CeL" secondAttribute="bottom" id="qNZ-5C-udc"/>
                             <constraint firstItem="AJd-N7-N1o" firstAttribute="top" secondItem="c8V-W9-Fbp" secondAttribute="top" id="uCd-Q2-HZa"/>
                             <constraint firstItem="Z9M-F1-XuK" firstAttribute="width" secondItem="c8V-W9-Fbp" secondAttribute="width" multiplier="0.5" constant="30" id="vaq-UG-6nG"/>
@@ -125,6 +141,7 @@
                     </view>
                     <connections>
                         <outlet property="authorButton" destination="lhV-03-H3l" id="SnN-gn-0Cd"/>
+                        <outlet property="authorNameLabel" destination="odB-hW-vGs" id="hEB-OL-bjM"/>
                         <outlet property="customNavBar" destination="AJd-N7-N1o" id="DiC-t6-VfV"/>
                         <outlet property="downloadButton" destination="Z9M-F1-XuK" id="AZn-4E-2Ml"/>
                         <outlet property="imageView" destination="xRH-kc-CeL" id="K2A-uX-mU8"/>

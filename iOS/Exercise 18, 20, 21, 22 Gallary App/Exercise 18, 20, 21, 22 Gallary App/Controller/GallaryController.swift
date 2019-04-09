@@ -44,7 +44,8 @@ class GallaryController: UIViewController {
     
     func loadData() {
         let jsonURL = URL(string: "https://picsum.photos/list")
-        URLSession.shared.dataTask(with: jsonURL!) { (data, response, error) in
+        let session = URLSession(configuration: .default)
+        let sessionTask = session.dataTask(with: jsonURL!) { (data, response, error) in
             do {
                 if error == nil {
                     self.arrayOfJSON = try JSONDecoder().decode([jsonStructure].self, from: data!)
@@ -55,14 +56,14 @@ class GallaryController: UIViewController {
             }catch {
                 //Can't load data
             }
-        }.resume()
+        }
+        sessionTask.resume()
     }
     
 }
 
 extension GallaryController: UICollectionViewDelegate , UICollectionViewDataSource , UICollectionViewDelegateFlowLayout {
 
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return arrayOfJSON.count
     }
@@ -94,6 +95,8 @@ extension GallaryController: UICollectionViewDelegate , UICollectionViewDataSour
         
         UIImage.loadFrom(url: url) { image in
             controller.imageView.image = image
+            controller.authorNameLabel.text = self.arrayOfJSON[indexPath.row].author as String
+            controller.authorLink = URL(string: self.arrayOfJSON[indexPath.row].author_url)
             controller.loadingIndicator.isHidden = true
         }
         self.navigationController?.pushViewController(controller, animated: true)

@@ -15,15 +15,14 @@ class PicturePreviewController: UIViewController {
     @IBOutlet weak var authorButton: UIButton!
     @IBOutlet weak var customNavBar: CustomNavigationBar!
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var authorNameLabel: UILabel!
+    
+    var authorLink = URL(string: "")
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        customNavBar.leftButton.addTarget(self, action: #selector(self.backClicked), for: .touchUpInside)
-
-        customNavBar.titleButton.addTarget(self, action: #selector(self.titleClicked), for: .touchUpInside)
         
-        customNavBar.rightButton.addTarget(self, action: #selector(self.logoutClicked), for: .touchUpInside)
+        addActions()
         
         self.configUI()
         
@@ -40,6 +39,14 @@ class PicturePreviewController: UIViewController {
     @objc func logoutClicked() {
 //        log out functionality here
     }
+    
+    private func addActions() {
+        customNavBar.leftButton.addTarget(self, action: #selector(self.backClicked), for: .touchUpInside)
+        
+        customNavBar.titleButton.addTarget(self, action: #selector(self.titleClicked), for: .touchUpInside)
+        
+        customNavBar.rightButton.addTarget(self, action: #selector(self.logoutClicked), for: .touchUpInside)
+    }
 
     private func configUI() {
         self.imageView.makeHalfRounded(cornerRadius: self.downloadButton.frame.height/2, maskCorners: [.layerMaxXMaxYCorner , .layerMaxXMinYCorner])
@@ -48,6 +55,12 @@ class PicturePreviewController: UIViewController {
         
         self.authorButton.makeHalfRounded(cornerRadius: self.downloadButton.frame.height/2, maskCorners: [.layerMaxXMaxYCorner , .layerMaxXMinYCorner])
         
+        self.authorNameLabel.makeHalfRounded(cornerRadius: self.authorNameLabel.frame.height/2, maskCorners: [.layerMinXMinYCorner , .layerMaxXMinYCorner])
+        
+    }
+    
+    @IBAction func viewAuthor() {
+        UIApplication.shared.open(authorLink!, options: [:], completionHandler: nil)
     }
 
 }

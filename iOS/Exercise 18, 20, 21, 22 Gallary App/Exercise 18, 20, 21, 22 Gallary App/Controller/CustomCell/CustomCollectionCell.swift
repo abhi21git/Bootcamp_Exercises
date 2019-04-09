@@ -15,6 +15,7 @@ class CustomCollectionCell: UICollectionViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
