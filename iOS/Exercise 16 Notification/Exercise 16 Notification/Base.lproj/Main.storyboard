@@ -279,14 +279,14 @@ Push notification is a method of showing alert or occurrence of event to user. F
                                         <rect key="frame" x="0.0" y="80" width="215" height="30"/>
                                         <state key="normal" title="Broadcast"/>
                                         <connections>
-                                            <action selector="broadcastButtonAction" destination="Sk7-Ik-K4d" eventType="touchUpInside" id="A9N-8q-hPY"/>
+                                            <action selector="broadcastButtonAction" destination="Sk7-Ik-K4d" eventType="touchUpInside" id="bcQ-Yp-EQn"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jzH-7w-b0s">
                                         <rect key="frame" x="0.0" y="160" width="215" height="30"/>
                                         <state key="normal" title="Open next controller"/>
                                         <connections>
-                                            <action selector="pushViewController" destination="Sk7-Ik-K4d" eventType="touchUpInside" id="DT4-d3-SyW"/>
+                                            <action selector="pushViewController" destination="Sk7-Ik-K4d" eventType="touchUpInside" id="Obx-DB-ptG"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -312,7 +312,6 @@ Push notification is a method of showing alert or occurrence of event to user. F
         <!--Question 2a-->
         <scene sceneID="TlW-1L-BK3">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9ia-6V-ezK" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="Question2a" useStoryboardIdentifierAsRestorationIdentifier="YES" id="aTg-ZE-cdm" customClass="Question2a" customModule="Exercise_16_Notification" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="n3U-B3-OTb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -342,10 +341,10 @@ Push notification is a method of showing alert or occurrence of event to user. F
                         <viewLayoutGuide key="safeArea" id="x9A-TL-SMG"/>
                     </view>
                     <connections>
-                        <outlet property="messageLabel" destination="qfl-yh-alh" id="rcQ-uD-Kr6"/>
-                        <outlet property="pushButton" destination="nhh-T6-XpJ" id="WC5-Hn-2tq"/>
+                        <outlet property="messageLabel" destination="qfl-yh-alh" id="Gli-sj-Krj"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9ia-6V-ezK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2663" y="793"/>
         </scene>
