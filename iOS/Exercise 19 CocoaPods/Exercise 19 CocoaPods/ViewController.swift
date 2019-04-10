@@ -10,6 +10,8 @@ import UIKit
 import Alamofire
 
 class ViewController: UIViewController {
+    
+    @IBOutlet weak var question5Label: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,12 +25,8 @@ class ViewController: UIViewController {
                 var jsonResult = JSON as! [String:AnyObject]
                 let url = jsonResult["url"] as! String
                 let origin = jsonResult["origin"]as! String
-                print(JSON)
                 
-                print("demonstration of alamofire")
-                //print("JSON \(jsonResult)")
-                print("request url: \(url)")
-                print(origin)
+                self.question5Label.text = "Alomofire demonstration\nURL:\(url)\n\(origin)"
             }
         }
     }

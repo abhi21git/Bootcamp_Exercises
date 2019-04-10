@@ -1,6 +1,6 @@
 import UIKit
 
-protocol ErrorViewProtocol: AnyObject {
+protocol ErrorViewProtocol: class {
     func showError(errorMessage: String) -> String
 }
 

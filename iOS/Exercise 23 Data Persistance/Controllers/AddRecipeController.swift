@@ -18,6 +18,9 @@ class AddRecipeController: UIViewController, NSFetchedResultsControllerDelegate 
     @IBOutlet weak var recipeDescriptionTextView: UITextView!
     @IBOutlet weak var recipeMakeFavouriteSwitch: UISwitch!
     
+    var updateItemName: String = ""
+    var updateFlag = false
+    
     fileprivate lazy var fetchedResultController: NSFetchedResultsController<Recipe> = {
         let appDelegate = UIApplication.shared.delegate as? AppDelegate
         let context = appDelegate?.persistentContainer.viewContext
@@ -29,10 +32,44 @@ class AddRecipeController: UIViewController, NSFetchedResultsControllerDelegate 
         try? fetchResultController.performFetch()
         return fetchResultController
     }()
+    
+    fileprivate lazy var fetchedResultControllerUpdater: NSFetchedResultsController<Recipe> = {
+        let appDelegate = UIApplication.shared.delegate as? AppDelegate
+        let context = appDelegate?.persistentContainer.viewContext
+        let fetchRequest:NSFetchRequest = Recipe.fetchRequest()
+        let predicate = NSPredicate(format: "recipeName == %@", updateItemName)
+        fetchRequest.predicate = predicate
+        
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "recipeName", ascending: true)]
+        let fetchResultController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context!, sectionNameKeyPath: nil, cacheName: nil)
+        
+        fetchResultController.delegate = self
+        
+        try! fetchResultController.performFetch()
+        return fetchResultController
+    }()
+
 
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        recipeNameTextField.becomeFirstResponder()
+        
+        if updateFlag {
+            let updateRecipe = fetchedResultControllerUpdater.fetchedObjects?.first
+            recipeNameTextField.text = updateRecipe?.recipeName
+            recipeChefNameTextField.text = updateRecipe?.madeBy
+            recipeCategoryTextField.text = updateRecipe?.category
+            recipeIngredientTextField.text = updateRecipe?.recipeIngredient
+            recipeDescriptionTextView.text = updateRecipe?.recipeDescription
+            if updateRecipe!.favorite{
+                recipeMakeFavouriteSwitch.isOn = true
+            }
+            else {
+                recipeMakeFavouriteSwitch.isOn = false
+            }
+        }
 
         // Do any additional setup after loading the view.
     }
@@ -72,12 +109,35 @@ extension AddRecipeController {
         }
     }
     
+    func updateData() {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let updater = fetchedResultControllerUpdater.fetchedObjects?.first
+        let context = appDelegate.persistentContainer.viewContext
+        updater?.setValue(recipeNameTextField.text!, forKey: "recipeName")
+        updater?.setValue(recipeChefNameTextField.text, forKey: "madeBy")
+        updater?.setValue(recipeCategoryTextField.text, forKey: "category")
+        updater?.setValue(recipeDescriptionTextView.text, forKey: "recipeDescription")
+        updater?.setValue(recipeMakeFavouriteSwitch.isOn, forKey: "favorite")
+        try? context.save()
+        updateFlag = false
+    }
+    
     @IBAction func saveRecipe() {
-        addData()
+        if updateFlag {
+            updateData()
+        }
+        else {
+            addData()
+        }
         self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func cancel() {
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+        
     }
 }

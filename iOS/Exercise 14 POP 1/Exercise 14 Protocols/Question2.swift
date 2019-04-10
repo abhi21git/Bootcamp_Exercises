@@ -4,10 +4,10 @@ protocol Toastable {
     func showToast(toastMessage: String)
 }
 
-extension Toastable where Self: UIViewController{
+extension Toastable{
     func showToast(toastMessage: String){
         let toastItem = UILabel()
-        view.addSubview(toastItem)
+//        AppDelegate.addSubview(toastItem)
         toastItem.layer.cornerRadius = toastItem.layer.frame.height / 2
         toastItem.backgroundColor? = .darkGray
         toastItem.textColor = .white

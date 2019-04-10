@@ -107,6 +107,16 @@ extension RecipiesController: NSFetchedResultsControllerDelegate {
         }
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedItem = fetchedResultController.object(at: indexPath)
+        let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "AddRecipeController") as! AddRecipeController
+        
+        controller.updateItemName = selectedItem.recipeName!
+        controller.updateFlag = true
+        self.present(controller, animated: true, completion: nil)
+    }
+    
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         tableView.beginUpdates()
     }

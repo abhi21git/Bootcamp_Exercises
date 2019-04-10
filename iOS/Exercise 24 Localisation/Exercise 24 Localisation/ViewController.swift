@@ -27,6 +27,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var dobTextField: UITextField!
     @IBOutlet weak var lottryTextField: UITextField!
     
+
+    
     
     
     //Mark:- LifeCycle
@@ -34,11 +36,19 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
     }
     
     //Mark:- Functions
     //================
     
+    func localisable() {
+        nameLabel.text = NSLocalizedString("Name", comment: "nameLabel")
+        stateLabel.text = NSLocalizedString("State", comment: "stateLabel")
+        countryLabel.text = NSLocalizedString("Country", comment: "countryLabel")
+        dobLabel.text = NSLocalizedString("Date of Birth", comment: "dateOfBirthLabel")
+        lottryLabel.text = NSLocalizedString("Lottery Won", comment: "lotteryWonLabel")
+    }
     
     //Mark:- IBActions
     //================
