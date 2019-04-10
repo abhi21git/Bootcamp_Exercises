@@ -46,9 +46,11 @@ class RecipiesController: UIViewController, UITableViewDelegate, UITableViewData
         tableView.delegate = self
         tableView.dataSource = self
         
-        tableView.reloadData()
-        
         self.navigationController?.navigationBar.topItem?.title = "Recipes"
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        tableView.reloadData()
     }
     
     

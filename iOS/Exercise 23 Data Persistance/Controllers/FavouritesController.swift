@@ -43,10 +43,13 @@ class FavouritesController: UIViewController, UITableViewDelegate, UITableViewDa
         tableView.delegate = self
         tableView.dataSource = self
         
-        tableView.reloadData()
-        
         self.navigationController?.navigationBar.topItem?.title = "Favourites"
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        tableView.reloadData()
+    }
+
     
 }
 
