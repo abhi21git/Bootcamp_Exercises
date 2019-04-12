@@ -69,16 +69,26 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="pev-LE-aqJ">
                                 <rect key="frame" x="0.0" y="140" width="414" height="260.5"/>
                             </mapView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This feature is not available in your country" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oFK-hy-b9U">
+                                <rect key="frame" x="44" y="721.5" width="326.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="IrK-WP-Rx7" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="oFK-hy-b9U" secondAttribute="trailing" constant="20" id="1ti-yW-S9F"/>
                             <constraint firstItem="IrK-WP-Rx7" firstAttribute="trailing" secondItem="7lH-pS-gvL" secondAttribute="trailing" id="5gv-GU-9xy"/>
                             <constraint firstItem="4Yh-JO-zBx" firstAttribute="centerY" secondItem="IrK-WP-Rx7" secondAttribute="centerY" id="FVZ-ov-IPe"/>
                             <constraint firstItem="pev-LE-aqJ" firstAttribute="height" secondItem="7lH-pS-gvL" secondAttribute="height" id="JZr-wF-N1e"/>
                             <constraint firstItem="pev-LE-aqJ" firstAttribute="leading" secondItem="IrK-WP-Rx7" secondAttribute="leading" id="K0k-ZF-6c3"/>
+                            <constraint firstItem="oFK-hy-b9U" firstAttribute="centerY" secondItem="7lH-pS-gvL" secondAttribute="centerY" id="PUe-EP-PdS"/>
                             <constraint firstItem="7lH-pS-gvL" firstAttribute="leading" secondItem="IrK-WP-Rx7" secondAttribute="leading" id="PoB-J0-9Ac"/>
                             <constraint firstItem="4Yh-JO-zBx" firstAttribute="centerX" secondItem="IrK-WP-Rx7" secondAttribute="centerX" id="Sco-Hg-N70"/>
                             <constraint firstItem="IrK-WP-Rx7" firstAttribute="trailing" secondItem="pev-LE-aqJ" secondAttribute="trailing" id="eMX-zg-Uwd"/>
+                            <constraint firstItem="oFK-hy-b9U" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="IrK-WP-Rx7" secondAttribute="leading" constant="20" id="h2z-zk-ec5"/>
+                            <constraint firstItem="oFK-hy-b9U" firstAttribute="centerX" secondItem="7lH-pS-gvL" secondAttribute="centerX" id="jFi-IE-UDy"/>
                             <constraint firstItem="IrK-WP-Rx7" firstAttribute="bottom" secondItem="7lH-pS-gvL" secondAttribute="bottom" id="oPv-8o-T2S"/>
                             <constraint firstItem="pev-LE-aqJ" firstAttribute="top" secondItem="IrK-WP-Rx7" secondAttribute="top" id="wPK-ue-R4r"/>
                         </constraints>
@@ -114,6 +124,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kMr-60-Kcl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2029" y="-936"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="ylo-1K-Y7I">
+            <objects>
+                <viewController id="hpF-iL-irk" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5F4-L9-0F0">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="Sn6-GU-dfG"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IY1-FR-Ijp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3101" y="-936"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="3Tc-nM-be9">

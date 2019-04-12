@@ -12,6 +12,8 @@
 		461E9FC9225E4064009CDCD8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 461E9FC7225E4064009CDCD8 /* Main.storyboard */; };
 		461E9FCB225E4065009CDCD8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 461E9FCA225E4065009CDCD8 /* Assets.xcassets */; };
 		461E9FCE225E4065009CDCD8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 461E9FCC225E4065009CDCD8 /* LaunchScreen.storyboard */; };
+		4661116122605D7B00C34206 /* MapkitController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4661116022605D7B00C34206 /* MapkitController.swift */; };
+		4661116322605DEB00C34206 /* CoreLocationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4661116222605DEB00C34206 /* CoreLocationController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		461E9FCA225E4065009CDCD8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		461E9FCD225E4065009CDCD8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		461E9FCF225E4065009CDCD8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4661116022605D7B00C34206 /* MapkitController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapkitController.swift; sourceTree = "<group>"; };
+		4661116222605DEB00C34206 /* CoreLocationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreLocationController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +60,8 @@
 			children = (
 				461E9FC3225E4064009CDCD8 /* AppDelegate.swift */,
 				461E9FC5225E4064009CDCD8 /* ViewController.swift */,
+				4661116022605D7B00C34206 /* MapkitController.swift */,
+				4661116222605DEB00C34206 /* CoreLocationController.swift */,
 				461E9FC7225E4064009CDCD8 /* Main.storyboard */,
 				461E9FCA225E4065009CDCD8 /* Assets.xcassets */,
 				461E9FCC225E4065009CDCD8 /* LaunchScreen.storyboard */,
@@ -135,6 +141,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4661116122605D7B00C34206 /* MapkitController.swift in Sources */,
+				4661116322605DEB00C34206 /* CoreLocationController.swift in Sources */,
 				461E9FC6225E4064009CDCD8 /* ViewController.swift in Sources */,
 				461E9FC4225E4064009CDCD8 /* AppDelegate.swift in Sources */,
 			);
