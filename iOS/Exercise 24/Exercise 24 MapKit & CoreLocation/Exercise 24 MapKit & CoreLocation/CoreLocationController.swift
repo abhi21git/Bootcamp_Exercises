@@ -16,7 +16,9 @@ class CoreLocationController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var msgLabel: UILabel!
     
+    var imageData: UIImage!
     let countryCode = Locale.current.regionCode
+//    let locationManager = CLLocationManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,26 +30,49 @@ class CoreLocationController: UIViewController {
         
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+//        if CLLocationManager.authorizationStatus() == .notDetermined {
+//            locationManager.requestAlwaysAuthorization()
+//        }
+//            
+//        else if CLLocationManager.authorizationStatus() == .denied {
+//            print("Location services were previously denied. Please enable location services for this app in Settings.")
+//        }
+//
+//        else if CLLocationManager.authorizationStatus() == .authorizedAlways {
+//            locationManager.startUpdatingLocation()
+//        }
+        
+    }
     
-    @IBAction func loadImage() {
+    
+    @IBAction func showImage() {
         if countryCode! == "US"{
             
             msgLabel.isHidden = true
             imageView.isHidden = false
             
-            let imageURL = URL(string: "http://www.newsonair.com/writereaddata/News_Pictures/NAT/2018/Nov/NPIC-201811142185.jpg")
-            
-            let urlSession = URLSession.shared.dataTask(with: imageURL!) { (data, response, error) in
-                guard let data = data, error == nil else { return }
-                let image = UIImage(data: data)
-                self.imageView.image = image
-            }
-            urlSession.resume()
+            loadImage()
+            self.imageView.image = imageData
         }
         else {
             msgLabel.isHidden = false
             imageView.isHidden = true
         }
+    }
+    
+    
+    func loadImage() {
+        let imageURL = URL(string: "http://www.newsonair.com/writereaddata/News_Pictures/NAT/2018/Nov/NPIC-201811142185.jpg")
+        
+        let session = URLSession.shared.dataTask(with: imageURL!) { (data, response, error) in
+            guard let data = data else { return }
+            let image = UIImage(data: data)
+            self.imageData = image
+        }
+        session.resume()
     }
 
 }
