@@ -71,7 +71,6 @@
 			isa = PBXGroup;
 			children = (
 				46B814A5225B4E8E00AB4920 /* Modal */,
-				46B8149D225A128100AB4920 /* Extensions */,
 				46B81497225A11CC00AB4920 /* Controller */,
 				46A752742259EBD90080BFC8 /* Storyboard */,
 				46B8149C225A125500AB4920 /* Resources */,
@@ -139,6 +138,7 @@
 		46B814A5225B4E8E00AB4920 /* Modal */ = {
 			isa = PBXGroup;
 			children = (
+				46B8149D225A128100AB4920 /* Extensions */,
 				46B814A6225B4EFB00AB4920 /* JSONStructure.swift */,
 			);
 			path = Modal;

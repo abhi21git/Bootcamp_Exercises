@@ -7,24 +7,47 @@
 //
 
 import UIKit
+import MapKit
+import CoreLocation
 
 class CoreLocationController: UIViewController {
 
+    @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var msgLabel: UILabel!
+    
+    let countryCode = Locale.current.regionCode
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        msgLabel.isHidden = true
+        imageView.isHidden = true
+        
+        self.title = "CoreLocation"
+        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    @IBAction func loadImage() {
+        if countryCode! == "US"{
+            
+            msgLabel.isHidden = true
+            imageView.isHidden = false
+            
+            let imageURL = URL(string: "http://www.newsonair.com/writereaddata/News_Pictures/NAT/2018/Nov/NPIC-201811142185.jpg")
+            
+            let urlSession = URLSession.shared.dataTask(with: imageURL!) { (data, response, error) in
+                guard let data = data, error == nil else { return }
+                let image = UIImage(data: data)
+                self.imageView.image = image
+            }
+            urlSession.resume()
+        }
+        else {
+            msgLabel.isHidden = false
+            imageView.isHidden = true
+        }
     }
-    */
 
 }

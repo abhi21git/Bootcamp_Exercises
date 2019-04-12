@@ -84,12 +84,22 @@ extension GallaryController: UICollectionViewDelegate , UICollectionViewDataSour
     
         return cell
     }
+    
+    //    to set height and width of cell in proportion to screen size and maintaning aspect ration of 4:3
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        let cellWidth = (collectionView.bounds.width/2.0)-12
+        let cellHeight = cellWidth*(4/3)
+        
+        return CGSize(width: cellWidth, height: cellHeight)
+    }
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
         let controller = storyBoard.instantiateViewController(withIdentifier: "PicturePreviewController") as! PicturePreviewController
         
-        let imageWidth = self.view.frame.width
-        let imageHeight = imageWidth*(4/3)
+        let imageWidth = self.view.bounds.width
+        let imageHeight = self.view.bounds.height
         let imageurl = "https://picsum.photos/\(imageWidth)/\(imageHeight)?image=\(arrayOfJSON[indexPath.row].id)"
         guard let url = URL(string: imageurl) else { return }
         
@@ -103,12 +113,5 @@ extension GallaryController: UICollectionViewDelegate , UICollectionViewDataSour
     }
     
     
-    //    to set height and width of cell in proportion to screen size and maintaning aspect ration of 4:3
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        let cellWidth = (collectionView.bounds.width/2.0)-12
-        let cellHeight = cellWidth*(4/3)
-        
-        return CGSize(width: cellWidth, height: cellHeight)
-    }
+    
 }

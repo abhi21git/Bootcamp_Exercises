@@ -144,7 +144,7 @@
                         <outlet property="authorNameLabel" destination="odB-hW-vGs" id="hEB-OL-bjM"/>
                         <outlet property="customNavBar" destination="AJd-N7-N1o" id="DiC-t6-VfV"/>
                         <outlet property="downloadButton" destination="Z9M-F1-XuK" id="AZn-4E-2Ml"/>
-                        <outlet property="imageView" destination="xRH-kc-CeL" id="K2A-uX-mU8"/>
+                        <outlet property="imageView" destination="xRH-kc-CeL" id="Fcp-ES-UqL"/>
                         <outlet property="loadingIndicator" destination="zbs-ka-itp" id="1EU-5D-x72"/>
                     </connections>
                 </viewController>

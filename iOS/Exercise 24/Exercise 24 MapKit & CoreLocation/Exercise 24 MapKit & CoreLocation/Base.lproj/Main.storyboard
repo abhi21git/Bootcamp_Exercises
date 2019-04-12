@@ -48,10 +48,10 @@
             </objects>
             <point key="canvasLocation" x="954" y="-559"/>
         </scene>
-        <!--View Controller-->
+        <!--Core Location Controller-->
         <scene sceneID="nVU-ew-WIl">
             <objects>
-                <viewController id="Nzc-QT-5jO" sceneMemberID="viewController">
+                <viewController id="Nzc-QT-5jO" customClass="CoreLocationController" customModule="Exercise_24_MapKit___CoreLocation" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tM4-6X-a8d">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -62,13 +62,21 @@
                                     <constraint firstAttribute="width" secondItem="7lH-pS-gvL" secondAttribute="height" multiplier="375:236" id="pNt-z8-lcK"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Yh-JO-zBx">
-                                <rect key="frame" x="165" y="486" width="84" height="30"/>
-                                <state key="normal" title="Show Image"/>
-                            </button>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="pev-LE-aqJ">
-                                <rect key="frame" x="0.0" y="140" width="414" height="260.5"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" rotateEnabled="NO" pitchEnabled="NO" showsUserLocation="YES" showsBuildings="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pev-LE-aqJ">
+                                <rect key="frame" x="0.0" y="140" width="414" height="461.5"/>
                             </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Yh-JO-zBx">
+                                <rect key="frame" x="294" y="551.5" width="100" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="xl8-cm-7bh"/>
+                                    <constraint firstAttribute="width" constant="100" id="zGH-bW-QTb"/>
+                                </constraints>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Show Image"/>
+                                <connections>
+                                    <action selector="loadImage" destination="Nzc-QT-5jO" eventType="touchUpInside" id="SdI-yL-xth"/>
+                                </connections>
+                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This feature is not available in your country" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oFK-hy-b9U">
                                 <rect key="frame" x="44" y="721.5" width="326.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -78,14 +86,14 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="IrK-WP-Rx7" firstAttribute="trailing" secondItem="4Yh-JO-zBx" secondAttribute="trailing" constant="20" id="0TX-l0-FjG"/>
                             <constraint firstItem="IrK-WP-Rx7" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="oFK-hy-b9U" secondAttribute="trailing" constant="20" id="1ti-yW-S9F"/>
                             <constraint firstItem="IrK-WP-Rx7" firstAttribute="trailing" secondItem="7lH-pS-gvL" secondAttribute="trailing" id="5gv-GU-9xy"/>
-                            <constraint firstItem="4Yh-JO-zBx" firstAttribute="centerY" secondItem="IrK-WP-Rx7" secondAttribute="centerY" id="FVZ-ov-IPe"/>
-                            <constraint firstItem="pev-LE-aqJ" firstAttribute="height" secondItem="7lH-pS-gvL" secondAttribute="height" id="JZr-wF-N1e"/>
+                            <constraint firstItem="7lH-pS-gvL" firstAttribute="top" secondItem="pev-LE-aqJ" secondAttribute="bottom" id="Elc-2R-Sa3"/>
                             <constraint firstItem="pev-LE-aqJ" firstAttribute="leading" secondItem="IrK-WP-Rx7" secondAttribute="leading" id="K0k-ZF-6c3"/>
                             <constraint firstItem="oFK-hy-b9U" firstAttribute="centerY" secondItem="7lH-pS-gvL" secondAttribute="centerY" id="PUe-EP-PdS"/>
                             <constraint firstItem="7lH-pS-gvL" firstAttribute="leading" secondItem="IrK-WP-Rx7" secondAttribute="leading" id="PoB-J0-9Ac"/>
-                            <constraint firstItem="4Yh-JO-zBx" firstAttribute="centerX" secondItem="IrK-WP-Rx7" secondAttribute="centerX" id="Sco-Hg-N70"/>
+                            <constraint firstItem="7lH-pS-gvL" firstAttribute="top" secondItem="4Yh-JO-zBx" secondAttribute="bottom" constant="20" id="aVS-lx-Qy7"/>
                             <constraint firstItem="IrK-WP-Rx7" firstAttribute="trailing" secondItem="pev-LE-aqJ" secondAttribute="trailing" id="eMX-zg-Uwd"/>
                             <constraint firstItem="oFK-hy-b9U" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="IrK-WP-Rx7" secondAttribute="leading" constant="20" id="h2z-zk-ec5"/>
                             <constraint firstItem="oFK-hy-b9U" firstAttribute="centerX" secondItem="7lH-pS-gvL" secondAttribute="centerX" id="jFi-IE-UDy"/>
@@ -94,15 +102,20 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="IrK-WP-Rx7"/>
                     </view>
+                    <connections>
+                        <outlet property="imageView" destination="7lH-pS-gvL" id="8mg-hA-Lyq"/>
+                        <outlet property="mapView" destination="pev-LE-aqJ" id="Kwn-Vu-1L5"/>
+                        <outlet property="msgLabel" destination="oFK-hy-b9U" id="FDV-qy-fy7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5HB-d0-ehi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2028.985507246377" y="-173.4375"/>
         </scene>
-        <!--View Controller-->
+        <!--Mapkit Controller-->
         <scene sceneID="jgo-FD-V6D">
             <objects>
-                <viewController id="vyw-4d-spk" sceneMemberID="viewController">
+                <viewController id="vyw-4d-spk" customClass="MapkitController" customModule="Exercise_24_MapKit___CoreLocation" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ctc-IJ-EeI">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
