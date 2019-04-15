@@ -44,13 +44,13 @@ class GallaryController: UIViewController {
     
     func loadData() {
         let jsonURL = URL(string: "https://picsum.photos/list")
-        let session = URLSession(configuration: .default)
-        let sessionTask = session.dataTask(with: jsonURL!) { (data, response, error) in
+        let session = URLSession(configuration: .ephemeral)
+        let sessionTask = session.dataTask(with: jsonURL!) {[weak self](data, response, error) in
             do {
                 if error == nil {
-                    self.arrayOfJSON = try JSONDecoder().decode([jsonStructure].self, from: data!)
+                    self?.arrayOfJSON = try JSONDecoder().decode([jsonStructure].self, from: data!)
                     DispatchQueue.main.async {
-                        self.photoCollectionView.reloadData()
+                        self?.photoCollectionView.reloadData()
                     }
                 }
             }catch {
@@ -59,6 +59,7 @@ class GallaryController: UIViewController {
         }
         sessionTask.resume()
     }
+    
     
 }
 
@@ -70,7 +71,7 @@ extension GallaryController: UICollectionViewDelegate , UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cellWidth = (collectionView.bounds.width/2.0)-12
-        let cellHeight = cellWidth*(4/3)
+        let cellHeight = cellWidth*(3/4)
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CustomCollectionCell", for: indexPath) as! CustomCollectionCell
         let url = "https://picsum.photos/\(cellWidth)/\(cellHeight)?image=\(indexPath.row)"
@@ -85,11 +86,11 @@ extension GallaryController: UICollectionViewDelegate , UICollectionViewDataSour
         return cell
     }
     
-    //    to set height and width of cell in proportion to screen size and maintaning aspect ration of 4:3
+    //    to set height and width of cell in proportion to screen size and maintaning aspect ration of 3:4
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         let cellWidth = (collectionView.bounds.width/2.0)-12
-        let cellHeight = cellWidth*(4/3)
+        let cellHeight = cellWidth*(3/4)
         
         return CGSize(width: cellWidth, height: cellHeight)
     }
@@ -110,6 +111,11 @@ extension GallaryController: UICollectionViewDelegate , UICollectionViewDataSour
             controller.loadingIndicator.isHidden = true
         }
         self.navigationController?.pushViewController(controller, animated: true)
+    }
+    
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
     }
     
     

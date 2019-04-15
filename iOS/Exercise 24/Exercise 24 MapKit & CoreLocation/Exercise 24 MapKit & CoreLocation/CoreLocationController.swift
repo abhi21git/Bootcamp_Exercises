@@ -18,7 +18,7 @@ class CoreLocationController: UIViewController {
     
     var imageData: UIImage!
     let countryCode = Locale.current.regionCode
-//    let locationManager = CLLocationManager()
+    let locationManager = CLLocationManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,17 +33,17 @@ class CoreLocationController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-//        if CLLocationManager.authorizationStatus() == .notDetermined {
-//            locationManager.requestAlwaysAuthorization()
-//        }
-//            
-//        else if CLLocationManager.authorizationStatus() == .denied {
-//            print("Location services were previously denied. Please enable location services for this app in Settings.")
-//        }
-//
-//        else if CLLocationManager.authorizationStatus() == .authorizedAlways {
-//            locationManager.startUpdatingLocation()
-//        }
+        if CLLocationManager.authorizationStatus() == .notDetermined {
+            locationManager.requestAlwaysAuthorization()
+        }
+            
+        else if CLLocationManager.authorizationStatus() == .denied {
+            print("Location services were previously denied. Please enable location services for this app in Settings.")
+        }
+
+        else if CLLocationManager.authorizationStatus() == .authorizedAlways {
+            locationManager.startUpdatingLocation()
+        }
         
     }
     
@@ -55,6 +55,7 @@ class CoreLocationController: UIViewController {
             imageView.isHidden = false
             
             loadImage()
+            
             self.imageView.image = imageData
         }
         else {
