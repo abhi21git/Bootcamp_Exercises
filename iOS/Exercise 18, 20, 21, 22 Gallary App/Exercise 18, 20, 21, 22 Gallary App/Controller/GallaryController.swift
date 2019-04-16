@@ -59,8 +59,6 @@ class GallaryController: UIViewController {
         }
         sessionTask.resume()
     }
-    
-    
 }
 
 extension GallaryController: UICollectionViewDelegate , UICollectionViewDataSource , UICollectionViewDelegateFlowLayout {
@@ -114,9 +112,6 @@ extension GallaryController: UICollectionViewDelegate , UICollectionViewDataSour
     }
     
     
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        
-    }
     
     
     
