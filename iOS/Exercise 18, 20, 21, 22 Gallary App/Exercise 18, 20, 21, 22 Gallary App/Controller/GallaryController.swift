@@ -12,6 +12,7 @@ class GallaryController: UIViewController {
     
     @IBOutlet weak var photoCollectionView: UICollectionView!
     @IBOutlet weak var customNavBar: CustomNavigationBar!
+
     
     var arrayOfJSON = [jsonStructure]()
     
