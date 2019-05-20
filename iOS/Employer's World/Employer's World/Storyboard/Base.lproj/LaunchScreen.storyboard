@@ -19,14 +19,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchImage" translatesAutoresizingMaskIntoConstraints="NO" id="QeO-WH-lAr">
-                                <rect key="frame" x="40" y="281" width="334" height="334"/>
+                                <rect key="frame" x="40" y="334" width="334" height="228"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="512" id="7Hb-hl-Esm"/>
-                                    <constraint firstAttribute="width" secondItem="QeO-WH-lAr" secondAttribute="height" multiplier="1:1" id="KIy-gK-gys"/>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="600" id="7Hb-hl-Esm"/>
+                                    <constraint firstAttribute="width" secondItem="QeO-WH-lAr" secondAttribute="height" multiplier="600:410" id="KIy-gK-gys"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EMPLOYER'S WORLD" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TkI-RJ-eNU">
-                                <rect key="frame" x="20" y="211" width="374" height="50"/>
+                                <rect key="frame" x="20" y="264" width="374" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="3Gw-TF-cuF"/>
                                 </constraints>
@@ -58,6 +58,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="LaunchImage" width="512" height="512"/>
+        <image name="LaunchImage" width="600" height="410"/>
     </resources>
 </document>

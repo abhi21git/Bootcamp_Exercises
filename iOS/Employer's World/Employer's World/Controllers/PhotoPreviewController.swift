@@ -1,46 +1,45 @@
 //
-//  SignUpController.swift
+//  PhotoGallaryController.swift
 //  Employer's World
 //
-//  Created by Abhishek Maurya on 19/04/19.
+//  Created by Abhishek Maurya on 24/04/19.
 //  Copyright © 2019 Abhishek Maurya. All rights reserved.
 //
 
 import UIKit
 
-class SignUpController: UIViewController {
+class PhotoPreviewController: UIViewController {
 
 //  MARK:- Variables
-    
+        
     
     
 //  MARK:- IBOutlets
-    
+        
     
     
 //  MARK:- LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    
         configureUI()
     }
-    
-    
-//  MARK: - Functions
+
+
+//  MARK:- Functions
     func configureUI() {
-        
+        self.title = "Photo Preview"
     }
     
     
 //  MARK:- IBActions
-    
-    
 
+
+    
 }
 
 
-//  MARK:- Extension
-extension SignUpController {
-    
+//  MARK:- Extensions
+extension PhotoPreviewController {
     
 }

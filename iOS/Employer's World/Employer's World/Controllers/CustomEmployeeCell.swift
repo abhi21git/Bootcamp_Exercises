@@ -10,10 +10,16 @@ import UIKit
 
 class CustomEmployeeCell: UITableViewCell {
     
+//  MARK:- Variables
+    
+    
+    
+//  MARK:- IBOutlets
     @IBOutlet weak var employeeProfilePicture: UIImageView!
     @IBOutlet weak var employeeNameLabel: UILabel!
     
 
+//  MARK:- LifeCycle
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -21,21 +27,24 @@ class CustomEmployeeCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+        
     }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5))
-        contentView.layer.cornerRadius = 10
-        contentView.clipsToBounds = true
-        configureUI()
-    }
-    
+//  MARK: - Functions
     func configureUI() {
         employeeProfilePicture.layer.cornerRadius = employeeProfilePicture.frame.height/2
+        //        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 10))
+        //        contentView.layer.cornerRadius = 10
+        //        contentView.clipsToBounds = true
+        //        contentView.layer.borderWidth = 0.8
+        //        contentView.layer.borderColor = UIColor.gray.cgColor
     }
-
+    
+    
+//  MARK:- IBActions
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        configureUI()
+    }
     
 }

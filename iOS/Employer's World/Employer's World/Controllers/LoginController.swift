@@ -10,15 +10,35 @@ import UIKit
 
 class LoginController: UIViewController {
 
+//  MARK:- Variables
+    
+    
+    
+//  MARK:- IBOutlets
+    
+    
+    
+//  MARK:- LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        configureUI()
     }
 
+    
+//  MARK: - Functions
     func configureUI() {
         
     }
 
+    
+//  MARK:- IBActions
+    
 
+}
+
+
+//  MARK:- Extensions
+extension LoginController {
+    
 }

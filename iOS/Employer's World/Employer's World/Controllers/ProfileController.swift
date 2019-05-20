@@ -10,23 +10,46 @@ import UIKit
 
 class ProfileController: UIViewController {
     
-    @IBOutlet weak var ProfileTabBarItem: UITabBarItem!
+//  MARK:- Variables
+    
+    
+    
+//  MARK:- IBOutlets
+    @IBOutlet weak var profileTabBarItem: UITabBarItem!
 
+    
+//  MARK:- LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        configureUI()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.navigationBar.topItem?.title = "Profile"
-        ProfileTabBarItem.title = "Profile"
+        self.navigationController?.navigationBar.topItem?.title = "PROFILE"
+        profileTabBarItem.title = "PROFILE"
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        ProfileTabBarItem.title = ""
+        profileTabBarItem.title = ""
     }
 
     
+//  MARK: - Functions
+    func configureUI() {
+        
+    }
+    
+    
+//  MARK:- IBActions
+    
+    
+    
+}
 
+
+//  MARK:- Extension
+extension ProfileController {
+    
+    
 }

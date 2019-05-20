@@ -10,8 +10,14 @@ import UIKit
 
 class RootTabBarController: UITabBarController {
     
+//  MARK: - Variables
+    
+    
+//  MARK: - IBOutlets
     @IBOutlet weak var rootTabBar: UITabBar!
 
+    
+//  MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -19,10 +25,17 @@ class RootTabBarController: UITabBarController {
         
     }
     
-
+    
+//  MARK: - Functions
     func configureUI() {
         
-        
     }
+    
+    
+//  MARK: - IBActions
+
 
 }
+
+//  MARK: - Extensions
+

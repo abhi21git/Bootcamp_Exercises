@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CustomNavigationBar: UIView {
+@IBDesignable class CustomNavigationBar: UIView {
 
     @IBOutlet weak var leftButton: UIButton!
     @IBOutlet weak var titleButton: UIButton!

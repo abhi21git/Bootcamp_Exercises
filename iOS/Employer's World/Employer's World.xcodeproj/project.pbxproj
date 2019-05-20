@@ -7,18 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		460D5308226F364D0020DE92 /* CustomSegment.xib in Resources */ = {isa = PBXBuildFile; fileRef = 460D5307226F364D0020DE92 /* CustomSegment.xib */; };
+		460D530B226F36C60020DE92 /* CustomSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460D530A226F36C60020DE92 /* CustomSegment.swift */; };
 		46313A4A2269AD30003D702C /* RootTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46313A492269AD30003D702C /* RootTabBarController.swift */; };
 		46313A4E2269B922003D702C /* EmployeeListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46313A4D2269B922003D702C /* EmployeeListController.swift */; };
-		46313A502269B954003D702C /* GallaryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46313A4F2269B954003D702C /* GallaryController.swift */; };
+		46313A502269B954003D702C /* GalleryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46313A4F2269B954003D702C /* GalleryController.swift */; };
 		46313A522269B981003D702C /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46313A512269B981003D702C /* ProfileController.swift */; };
 		46313A542269B9A4003D702C /* MapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46313A532269B9A4003D702C /* MapController.swift */; };
+		465F2FB522707C9400A5CE02 /* PhotoPreviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465F2FB422707C9400A5CE02 /* PhotoPreviewController.swift */; };
 		46C6FBB62269D4720099E17C /* CustomEmployeeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C6FBB42269D4720099E17C /* CustomEmployeeCell.swift */; };
 		46C6FBB72269D4720099E17C /* CustomEmployeeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 46C6FBB52269D4720099E17C /* CustomEmployeeCell.xib */; };
-		46C6FBBA2269D4B10099E17C /* CollectionGallaryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C6FBB82269D4B10099E17C /* CollectionGallaryCell.swift */; };
-		46C6FBBB2269D4B10099E17C /* CollectionGallaryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 46C6FBB92269D4B10099E17C /* CollectionGallaryCell.xib */; };
+		46C6FBBA2269D4B10099E17C /* CollectionGalleryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C6FBB82269D4B10099E17C /* CollectionGalleryCell.swift */; };
+		46C6FBBB2269D4B10099E17C /* CollectionGalleryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 46C6FBB92269D4B10099E17C /* CollectionGalleryCell.xib */; };
 		46C6FBBD2269E5140099E17C /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C6FBBC2269E5140099E17C /* SignUpController.swift */; };
 		46C6FBBF2269E6FA0099E17C /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C6FBBE2269E6FA0099E17C /* LoginController.swift */; };
-		46C6FBC5226D8FBC0099E17C /* RoundCornerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C6FBC4226D8FBC0099E17C /* RoundCornerProtocol.swift */; };
+		46C6FBC5226D8FBC0099E17C /* RoundCornerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C6FBC4226D8FBC0099E17C /* RoundCornerExtension.swift */; };
 		46C6FBC7226D9F530099E17C /* EmployeeDetailsControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C6FBC6226D9F530099E17C /* EmployeeDetailsControllers.swift */; };
 		46FF2D182268D15F0006BE82 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46FF2D172268D15F0006BE82 /* AppDelegate.swift */; };
 		46FF2D1D2268D15F0006BE82 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46FF2D1B2268D15F0006BE82 /* Main.storyboard */; };
@@ -28,18 +31,21 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		460D5307226F364D0020DE92 /* CustomSegment.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomSegment.xib; sourceTree = "<group>"; };
+		460D530A226F36C60020DE92 /* CustomSegment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegment.swift; sourceTree = "<group>"; };
 		46313A492269AD30003D702C /* RootTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabBarController.swift; sourceTree = "<group>"; };
 		46313A4D2269B922003D702C /* EmployeeListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeListController.swift; sourceTree = "<group>"; };
-		46313A4F2269B954003D702C /* GallaryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GallaryController.swift; sourceTree = "<group>"; };
+		46313A4F2269B954003D702C /* GalleryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryController.swift; sourceTree = "<group>"; };
 		46313A512269B981003D702C /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
 		46313A532269B9A4003D702C /* MapController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapController.swift; sourceTree = "<group>"; };
+		465F2FB422707C9400A5CE02 /* PhotoPreviewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPreviewController.swift; sourceTree = "<group>"; };
 		46C6FBB42269D4720099E17C /* CustomEmployeeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomEmployeeCell.swift; sourceTree = "<group>"; };
 		46C6FBB52269D4720099E17C /* CustomEmployeeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomEmployeeCell.xib; sourceTree = "<group>"; };
-		46C6FBB82269D4B10099E17C /* CollectionGallaryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionGallaryCell.swift; sourceTree = "<group>"; };
-		46C6FBB92269D4B10099E17C /* CollectionGallaryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionGallaryCell.xib; sourceTree = "<group>"; };
+		46C6FBB82269D4B10099E17C /* CollectionGalleryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionGalleryCell.swift; sourceTree = "<group>"; };
+		46C6FBB92269D4B10099E17C /* CollectionGalleryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionGalleryCell.xib; sourceTree = "<group>"; };
 		46C6FBBC2269E5140099E17C /* SignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
 		46C6FBBE2269E6FA0099E17C /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
-		46C6FBC4226D8FBC0099E17C /* RoundCornerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundCornerProtocol.swift; sourceTree = "<group>"; };
+		46C6FBC4226D8FBC0099E17C /* RoundCornerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundCornerExtension.swift; sourceTree = "<group>"; };
 		46C6FBC6226D9F530099E17C /* EmployeeDetailsControllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeDetailsControllers.swift; sourceTree = "<group>"; };
 		46FF2D142268D15F0006BE82 /* Employer's World.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Employer's World.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		46FF2D172268D15F0006BE82 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -61,28 +67,53 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		460D5309226F369E0020DE92 /* CustomSegment */ = {
+			isa = PBXGroup;
+			children = (
+				460D530A226F36C60020DE92 /* CustomSegment.swift */,
+				460D5307226F364D0020DE92 /* CustomSegment.xib */,
+			);
+			name = CustomSegment;
+			sourceTree = "<group>";
+		};
+		460D530C227046250020DE92 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 		46313A552269BD13003D702C /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				46313A492269AD30003D702C /* RootTabBarController.swift */,
 				46313A4D2269B922003D702C /* EmployeeListController.swift */,
-				46313A4F2269B954003D702C /* GallaryController.swift */,
+				46C6FBC6226D9F530099E17C /* EmployeeDetailsControllers.swift */,
+				46313A4F2269B954003D702C /* GalleryController.swift */,
+				465F2FB422707C9400A5CE02 /* PhotoPreviewController.swift */,
 				46313A532269B9A4003D702C /* MapController.swift */,
 				46C6FBBE2269E6FA0099E17C /* LoginController.swift */,
 				46C6FBBC2269E5140099E17C /* SignUpController.swift */,
 				46313A512269B981003D702C /* ProfileController.swift */,
-				46C6FBC6226D9F530099E17C /* EmployeeDetailsControllers.swift */,
 				46C6FBC2226A047D0099E17C /* CustomTableCell */,
 				46C6FBC0226A04590099E17C /* CustomCollectionCell */,
+				460D5309226F369E0020DE92 /* CustomSegment */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		46AA9BAA2272EC8200F5C394 /* Modal */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Modal;
 			sourceTree = "<group>";
 		};
 		46C6FBC0226A04590099E17C /* CustomCollectionCell */ = {
 			isa = PBXGroup;
 			children = (
-				46C6FBB82269D4B10099E17C /* CollectionGallaryCell.swift */,
-				46C6FBB92269D4B10099E17C /* CollectionGallaryCell.xib */,
+				46C6FBB82269D4B10099E17C /* CollectionGalleryCell.swift */,
+				46C6FBB92269D4B10099E17C /* CollectionGalleryCell.xib */,
 			);
 			name = CustomCollectionCell;
 			sourceTree = "<group>";
@@ -96,12 +127,21 @@
 			name = CustomTableCell;
 			sourceTree = "<group>";
 		};
-		46C6FBC3226D8FAC0099E17C /* Protocols */ = {
+		46C6FBC3226D8FAC0099E17C /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				46C6FBC4226D8FBC0099E17C /* RoundCornerProtocol.swift */,
+				46C6FBC4226D8FBC0099E17C /* RoundCornerExtension.swift */,
 			);
-			path = Protocols;
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		46C6FBC8226EF2CD0099E17C /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				46FF2D1B2268D15F0006BE82 /* Main.storyboard */,
+				46FF2D232268D1620006BE82 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboard;
 			sourceTree = "<group>";
 		};
 		46FF2D0B2268D15F0006BE82 = {
@@ -123,12 +163,13 @@
 		46FF2D162268D15F0006BE82 /* Employer's World */ = {
 			isa = PBXGroup;
 			children = (
-				46C6FBC3226D8FAC0099E17C /* Protocols */,
 				46FF2D172268D15F0006BE82 /* AppDelegate.swift */,
+				46C6FBC3226D8FAC0099E17C /* Extensions */,
+				460D530C227046250020DE92 /* Protocols */,
+				46AA9BAA2272EC8200F5C394 /* Modal */,
 				46313A552269BD13003D702C /* Controllers */,
-				46FF2D1B2268D15F0006BE82 /* Main.storyboard */,
+				46C6FBC8226EF2CD0099E17C /* Storyboard */,
 				46FF2D212268D1610006BE82 /* Assets.xcassets */,
-				46FF2D232268D1620006BE82 /* LaunchScreen.storyboard */,
 				46FF2D262268D1620006BE82 /* Info.plist */,
 				46FF2D1E2268D15F0006BE82 /* Employer_s_World.xcdatamodeld */,
 			);
@@ -195,8 +236,9 @@
 			files = (
 				46FF2D252268D1620006BE82 /* LaunchScreen.storyboard in Resources */,
 				46FF2D222268D1610006BE82 /* Assets.xcassets in Resources */,
-				46C6FBBB2269D4B10099E17C /* CollectionGallaryCell.xib in Resources */,
+				46C6FBBB2269D4B10099E17C /* CollectionGalleryCell.xib in Resources */,
 				46C6FBB72269D4720099E17C /* CustomEmployeeCell.xib in Resources */,
+				460D5308226F364D0020DE92 /* CustomSegment.xib in Resources */,
 				46FF2D1D2268D15F0006BE82 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -209,16 +251,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				46C6FBBF2269E6FA0099E17C /* LoginController.swift in Sources */,
-				46C6FBC5226D8FBC0099E17C /* RoundCornerProtocol.swift in Sources */,
-				46C6FBBA2269D4B10099E17C /* CollectionGallaryCell.swift in Sources */,
+				46C6FBC5226D8FBC0099E17C /* RoundCornerExtension.swift in Sources */,
+				46C6FBBA2269D4B10099E17C /* CollectionGalleryCell.swift in Sources */,
 				46C6FBC7226D9F530099E17C /* EmployeeDetailsControllers.swift in Sources */,
 				46FF2D202268D15F0006BE82 /* Employer_s_World.xcdatamodeld in Sources */,
 				46313A542269B9A4003D702C /* MapController.swift in Sources */,
 				46313A4A2269AD30003D702C /* RootTabBarController.swift in Sources */,
 				46FF2D182268D15F0006BE82 /* AppDelegate.swift in Sources */,
 				46C6FBBD2269E5140099E17C /* SignUpController.swift in Sources */,
+				460D530B226F36C60020DE92 /* CustomSegment.swift in Sources */,
 				46313A4E2269B922003D702C /* EmployeeListController.swift in Sources */,
-				46313A502269B954003D702C /* GallaryController.swift in Sources */,
+				465F2FB522707C9400A5CE02 /* PhotoPreviewController.swift in Sources */,
+				46313A502269B954003D702C /* GalleryController.swift in Sources */,
 				46C6FBB62269D4720099E17C /* CustomEmployeeCell.swift in Sources */,
 				46313A522269B981003D702C /* ProfileController.swift in Sources */,
 			);

@@ -10,9 +10,14 @@ import UIKit
 
 class EmployeeListController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    @IBOutlet weak var EmployeeTabBarItem: UITabBarItem!
+//  MARK: - Variables
+
+    
+//  MARK: - IBOutlets
+    @IBOutlet weak var employeeTabBarItem: UITabBarItem!
     @IBOutlet weak var employeeTableView: UITableView!
 
+//  MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -24,25 +29,34 @@ class EmployeeListController: UIViewController, UITableViewDelegate, UITableView
         
         configureUI()
     }
-    
-    func configureUI() {
-        
-    }
 
-    
     override func viewDidAppear(_ animated: Bool) {
-        self.navigationController?.navigationBar.topItem?.title = "Employeer's World"
-        EmployeeTabBarItem.title = "Employee List"
+        self.navigationController?.navigationBar.topItem?.title = "EMPLOYER'S WORLD"
+        employeeTabBarItem.title = "EMPLOYEES"
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        EmployeeTabBarItem.title = ""
+        employeeTabBarItem.title = ""
+        if let index = self.employeeTableView.indexPathForSelectedRow{
+            self.employeeTableView.deselectRow(at: index, animated: true)
+        }
     }
+    
+//  MARK: - Functions
+    func configureUI() {
+        
+    }
+    
+    
+//  MARK: - IBActions
+    
     
 }
 
 
+//  MARK: - Extensions
 extension EmployeeListController {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 25
     }
@@ -53,13 +67,14 @@ extension EmployeeListController {
         return cell
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 60
-    }
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "EmployeeDetailsControllers") as! EmployeeDetailsControllers
         self.navigationController?.pushViewController(controller, animated: true)
     }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 60
+    }
+    
 }
