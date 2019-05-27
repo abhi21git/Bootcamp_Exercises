@@ -14,7 +14,6 @@ class GalleryController: UIViewController, UICollectionViewDelegate , UICollecti
     
     
 //  MARK: - IBOutlets
-    @IBOutlet weak var galleryTabBarItem: UITabBarItem!
     @IBOutlet weak var employeeGallery: UICollectionView!
     
     
@@ -29,15 +28,6 @@ class GalleryController: UIViewController, UICollectionViewDelegate , UICollecti
         employeeGallery.dataSource = self
         
         configureUI()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.navigationBar.topItem?.title = "GALLERY"
-        galleryTabBarItem.title = "GALLERY"
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        galleryTabBarItem.title = ""
     }
 
     

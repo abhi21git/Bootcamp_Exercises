@@ -28,7 +28,7 @@ class RootTabBarController: UITabBarController {
     
 //  MARK: - Functions
     func configureUI() {
-        
+//        self.navigationItem.setHidesBackButton(true, animated:true);
     }
     
     

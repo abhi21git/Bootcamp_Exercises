@@ -1,44 +1,38 @@
 //
-//  LoginController.swift
+//  WelcomeController.swift
 //  Employer's World
 //
-//  Created by Abhishek Maurya on 19/04/19.
+//  Created by Abhishek Maurya on 27/05/19.
 //  Copyright © 2019 Abhishek Maurya. All rights reserved.
 //
 
 import UIKit
 
-class LoginController: UIViewController {
+class WelcomeController: UIViewController {
 
-//  MARK: - Variables
+    //  MARK:- Variables
     
     
     
-//  MARK: - IBOutlets
+    //  MARK:- IBOutlets
     
     
     
-//  MARK: - LifeCycle
+    //  MARK:- LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
         configureUI()
     }
-
     
-//  MARK: - Functions
+    
+    //  MARK:- Functions
     func configureUI() {
         
     }
-
     
-//  MARK: - IBActions
     
-
-}
-
-
-//  MARK: - Extensions
-extension LoginController {
+    //  MARK:- IBActions
+    
     
 }

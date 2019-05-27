@@ -54,7 +54,7 @@ class MapController: UIViewController, CLLocationManagerDelegate, MKMapViewDeleg
         setupCoreLocation()
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
+    override func viewDidDisappear(_ animated: Bool) {
         mapTabBarItem.title = ""
         
     }

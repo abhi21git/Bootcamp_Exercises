@@ -14,7 +14,6 @@ class EmployeeListController: UIViewController, UITableViewDelegate, UITableView
 
     
 //  MARK: - IBOutlets
-    @IBOutlet weak var employeeTabBarItem: UITabBarItem!
     @IBOutlet weak var employeeTableView: UITableView!
 
 //  MARK: - LifeCycle
@@ -29,18 +28,19 @@ class EmployeeListController: UIViewController, UITableViewDelegate, UITableView
         
         configureUI()
     }
-
-    override func viewDidAppear(_ animated: Bool) {
-        self.navigationController?.navigationBar.topItem?.title = "EMPLOYER'S WORLD"
-        employeeTabBarItem.title = "EMPLOYEES"
+    
+    override func viewWillAppear(_ animated: Bool) {
+//        self.navigationController?.navigationBar.topItem?.title = "EMPLOYER'S WORLD"
+//        self.title = "EMPLOYER'S WORLD"
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        employeeTabBarItem.title = ""
         if let index = self.employeeTableView.indexPathForSelectedRow{
             self.employeeTableView.deselectRow(at: index, animated: true)
         }
     }
+
     
 //  MARK: - Functions
     func configureUI() {
@@ -70,6 +70,7 @@ extension EmployeeListController {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "EmployeeDetailsControllers") as! EmployeeDetailsControllers
+        controller.hidesBottomBarWhenPushed = false
         self.navigationController?.pushViewController(controller, animated: true)
     }
     

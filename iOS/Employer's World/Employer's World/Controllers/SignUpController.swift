@@ -10,15 +10,15 @@ import UIKit
 
 class SignUpController: UIViewController {
 
-//  MARK:- Variables
+//  MARK: - Variables
     
     
     
-//  MARK:- IBOutlets
+//  MARK: - IBOutlets
     
     
     
-//  MARK:- LifeCycle
+//  MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -32,7 +32,7 @@ class SignUpController: UIViewController {
     }
     
     
-//  MARK:- IBActions
+//  MARK: - IBActions
     
     
 

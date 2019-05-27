@@ -31,8 +31,8 @@ class EmployeeDetailsControllers: UIViewController, UICollectionViewDelegate , U
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let nib = UINib(nibName: "CollectionGallaryCell", bundle: nil)
-        employeeGallary.register(nib, forCellWithReuseIdentifier: "gallaryCell")
+        let nib = UINib(nibName: "CollectionGalleryCell", bundle: nil)
+        employeeGallary.register(nib, forCellWithReuseIdentifier: "galleryCell")
         
         employeeGallary.delegate = self
         employeeGallary.dataSource = self
@@ -43,14 +43,15 @@ class EmployeeDetailsControllers: UIViewController, UICollectionViewDelegate , U
     }
     
     
+    
 //  MARK: - Functions
     func configureUI() {
-        self.title = "Employee Details"
+        self.title = "EMPLOYEE DETAILS"
         
         employeePicture.roundedCornersWithBorder(cornerRadius: employeePicture.frame.height/2)
-        employeeNameLabel.roundedCornersWithBorder(cornerRadius: 10, borderWidth: 1)
+        employeeNameLabel.roundedCornersWithBorder(cornerRadius: 10)
         employeeAgeLabel.roundedCornersWithBorder(cornerRadius: 10)
-        employeeAgeLabel.roundedCornersWithBorder(cornerRadius: 10)
+        employeeDOBLabel.roundedCornersWithBorder(cornerRadius: 10)
         employeeSalaryLabel.roundedCornersWithBorder(cornerRadius: 10)
         detailsContentView.roundedCornersWithBorder(cornerRadius: 10, borderWidth: 1)
         gallaryAndMapContentView.roundedCornersWithBorder(cornerRadius: 10, borderWidth: 1)
@@ -94,7 +95,7 @@ extension EmployeeDetailsControllers {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "gallaryCell", for: indexPath) as! CollectionGalleryCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "galleryCell", for: indexPath) as! CollectionGalleryCell
         
         return cell
     }
@@ -102,6 +103,7 @@ extension EmployeeDetailsControllers {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
         let controller = storyBoard.instantiateViewController(withIdentifier: "PhotoPreviewController") as! PhotoPreviewController
+        controller.hidesBottomBarWhenPushed = false
         self.navigationController?.pushViewController(controller, animated: true)
         
     }

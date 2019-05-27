@@ -10,30 +10,20 @@ import UIKit
 
 class ProfileController: UIViewController {
     
-//  MARK:- Variables
+//  MARK: - Variables
     
     
     
-//  MARK:- IBOutlets
-    @IBOutlet weak var profileTabBarItem: UITabBarItem!
+//  MARK: - IBOutlets
 
     
-//  MARK:- LifeCycle
+//  MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
         configureUI()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        self.navigationController?.navigationBar.topItem?.title = "PROFILE"
-        profileTabBarItem.title = "PROFILE"
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        profileTabBarItem.title = ""
-    }
-
     
 //  MARK: - Functions
     func configureUI() {
@@ -41,14 +31,14 @@ class ProfileController: UIViewController {
     }
     
     
-//  MARK:- IBActions
+//  MARK: - IBActions
     
     
     
 }
 
 
-//  MARK:- Extension
+//  MARK: - Extension
 extension ProfileController {
     
     
