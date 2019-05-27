@@ -23,7 +23,7 @@ class EmployeeNavigationController: UINavigationController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-//        self.navigationController?.navigationBar.topItem?.title = "EMPLOYER'S WORLD"
+        self.navigationController?.navigationBar.topItem?.title = "EMPLOYER'S WORLD"
         self.employeeTabBarItem.title = "EMPLOYEES"
     }
     
