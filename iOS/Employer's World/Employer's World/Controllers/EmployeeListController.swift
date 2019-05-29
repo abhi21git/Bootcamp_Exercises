@@ -11,7 +11,7 @@ import UIKit
 class EmployeeListController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
 //  MARK: - Variables
-
+    let employeeListURL = "http://dummy.restapiexample.com/api/v1/employees"
     
 //  MARK: - IBOutlets
     @IBOutlet weak var employeeTableView: UITableView!
@@ -20,18 +20,12 @@ class EmployeeListController: UIViewController, UITableViewDelegate, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let nib = UINib(nibName: "CustomEmployeeCell", bundle: nil)
-        employeeTableView.register(nib, forCellReuseIdentifier: "employeeCell")
-        
-        employeeTableView.dataSource = self
-        employeeTableView.delegate = self
-        
+        tableViewHandling()
         configureUI()
+        apiHandling()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-//        self.navigationController?.navigationBar.topItem?.title = "EMPLOYER'S WORLD"
-//        self.title = "EMPLOYER'S WORLD"
         
     }
     
@@ -44,8 +38,31 @@ class EmployeeListController: UIViewController, UITableViewDelegate, UITableView
     
 //  MARK: - Functions
     func configureUI() {
+        self.navigationItem.title = "EMPLOYER'S WORLD"
         
     }
+    
+    func tableViewHandling() {
+        let nib = UINib(nibName: "CustomEmployeeCell", bundle: nil)
+        employeeTableView.register(nib, forCellReuseIdentifier: "employeeCell")
+        employeeTableView.dataSource = self
+        employeeTableView.delegate = self
+        
+    }
+    
+    func apiHandling() {
+        NetworkController.loadEmployee(urlString: employeeListURL) { (employeeList, responseErr) in
+            if let err = responseErr{
+                debugPrint(err.localizedDescription)
+            }else{
+                let employeeData = employeeList as? JSON
+                let movieCatalog = employeeData.flatMap(EmployeeListing.init)
+                
+            }
+        }
+        
+    }
+
     
     
 //  MARK: - IBActions

@@ -33,6 +33,11 @@ class WelcomeController: UIViewController {
     
     
     //  MARK:- IBActions
-    
+    @IBAction func continueClicked() {
+        let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
+        let controller = storyBoard.instantiateViewController(withIdentifier: "RootTabBarController") as! RootTabBarController
+        self.navigationController?.pushViewController(controller, animated: true)
+
+    }
     
 }

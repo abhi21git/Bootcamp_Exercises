@@ -33,7 +33,7 @@ class GalleryController: UIViewController, UICollectionViewDelegate , UICollecti
     
 //  MARK: - Functions
     func configureUI() {
-        
+         self.navigationItem.title = "GALLERY"
     }
     
     

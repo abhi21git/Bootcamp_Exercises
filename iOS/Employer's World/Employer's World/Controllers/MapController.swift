@@ -30,38 +30,30 @@ class MapController: UIViewController, CLLocationManagerDelegate, MKMapViewDeleg
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
         
-//        if CLLocationManager.authorizationStatus() == .notDetermined {
-//            locationManager.requestAlwaysAuthorization()
-//        }
-//        else if CLLocationManager.authorizationStatus() == .denied {
-//            let alert = UIAlertController(title: "Location Permission Denied", message: "Location services denied. Please enable location services for this app.", preferredStyle: UIAlertController.Style.alert)
-//            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-//            self.present(alert, animated: true, completion: nil)
-//            //permission denied
-//        }
-//        else if CLLocationManager.authorizationStatus() == .authorizedAlways {
-//            locationManager.startUpdatingLocation()
-//        }
+        
+        if CLLocationManager.authorizationStatus() == .notDetermined {
+            locationManager.requestAlwaysAuthorization()
+        }
+        else if CLLocationManager.authorizationStatus() == .denied {
+            let alert = UIAlertController(title: "Location Permission Denied", message: "Location services denied. Please enable location services for this app.", preferredStyle: UIAlertController.Style.alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            //permission denied
+        }
+        else if CLLocationManager.authorizationStatus() == .authorizedAlways {
+            locationManager.startUpdatingLocation()
+        }
         
         configureUI()
         
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        
-        self.navigationController?.navigationBar.topItem?.title = "MAPS"
-        mapTabBarItem.title = "MAP"
-        setupCoreLocation()
-    }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        mapTabBarItem.title = ""
-        
-    }
     
     
 //  MARK:- Functions
     func configureUI() {
+        self.navigationItem.title = "MAPS"
+        
         currentLocationButton.layer.cornerRadius = currentLocationButton.frame.height/2
         currentLocationButton.clipsToBounds = true
     }
@@ -104,8 +96,12 @@ extension MapController {
         switch status {
         case .authorizedAlways:
             print("authorized")
-        default:
+            
+        case .denied:
             print("not authorized")
+            
+        default:
+            print("unknown")
             break
         }
     }

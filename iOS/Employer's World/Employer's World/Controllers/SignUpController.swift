@@ -28,6 +28,7 @@ class SignUpController: UIViewController {
     
 //  MARK: - Functions
     func configureUI() {
+         self.navigationItem.title = "SIGNUP"
         
     }
     

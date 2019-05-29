@@ -10,31 +10,31 @@ import UIKit
 
 class RootTabBarController: UITabBarController {
     
-//  MARK: - Variables
+    //  MARK: - Variables
     
     
-//  MARK: - IBOutlets
+    //  MARK: - IBOutlets
     @IBOutlet weak var rootTabBar: UITabBar!
-
     
-//  MARK: - LifeCycle
+    
+    //  MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         configureUI()
         
     }
     
     
-//  MARK: - Functions
+    //  MARK: - Functions
     func configureUI() {
-//        self.navigationItem.setHidesBackButton(true, animated:true);
+        //        self.navigationItem.setHidesBackButton(true, animated:true);
     }
     
     
-//  MARK: - IBActions
-
-
+    //  MARK: - IBActions
+    
+    
 }
 
 //  MARK: - Extensions

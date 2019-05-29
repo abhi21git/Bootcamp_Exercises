@@ -103,7 +103,6 @@ extension EmployeeDetailsControllers {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
         let controller = storyBoard.instantiateViewController(withIdentifier: "PhotoPreviewController") as! PhotoPreviewController
-        controller.hidesBottomBarWhenPushed = false
         self.navigationController?.pushViewController(controller, animated: true)
         
     }

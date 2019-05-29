@@ -28,7 +28,7 @@ class PhotoPreviewController: UIViewController {
 
 //  MARK:- Functions
     func configureUI() {
-        self.title = "Photo Preview"
+        self.title = "PREVIEW"
     }
     
     

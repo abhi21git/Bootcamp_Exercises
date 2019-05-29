@@ -27,6 +27,7 @@ class ProfileController: UIViewController {
     
 //  MARK: - Functions
     func configureUI() {
+         self.navigationItem.title = "PROFILE"
         
     }
     
