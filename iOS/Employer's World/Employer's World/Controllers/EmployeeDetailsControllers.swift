@@ -46,7 +46,7 @@ class EmployeeDetailsControllers: UIViewController, UICollectionViewDelegate , U
     
 //  MARK: - Functions
     func configureUI() {
-        self.title = "EMPLOYEE DETAILS"
+        self.title = "Employee Details"
         
         employeePicture.roundedCornersWithBorder(cornerRadius: employeePicture.frame.height/2)
         employeeNameLabel.roundedCornersWithBorder(cornerRadius: 10)

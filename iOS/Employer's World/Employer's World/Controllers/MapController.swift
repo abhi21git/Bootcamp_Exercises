@@ -52,7 +52,7 @@ class MapController: UIViewController, CLLocationManagerDelegate, MKMapViewDeleg
     
 //  MARK:- Functions
     func configureUI() {
-        self.navigationItem.title = "MAPS"
+        self.navigationItem.title = "Maps"
         
         currentLocationButton.layer.cornerRadius = currentLocationButton.frame.height/2
         currentLocationButton.clipsToBounds = true

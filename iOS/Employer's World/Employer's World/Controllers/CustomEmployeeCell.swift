@@ -17,6 +17,7 @@ class CustomEmployeeCell: UITableViewCell {
 //  MARK:- IBOutlets
     @IBOutlet weak var employeeProfilePicture: UIImageView!
     @IBOutlet weak var employeeNameLabel: UILabel!
+    @IBOutlet weak var employeeIDLabel: UILabel!
     
 
 //  MARK:- LifeCycle

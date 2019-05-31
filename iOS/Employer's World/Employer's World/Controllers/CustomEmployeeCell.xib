@@ -20,19 +20,19 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="User" translatesAutoresizingMaskIntoConstraints="NO" id="p4B-8D-j69">
-                        <rect key="frame" x="20" y="15" width="30" height="30"/>
+                        <rect key="frame" x="15" y="15" width="30" height="30"/>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="p4B-8D-j69" secondAttribute="height" multiplier="1:1" id="4Rf-sH-0eb"/>
                             <constraint firstAttribute="height" constant="30" id="8rG-b7-M6x"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Shy-PR-4vf">
-                        <rect key="frame" x="60" y="10" width="285" height="40"/>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Shy-PR-4vf">
+                        <rect key="frame" x="60" y="10" width="250" height="40"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="40" id="idS-ZN-8Hz"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -43,22 +43,34 @@
                             <constraint firstAttribute="width" secondItem="s06-LV-VfR" secondAttribute="height" multiplier="1:1" id="sbh-Fl-k49"/>
                         </constraints>
                     </imageView>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="251" text="ID" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kIj-K9-3ps">
+                        <rect key="frame" x="325" y="10" width="15" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="9Ph-Uv-JSg"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="s06-LV-VfR" secondAttribute="trailing" constant="15" id="0SF-Ze-V4i"/>
                     <constraint firstItem="Shy-PR-4vf" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="1LH-XP-7rE"/>
                     <constraint firstItem="p4B-8D-j69" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="50c-Y7-m16"/>
+                    <constraint firstItem="kIj-K9-3ps" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="CpT-hX-SS2"/>
                     <constraint firstItem="s06-LV-VfR" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="GfS-kE-hKB"/>
-                    <constraint firstItem="p4B-8D-j69" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="RH0-QY-VcF"/>
-                    <constraint firstItem="Shy-PR-4vf" firstAttribute="leading" secondItem="p4B-8D-j69" secondAttribute="trailing" constant="10" id="d6a-2j-a67"/>
-                    <constraint firstItem="s06-LV-VfR" firstAttribute="leading" secondItem="Shy-PR-4vf" secondAttribute="trailing" constant="10" id="fg9-Dv-6ne"/>
+                    <constraint firstItem="p4B-8D-j69" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="RH0-QY-VcF"/>
+                    <constraint firstItem="kIj-K9-3ps" firstAttribute="leading" secondItem="Shy-PR-4vf" secondAttribute="trailing" constant="15" id="RHz-I4-U0E"/>
+                    <constraint firstItem="Shy-PR-4vf" firstAttribute="leading" secondItem="p4B-8D-j69" secondAttribute="trailing" constant="15" id="d6a-2j-a67"/>
+                    <constraint firstItem="s06-LV-VfR" firstAttribute="leading" secondItem="kIj-K9-3ps" secondAttribute="trailing" constant="15" id="eKT-QW-r0F"/>
                     <constraint firstItem="p4B-8D-j69" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="i76-dG-tvr"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="employeeIDLabel" destination="kIj-K9-3ps" id="ctQ-fR-EfD"/>
                 <outlet property="employeeNameLabel" destination="Shy-PR-4vf" id="obW-Ps-RXy"/>
                 <outlet property="employeeProfilePicture" destination="p4B-8D-j69" id="69I-aI-2hd"/>
             </connections>

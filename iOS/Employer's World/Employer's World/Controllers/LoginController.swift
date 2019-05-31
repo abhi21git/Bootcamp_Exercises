@@ -28,7 +28,7 @@ class LoginController: UIViewController {
     
 //  MARK: - Functions
     func configureUI() {
-         self.navigationItem.title = "LOGIN"
+         self.navigationItem.title = "Login"
         
     }
 

@@ -16,8 +16,8 @@
 		46313A542269B9A4003D702C /* MapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46313A532269B9A4003D702C /* MapController.swift */; };
 		465F2FB522707C9400A5CE02 /* PhotoPreviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465F2FB422707C9400A5CE02 /* PhotoPreviewController.swift */; };
 		4691EAAB229E723F00BF08A6 /* RootTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4691EAAA229E723F00BF08A6 /* RootTabBarController.swift */; };
-		4691EAAD229E922700BF08A6 /* EmployeeList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4691EAAC229E922700BF08A6 /* EmployeeList.swift */; };
-		4691EAAF229E928100BF08A6 /* EmployeeListing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4691EAAE229E928100BF08A6 /* EmployeeListing.swift */; };
+		4691EAAD229E922700BF08A6 /* Employee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4691EAAC229E922700BF08A6 /* Employee.swift */; };
+		4691EAB422A0FA3F00BF08A6 /* ServiceErrorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4691EAB322A0FA3F00BF08A6 /* ServiceErrorExtension.swift */; };
 		46C6FBB62269D4720099E17C /* CustomEmployeeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C6FBB42269D4720099E17C /* CustomEmployeeCell.swift */; };
 		46C6FBB72269D4720099E17C /* CustomEmployeeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 46C6FBB52269D4720099E17C /* CustomEmployeeCell.xib */; };
 		46C6FBBA2269D4B10099E17C /* CollectionGalleryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C6FBB82269D4B10099E17C /* CollectionGalleryCell.swift */; };
@@ -26,7 +26,7 @@
 		46C6FBBF2269E6FA0099E17C /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C6FBBE2269E6FA0099E17C /* LoginController.swift */; };
 		46C6FBC5226D8FBC0099E17C /* RoundCornerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C6FBC4226D8FBC0099E17C /* RoundCornerExtension.swift */; };
 		46C6FBC7226D9F530099E17C /* EmployeeDetailsControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C6FBC6226D9F530099E17C /* EmployeeDetailsControllers.swift */; };
-		46C747692293F9A000A65403 /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C747682293F9A000A65403 /* NetworkController.swift */; };
+		46C747692293F9A000A65403 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C747682293F9A000A65403 /* NetworkManager.swift */; };
 		46FF2D182268D15F0006BE82 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46FF2D172268D15F0006BE82 /* AppDelegate.swift */; };
 		46FF2D1D2268D15F0006BE82 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 46FF2D1B2268D15F0006BE82 /* Main.storyboard */; };
 		46FF2D202268D15F0006BE82 /* Employer_s_World.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 46FF2D1E2268D15F0006BE82 /* Employer_s_World.xcdatamodeld */; };
@@ -44,8 +44,8 @@
 		46313A532269B9A4003D702C /* MapController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapController.swift; sourceTree = "<group>"; };
 		465F2FB422707C9400A5CE02 /* PhotoPreviewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPreviewController.swift; sourceTree = "<group>"; };
 		4691EAAA229E723F00BF08A6 /* RootTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabBarController.swift; sourceTree = "<group>"; };
-		4691EAAC229E922700BF08A6 /* EmployeeList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeList.swift; sourceTree = "<group>"; };
-		4691EAAE229E928100BF08A6 /* EmployeeListing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeListing.swift; sourceTree = "<group>"; };
+		4691EAAC229E922700BF08A6 /* Employee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Employee.swift; sourceTree = "<group>"; };
+		4691EAB322A0FA3F00BF08A6 /* ServiceErrorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceErrorExtension.swift; sourceTree = "<group>"; };
 		46C6FBB42269D4720099E17C /* CustomEmployeeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomEmployeeCell.swift; sourceTree = "<group>"; };
 		46C6FBB52269D4720099E17C /* CustomEmployeeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomEmployeeCell.xib; sourceTree = "<group>"; };
 		46C6FBB82269D4B10099E17C /* CollectionGalleryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionGalleryCell.swift; sourceTree = "<group>"; };
@@ -54,7 +54,7 @@
 		46C6FBBE2269E6FA0099E17C /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		46C6FBC4226D8FBC0099E17C /* RoundCornerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundCornerExtension.swift; sourceTree = "<group>"; };
 		46C6FBC6226D9F530099E17C /* EmployeeDetailsControllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeDetailsControllers.swift; sourceTree = "<group>"; };
-		46C747682293F9A000A65403 /* NetworkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
+		46C747682293F9A000A65403 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		46FF2D142268D15F0006BE82 /* Employer's World.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Employer's World.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		46FF2D172268D15F0006BE82 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		46FF2D1C2268D15F0006BE82 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -123,11 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				46229B97229BEE7A00CBA6B5 /* WelcomeController.swift */,
-				4691EAAA229E723F00BF08A6 /* RootTabBarController.swift */,
-				46229B92229BE7D300CBA6B5 /* Employee Tab */,
-				46229B93229BE7E700CBA6B5 /* Gallery Tab */,
-				4691EAA7229E6C2E00BF08A6 /* Map Tab */,
-				46229B94229BE80C00CBA6B5 /* Profile Tab */,
+				4691EAB0229EA09200BF08A6 /* RootTabBar */,
 				46C6FBC2226A047D0099E17C /* CustomTableCell */,
 				46C6FBC0226A04590099E17C /* CustomCollectionCell */,
 				460D5309226F369E0020DE92 /* CustomSegment */,
@@ -143,11 +139,25 @@
 			name = "Map Tab";
 			sourceTree = "<group>";
 		};
-		46AA9BAA2272EC8200F5C394 /* Modal */ = {
+		4691EAB0229EA09200BF08A6 /* RootTabBar */ = {
 			isa = PBXGroup;
 			children = (
+				4691EAAA229E723F00BF08A6 /* RootTabBarController.swift */,
+				46229B92229BE7D300CBA6B5 /* Employee Tab */,
+				46229B93229BE7E700CBA6B5 /* Gallery Tab */,
+				4691EAA7229E6C2E00BF08A6 /* Map Tab */,
+				46229B94229BE80C00CBA6B5 /* Profile Tab */,
 			);
-			path = Modal;
+			name = RootTabBar;
+			sourceTree = "<group>";
+		};
+		46AA9BAA2272EC8200F5C394 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4691EAAC229E922700BF08A6 /* Employee.swift */,
+				46C747672293F97A00A65403 /* API Manager */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		46C6FBC0226A04590099E17C /* CustomCollectionCell */ = {
@@ -172,6 +182,7 @@
 			isa = PBXGroup;
 			children = (
 				46C6FBC4226D8FBC0099E17C /* RoundCornerExtension.swift */,
+				4691EAB322A0FA3F00BF08A6 /* ServiceErrorExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -188,9 +199,7 @@
 		46C747672293F97A00A65403 /* API Manager */ = {
 			isa = PBXGroup;
 			children = (
-				46C747682293F9A000A65403 /* NetworkController.swift */,
-				4691EAAC229E922700BF08A6 /* EmployeeList.swift */,
-				4691EAAE229E928100BF08A6 /* EmployeeListing.swift */,
+				46C747682293F9A000A65403 /* NetworkManager.swift */,
 			);
 			path = "API Manager";
 			sourceTree = "<group>";
@@ -217,9 +226,8 @@
 				46FF2D172268D15F0006BE82 /* AppDelegate.swift */,
 				46C6FBC3226D8FAC0099E17C /* Extensions */,
 				460D530C227046250020DE92 /* Protocols */,
-				46AA9BAA2272EC8200F5C394 /* Modal */,
+				46AA9BAA2272EC8200F5C394 /* Model */,
 				46313A552269BD13003D702C /* Controllers */,
-				46C747672293F97A00A65403 /* API Manager */,
 				46C6FBC8226EF2CD0099E17C /* Storyboard */,
 				46FF2D212268D1610006BE82 /* Assets.xcassets */,
 				46FF2D262268D1620006BE82 /* Info.plist */,
@@ -306,19 +314,19 @@
 				46C6FBC5226D8FBC0099E17C /* RoundCornerExtension.swift in Sources */,
 				46C6FBBA2269D4B10099E17C /* CollectionGalleryCell.swift in Sources */,
 				46C6FBC7226D9F530099E17C /* EmployeeDetailsControllers.swift in Sources */,
-				4691EAAF229E928100BF08A6 /* EmployeeListing.swift in Sources */,
 				46FF2D202268D15F0006BE82 /* Employer_s_World.xcdatamodeld in Sources */,
 				4691EAAB229E723F00BF08A6 /* RootTabBarController.swift in Sources */,
 				46229B98229BEE7A00CBA6B5 /* WelcomeController.swift in Sources */,
-				46C747692293F9A000A65403 /* NetworkController.swift in Sources */,
+				46C747692293F9A000A65403 /* NetworkManager.swift in Sources */,
 				46313A542269B9A4003D702C /* MapController.swift in Sources */,
+				4691EAB422A0FA3F00BF08A6 /* ServiceErrorExtension.swift in Sources */,
 				46FF2D182268D15F0006BE82 /* AppDelegate.swift in Sources */,
 				46C6FBBD2269E5140099E17C /* SignUpController.swift in Sources */,
 				460D530B226F36C60020DE92 /* CustomSegment.swift in Sources */,
 				46313A4E2269B922003D702C /* EmployeeListController.swift in Sources */,
 				465F2FB522707C9400A5CE02 /* PhotoPreviewController.swift in Sources */,
 				46313A502269B954003D702C /* GalleryController.swift in Sources */,
-				4691EAAD229E922700BF08A6 /* EmployeeList.swift in Sources */,
+				4691EAAD229E922700BF08A6 /* Employee.swift in Sources */,
 				46C6FBB62269D4720099E17C /* CustomEmployeeCell.swift in Sources */,
 				46313A522269B981003D702C /* ProfileController.swift in Sources */,
 			);

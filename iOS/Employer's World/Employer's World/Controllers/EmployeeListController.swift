@@ -11,11 +11,14 @@ import UIKit
 class EmployeeListController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
 //  MARK: - Variables
-    let employeeListURL = "http://dummy.restapiexample.com/api/v1/employees"
+    var employeeArray = [Employee]()
+
     
 //  MARK: - IBOutlets
     @IBOutlet weak var employeeTableView: UITableView!
+    @IBOutlet weak var loader: UIActivityIndicatorView!
 
+    
 //  MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +41,8 @@ class EmployeeListController: UIViewController, UITableViewDelegate, UITableView
     
 //  MARK: - Functions
     func configureUI() {
-        self.navigationItem.title = "EMPLOYER'S WORLD"
+        self.navigationItem.title = "Employer's World"
+        loader.roundedCornersWithBorder(cornerRadius: loader.frame.height/6)
         
     }
     
@@ -51,16 +55,27 @@ class EmployeeListController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func apiHandling() {
-        NetworkController.loadEmployee(urlString: employeeListURL) { (employeeList, responseErr) in
-            if let err = responseErr{
-                debugPrint(err.localizedDescription)
-            }else{
-                let employeeData = employeeList as? JSON
-                let movieCatalog = employeeData.flatMap(EmployeeListing.init)
-                
-            }
-        }
         
+        let employeeListURL = "http://dummy.restapiexample.com/api/v1/employees"
+
+        NetworkManager.sharedInstance.loadEmployee(urlString: employeeListURL, completion: { (data, responseError) in
+
+            if let error = responseError {
+                
+                print(error.localizedDescription)
+                let alert  = UIAlertController(title: "Warning", message: error.localizedDescription, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+                
+            } else {
+                
+                DispatchQueue.main.async {
+                    self.employeeArray = data as! [Employee]
+                    self.loader.isHidden = true
+                    self.employeeTableView.reloadData()
+                }
+            }
+        })
     }
 
     
@@ -75,19 +90,21 @@ class EmployeeListController: UIViewController, UITableViewDelegate, UITableView
 extension EmployeeListController {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 25
+        return employeeArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "employeeCell") as! CustomEmployeeCell
-        
+        cell.employeeNameLabel.text = employeeArray[indexPath.row].name
+        cell.employeeIDLabel.text = employeeArray[indexPath.row].id
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(indexPath)
+        
         let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "EmployeeDetailsControllers") as! EmployeeDetailsControllers
-        controller.hidesBottomBarWhenPushed = false
         self.navigationController?.pushViewController(controller, animated: true)
     }
     
