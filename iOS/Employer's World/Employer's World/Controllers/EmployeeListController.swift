@@ -25,7 +25,7 @@ class EmployeeListController: UIViewController, UITableViewDelegate, UITableView
         
         tableViewHandling()
         configureUI()
-        apiHandling()
+        employeeFetching()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -43,7 +43,7 @@ class EmployeeListController: UIViewController, UITableViewDelegate, UITableView
     func configureUI() {
         self.navigationItem.title = "Employer's World"
         loader.roundedCornersWithBorder(cornerRadius: loader.frame.height/6)
-        
+        employeeTableView.isHidden = true
     }
     
     func tableViewHandling() {
@@ -54,7 +54,7 @@ class EmployeeListController: UIViewController, UITableViewDelegate, UITableView
         
     }
     
-    func apiHandling() {
+    func employeeFetching() {
         
         let employeeListURL = "http://dummy.restapiexample.com/api/v1/employees"
 
@@ -63,15 +63,17 @@ class EmployeeListController: UIViewController, UITableViewDelegate, UITableView
             if let error = responseError {
                 
                 print(error.localizedDescription)
-                let alert  = UIAlertController(title: "Warning", message: error.localizedDescription, preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                let alert  = UIAlertController(title: "Something went wrong", message: error.localizedDescription, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Retry", style: .default, handler: { action in self.employeeFetching() }))
                 self.present(alert, animated: true, completion: nil)
+                
                 
             } else {
                 
                 DispatchQueue.main.async {
                     self.employeeArray = data as! [Employee]
                     self.loader.isHidden = true
+                    self.employeeTableView.isHidden = false
                     self.employeeTableView.reloadData()
                 }
             }
@@ -101,10 +103,9 @@ extension EmployeeListController {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(indexPath)
-        
         let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "EmployeeDetailsControllers") as! EmployeeDetailsControllers
+        controller.empID = employeeArray[indexPath.row].id ?? "0"
         self.navigationController?.pushViewController(controller, animated: true)
     }
     

@@ -97,7 +97,7 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DOB" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cRB-P7-Njd">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cRB-P7-Njd">
                                                         <rect key="frame" x="118" y="88" width="50" height="20"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
@@ -256,16 +256,16 @@
                     <tabBarItem key="tabBarItem" title="Item" id="6Cd-7C-8pk"/>
                     <navigationItem key="navigationItem" id="0ji-EB-fls"/>
                     <connections>
+                        <outlet property="ageLabel" destination="bFl-HQ-YWh" id="oJs-BE-Znw"/>
                         <outlet property="customSegment" destination="XRu-yL-ld8" id="R6C-FW-h29"/>
                         <outlet property="detailsContentView" destination="tbS-PU-dj5" id="CCg-Uj-cxY"/>
-                        <outlet property="employeeAgeLabel" destination="bFl-HQ-YWh" id="oJs-BE-Znw"/>
-                        <outlet property="employeeDOBLabel" destination="oL3-7a-d13" id="Vfw-lf-RkZ"/>
+                        <outlet property="empIDLabel" destination="oL3-7a-d13" id="Vfw-lf-RkZ"/>
                         <outlet property="employeeGallary" destination="je9-DZ-JCi" id="fhJ-Ki-ady"/>
                         <outlet property="employeeMapView" destination="Hto-85-e6N" id="rSF-1I-dLF"/>
-                        <outlet property="employeeNameLabel" destination="w41-2X-q0a" id="tyC-LC-Ira"/>
                         <outlet property="employeePicture" destination="A8p-6O-8XB" id="kEC-dn-KOb"/>
-                        <outlet property="employeeSalaryLabel" destination="25p-FX-pwA" id="DDE-aO-oaJ"/>
                         <outlet property="gallaryAndMapContentView" destination="f9c-7b-173" id="1zz-GH-H9C"/>
+                        <outlet property="nameLabel" destination="w41-2X-q0a" id="tyC-LC-Ira"/>
+                        <outlet property="salaryLabel" destination="25p-FX-pwA" id="DDE-aO-oaJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gO8-gc-Gmc" userLabel="First Responder" sceneMemberID="firstResponder"/>

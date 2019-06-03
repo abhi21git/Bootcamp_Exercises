@@ -24,7 +24,7 @@
 		46C6FBBB2269D4B10099E17C /* CollectionGalleryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 46C6FBB92269D4B10099E17C /* CollectionGalleryCell.xib */; };
 		46C6FBBD2269E5140099E17C /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C6FBBC2269E5140099E17C /* SignUpController.swift */; };
 		46C6FBBF2269E6FA0099E17C /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C6FBBE2269E6FA0099E17C /* LoginController.swift */; };
-		46C6FBC5226D8FBC0099E17C /* RoundCornerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C6FBC4226D8FBC0099E17C /* RoundCornerExtension.swift */; };
+		46C6FBC5226D8FBC0099E17C /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C6FBC4226D8FBC0099E17C /* UIViewExtension.swift */; };
 		46C6FBC7226D9F530099E17C /* EmployeeDetailsControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C6FBC6226D9F530099E17C /* EmployeeDetailsControllers.swift */; };
 		46C747692293F9A000A65403 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C747682293F9A000A65403 /* NetworkManager.swift */; };
 		46FF2D182268D15F0006BE82 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46FF2D172268D15F0006BE82 /* AppDelegate.swift */; };
@@ -52,7 +52,7 @@
 		46C6FBB92269D4B10099E17C /* CollectionGalleryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionGalleryCell.xib; sourceTree = "<group>"; };
 		46C6FBBC2269E5140099E17C /* SignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
 		46C6FBBE2269E6FA0099E17C /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
-		46C6FBC4226D8FBC0099E17C /* RoundCornerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundCornerExtension.swift; sourceTree = "<group>"; };
+		46C6FBC4226D8FBC0099E17C /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		46C6FBC6226D9F530099E17C /* EmployeeDetailsControllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeDetailsControllers.swift; sourceTree = "<group>"; };
 		46C747682293F9A000A65403 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		46FF2D142268D15F0006BE82 /* Employer's World.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Employer's World.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -181,7 +181,7 @@
 		46C6FBC3226D8FAC0099E17C /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				46C6FBC4226D8FBC0099E17C /* RoundCornerExtension.swift */,
+				46C6FBC4226D8FBC0099E17C /* UIViewExtension.swift */,
 				4691EAB322A0FA3F00BF08A6 /* ServiceErrorExtension.swift */,
 			);
 			path = Extensions;
@@ -311,7 +311,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				46C6FBBF2269E6FA0099E17C /* LoginController.swift in Sources */,
-				46C6FBC5226D8FBC0099E17C /* RoundCornerExtension.swift in Sources */,
+				46C6FBC5226D8FBC0099E17C /* UIViewExtension.swift in Sources */,
 				46C6FBBA2269D4B10099E17C /* CollectionGalleryCell.swift in Sources */,
 				46C6FBC7226D9F530099E17C /* EmployeeDetailsControllers.swift in Sources */,
 				46FF2D202268D15F0006BE82 /* Employer_s_World.xcdatamodeld in Sources */,

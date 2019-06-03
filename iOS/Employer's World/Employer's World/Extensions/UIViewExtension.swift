@@ -1,5 +1,5 @@
 //
-//  RoundCornerProtocol.swift
+//  UIViewExtension.swift
 //  Employer's World
 //
 //  Created by Abhishek Maurya on 22/04/19.
@@ -18,11 +18,12 @@ extension UIView {
         self.layer.maskedCorners = maskCorners
     }
     
-//    Function to make all corners round and optinally set border
+//    Function to make all corners round and set border id required
     func roundedCornersWithBorder(cornerRadius: CGFloat, borderWidth: CGFloat = 0) {
         self.clipsToBounds = true
         self.layer.cornerRadius = cornerRadius
         self.layer.borderWidth = borderWidth
     }
+    
 }
 

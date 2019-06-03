@@ -46,7 +46,7 @@ class NetworkManager {
                 result = try? decoder.decode([Employee].self, from: responseData!)
                 completion(result, nil)
             } else {
-                completion(nil, ServiceError.customError("Something went wrong."))
+                completion(nil, ServiceError.customError("Please check your internet connection and try again."))
             }
         }
         sessionTask.resume()
@@ -66,7 +66,7 @@ class NetworkManager {
                 let result = try? JSONDecoder().decode(Employee.self, from: responseData!)
                 completion(result, nil)
             } else {
-                completion(nil, ServiceError.customError("something went wrong"))
+                completion(nil, ServiceError.customError("Couldn't fetch employee details."))
             }
         }
         sessionTask.resume()
