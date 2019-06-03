@@ -28,7 +28,10 @@ class RootTabBarController: UITabBarController {
     
     //  MARK: - Functions
     func configureUI() {
-        //        self.navigationItem.setHidesBackButton(true, animated:true);
+        if UserDefaults.standard.bool(forKey: "LoggedIn") == true {
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+            appDelegate.window?.rootViewController = self
+        }
     }
     
     

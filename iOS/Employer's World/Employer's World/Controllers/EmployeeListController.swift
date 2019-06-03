@@ -67,7 +67,6 @@ class EmployeeListController: UIViewController, UITableViewDelegate, UITableView
                 alert.addAction(UIAlertAction(title: "Retry", style: .default, handler: { action in self.employeeFetching() }))
                 self.present(alert, animated: true, completion: nil)
                 
-                
             } else {
                 
                 DispatchQueue.main.async {

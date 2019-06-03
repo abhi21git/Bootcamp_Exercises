@@ -295,22 +295,45 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xp7-be-sce">
-                                <rect key="frame" x="186" y="178" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="BeE-gq-9Xz">
+                                <rect key="frame" x="80" y="372.5" width="254" height="151"/>
+                                <subviews>
+                                    <textField autoresizesSubviews="NO" opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="40" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CB2-vu-aFt">
+                                        <rect key="frame" x="0.0" y="0.0" width="254" height="40"/>
+                                        <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits" textContentType="username"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="41" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DMg-fL-ec8">
+                                        <rect key="frame" x="0.0" y="60" width="254" height="41"/>
+                                        <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ETf-c6-BVF">
+                                        <rect key="frame" x="0.0" y="121" width="254" height="30"/>
+                                        <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Login"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="BeE-gq-9Xz" firstAttribute="leading" secondItem="Q3p-f3-xfv" secondAttribute="leading" constant="80" id="8ti-L1-IaL"/>
+                            <constraint firstItem="BeE-gq-9Xz" firstAttribute="centerY" secondItem="hzh-Sc-gj6" secondAttribute="centerY" id="Zkx-kV-j1D"/>
+                            <constraint firstItem="BeE-gq-9Xz" firstAttribute="centerX" secondItem="hzh-Sc-gj6" secondAttribute="centerX" id="frO-99-IHo"/>
+                            <constraint firstItem="Q3p-f3-xfv" firstAttribute="trailing" secondItem="BeE-gq-9Xz" secondAttribute="trailing" constant="80" id="rWy-FN-o2L"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Q3p-f3-xfv"/>
                     </view>
                     <navigationItem key="navigationItem" id="eal-jD-Pnu"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bfj-nF-54o" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1439" y="523"/>
+            <point key="canvasLocation" x="1437.68115942029" y="522.99107142857144"/>
         </scene>
         <!--Gallery Controller-->
         <scene sceneID="xU2-fH-hpC">
@@ -432,7 +455,7 @@
         <!--Navigation Controller-->
         <scene sceneID="EwC-hO-Bzn">
             <objects>
-                <navigationController navigationBarHidden="YES" id="1Ub-nz-OwS" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="RootNavigationController" useStoryboardIdentifierAsRestorationIdentifier="YES" navigationBarHidden="YES" id="1Ub-nz-OwS" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="RTf-ZU-LU5">
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -470,11 +493,19 @@
                                     <action selector="continueClicked" destination="Y6C-Xg-cj7" eventType="touchUpInside" id="qYi-oa-6VM"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WELCOME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FSA-lA-t3h">
+                                <rect key="frame" x="123.5" y="250" width="167" height="38"/>
+                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="32"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="rOJ-Eu-Fez" firstAttribute="centerY" secondItem="frv-Tx-24a" secondAttribute="centerY" multiplier="5/3" id="Fsa-WQ-GRv"/>
                             <constraint firstItem="rOJ-Eu-Fez" firstAttribute="centerX" secondItem="frv-Tx-24a" secondAttribute="centerX" id="L7Q-ER-ofc"/>
+                            <constraint firstItem="FSA-lA-t3h" firstAttribute="centerY" secondItem="frv-Tx-24a" secondAttribute="centerY" multiplier="3/5" id="mDj-2E-bkZ"/>
+                            <constraint firstItem="FSA-lA-t3h" firstAttribute="centerX" secondItem="frv-Tx-24a" secondAttribute="centerX" id="y5X-QJ-aYa"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="pvD-OG-blH"/>
                     </view>
