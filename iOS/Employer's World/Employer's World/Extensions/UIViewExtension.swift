@@ -19,10 +19,11 @@ extension UIView {
     }
     
 //    Function to make all corners round and set border id required
-    func roundedCornersWithBorder(cornerRadius: CGFloat, borderWidth: CGFloat = 0) {
-        self.clipsToBounds = true
+    func roundedCornersWithBorder(cornerRadius: CGFloat, borderWidth: CGFloat = 0, borderColor: CGColor = UIColor.black.cgColor) {
+        self.layer.masksToBounds = true
         self.layer.cornerRadius = cornerRadius
         self.layer.borderWidth = borderWidth
+        self.layer.borderColor = borderColor
     }
     
 }

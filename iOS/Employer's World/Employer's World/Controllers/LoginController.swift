@@ -28,14 +28,34 @@ class LoginController: UIViewController {
     
 //  MARK: - Functions
     func configureUI() {
-         self.navigationItem.title = "Login"
+        self.navigationItem.title = "Login"
+        self.title = "LOG IN"
         
     }
 
     
 //  MARK: - IBActions
-    
+    @IBAction func loginIn() {
+        let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "ProfileController") as! ProfileController
+        self.navigationController?.pushViewController(controller, animated: true)
+        UserDefaults.standard.set(true, forKey: "isLoggenIn")
 
+    }
+    
+    @IBAction func signUp() {
+        let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "SignUpController") as! SignUpController
+        self.navigationController?.pushViewController(controller, animated: true)
+        
+    }
+    
+    @IBAction func forgetPassword() {
+        
+        
+    }
+
+    
 }
 
 

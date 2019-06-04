@@ -28,13 +28,16 @@ class SignUpController: UIViewController {
     
 //  MARK: - Functions
     func configureUI() {
-         self.navigationItem.title = "Signup"
-        
+        self.navigationItem.title = "Signup"
+        self.title = "SIGN UP"
+
     }
     
     
 //  MARK: - IBActions
-    
+    @IBAction func logIn() {
+        self.navigationController?.popViewController(animated: true)
+    }
     
 
 }

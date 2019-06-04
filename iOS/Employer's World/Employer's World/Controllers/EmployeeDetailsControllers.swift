@@ -9,11 +9,11 @@
 import UIKit
 import MapKit
 
-class EmployeeDetailsControllers: UIViewController, UICollectionViewDelegate , UICollectionViewDataSource , UICollectionViewDelegateFlowLayout {
+class EmployeeDetailsControllers: UIViewController, UICollectionViewDelegate , UICollectionViewDataSource , UIPickerViewDelegate, UICollectionViewDelegateFlowLayout, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
 //  MARK: - Variables
     var empID: String = "0"
-    var employeeArray = [Employee]()
+    var employeeArray = [EmployeeDetails]()
 
 //  MARK: - IBOutlets
     @IBOutlet weak var detailsContentView: UIView!
@@ -40,7 +40,6 @@ class EmployeeDetailsControllers: UIViewController, UICollectionViewDelegate , U
         
         configureUI()
         customSegmentHandling()
-        gallarySegmentAction()
         apiHandling()
     }
     
@@ -63,12 +62,31 @@ class EmployeeDetailsControllers: UIViewController, UICollectionViewDelegate , U
     }
     
     func customSegmentHandling() {
-        gallarySegmentAction()
+        gallarySegmentAction() //so that gallary segement always get selected by default
         
         customSegment.gallaryButton.addTarget(self, action: #selector(self.gallarySegmentAction), for: .touchUpInside)
-        
+        customSegment.addToGallaryButton.addTarget(self, action: #selector(self.addToGallarySegmentAction), for: .touchUpInside)
         customSegment.mapButton.addTarget(self, action: #selector(self.mapSegmentAction), for: .touchUpInside)
+        customSegment.addToMapButton.addTarget(self, action: #selector(self.addToMapSegmentAction), for: .touchUpInside)
     }
+    
+    func displayActionSheet() {
+        
+        let optionMenu = UIAlertController(title: nil, message: "Choose Options", preferredStyle: .actionSheet)
+        
+        let cameraAction = UIAlertAction(title: "Camera", style: .default, handler: { action in  self.camera()})
+        let galleryAction = UIAlertAction(title: "Gallery", style: .default, handler: { action in self.photoLibrary()})
+        let googleImagesAction = UIAlertAction(title: "Google Images", style: .default, handler: { acttion in self.googleImage()})
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        
+        optionMenu.addAction(cameraAction)
+        optionMenu.addAction(galleryAction)
+        optionMenu.addAction(googleImagesAction)
+        optionMenu.addAction(cancelAction)
+        
+        self.present(optionMenu, animated: true, completion: nil)
+    }
+
     
     func apiHandling() {
         
@@ -84,16 +102,40 @@ class EmployeeDetailsControllers: UIViewController, UICollectionViewDelegate , U
                 self.present(alert, animated: true, completion: nil)
                 
             } else {
-                
-                DispatchQueue.main.async {
-                    self.employeeArray = [data as! Employee]
-                    self.nameLabel.text = self.employeeArray[0].name
-                    self.ageLabel.text = self.employeeArray[0].age
-                    self.salaryLabel.text = self.employeeArray[0].salary
-                    self.empIDLabel.text = self.employeeArray[0].id
+                if data != nil {
+                    DispatchQueue.main.async {
+                        self.employeeArray = [data as! EmployeeDetails]
+                        self.nameLabel.text = self.employeeArray[0].name
+                        self.ageLabel.text = self.employeeArray[0].age
+                        self.salaryLabel.text = self.employeeArray[0].salary
+                        self.empIDLabel.text = self.employeeArray[0].id
+                    }
                 }
             }
         })
+    }
+    
+    func camera() {
+        let myPickerController = UIImagePickerController()
+        myPickerController.delegate = self
+        myPickerController.sourceType = UIImagePickerController.SourceType.camera
+        
+        self.present(myPickerController, animated: true, completion: nil)
+        
+    }
+    
+    func photoLibrary() {
+        
+        let myPickerController = UIImagePickerController()
+        myPickerController.delegate = self
+        myPickerController.sourceType = UIImagePickerController.SourceType.photoLibrary
+        
+        self.present(myPickerController, animated: true, completion: nil)
+        
+    }
+    
+    func googleImage() {
+        
     }
     
     
@@ -103,11 +145,21 @@ class EmployeeDetailsControllers: UIViewController, UICollectionViewDelegate , U
         employeeMapView.isHidden = true
     }
     
+    @objc func addToGallarySegmentAction() {
+        employeeGallary.isHidden = false
+        employeeMapView.isHidden = true
+        displayActionSheet()
+    }
+    
     @objc func mapSegmentAction() {
         employeeMapView.isHidden = false
         employeeGallary.isHidden = true
     }
-
+    
+    @objc func addToMapSegmentAction() {
+        employeeMapView.isHidden = false
+        employeeGallary.isHidden = true
+    }
 }
 
 
@@ -133,7 +185,7 @@ extension EmployeeDetailsControllers {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
+
         let size = (collectionView.frame.width-30)/2
         return CGSize(width: size, height: size)
     }

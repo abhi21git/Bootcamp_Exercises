@@ -24,11 +24,17 @@ class ProfileController: UIViewController {
         configureUI()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.title = "PROFILE"
+
+    }
+    
     
 //  MARK: - Functions
     func configureUI() {
-         self.navigationItem.title = "Profile"
-        
+        self.navigationItem.title = "Profile"
+//        self.title = "PROFILE"
+
     }
     
     

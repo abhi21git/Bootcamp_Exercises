@@ -7,11 +7,27 @@
 //
 
 import UIKit
+import CoreData
 
 class EmployeeListController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
 //  MARK: - Variables
     var employeeArray = [Employee]()
+    
+    fileprivate lazy var fetchedResultController: NSFetchedResultsController<EmployeeCoreData> = {
+        let appDelegate = UIApplication.shared.delegate as? AppDelegate
+        let context = appDelegate?.persistentContainer.viewContext
+        let fetchRequest:NSFetchRequest = Recipe.fetchRequest()
+        
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "id", ascending: true)]
+        let fetchResultController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context!, sectionNameKeyPath: nil, cacheName: nil)
+        
+        fetchResultController.delegate = self
+        
+        try! fetchResultController.performFetch()
+        return fetchResultController
+        
+    }()
 
     
 //  MARK: - IBOutlets
@@ -68,12 +84,13 @@ class EmployeeListController: UIViewController, UITableViewDelegate, UITableView
                 self.present(alert, animated: true, completion: nil)
                 
             } else {
-                
-                DispatchQueue.main.async {
-                    self.employeeArray = data as! [Employee]
-                    self.loader.isHidden = true
-                    self.employeeTableView.isHidden = false
-                    self.employeeTableView.reloadData()
+                if data != nil {
+                    DispatchQueue.main.async {
+                        self.employeeArray = data as! [Employee]
+                        self.loader.isHidden = true
+                        self.employeeTableView.isHidden = false
+                        self.employeeTableView.reloadData()
+                    }
                 }
             }
         })

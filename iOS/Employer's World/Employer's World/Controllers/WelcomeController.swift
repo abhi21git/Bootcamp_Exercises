@@ -15,7 +15,7 @@ class WelcomeController: UIViewController {
     
     
     //  MARK:- IBOutlets
-    
+    @IBOutlet weak var termsTextView: UITextView!
     
     
     //  MARK:- LifeCycle
@@ -28,13 +28,13 @@ class WelcomeController: UIViewController {
     
     //  MARK:- Functions
     func configureUI() {
-        
+        termsTextView.roundedCornersWithBorder(cornerRadius: 10, borderWidth: 1)
     }
     
     
     //  MARK:- IBActions
     @IBAction func continueClicked() {
-        UserDefaults.standard.set(true, forKey: "LoggenIn")
+        UserDefaults.standard.set(true, forKey: "isFirstTime")
         let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
         let controller = storyBoard.instantiateViewController(withIdentifier: "RootTabBarController") as! RootTabBarController
         self.navigationController?.pushViewController(controller, animated: true)

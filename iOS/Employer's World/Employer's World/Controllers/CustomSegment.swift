@@ -35,6 +35,7 @@ import UIKit
     private func initialSetUps() {
         //register nib
         let bundle = Bundle(for: type(of: self))
+//        let bundle = Bundle(for: CustomSegment.self)
         let nib = UINib(nibName: "CustomSegment", bundle: bundle)
         if let view = nib.instantiate(withOwner: self, options: nil).first as? UIView {
             view.frame = self.bounds

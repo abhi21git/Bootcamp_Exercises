@@ -24,7 +24,7 @@ extension ServiceError: LocalizedError {
 //        case .noInternetConnection:
 //            return "No Internet Connection."
         case .other:
-            return "Something Went wrong."
+            return "Something went wrong."
         case .customError(let message):
             return message
         }

@@ -70,7 +70,7 @@ class MapController: UIViewController, CLLocationManagerDelegate, MKMapViewDeleg
     func enableLocationServices(){
         if CLLocationManager.locationServicesEnabled(){
             locationManager.desiredAccuracy = kCLLocationAccuracyBest
-//            locationManager.distanceFilter =  10
+            locationManager.distanceFilter =  10
             locationManager.startUpdatingLocation()
             employeeMapView.setUserTrackingMode(.followWithHeading, animated: true)
         }
