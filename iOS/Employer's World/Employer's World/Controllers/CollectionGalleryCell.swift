@@ -9,17 +9,17 @@
 import UIKit
 
 class CollectionGalleryCell: UICollectionViewCell {
-
-//  MARK:- Variables
+    
+    //  MARK:- Variables
     
     
     
-//  MARK:- IBOutlets
+    //  MARK:- IBOutlets
     @IBOutlet weak var employeeImage: UIImageView!
     @IBOutlet weak var employeeNameLabel: UILabel!
-
     
-//  MARK:- LifeCycle
+    
+    //  MARK:- LifeCycle
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -27,7 +27,7 @@ class CollectionGalleryCell: UICollectionViewCell {
     }
     
     
-//  MARK: - Functions
+    //  MARK: - Functions
     func configureUI() {
         employeeImage.layer.cornerRadius = employeeNameLabel.frame.height/2
         employeeNameLabel.layer.cornerRadius = employeeNameLabel.frame.height/2
@@ -36,6 +36,6 @@ class CollectionGalleryCell: UICollectionViewCell {
     }
     
     
-//  MARK:- IBActions
-
+    //  MARK:- IBActions
+    
 }

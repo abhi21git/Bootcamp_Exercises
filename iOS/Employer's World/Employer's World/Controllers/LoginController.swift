@@ -9,44 +9,136 @@
 import UIKit
 
 class LoginController: UIViewController {
-
-//  MARK: - Variables
+    
+    //  MARK: - Variables
     
     
     
-//  MARK: - IBOutlets
+    //  MARK: - IBOutlets
+    @IBOutlet weak var userNameTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var userNameChecker: UILabel!
+    @IBOutlet weak var passwordChecker: UILabel!
     
     
     
-//  MARK: - LifeCycle
+    //  MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        UserDefaults.standard.set("login", forKey: "ProfileStatus")
+        
         configureUI()
     }
-
     
-//  MARK: - Functions
+    
+    //  MARK: - Functions
     func configureUI() {
+        //        self.title = "LOG IN"
         self.navigationItem.title = "Login"
-        self.title = "LOG IN"
+        loginButton.roundedCornersWithBorder(cornerRadius: 4)
+        //        passwordTextField.isHidden = true
+        
+        self.navigationController?.navigationBar.layer.masksToBounds = false
+        self.navigationController?.navigationBar.layer.shadowColor = UIColor.lightGray.cgColor
+        self.navigationController?.navigationBar.layer.shadowOffset = CGSize(width: 0, height: 1.0)
+        self.navigationController?.navigationBar.layer.shadowRadius = 4
+        self.navigationController?.navigationBar.layer.shadowOpacity = 0.8
         
     }
-
     
-//  MARK: - IBActions
+    
+    //  MARK: - IBActions
+    @IBAction func userNameValidation() {
+        if !userNameTextField.text!.isEmpty {
+            let userName = userNameTextField.text!
+            let loginURL = "https://qa.curiousworld.com/api/v2/Login?_format=json"
+            
+            NetworkManager.sharedInstance.emailValidation(urlString: loginURL, userID: userName, completion: { (data, responseError) in
+                if let error = responseError {
+                    
+                    print(error.localizedDescription)
+                    let alert  = UIAlertController(title: "Something went wrong", message: error.localizedDescription, preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "Retry", style: .default, handler: { action in self.loginIn() })) // Retry option to hit api in case internet didn't worked in first place
+                    self.present(alert, animated: true, completion: nil)
+                    
+                } else {
+                    if data != nil {
+                        DispatchQueue.global().async {
+                            let statusCode = data as! Int
+                            
+                            DispatchQueue.main.async {
+                                if statusCode == 1 {
+                                    self.userNameChecker.text = "✓"
+                                }
+                                else {
+                                    self.userNameChecker.text = "✗"
+                                }
+                            }
+                        }
+                    }
+                }
+            })
+        }
+    }
+    
+    @IBAction func passwordValidation() {
+        if passwordTextField.text!.count < 8 {
+            passwordChecker.text = "✗"
+        }
+        else {
+            passwordChecker.text = "✓"
+        }
+    }
+    
     @IBAction func loginIn() {
-        let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
-        let controller = storyboard.instantiateViewController(withIdentifier: "ProfileController") as! ProfileController
-        self.navigationController?.pushViewController(controller, animated: true)
-        UserDefaults.standard.set(true, forKey: "isLoggenIn")
-
+        if !userNameTextField.text!.isEmpty {
+            let userName = userNameTextField.text!
+            let password = passwordTextField.text!
+            let loginURL = "https://qa.curiousworld.com/api/v2/Login?_format=json"
+            NetworkManager.sharedInstance.logIn(urlString: loginURL, userID: userName, password: password, completion: { (data, responseError) in
+                if let error = responseError {
+                    
+                    print(error.localizedDescription)
+                    let alert  = UIAlertController(title: "Something went wrong", message: error.localizedDescription, preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "Retry", style: .default, handler: { action in self.loginIn() })) // Retry option to hit api in case internet didn't worked in first place
+                    self.present(alert, animated: true, completion: nil)
+                    
+                } else {
+                    if data != nil {
+                        DispatchQueue.global().async {
+                            let loginResponse = data as? [LoginData]
+                            print(data!)
+                            print(loginResponse ?? "NIL")
+                            
+                            DispatchQueue.main.async {
+                                //add to child view later
+                                let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+                                let controller = storyboard.instantiateViewController(withIdentifier: "ProfileController") as! ProfileController
+                                self.navigationController?.pushViewController(controller, animated: false)
+                                UserDefaults.standard.set(true, forKey: "isLoggenIn")
+                            }
+                        }
+                        
+                        
+                    }
+                }
+            })
+            
+            
+        }
+        else {
+            //show toast here
+        }
+        
     }
     
     @IBAction func signUp() {
+        //add to child view later
         let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "SignUpController") as! SignUpController
-        self.navigationController?.pushViewController(controller, animated: true)
+        self.navigationController?.pushViewController(controller, animated: false)
         
     }
     
@@ -54,7 +146,7 @@ class LoginController: UIViewController {
         
         
     }
-
+    
     
 }
 

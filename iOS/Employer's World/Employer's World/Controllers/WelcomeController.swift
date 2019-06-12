@@ -9,7 +9,7 @@
 import UIKit
 
 class WelcomeController: UIViewController {
-
+    
     //  MARK:- Variables
     
     
@@ -38,7 +38,7 @@ class WelcomeController: UIViewController {
         let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
         let controller = storyBoard.instantiateViewController(withIdentifier: "RootTabBarController") as! RootTabBarController
         self.navigationController?.pushViewController(controller, animated: true)
-
+        
     }
     
 }

@@ -9,37 +9,41 @@
 import UIKit
 
 class SignUpController: UIViewController {
-
-//  MARK: - Variables
+    
+    //  MARK: - Variables
     
     
     
-//  MARK: - IBOutlets
+    //  MARK: - IBOutlets
     
     
     
-//  MARK: - LifeCycle
+    //  MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        UserDefaults.standard.set("signup", forKey: "ProfileStatus")
         
         configureUI()
     }
     
     
-//  MARK: - Functions
+    //  MARK: - Functions
     func configureUI() {
+        //        self.title = "SIGN UP"
+        //        self.tabBarController?.title = "SIGN UP"
         self.navigationItem.title = "Signup"
-        self.title = "SIGN UP"
-
+        self.navigationItem.hidesBackButton = true
+        
     }
     
     
-//  MARK: - IBActions
+    //  MARK: - IBActions
     @IBAction func logIn() {
-        self.navigationController?.popViewController(animated: true)
+        self.navigationController?.popViewController(animated: false)
     }
     
-
+    
 }
 
 

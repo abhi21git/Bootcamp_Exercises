@@ -11,17 +11,17 @@ import MapKit
 
 class MapController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     
-//  MARK: - Variables
+    //  MARK: - Variables
     let locationManager = CLLocationManager()
     
     
-//  MARK: - IBOutlets
+    //  MARK: - IBOutlets
     @IBOutlet weak var mapTabBarItem: UITabBarItem!
     @IBOutlet weak var employeeMapView: MKMapView!
     @IBOutlet weak var currentLocationButton: UIButton!
     
     
-//  MARK:- LifeCycle
+    //  MARK:- LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -50,12 +50,19 @@ class MapController: UIViewController, CLLocationManagerDelegate, MKMapViewDeleg
     
     
     
-//  MARK:- Functions
+    //  MARK:- Functions
     func configureUI() {
         self.navigationItem.title = "Maps"
         
         currentLocationButton.layer.cornerRadius = currentLocationButton.frame.height/2
         currentLocationButton.clipsToBounds = true
+        
+        self.navigationController?.navigationBar.layer.masksToBounds = false
+        self.navigationController?.navigationBar.layer.shadowColor = UIColor.lightGray.cgColor
+        self.navigationController?.navigationBar.layer.shadowOffset = CGSize(width: 0, height: 1.0)
+        self.navigationController?.navigationBar.layer.shadowRadius = 4
+        self.navigationController?.navigationBar.layer.shadowOpacity = 0.8
+        
     }
     
     func setupCoreLocation(){
@@ -81,7 +88,7 @@ class MapController: UIViewController, CLLocationManagerDelegate, MKMapViewDeleg
     }
     
     
-//  MARK:- IBActions
+    //  MARK:- IBActions
     @IBAction func findMe() {
         setupCoreLocation()
     }

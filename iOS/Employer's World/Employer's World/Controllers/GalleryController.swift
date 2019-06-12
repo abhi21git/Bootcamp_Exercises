@@ -9,18 +9,18 @@
 import UIKit
 
 class GalleryController: UIViewController, UICollectionViewDelegate , UICollectionViewDataSource , UICollectionViewDelegateFlowLayout {
-
-//  MARK: - Variables
+    
+    //  MARK: - Variables
     
     
-//  MARK: - IBOutlets
+    //  MARK: - IBOutlets
     @IBOutlet weak var employeeGallery: UICollectionView!
     
     
-//  MARK: - LifeCycle
+    //  MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         let nib = UINib(nibName: "CollectionGalleryCell", bundle: nil)
         employeeGallery.register(nib, forCellWithReuseIdentifier: "galleryCell")
         
@@ -29,15 +29,22 @@ class GalleryController: UIViewController, UICollectionViewDelegate , UICollecti
         
         configureUI()
     }
-
     
-//  MARK: - Functions
+    
+    //  MARK: - Functions
     func configureUI() {
-         self.navigationItem.title = "Gallery"
+        self.navigationItem.title = "Gallery"
+        
+        self.navigationController?.navigationBar.layer.masksToBounds = false
+        self.navigationController?.navigationBar.layer.shadowColor = UIColor.lightGray.cgColor
+        self.navigationController?.navigationBar.layer.shadowOffset = CGSize(width: 0, height: 1.0)
+        self.navigationController?.navigationBar.layer.shadowRadius = 4
+        self.navigationController?.navigationBar.layer.shadowOpacity = 0.8
+        
     }
     
     
-//  MARK: - IBActions
+    //  MARK: - IBActions
     
     
     
@@ -63,12 +70,12 @@ extension GalleryController {
         let controller = storyBoard.instantiateViewController(withIdentifier: "PhotoPreviewController") as! PhotoPreviewController
         self.navigationController?.pushViewController(controller, animated: true)
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         let size = (collectionView.frame.width/2.0)-15
         
         return CGSize(width: size, height: size)
     }
-
+    
 }

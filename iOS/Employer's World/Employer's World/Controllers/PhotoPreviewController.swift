@@ -9,32 +9,32 @@
 import UIKit
 
 class PhotoPreviewController: UIViewController {
-
-//  MARK:- Variables
-        
+    
+    //  MARK:- Variables
     
     
-//  MARK:- IBOutlets
-        
+    
+    //  MARK:- IBOutlets
     
     
-//  MARK:- LifeCycle
+    
+    //  MARK:- LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        
         configureUI()
     }
-
-
-//  MARK:- Functions
+    
+    
+    //  MARK:- Functions
     func configureUI() {
         self.title = "Preview"
     }
     
     
-//  MARK:- IBActions
-
-
+    //  MARK:- IBActions
+    
+    
     
 }
 

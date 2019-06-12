@@ -9,11 +9,14 @@
 /* Begin PBXBuildFile section */
 		460D5308226F364D0020DE92 /* CustomSegment.xib in Resources */ = {isa = PBXBuildFile; fileRef = 460D5307226F364D0020DE92 /* CustomSegment.xib */; };
 		460D530B226F36C60020DE92 /* CustomSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460D530A226F36C60020DE92 /* CustomSegment.swift */; };
+		461026F622AE6345001F70EA /* LoginData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 461026F522AE6345001F70EA /* LoginData.swift */; };
 		46229B98229BEE7A00CBA6B5 /* WelcomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46229B97229BEE7A00CBA6B5 /* WelcomeController.swift */; };
 		46313A4E2269B922003D702C /* EmployeeListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46313A4D2269B922003D702C /* EmployeeListController.swift */; };
 		46313A502269B954003D702C /* GalleryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46313A4F2269B954003D702C /* GalleryController.swift */; };
 		46313A522269B981003D702C /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46313A512269B981003D702C /* ProfileController.swift */; };
 		46313A542269B9A4003D702C /* MapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46313A532269B9A4003D702C /* MapController.swift */; };
+		465CDCC722A938FE001ABC07 /* ToastProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465CDCC622A938FE001ABC07 /* ToastProtocol.swift */; };
+		465CDCC922A9392B001ABC07 /* UILabelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465CDCC822A9392B001ABC07 /* UILabelExtension.swift */; };
 		465F2FB522707C9400A5CE02 /* PhotoPreviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465F2FB422707C9400A5CE02 /* PhotoPreviewController.swift */; };
 		4691EAAB229E723F00BF08A6 /* RootTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4691EAAA229E723F00BF08A6 /* RootTabBarController.swift */; };
 		4691EAAD229E922700BF08A6 /* Employee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4691EAAC229E922700BF08A6 /* Employee.swift */; };
@@ -37,11 +40,14 @@
 /* Begin PBXFileReference section */
 		460D5307226F364D0020DE92 /* CustomSegment.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomSegment.xib; sourceTree = "<group>"; };
 		460D530A226F36C60020DE92 /* CustomSegment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegment.swift; sourceTree = "<group>"; };
+		461026F522AE6345001F70EA /* LoginData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginData.swift; sourceTree = "<group>"; };
 		46229B97229BEE7A00CBA6B5 /* WelcomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeController.swift; sourceTree = "<group>"; };
 		46313A4D2269B922003D702C /* EmployeeListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeListController.swift; sourceTree = "<group>"; };
 		46313A4F2269B954003D702C /* GalleryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryController.swift; sourceTree = "<group>"; };
 		46313A512269B981003D702C /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
 		46313A532269B9A4003D702C /* MapController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapController.swift; sourceTree = "<group>"; };
+		465CDCC622A938FE001ABC07 /* ToastProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastProtocol.swift; sourceTree = "<group>"; };
+		465CDCC822A9392B001ABC07 /* UILabelExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabelExtension.swift; sourceTree = "<group>"; };
 		465F2FB422707C9400A5CE02 /* PhotoPreviewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPreviewController.swift; sourceTree = "<group>"; };
 		4691EAAA229E723F00BF08A6 /* RootTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabBarController.swift; sourceTree = "<group>"; };
 		4691EAAC229E922700BF08A6 /* Employee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Employee.swift; sourceTree = "<group>"; };
@@ -54,7 +60,7 @@
 		46C6FBBE2269E6FA0099E17C /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		46C6FBC4226D8FBC0099E17C /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		46C6FBC6226D9F530099E17C /* EmployeeDetailsControllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeDetailsControllers.swift; sourceTree = "<group>"; };
-		46C747682293F9A000A65403 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		46C747682293F9A000A65403 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		46FF2D142268D15F0006BE82 /* Employer's World.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Employer's World.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		46FF2D172268D15F0006BE82 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		46FF2D1C2268D15F0006BE82 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -87,6 +93,7 @@
 		460D530C227046250020DE92 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				465CDCC622A938FE001ABC07 /* ToastProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -155,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				4691EAAC229E922700BF08A6 /* Employee.swift */,
+				461026F522AE6345001F70EA /* LoginData.swift */,
 				46C747672293F97A00A65403 /* API Manager */,
 			);
 			path = Model;
@@ -182,6 +190,7 @@
 			isa = PBXGroup;
 			children = (
 				46C6FBC4226D8FBC0099E17C /* UIViewExtension.swift */,
+				465CDCC822A9392B001ABC07 /* UILabelExtension.swift */,
 				4691EAB322A0FA3F00BF08A6 /* ServiceErrorExtension.swift */,
 			);
 			path = Extensions;
@@ -313,8 +322,10 @@
 				46C6FBBF2269E6FA0099E17C /* LoginController.swift in Sources */,
 				46C6FBC5226D8FBC0099E17C /* UIViewExtension.swift in Sources */,
 				46C6FBBA2269D4B10099E17C /* CollectionGalleryCell.swift in Sources */,
+				465CDCC722A938FE001ABC07 /* ToastProtocol.swift in Sources */,
 				46C6FBC7226D9F530099E17C /* EmployeeDetailsControllers.swift in Sources */,
 				46FF2D202268D15F0006BE82 /* Employer_s_World.xcdatamodeld in Sources */,
+				465CDCC922A9392B001ABC07 /* UILabelExtension.swift in Sources */,
 				4691EAAB229E723F00BF08A6 /* RootTabBarController.swift in Sources */,
 				46229B98229BEE7A00CBA6B5 /* WelcomeController.swift in Sources */,
 				46C747692293F9A000A65403 /* NetworkManager.swift in Sources */,
@@ -324,6 +335,7 @@
 				46C6FBBD2269E5140099E17C /* SignUpController.swift in Sources */,
 				460D530B226F36C60020DE92 /* CustomSegment.swift in Sources */,
 				46313A4E2269B922003D702C /* EmployeeListController.swift in Sources */,
+				461026F622AE6345001F70EA /* LoginData.swift in Sources */,
 				465F2FB522707C9400A5CE02 /* PhotoPreviewController.swift in Sources */,
 				46313A502269B954003D702C /* GalleryController.swift in Sources */,
 				4691EAAD229E922700BF08A6 /* Employee.swift in Sources */,

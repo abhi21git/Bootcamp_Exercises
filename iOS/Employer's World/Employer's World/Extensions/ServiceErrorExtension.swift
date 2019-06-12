@@ -21,8 +21,8 @@ extension ServiceError {
 extension ServiceError: LocalizedError {
     var errorDescription: String? {
         switch self {
-//        case .noInternetConnection:
-//            return "No Internet Connection."
+        //            case .noInternetConnection:
+        //            return "No Internet Connection."
         case .other:
             return "Something went wrong."
         case .customError(let message):

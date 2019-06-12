@@ -10,18 +10,18 @@ import UIKit
 
 @IBDesignable class CustomSegment: UIView {
     
-//  MARK:- Variables
+    //  MARK:- Variables
     
     
     
-//  MARK:- IBOutlets
+    //  MARK:- IBOutlets
     @IBOutlet weak var gallaryButton: UIButton!
     @IBOutlet weak var addToGallaryButton: UIButton!
     @IBOutlet weak var mapButton: UIButton!
     @IBOutlet weak var addToMapButton: UIButton!
     
     
-//  MARK:- LifeCycle
+    //  MARK:- LifeCycle
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.initialSetUps()
@@ -35,7 +35,7 @@ import UIKit
     private func initialSetUps() {
         //register nib
         let bundle = Bundle(for: type(of: self))
-//        let bundle = Bundle(for: CustomSegment.self)
+        //        let bundle = Bundle(for: CustomSegment.self)
         let nib = UINib(nibName: "CustomSegment", bundle: bundle)
         if let view = nib.instantiate(withOwner: self, options: nil).first as? UIView {
             view.frame = self.bounds
@@ -47,7 +47,7 @@ import UIKit
     }
     
     
-//  MARK: - Functions
+    //  MARK: - Functions
     func gallarySegmentSelected() {
         let addImage = UIImage(named: "AddIcon")
         let selectedAddImage = UIImage(named: "AddSelectedIcon")
@@ -79,7 +79,7 @@ import UIKit
     }
     
     
-//  MARK:- IBActions
+    //  MARK:- IBActions
     @IBAction func gallaryClicked(_ sender: Any) {
         gallarySegmentSelected()
     }

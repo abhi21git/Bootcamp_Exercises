@@ -10,28 +10,28 @@ import UIKit
 
 class CustomEmployeeCell: UITableViewCell {
     
-//  MARK:- Variables
+    //  MARK:- Variables
     
     
     
-//  MARK:- IBOutlets
+    //  MARK:- IBOutlets
     @IBOutlet weak var employeeProfilePicture: UIImageView!
     @IBOutlet weak var employeeNameLabel: UILabel!
     @IBOutlet weak var employeeIDLabel: UILabel!
     
-
-//  MARK:- LifeCycle
+    
+    //  MARK:- LifeCycle
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         
     }
     
-//  MARK: - Functions
+    //  MARK: - Functions
     func configureUI() {
         employeeProfilePicture.layer.cornerRadius = employeeProfilePicture.frame.height/2
         //        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 10))
@@ -42,7 +42,7 @@ class CustomEmployeeCell: UITableViewCell {
     }
     
     
-//  MARK:- IBActions
+    //  MARK:- IBActions
     override func layoutSubviews() {
         super.layoutSubviews()
         configureUI()

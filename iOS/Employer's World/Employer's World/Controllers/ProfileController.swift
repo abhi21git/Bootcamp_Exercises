@@ -10,35 +10,39 @@ import UIKit
 
 class ProfileController: UIViewController {
     
-//  MARK: - Variables
+    //  MARK: - Variables
     
     
     
-//  MARK: - IBOutlets
-
+    //  MARK: - IBOutlets
     
-//  MARK: - LifeCycle
+    
+    //  MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        UserDefaults.standard.set("profile", forKey: "ProfileStatus")
         
         configureUI()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.title = "PROFILE"
-
+        //        self.tabBarController?.navigationItem.hidesBackButton = true
+        self.navigationItem.hidesBackButton = true
+        
     }
     
     
-//  MARK: - Functions
+    //  MARK: - Functions
     func configureUI() {
+        //        self.title = "PROFILE"
         self.navigationItem.title = "Profile"
-//        self.title = "PROFILE"
-
+        
     }
     
     
-//  MARK: - IBActions
+    //  MARK: - IBActions
     
     
     

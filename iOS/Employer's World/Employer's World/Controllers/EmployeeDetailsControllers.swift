@@ -10,12 +10,12 @@ import UIKit
 import MapKit
 
 class EmployeeDetailsControllers: UIViewController, UICollectionViewDelegate , UICollectionViewDataSource , UIPickerViewDelegate, UICollectionViewDelegateFlowLayout, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-
-//  MARK: - Variables
+    
+    //  MARK: - Variables
     var empID: String = "0"
     var employeeArray = [EmployeeDetails]()
-
-//  MARK: - IBOutlets
+    
+    //  MARK: - IBOutlets
     @IBOutlet weak var detailsContentView: UIView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var ageLabel: UILabel!
@@ -28,7 +28,7 @@ class EmployeeDetailsControllers: UIViewController, UICollectionViewDelegate , U
     @IBOutlet weak var employeeGallary: UICollectionView!
     
     
-//  MARK: - LifeCycle
+    //  MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -44,18 +44,18 @@ class EmployeeDetailsControllers: UIViewController, UICollectionViewDelegate , U
     }
     
     
-//  MARK: - Functions
+    //  MARK: - Functions
     func configureUI() {
         self.title = "Employee Details"
         
         employeePicture.roundedCornersWithBorder(cornerRadius: employeePicture.frame.height/2)
-        nameLabel.roundedCornersWithBorder(cornerRadius: 10)
-        ageLabel.roundedCornersWithBorder(cornerRadius: 10)
-        empIDLabel.roundedCornersWithBorder(cornerRadius: 10)
-        salaryLabel.roundedCornersWithBorder(cornerRadius: 10)
-        detailsContentView.roundedCornersWithBorder(cornerRadius: 10, borderWidth: 1)
-        gallaryAndMapContentView.roundedCornersWithBorder(cornerRadius: 10, borderWidth: 1)
-        customSegment.roundedCornersWithBorder(cornerRadius: 10, borderWidth: 1)
+        nameLabel.roundedCornersWithBorder(cornerRadius: 4)
+        ageLabel.roundedCornersWithBorder(cornerRadius: 4)
+        empIDLabel.roundedCornersWithBorder(cornerRadius: 4)
+        salaryLabel.roundedCornersWithBorder(cornerRadius: 4)
+        detailsContentView.roundedCornersWithBorder(cornerRadius: 4, borderWidth: 1)
+        gallaryAndMapContentView.roundedCornersWithBorder(cornerRadius: 4, borderWidth: 1)
+        customSegment.roundedCornersWithBorder(cornerRadius: 4, borderWidth: 1)
         
         employeeMapView.isHidden = true
         employeeGallary.isHidden = true
@@ -86,7 +86,7 @@ class EmployeeDetailsControllers: UIViewController, UICollectionViewDelegate , U
         
         self.present(optionMenu, animated: true, completion: nil)
     }
-
+    
     
     func apiHandling() {
         
@@ -103,12 +103,15 @@ class EmployeeDetailsControllers: UIViewController, UICollectionViewDelegate , U
                 
             } else {
                 if data != nil {
-                    DispatchQueue.main.async {
+                    DispatchQueue.global().async {
                         self.employeeArray = [data as! EmployeeDetails]
-                        self.nameLabel.text = self.employeeArray[0].name
-                        self.ageLabel.text = self.employeeArray[0].age
-                        self.salaryLabel.text = self.employeeArray[0].salary
-                        self.empIDLabel.text = self.employeeArray[0].id
+                        
+                        DispatchQueue.main.async {
+                            self.nameLabel.text = self.employeeArray[0].name
+                            self.ageLabel.text = self.employeeArray[0].age
+                            self.salaryLabel.text = self.employeeArray[0].salary
+                            self.empIDLabel.text = self.employeeArray[0].id
+                        }
                     }
                 }
             }
@@ -139,7 +142,7 @@ class EmployeeDetailsControllers: UIViewController, UICollectionViewDelegate , U
     }
     
     
-//  MARK: - IBActions
+    //  MARK: - IBActions
     @objc func gallarySegmentAction() {
         employeeGallary.isHidden = false
         employeeMapView.isHidden = true
@@ -185,7 +188,7 @@ extension EmployeeDetailsControllers {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-
+        
         let size = (collectionView.frame.width-30)/2
         return CGSize(width: size, height: size)
     }
