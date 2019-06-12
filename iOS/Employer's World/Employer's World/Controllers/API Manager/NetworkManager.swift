@@ -93,22 +93,17 @@ class NetworkManager {
         
         let sessionTask = session.dataTask(with: request) { (data, response, error) in
             if error == nil {
-                if let data = data {
-                    do {
-                        if let json = try JSONSerialization.jsonObject(with: data, options: []) as? JSON{
-                            if let status = json["status"] as? JSON {
-                                guard let statusCode = status["code"] as? Int else {return}
-                                completion(statusCode, nil)
-                            }
-                        }
-                    } catch {
-                        print(error)
-                    }
+                do {
+                    let decoder = JSONDecoder()
+                    let model = try decoder.decode(ValidationData.self, from: data!)
+                    completion(model , nil)
                 }
-                
+                catch{
+                    completion(nil , ServiceError.customError("Could not Validate."))
+                }
             }
             else {
-                completion(nil , ServiceError.customError("Could not load Employees."))
+                completion(nil , ServiceError.customError("Could not Validate."))
             }
         }
         sessionTask.resume()
@@ -153,15 +148,13 @@ class NetworkManager {
         
         let sessionTask = session.dataTask(with: request) { (data , response , error) in
             if error == nil {
-                if let loginData = data {
-                    do {
-                        let json = try JSONSerialization.jsonObject(with: loginData, options: []) as? JSON
-                        completion (json, nil)
-                        
-                    }
-                    catch {
-                        print(error)
-                    }
+                do {
+                    let decoder = JSONDecoder()
+                    let model = try decoder.decode(LoginData.self, from: data!)
+                    completion(model , nil)
+                }
+                catch{
+                    completion(nil , ServiceError.customError("Could not load Data."))
                 }
             }
             else {

@@ -16,12 +16,11 @@ struct LoginData: Decodable {
         case uStatus = "status"
         case uData = "data"
     }
-    
 }
 
 struct UserStatus: Decodable {
     let message: String?
-    let statusCode: String?
+    let statusCode: Int?
     
     enum CodingKeys: String, CodingKey {
         case message = "message"
@@ -40,6 +39,14 @@ struct UserData: Decodable {
         case lastName = "lastName"
         case subscriptionStatus = "subscriptionStatus"
         case userID = "uid"
+    }
+}
+
+struct ValidationData: Decodable {
+    let uStatus: UserStatus
+    
+    enum CodingKeys: String, CodingKey {
+        case uStatus = "status"
     }
 }
 

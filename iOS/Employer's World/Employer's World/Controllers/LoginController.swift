@@ -20,6 +20,7 @@ class LoginController: UIViewController {
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var userNameChecker: UILabel!
     @IBOutlet weak var passwordChecker: UILabel!
+    @IBOutlet weak var forgetButton: UIButton!
     
     
     
@@ -35,11 +36,18 @@ class LoginController: UIViewController {
     
     //  MARK: - Functions
     func configureUI() {
+        
+//        userNameTextField.text = "atul.dube121231y@tothenew.com"
+//        passwordTextField.text = "password1"
+
         //        self.title = "LOG IN"
         self.navigationItem.title = "Login"
         loginButton.roundedCornersWithBorder(cornerRadius: 4)
-        //        passwordTextField.isHidden = true
-        
+        /*
+        passwordTextField.isHidden = true
+        forgetButton.isHidden = true
+        loginButton.isHidden = true
+        */
         self.navigationController?.navigationBar.layer.masksToBounds = false
         self.navigationController?.navigationBar.layer.shadowColor = UIColor.lightGray.cgColor
         self.navigationController?.navigationBar.layer.shadowOffset = CGSize(width: 0, height: 1.0)
@@ -66,11 +74,12 @@ class LoginController: UIViewController {
                 } else {
                     if data != nil {
                         DispatchQueue.global().async {
-                            let statusCode = data as! Int
+                            let status = data as! ValidationData
                             
                             DispatchQueue.main.async {
-                                if statusCode == 1 {
+                                if status.uStatus.statusCode == 1 {
                                     self.userNameChecker.text = "✓"
+                                    self.passwordTextField.isHidden = false
                                 }
                                 else {
                                     self.userNameChecker.text = "✗"
@@ -89,6 +98,8 @@ class LoginController: UIViewController {
         }
         else {
             passwordChecker.text = "✓"
+            forgetButton.isHidden = false
+            loginButton.isHidden = false
         }
     }
     
@@ -96,6 +107,7 @@ class LoginController: UIViewController {
         if !userNameTextField.text!.isEmpty {
             let userName = userNameTextField.text!
             let password = passwordTextField.text!
+            
             let loginURL = "https://qa.curiousworld.com/api/v2/Login?_format=json"
             NetworkManager.sharedInstance.logIn(urlString: loginURL, userID: userName, password: password, completion: { (data, responseError) in
                 if let error = responseError {
@@ -104,13 +116,11 @@ class LoginController: UIViewController {
                     let alert  = UIAlertController(title: "Something went wrong", message: error.localizedDescription, preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "Retry", style: .default, handler: { action in self.loginIn() })) // Retry option to hit api in case internet didn't worked in first place
                     self.present(alert, animated: true, completion: nil)
-                    
+                
                 } else {
                     if data != nil {
                         DispatchQueue.global().async {
-                            let loginResponse = data as? [LoginData]
-                            print(data!)
-                            print(loginResponse ?? "NIL")
+                            let loginResponse = data as! LoginData
                             
                             DispatchQueue.main.async {
                                 //add to child view later
