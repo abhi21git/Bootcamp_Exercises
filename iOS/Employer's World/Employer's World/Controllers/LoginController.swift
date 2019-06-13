@@ -27,27 +27,27 @@ class LoginController: UIViewController {
     //  MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        UserDefaults.standard.set("login", forKey: "ProfileStatus")
-        
         configureUI()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        userNameTextField.text = ""
+        passwordTextField.text = ""
+        userNameChecker.text = ""
+        passwordChecker.text = ""
+        userNameTextField.becomeFirstResponder()
+        UserDefaults.standard.set("login", forKey: "ProfileStatus")
+    
     }
     
     
     //  MARK: - Functions
     func configureUI() {
-        
-//        userNameTextField.text = "atul.dube121231y@tothenew.com"
-//        passwordTextField.text = "password1"
-
-        //        self.title = "LOG IN"
+//        self.title = "LOG IN"
+        userNameTextField.becomeFirstResponder()
         self.navigationItem.title = "Login"
         loginButton.roundedCornersWithBorder(cornerRadius: 4)
-        /*
-        passwordTextField.isHidden = true
-        forgetButton.isHidden = true
-        loginButton.isHidden = true
-        */
+        
         self.navigationController?.navigationBar.layer.masksToBounds = false
         self.navigationController?.navigationBar.layer.shadowColor = UIColor.lightGray.cgColor
         self.navigationController?.navigationBar.layer.shadowOffset = CGSize(width: 0, height: 1.0)
@@ -79,7 +79,6 @@ class LoginController: UIViewController {
                             DispatchQueue.main.async {
                                 if status.uStatus.statusCode == 1 {
                                     self.userNameChecker.text = "✓"
-                                    self.passwordTextField.isHidden = false
                                 }
                                 else {
                                     self.userNameChecker.text = "✗"
@@ -98,8 +97,6 @@ class LoginController: UIViewController {
         }
         else {
             passwordChecker.text = "✓"
-            forgetButton.isHidden = false
-            loginButton.isHidden = false
         }
     }
     
@@ -116,22 +113,28 @@ class LoginController: UIViewController {
                     let alert  = UIAlertController(title: "Something went wrong", message: error.localizedDescription, preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "Retry", style: .default, handler: { action in self.loginIn() })) // Retry option to hit api in case internet didn't worked in first place
                     self.present(alert, animated: true, completion: nil)
-                
+                    
                 } else {
                     if data != nil {
                         DispatchQueue.global().async {
                             let loginResponse = data as! LoginData
-                            
                             DispatchQueue.main.async {
                                 //add to child view later
                                 let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
                                 let controller = storyboard.instantiateViewController(withIdentifier: "ProfileController") as! ProfileController
+                                controller.profileData = loginResponse
                                 self.navigationController?.pushViewController(controller, animated: false)
                                 UserDefaults.standard.set(true, forKey: "isLoggenIn")
                             }
                         }
-                        
-                        
+                    }
+                    else {
+                        //wrong email or password
+                        DispatchQueue.main.async {
+                            let alertController = UIAlertController(title: "Alert", message: "Invalid email or password", preferredStyle: .alert)
+                            alertController.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+                            self.present(alertController, animated: true, completion: nil)
+                        }
                     }
                 }
             })

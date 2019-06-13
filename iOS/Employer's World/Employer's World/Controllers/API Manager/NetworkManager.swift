@@ -38,7 +38,7 @@ class NetworkManager {
         
         var request = URLRequest(url: url)
         request.httpMethod = RequestMethod.get.rawValue
-        let session = URLSession(configuration: .default)
+        let session = URLSession.shared
         let sessionTask = session.dataTask(with: request) { (responseData, response, error) in
             
             var result: Any?
@@ -46,7 +46,8 @@ class NetworkManager {
                 let decoder = JSONDecoder()
                 result = try? decoder.decode([Employee].self, from: responseData!)
                 completion(result, nil)
-            } else {
+            }
+            else {
                 completion(nil, ServiceError.customError("Please check your internet connection and try again."))
             }
         }
@@ -67,7 +68,8 @@ class NetworkManager {
             if error ==  nil {
                 let result = try? JSONDecoder().decode(EmployeeDetails.self, from: responseData!)
                 completion(result, nil)
-            } else {
+            }
+            else {
                 completion(nil, ServiceError.customError("Couldn't fetch employee details."))
             }
         }
@@ -95,11 +97,8 @@ class NetworkManager {
             if error == nil {
                 do {
                     let decoder = JSONDecoder()
-                    let model = try decoder.decode(ValidationData.self, from: data!)
+                    let model = try? decoder.decode(ValidationData.self, from: data!)
                     completion(model , nil)
-                }
-                catch{
-                    completion(nil , ServiceError.customError("Could not Validate."))
                 }
             }
             else {
@@ -150,15 +149,12 @@ class NetworkManager {
             if error == nil {
                 do {
                     let decoder = JSONDecoder()
-                    let model = try decoder.decode(LoginData.self, from: data!)
+                    let model = try? decoder.decode(LoginData.self, from: data!)
                     completion(model , nil)
-                }
-                catch{
-                    completion(nil , ServiceError.customError("Could not load Data."))
                 }
             }
             else {
-                completion(nil , ServiceError.customError("Could not load Data."))
+                completion(nil , ServiceError.customError("Could not fetch Data."))
             }
         }
         sessionTask.resume()
