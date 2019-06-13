@@ -61,12 +61,11 @@ class LoginController: UIViewController {
     @IBAction func userNameValidation() {
         if !userNameTextField.text!.isEmpty {
             let userName = userNameTextField.text!
-            let loginURL = "https://qa.curiousworld.com/api/v2/Login?_format=json"
+            let validationURL = "https://qa.curiousworld.com/api/v3/Validate/Email?_format=json"
             
-            NetworkManager.sharedInstance.emailValidation(urlString: loginURL, userID: userName, completion: { (data, responseError) in
+            NetworkManager.sharedInstance.emailValidationAndForget(urlString: validationURL, userID: userName, completion: { (data, responseError) in
                 if let error = responseError {
                     
-                    print(error.localizedDescription)
                     let alert  = UIAlertController(title: "Something went wrong", message: error.localizedDescription, preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "Retry", style: .default, handler: { action in self.loginIn() })) // Retry option to hit api in case internet didn't worked in first place
                     self.present(alert, animated: true, completion: nil)
@@ -104,8 +103,8 @@ class LoginController: UIViewController {
         if !userNameTextField.text!.isEmpty {
             let userName = userNameTextField.text!
             let password = passwordTextField.text!
+            let loginURL = "https://qa.curiousworld.com/api/v3/Login?_format=json"
             
-            let loginURL = "https://qa.curiousworld.com/api/v2/Login?_format=json"
             NetworkManager.sharedInstance.logIn(urlString: loginURL, userID: userName, password: password, completion: { (data, responseError) in
                 if let error = responseError {
                     
@@ -142,7 +141,7 @@ class LoginController: UIViewController {
             
         }
         else {
-            //show toast here
+            //show toast here for empty username
         }
         
     }
@@ -156,8 +155,36 @@ class LoginController: UIViewController {
     }
     
     @IBAction func forgetPassword() {
+        let userName = userNameTextField.text!
+        let forgetURL = "https://qa.curiousworld.com/api/v3/ForgetPassword?_format=json"
         
-        
+        NetworkManager.sharedInstance.emailValidationAndForget(urlString: forgetURL, userID: userName, completion: { (data, responseError) in
+            if let error = responseError {
+                
+                let alert  = UIAlertController(title: "Something went wrong", message: error.localizedDescription, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Retry", style: .default, handler: { action in self.loginIn() })) // Retry option to hit api in case internet didn't worked in first place
+                self.present(alert, animated: true, completion: nil)
+                
+            } else {
+                if data != nil {
+                    DispatchQueue.global().async {
+                        let forgetResponse = data as! ValidationData
+                        DispatchQueue.main.async {
+                            let alertController = UIAlertController(title: "Alert", message: forgetResponse.uStatus.message, preferredStyle: .alert)
+                            alertController.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+                            self.present(alertController, animated: true, completion: nil)
+                        }
+                    }
+                }
+                else {
+                    DispatchQueue.main.async {
+                        let alertController = UIAlertController(title: "Alert", message: "Invalid email entered", preferredStyle: .alert)
+                        alertController.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+                        self.present(alertController, animated: true, completion: nil)
+                    }
+                }
+            }
+        })
     }
     
     

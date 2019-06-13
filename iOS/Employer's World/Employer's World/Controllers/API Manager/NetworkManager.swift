@@ -57,10 +57,7 @@ class NetworkManager {
     
     func loadSelectedEmployee(urlString: String, completion: @escaping((Any?, Error?) ->())) {
         
-        guard let url = URL(string: urlString) else {
-            print("Failed to fetch data.")
-            return
-        }
+        guard let url = URL(string: urlString) else { return }
         var request = URLRequest(url: url)
         request.httpMethod = RequestMethod.get.rawValue
         let session = URLSession.shared
@@ -77,23 +74,21 @@ class NetworkManager {
     }
     
     
-    func emailValidation(urlString: String, userID: String, completion: @escaping((Any?, Error?) -> ())) {
+    func emailValidationAndForget(urlString: String, userID: String, completion: @escaping((Any?, Error?) -> ())) {
         let parameters = ["mail" : userID]
-        guard let url = URL(string: "https://qa.curiousworld.com/api/v2/Validate/Email?_format=json")
-            else{
-                return
-        }
+        guard let url = URL(string: urlString) else { return }
         var request = URLRequest(url: url)
+        
         request.httpMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        guard let httpBody = try? JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted)
-            else {
-                return
-        }
-        request.httpBody = httpBody
-        let session = URLSession.shared
         
+        guard let httpBody = try? JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted) else { return }
+        
+        request.httpBody = httpBody
+        
+        let session = URLSession.shared
         let sessionTask = session.dataTask(with: request) { (data, response, error) in
+            
             if error == nil {
                 do {
                     let decoder = JSONDecoder()
@@ -127,6 +122,7 @@ class NetworkManager {
         let loginParam = [
             "mail" : userID ,
             "password" : password,
+            "deviceId":"12345",
             "client_secret" : "abcde12345",
             "client_id" : "ec7c3bde-9f51-4113-9ecf-6ca6fd03b66b",
             "scope" : "ios",
@@ -146,6 +142,7 @@ class NetworkManager {
         let session = URLSession.shared
         
         let sessionTask = session.dataTask(with: request) { (data , response , error) in
+        
             if error == nil {
                 do {
                     let decoder = JSONDecoder()
@@ -159,6 +156,5 @@ class NetworkManager {
         }
         sessionTask.resume()
     }
-    
     
 }

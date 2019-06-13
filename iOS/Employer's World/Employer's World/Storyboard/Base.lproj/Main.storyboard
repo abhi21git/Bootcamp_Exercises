@@ -455,7 +455,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <textInputTraits key="textInputTraits" textContentType="username"/>
                                                 <connections>
-                                                    <action selector="userNameValidation" destination="UbZ-j7-dhi" eventType="editingChanged" id="A1L-tF-KHX"/>
+                                                    <action selector="userNameValidation" destination="UbZ-j7-dhi" eventType="editingChanged" id="SlI-tw-UTf"/>
                                                 </connections>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h2H-bB-ZRH">
