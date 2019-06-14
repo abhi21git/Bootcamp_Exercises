@@ -16,19 +16,17 @@ class MapController: UIViewController, CLLocationManagerDelegate, MKMapViewDeleg
     
     
     //  MARK: - IBOutlets
-    @IBOutlet weak var mapTabBarItem: UITabBarItem!
     @IBOutlet weak var employeeMapView: MKMapView!
     @IBOutlet weak var currentLocationButton: UIButton!
     
     
-    //  MARK:- LifeCycle
+    //  MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
         employeeMapView.delegate = self
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
-        locationManager.startUpdatingLocation()
         
         
         if CLLocationManager.authorizationStatus() == .notDetermined {
@@ -38,7 +36,6 @@ class MapController: UIViewController, CLLocationManagerDelegate, MKMapViewDeleg
             let alert = UIAlertController(title: "Location Permission Denied", message: "Location services denied. Please enable location services for this app.", preferredStyle: UIAlertController.Style.alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
-            //permission denied
         }
         else if CLLocationManager.authorizationStatus() == .authorizedAlways {
             locationManager.startUpdatingLocation()
@@ -50,7 +47,7 @@ class MapController: UIViewController, CLLocationManagerDelegate, MKMapViewDeleg
     
     
     
-    //  MARK:- Functions
+    //  MARK: - Functions
     func configureUI() {
         self.navigationItem.title = "Maps"
         
@@ -88,7 +85,7 @@ class MapController: UIViewController, CLLocationManagerDelegate, MKMapViewDeleg
     }
     
     
-    //  MARK:- IBActions
+    //  MARK: - IBActions
     @IBAction func findMe() {
         setupCoreLocation()
     }

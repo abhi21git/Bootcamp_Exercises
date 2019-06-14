@@ -76,10 +76,10 @@ class NetworkManager {
     
     func emailValidationAndForget(urlString: String, userID: String, completion: @escaping((Any?, Error?) -> ())) {
         let parameters = ["mail" : userID]
+        
         guard let url = URL(string: urlString) else { return }
         var request = URLRequest(url: url)
-        
-        request.httpMethod = "POST"
+        request.httpMethod = RequestMethod.post.rawValue
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         
         guard let httpBody = try? JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted) else { return }
@@ -122,11 +122,12 @@ class NetworkManager {
         let loginParam = [
             "mail" : userID ,
             "password" : password,
-            "deviceId":"12345",
+            "deviceId" : "12345",
             "client_secret" : "abcde12345",
             "client_id" : "ec7c3bde-9f51-4113-9ecf-6ca6fd03b66b",
             "scope" : "ios",
-            "grant_type" : "password"]
+            "grant_type" : "password"
+        ]
         
         let parametersData = getPostDataAttributes(params: loginParam)
         
@@ -135,7 +136,7 @@ class NetworkManager {
         }
         
         var request = URLRequest(url: url)
-        request.httpMethod = "POST"
+        request.httpMethod = RequestMethod.post.rawValue
         request.addValue("multipart/form-data; boundary=CuriousWorld", forHTTPHeaderField: "Content-Type")
         
         request.httpBody = parametersData
@@ -155,6 +156,36 @@ class NetworkManager {
             }
         }
         sessionTask.resume()
+    }
+    
+    func signup(urlString: String, parameters: [String : String], completion: @escaping((Any?, Error?) -> ())) {
+        
+        guard let url = URL(string: urlString) else { return }
+        var request = URLRequest(url: url)
+        
+        request.httpMethod = RequestMethod.post.rawValue
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        guard let httpBody = try? JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted) else { return }
+        
+        request.httpBody = httpBody
+        
+        let session = URLSession.shared
+        let sessionTask = session.dataTask(with: request) { (data, response, error) in
+            
+            if error == nil {
+                do {
+                    let decoder = JSONDecoder()
+                    let model = try? decoder.decode(ValidationData.self, from: data!)
+                    completion(model , nil)
+                }
+            }
+            else {
+                completion(nil , ServiceError.customError("Error"))
+            }
+        }
+        sessionTask.resume()
+        
     }
     
 }

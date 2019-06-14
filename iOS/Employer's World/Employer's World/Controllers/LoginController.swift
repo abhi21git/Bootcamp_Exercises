@@ -15,8 +15,8 @@ class LoginController: UIViewController {
     
     
     //  MARK: - IBOutlets
-    @IBOutlet weak var userNameTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var userNameTF: UITextField!
+    @IBOutlet weak var passwordTF: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var userNameChecker: UILabel!
     @IBOutlet weak var passwordChecker: UILabel!
@@ -27,16 +27,16 @@ class LoginController: UIViewController {
     //  MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        UserDefaults.standard.set("login", forKey: "ProfileStatus")
         configureUI()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        userNameTextField.text = ""
-        passwordTextField.text = ""
+        userNameTF.text = ""
+        passwordTF.text = ""
         userNameChecker.text = ""
         passwordChecker.text = ""
-        userNameTextField.becomeFirstResponder()
-        UserDefaults.standard.set("login", forKey: "ProfileStatus")
+        userNameTF.becomeFirstResponder()
     
     }
     
@@ -44,9 +44,11 @@ class LoginController: UIViewController {
     //  MARK: - Functions
     func configureUI() {
 //        self.title = "LOG IN"
-        userNameTextField.becomeFirstResponder()
+        userNameTF.becomeFirstResponder()
         self.navigationItem.title = "Login"
         loginButton.roundedCornersWithBorder(cornerRadius: 4)
+        userNameChecker.roundedCornersWithBorder(cornerRadius: userNameChecker.frame.height/2)
+        passwordChecker.roundedCornersWithBorder(cornerRadius: userNameChecker.frame.height/2)
         
         self.navigationController?.navigationBar.layer.masksToBounds = false
         self.navigationController?.navigationBar.layer.shadowColor = UIColor.lightGray.cgColor
@@ -59,8 +61,11 @@ class LoginController: UIViewController {
     
     //  MARK: - IBActions
     @IBAction func userNameValidation() {
-        if !userNameTextField.text!.isEmpty {
-            let userName = userNameTextField.text!
+        if userNameTF.text!.isEmpty {
+            userNameChecker.textColor = UIColor.white
+        }
+        else {
+            let userName = userNameTF.text!
             let validationURL = "https://qa.curiousworld.com/api/v3/Validate/Email?_format=json"
             
             NetworkManager.sharedInstance.emailValidationAndForget(urlString: validationURL, userID: userName, completion: { (data, responseError) in
@@ -77,9 +82,11 @@ class LoginController: UIViewController {
                             
                             DispatchQueue.main.async {
                                 if status.uStatus.statusCode == 1 {
+                                    self.userNameChecker.textColor = UIColor.green
                                     self.userNameChecker.text = "✓"
                                 }
                                 else {
+                                    self.userNameChecker.textColor = UIColor.red
                                     self.userNameChecker.text = "✗"
                                 }
                             }
@@ -90,19 +97,25 @@ class LoginController: UIViewController {
         }
     }
     
+    
     @IBAction func passwordValidation() {
-        if passwordTextField.text!.count < 8 {
+        if passwordTF.text!.isEmpty {
+            passwordChecker.textColor = UIColor.white
+        }
+        else if passwordTF.text!.count < 8 {
+            passwordChecker.textColor = UIColor.red
             passwordChecker.text = "✗"
         }
         else {
+            passwordChecker.textColor = UIColor.green
             passwordChecker.text = "✓"
         }
     }
     
     @IBAction func loginIn() {
-        if !userNameTextField.text!.isEmpty {
-            let userName = userNameTextField.text!
-            let password = passwordTextField.text!
+        if !userNameTF.text!.isEmpty {
+            let userName = userNameTF.text!
+            let password = passwordTF.text!
             let loginURL = "https://qa.curiousworld.com/api/v3/Login?_format=json"
             
             NetworkManager.sharedInstance.logIn(urlString: loginURL, userID: userName, password: password, completion: { (data, responseError) in
@@ -155,7 +168,7 @@ class LoginController: UIViewController {
     }
     
     @IBAction func forgetPassword() {
-        let userName = userNameTextField.text!
+        let userName = userNameTF.text!
         let forgetURL = "https://qa.curiousworld.com/api/v3/ForgetPassword?_format=json"
         
         NetworkManager.sharedInstance.emailValidationAndForget(urlString: forgetURL, userID: userName, completion: { (data, responseError) in
@@ -187,6 +200,9 @@ class LoginController: UIViewController {
         })
     }
     
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
     
 }
 

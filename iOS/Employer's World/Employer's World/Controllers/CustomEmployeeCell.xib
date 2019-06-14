@@ -32,7 +32,7 @@
                         <constraints>
                             <constraint firstAttribute="height" constant="40" id="idS-ZN-8Hz"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>

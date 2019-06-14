@@ -48,8 +48,8 @@ class ProfileController: UIViewController {
     }
     
     func loadProfile() {
-        firstNameLabel.text = profileData.uData.firstName
-        fullNameLabel.text = profileData.uData.firstName! + " " + profileData.uData.lastName!
+        firstNameLabel.text = profileData.uData.firstName?.capitalized
+        fullNameLabel.text = (profileData.uData.firstName! + " " + profileData.uData.lastName!).capitalized
         uidNumber.text = profileData.uData.userID
         subscriptionLabel.text = profileData.uData.subscriptionStatus
         
