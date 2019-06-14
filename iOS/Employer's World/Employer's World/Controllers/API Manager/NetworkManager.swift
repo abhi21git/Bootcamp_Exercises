@@ -73,92 +73,35 @@ class NetworkManager {
         sessionTask.resume()
     }
     
+	
+	func logIn(urlString: String, parameters: Data, completion: @escaping((Any?, Error?) -> ())) {
+		
+		guard let url = URL(string: urlString) else {return}
+		var request = URLRequest(url: url)
+		
+		request.httpMethod = RequestMethod.post.rawValue
+		request.addValue("multipart/form-data; boundary=CuriousWorld", forHTTPHeaderField: "Content-Type")
+		request.httpBody = parameters
+		
+		let session = URLSession.shared
+		let sessionTask = session.dataTask(with: request) { (data , response , error) in
+			
+			if error == nil {
+				do {
+					let decoder = JSONDecoder()
+					let model = try? decoder.decode(LoginData.self, from: data!)
+					completion(model , nil)
+				}
+			}
+			else {
+				completion(nil , ServiceError.customError("Could not fetch Data."))
+			}
+		}
+		sessionTask.resume()
+	}
     
-    func emailValidationAndForget(urlString: String, userID: String, completion: @escaping((Any?, Error?) -> ())) {
-        let parameters = ["mail" : userID]
-        
-        guard let url = URL(string: urlString) else { return }
-        var request = URLRequest(url: url)
-        request.httpMethod = RequestMethod.post.rawValue
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        
-        guard let httpBody = try? JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted) else { return }
-        
-        request.httpBody = httpBody
-        
-        let session = URLSession.shared
-        let sessionTask = session.dataTask(with: request) { (data, response, error) in
-            
-            if error == nil {
-                do {
-                    let decoder = JSONDecoder()
-                    let model = try? decoder.decode(ValidationData.self, from: data!)
-                    completion(model , nil)
-                }
-            }
-            else {
-                completion(nil , ServiceError.customError("Could not Validate."))
-            }
-        }
-        sessionTask.resume()
-        
-    }
-    
-    
-    func logIn(urlString: String, userID: String, password: String, completion: @escaping((Any?, Error?) -> ())) {
-        
-        func getPostDataAttributes(params:[String:String]) -> Data {
-            var data = Data()
-            for(key, value) in params {
-                let string = "--CuriousWorld\r\n".data(using: .utf8)
-                data.append(string!)
-                data.append(String.init(format: "Content-Disposition: form-data; name=%@\r\n\r\n", key).data(using: .utf8)!)
-                data.append(String.init(format: "%@\r\n", value).data(using: .utf8)!)
-                data.append(String.init(format: "--CuriousWorld--\r\n").data(using: .utf8)!)
-            }
-            return data
-        }
-        
-        let loginParam = [
-            "mail" : userID ,
-            "password" : password,
-            "deviceId" : "12345",
-            "client_secret" : "abcde12345",
-            "client_id" : "ec7c3bde-9f51-4113-9ecf-6ca6fd03b66b",
-            "scope" : "ios",
-            "grant_type" : "password"
-        ]
-        
-        let parametersData = getPostDataAttributes(params: loginParam)
-        
-        guard let url = URL(string: urlString) else {
-            return
-        }
-        
-        var request = URLRequest(url: url)
-        request.httpMethod = RequestMethod.post.rawValue
-        request.addValue("multipart/form-data; boundary=CuriousWorld", forHTTPHeaderField: "Content-Type")
-        
-        request.httpBody = parametersData
-        let session = URLSession.shared
-        
-        let sessionTask = session.dataTask(with: request) { (data , response , error) in
-        
-            if error == nil {
-                do {
-                    let decoder = JSONDecoder()
-                    let model = try? decoder.decode(LoginData.self, from: data!)
-                    completion(model , nil)
-                }
-            }
-            else {
-                completion(nil , ServiceError.customError("Could not fetch Data."))
-            }
-        }
-        sessionTask.resume()
-    }
-    
-    func signup(urlString: String, parameters: [String : String], completion: @escaping((Any?, Error?) -> ())) {
+	
+    func profileApi(urlString: String, parameters: [String : String], completion: @escaping((Any?, Error?) -> ())) {
         
         guard let url = URL(string: urlString) else { return }
         var request = URLRequest(url: url)

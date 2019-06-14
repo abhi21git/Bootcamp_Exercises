@@ -65,10 +65,10 @@ class LoginController: UIViewController {
             userNameChecker.textColor = UIColor.white
         }
         else {
-            let userName = userNameTF.text!
             let validationURL = "https://qa.curiousworld.com/api/v3/Validate/Email?_format=json"
+            let parameters = ["mail" : userNameTF.text!]
             
-            NetworkManager.sharedInstance.emailValidationAndForget(urlString: validationURL, userID: userName, completion: { (data, responseError) in
+            NetworkManager.sharedInstance.profileApi(urlString: validationURL, parameters: parameters, completion: { (data, responseError) in
                 if let error = responseError {
                     
                     let alert  = UIAlertController(title: "Something went wrong", message: error.localizedDescription, preferredStyle: .alert)
@@ -114,11 +114,20 @@ class LoginController: UIViewController {
     
     @IBAction func loginIn() {
         if !userNameTF.text!.isEmpty {
-            let userName = userNameTF.text!
-            let password = passwordTF.text!
             let loginURL = "https://qa.curiousworld.com/api/v3/Login?_format=json"
+            let loginParam = [
+                "mail" : userNameTF.text! ,
+                "password" : passwordTF.text!,
+                "deviceId" : "12345",
+                "client_secret" : "abcde12345",
+                "client_id" : "ec7c3bde-9f51-4113-9ecf-6ca6fd03b66b",
+                "scope" : "ios",
+                "grant_type" : "password"
+            ]
             
-            NetworkManager.sharedInstance.logIn(urlString: loginURL, userID: userName, password: password, completion: { (data, responseError) in
+            let parametersData = getPostDataAttributes(params: loginParam)
+            
+            NetworkManager.sharedInstance.logIn(urlString: loginURL, parameters: parametersData, completion: { (data, responseError) in
                 if let error = responseError {
                     
                     print(error.localizedDescription)
@@ -168,10 +177,10 @@ class LoginController: UIViewController {
     }
     
     @IBAction func forgetPassword() {
-        let userName = userNameTF.text!
         let forgetURL = "https://qa.curiousworld.com/api/v3/ForgetPassword?_format=json"
-        
-        NetworkManager.sharedInstance.emailValidationAndForget(urlString: forgetURL, userID: userName, completion: { (data, responseError) in
+        let parameters = ["mail" :  userNameTF.text!]
+
+        NetworkManager.sharedInstance.profileApi(urlString: forgetURL, parameters: parameters, completion: { (data, responseError) in
             if let error = responseError {
                 
                 let alert  = UIAlertController(title: "Something went wrong", message: error.localizedDescription, preferredStyle: .alert)
@@ -200,9 +209,18 @@ class LoginController: UIViewController {
         })
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        view.endEditing(true)
+    func getPostDataAttributes(params:[String:String]) -> Data {
+        var data = Data()
+        for(key, value) in params {
+            let string = "--CuriousWorld\r\n".data(using: .utf8)
+            data.append(string!)
+            data.append(String.init(format: "Content-Disposition: form-data; name=%@\r\n\r\n", key).data(using: .utf8)!)
+            data.append(String.init(format: "%@\r\n", value).data(using: .utf8)!)
+            data.append(String.init(format: "--CuriousWorld--\r\n").data(using: .utf8)!)
+        }
+        return data
     }
+    
     
 }
 

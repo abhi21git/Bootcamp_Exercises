@@ -63,7 +63,7 @@ class SignUpController: UIViewController {
             "password" : passwordTF.text ?? ""
         ]
         
-        NetworkManager.sharedInstance.signup(urlString: signpURL, parameters: parameters) { (data, responseError) in
+        NetworkManager.sharedInstance.profileApi(urlString: signpURL, parameters: parameters) { (data, responseError) in
             if let error = responseError {
                 let alert  = UIAlertController(title: "Something went wrong", message: error.localizedDescription, preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "Retry", style: .default, handler: { action in self.signUp() })) // Retry option to hit api in case internet didn't worked in first place
