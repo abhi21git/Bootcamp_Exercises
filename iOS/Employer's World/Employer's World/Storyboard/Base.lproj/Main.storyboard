@@ -760,7 +760,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AYN-QF-Zao" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-430" y="523"/>
+            <point key="canvasLocation" x="-1333" y="1276"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="EwC-hO-Bzn">
@@ -1614,7 +1614,7 @@ We reserve all rights to terminate accounts, edit or remove content and cancel o
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="IQQ-F6-dH9" kind="relationship" relationship="rootViewController" id="gKL-J0-qa0"/>
+                        <segue destination="IQQ-F6-dH9" kind="relationship" relationship="rootViewController" id="gcD-DJ-Uj3"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jF4-eA-3hg" userLabel="First Responder" sceneMemberID="firstResponder"/>

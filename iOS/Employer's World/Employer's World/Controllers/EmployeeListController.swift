@@ -9,10 +9,11 @@
 import UIKit
 import CoreData
 
-class EmployeeListController: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate {
+class EmployeeListController: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate, UISearchBarDelegate{
     
     //  MARK: - Variables
-    var employeeArray = [Employee]()
+    var employeeList = [Employee]()
+    var searchedEmployee = [Employee]()
     
     fileprivate lazy var fetchedResultController: NSFetchedResultsController<EmployeeCoreData> = {
         let appDelegate = UIApplication.shared.delegate as? AppDelegate
@@ -42,6 +43,7 @@ class EmployeeListController: UIViewController, UITableViewDelegate, UITableView
         tableViewHandling()
         configureUI()
         employeeFetching()
+        showSearchBar()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -58,8 +60,8 @@ class EmployeeListController: UIViewController, UITableViewDelegate, UITableView
     //  MARK: - Functions
     func configureUI() {
         self.navigationItem.title = "Employer's World"
-        employeeTableView.isHidden = true
         
+        employeeTableView.isHidden = true
         loader.roundedCornersWithBorder(cornerRadius: loader.frame.height/6)
         
         self.tabBarController?.tabBar.layer.masksToBounds = false
@@ -84,6 +86,15 @@ class EmployeeListController: UIViewController, UITableViewDelegate, UITableView
         
     }
     
+    func showSearchBar() {
+        let searchBar = UISearchBar()
+        searchBar.delegate = self
+        searchBar.placeholder = "Search here!"
+        searchBar.showsCancelButton = false
+        
+        self.navigationItem.titleView = searchBar
+    }
+    
     func employeeFetching() {
         
         let employeeListURL = "http://dummy.restapiexample.com/api/v1/employees"
@@ -100,7 +111,8 @@ class EmployeeListController: UIViewController, UITableViewDelegate, UITableView
             } else {
                 if data != nil {
                     DispatchQueue.global().async {
-                        self.employeeArray = data as! [Employee]
+                        self.employeeList = data as! [Employee]
+                        self.searchedEmployee = self.employeeList
                         
                         DispatchQueue.main.async {
                             self.loader.isHidden = true
@@ -125,25 +137,38 @@ class EmployeeListController: UIViewController, UITableViewDelegate, UITableView
 extension EmployeeListController {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return employeeArray.count
+        return searchedEmployee.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "employeeCell") as! CustomEmployeeCell
-        cell.employeeNameLabel.text = employeeArray[indexPath.row].name
-        cell.employeeIDLabel.text = employeeArray[indexPath.row].id
+        cell.employeeNameLabel.text = searchedEmployee[indexPath.row].name
+        cell.employeeIDLabel.text = searchedEmployee[indexPath.row].id
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "EmployeeDetailsControllers") as! EmployeeDetailsControllers
-        controller.empID = employeeArray[indexPath.row].id ?? "0"
+        controller.empID = searchedEmployee[indexPath.row].id ?? "0"
         self.navigationController?.pushViewController(controller, animated: true)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 60 // to keep the height of cell fixed
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        searchedEmployee.removeAll()
+        for employees in employeeList {
+            if (employees.name!.range(of: searchText, options: .caseInsensitive) != nil){
+                searchedEmployee.append(employees)
+            }
+            else if searchText.isEmpty{
+                searchedEmployee = employeeList
+            }
+        }
+        employeeTableView.reloadData()
     }
     
 }
