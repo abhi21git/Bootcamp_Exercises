@@ -37,13 +37,13 @@ class LoginController: UIViewController {
         userNameChecker.text = ""
         passwordChecker.text = ""
         userNameTF.becomeFirstResponder()
-    
+        
     }
     
     
     //  MARK: - Functions
     func configureUI() {
-//        self.title = "LOG IN"
+        //        self.title = "LOG IN"
         userNameTF.becomeFirstResponder()
         self.navigationItem.title = "Login"
         loginButton.roundedCornersWithBorder(cornerRadius: 4)
@@ -69,26 +69,19 @@ class LoginController: UIViewController {
             let parameters = ["mail" : userNameTF.text!]
             
             NetworkManager.sharedInstance.profileApi(urlString: validationURL, parameters: parameters, completion: { (data, responseError) in
-                if let error = responseError {
-                    
-                    let alert  = UIAlertController(title: "Something went wrong", message: error.localizedDescription, preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "Retry", style: .default, handler: { action in self.loginIn() })) // Retry option to hit api in case internet didn't worked in first place
-                    self.present(alert, animated: true, completion: nil)
-                    
-                } else {
-                    if data != nil {
-                        DispatchQueue.global().async {
-                            let status = data as! ValidationData
-                            
-                            DispatchQueue.main.async {
-                                if status.uStatus.statusCode == 1 {
-                                    self.userNameChecker.textColor = UIColor.green
-                                    self.userNameChecker.text = "✓"
-                                }
-                                else {
-                                    self.userNameChecker.textColor = UIColor.red
-                                    self.userNameChecker.text = "✗"
-                                }
+                
+                if data != nil {
+                    DispatchQueue.global().async {
+                        let status = data as! ProfileModel
+                        
+                        DispatchQueue.main.async {
+                            if status.Status.statusCode == 1 {
+                                self.userNameChecker.textColor = UIColor.green
+                                self.userNameChecker.text = "✓"
+                            }
+                            else {
+                                self.userNameChecker.textColor = UIColor.red
+                                self.userNameChecker.text = "✗"
                             }
                         }
                     }
@@ -138,7 +131,7 @@ class LoginController: UIViewController {
                 } else {
                     if data != nil {
                         DispatchQueue.global().async {
-                            let loginResponse = data as! LoginData
+                            let loginResponse = data as! LoginModel
                             DispatchQueue.main.async {
                                 //add to child view later
                                 let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
@@ -152,7 +145,7 @@ class LoginController: UIViewController {
                     else {
                         //wrong email or password
                         DispatchQueue.main.async {
-                            let alertController = UIAlertController(title: "Alert", message: "Invalid email or password", preferredStyle: .alert)
+                            let alertController = UIAlertController(title: "Alert", message: "Could not login", preferredStyle: .alert)
                             alertController.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
                             self.present(alertController, animated: true, completion: nil)
                         }
@@ -179,7 +172,7 @@ class LoginController: UIViewController {
     @IBAction func forgetPassword() {
         let forgetURL = "https://qa.curiousworld.com/api/v3/ForgetPassword?_format=json"
         let parameters = ["mail" :  userNameTF.text!]
-
+        
         NetworkManager.sharedInstance.profileApi(urlString: forgetURL, parameters: parameters, completion: { (data, responseError) in
             if let error = responseError {
                 
@@ -190,9 +183,9 @@ class LoginController: UIViewController {
             } else {
                 if data != nil {
                     DispatchQueue.global().async {
-                        let forgetResponse = data as! ValidationData
+                        let forgetResponse = data as! ProfileModel
                         DispatchQueue.main.async {
-                            let alertController = UIAlertController(title: "Alert", message: forgetResponse.uStatus.message, preferredStyle: .alert)
+                            let alertController = UIAlertController(title: "Alert", message: forgetResponse.Status.message, preferredStyle: .alert)
                             alertController.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
                             self.present(alertController, animated: true, completion: nil)
                         }

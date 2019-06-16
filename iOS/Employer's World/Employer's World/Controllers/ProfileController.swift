@@ -11,7 +11,7 @@ import UIKit
 class ProfileController: UIViewController {
     
     //  MARK: - Variables
-    var profileData: LoginData!
+    var profileData: LoginModel!
     
     
     //  MARK: - IBOutlets
@@ -48,10 +48,10 @@ class ProfileController: UIViewController {
     }
     
     func loadProfile() {
-        firstNameLabel.text = profileData.uData.firstName?.capitalized
-        fullNameLabel.text = (profileData.uData.firstName! + " " + profileData.uData.lastName!).capitalized
-        uidNumber.text = profileData.uData.userID
-        subscriptionLabel.text = profileData.uData.subscriptionStatus
+        firstNameLabel.text = profileData.Data.firstName?.capitalized
+        fullNameLabel.text = (profileData.Data.firstName! + " " + profileData.Data.lastName!).capitalized
+        uidNumber.text = profileData.Data.userID
+        subscriptionLabel.text = profileData.Data.subscriptionStatus
         
     }
     

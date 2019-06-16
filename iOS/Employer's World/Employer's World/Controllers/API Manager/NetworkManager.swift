@@ -27,24 +27,21 @@ enum RequestMethod: String {
 class NetworkManager {
     
     static let sharedInstance = NetworkManager()
-    
+	
     
     func loadEmployee(urlString: String, completion: @escaping ((Any?,Error?) -> ())){
         
-        guard let url = URL(string: urlString) else{
-            debugPrint("Failed to fetch data.");
-            return
-        }
+        guard let url = URL(string: urlString) else { return }
         
         var request = URLRequest(url: url)
         request.httpMethod = RequestMethod.get.rawValue
         let session = URLSession.shared
-        let sessionTask = session.dataTask(with: request) { (responseData, response, error) in
+        let sessionTask = session.dataTask(with: request) { (data, response, error) in
             
             var result: Any?
             if error ==  nil {
                 let decoder = JSONDecoder()
-                result = try? decoder.decode([Employee].self, from: responseData!)
+                result = try? decoder.decode([Employee].self, from: data!)
                 completion(result, nil)
             }
             else {
@@ -61,14 +58,16 @@ class NetworkManager {
         var request = URLRequest(url: url)
         request.httpMethod = RequestMethod.get.rawValue
         let session = URLSession.shared
-        let sessionTask  = session.dataTask(with: request) {(responseData, response, error) in
-            if error ==  nil {
-                let result = try? JSONDecoder().decode(EmployeeDetails.self, from: responseData!)
+        let sessionTask  = session.dataTask(with: request) {(data, response, error) in
+			
+			if error ==  nil {
+                let result = try? JSONDecoder().decode(EmployeeDetails.self, from: data!)
                 completion(result, nil)
             }
             else {
                 completion(nil, ServiceError.customError("Couldn't fetch employee details."))
             }
+			
         }
         sessionTask.resume()
     }
@@ -89,9 +88,10 @@ class NetworkManager {
 			if error == nil {
 				do {
 					let decoder = JSONDecoder()
-					let model = try? decoder.decode(LoginData.self, from: data!)
+					let model = try? decoder.decode(LoginModel.self, from: data!)
 					completion(model , nil)
 				}
+				
 			}
 			else {
 				completion(nil , ServiceError.customError("Could not fetch Data."))
@@ -119,9 +119,10 @@ class NetworkManager {
             if error == nil {
                 do {
                     let decoder = JSONDecoder()
-                    let model = try? decoder.decode(ValidationData.self, from: data!)
+                    let model = try? decoder.decode(ProfileModel.self, from: data!)
                     completion(model , nil)
                 }
+				
             }
             else {
                 completion(nil , ServiceError.customError("Error"))

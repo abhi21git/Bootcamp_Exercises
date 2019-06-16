@@ -8,23 +8,13 @@
 
 import Foundation
 
-struct LoginData: Decodable {
-    let uStatus: UserStatus
-    let uData: UserData
+struct LoginModel: Decodable {
+    let Status: UserStatus
+    let Data: UserData
     
     enum CodingKeys: String, CodingKey {
-        case uStatus = "status"
-        case uData = "data"
-    }
-}
-
-struct UserStatus: Decodable {
-    let message: String?
-    let statusCode: Int?
-    
-    enum CodingKeys: String, CodingKey {
-        case message = "message"
-        case statusCode = "code"
+        case Status = "status"
+        case Data = "data"
     }
 }
 
@@ -42,12 +32,23 @@ struct UserData: Decodable {
     }
 }
 
-struct ValidationData: Decodable {
-    let uStatus: UserStatus
+struct ProfileModel: Decodable {
+    let Status: UserStatus
     
     enum CodingKeys: String, CodingKey {
-        case uStatus = "status"
+        case Status = "status"
     }
 }
+
+struct UserStatus: Decodable {
+    let message: String?
+    let statusCode: Int?
+    
+    enum CodingKeys: String, CodingKey {
+        case message = "message"
+        case statusCode = "code"
+    }
+}
+
 
 
