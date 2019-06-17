@@ -72,7 +72,7 @@ class EmployeeDetailsControllers: UIViewController, UICollectionViewDelegate , U
     
     func displayActionSheet() {
         
-        let optionMenu = UIAlertController(title: nil, message: "Choose Options", preferredStyle: .actionSheet)
+        let optionMenu = UIAlertController(title: "Choose options", message: nil, preferredStyle: .actionSheet)
         
         let cameraAction = UIAlertAction(title: "Camera", style: .default, handler: { action in  self.camera()})
         let galleryAction = UIAlertAction(title: "Gallery", style: .default, handler: { action in self.photoLibrary()})
@@ -138,7 +138,11 @@ class EmployeeDetailsControllers: UIViewController, UICollectionViewDelegate , U
     }
     
     func googleImage() {
-        
+        let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
+        let controller = storyBoard.instantiateViewController(withIdentifier: "GalleryController") as! GalleryController
+        controller.isTabBarVC = false
+        self.navigationController?.pushViewController(controller, animated: true)
+
     }
     
     

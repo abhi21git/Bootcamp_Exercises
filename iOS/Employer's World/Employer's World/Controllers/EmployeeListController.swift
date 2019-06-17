@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class EmployeeListController: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate, UISearchBarDelegate{
+class EmployeeListController: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate, UISearchBarDelegate, UIScrollViewDelegate{
     
     //  MARK: - Variables
     var employeeList = [Employee]()
@@ -52,7 +52,7 @@ class EmployeeListController: UIViewController, UITableViewDelegate, UITableView
     
     override func viewWillDisappear(_ animated: Bool) {
         if let index = self.employeeTableView.indexPathForSelectedRow{
-            self.employeeTableView.deselectRow(at: index, animated: true)
+            self.employeeTableView.deselectRow(at: index, animated: false)
         }
     }
     
@@ -90,9 +90,18 @@ class EmployeeListController: UIViewController, UITableViewDelegate, UITableView
         let searchBar = UISearchBar()
         searchBar.delegate = self
         searchBar.placeholder = "Search here!"
+        //        searchBar.showsCancelButton = false
+        searchBar.barTintColor = UIColor.white
+        searchBar.layer.shadowColor = UIColor.white.cgColor
+        searchBar.sizeToFit()
+        employeeTableView.tableHeaderView = searchBar
+        //        self.navigationItem.titleView = searchBar
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.showsCancelButton = false
-        
-        self.navigationItem.titleView = searchBar
+        searchBar.text = ""
+        searchBar.resignFirstResponder()
     }
     
     func employeeFetching() {
@@ -148,6 +157,7 @@ extension EmployeeListController {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        employeeTableView.reloadData()
         let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "EmployeeDetailsControllers") as! EmployeeDetailsControllers
         controller.empID = searchedEmployee[indexPath.row].id ?? "0"
@@ -160,9 +170,9 @@ extension EmployeeListController {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         searchedEmployee.removeAll()
-        for employees in employeeList {
-            if (employees.name!.range(of: searchText, options: .caseInsensitive) != nil){
-                searchedEmployee.append(employees)
+        for employee in employeeList {
+            if (employee.name?.range(of: searchText, options: .caseInsensitive) != nil || employee.id?.range(of: searchText, options:  .caseInsensitive) != nil) {
+                searchedEmployee.append(employee)
             }
             else if searchText.isEmpty{
                 searchedEmployee = employeeList

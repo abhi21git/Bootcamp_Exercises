@@ -1,5 +1,5 @@
 //
-//  PhotoGallaryController.swift
+//  PhotoPreviewController.swift
 //  Employer's World
 //
 //  Created by Abhishek Maurya on 24/04/19.

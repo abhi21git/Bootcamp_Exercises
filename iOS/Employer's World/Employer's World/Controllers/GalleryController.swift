@@ -11,7 +11,7 @@ import UIKit
 class GalleryController: UIViewController, UICollectionViewDelegate , UICollectionViewDataSource , UICollectionViewDelegateFlowLayout {
     
     //  MARK: - Variables
-    
+    var isTabBarVC = true
     
     //  MARK: - IBOutlets
     @IBOutlet weak var employeeGallery: UICollectionView!
@@ -33,7 +33,12 @@ class GalleryController: UIViewController, UICollectionViewDelegate , UICollecti
     
     //  MARK: - Functions
     func configureUI() {
-        self.navigationItem.title = "Gallery"
+        if isTabBarVC {
+            self.navigationItem.title = "Gallery"
+        }
+        else {
+            self.navigationItem.title = "Google Images"
+        }
         
         self.navigationController?.navigationBar.layer.masksToBounds = false
         self.navigationController?.navigationBar.layer.shadowColor = UIColor.lightGray.cgColor
