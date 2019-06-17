@@ -23,6 +23,18 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="separatorInset" minX="60" minY="0.0" maxX="0.0" maxY="0.0"/>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZlU-Oo-Bvr">
+                                <rect key="frame" x="334" y="733" width="60" height="60"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="UF2-zf-Itw"/>
+                                    <constraint firstAttribute="width" secondItem="ZlU-Oo-Bvr" secondAttribute="height" multiplier="1:1" id="gbo-aO-dJb"/>
+                                </constraints>
+                                <state key="normal" image="Refresh"/>
+                                <connections>
+                                    <action selector="refreshData" destination="BYZ-38-t0r" eventType="touchUpInside" id="aGj-E4-ndC"/>
+                                </connections>
+                            </button>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="QWh-fG-R08">
                                 <rect key="frame" x="177" y="685" width="60" height="60"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="0.7011183647260274" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -34,8 +46,10 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ZlU-Oo-Bvr" secondAttribute="bottom" constant="20" id="Mtl-h9-pMx"/>
                             <constraint firstItem="QWh-fG-R08" firstAttribute="centerY" secondItem="5Rd-fa-fb2" secondAttribute="centerY" multiplier="3/2" id="Oxi-ku-yQk"/>
                             <constraint firstItem="5Rd-fa-fb2" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="QLQ-XF-qhu"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ZlU-Oo-Bvr" secondAttribute="trailing" constant="20" id="Y7w-7m-Ywk"/>
                             <constraint firstItem="QWh-fG-R08" firstAttribute="centerX" secondItem="5Rd-fa-fb2" secondAttribute="centerX" id="ens-y6-Xnx"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="5Rd-fa-fb2" secondAttribute="bottom" id="jrP-sp-NE7"/>
                             <constraint firstItem="5Rd-fa-fb2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="lRV-hJ-9sD"/>
@@ -47,6 +61,7 @@
                     <connections>
                         <outlet property="employeeTableView" destination="5Rd-fa-fb2" id="sbD-Pa-FfY"/>
                         <outlet property="loader" destination="QWh-fG-R08" id="43e-78-9or"/>
+                        <outlet property="refreshButton" destination="ZlU-Oo-Bvr" id="MIv-6W-LgE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -1656,6 +1671,7 @@ We reserve all rights to terminate accounts, edit or remove content and cancel o
         <image name="Gallary" width="30" height="30"/>
         <image name="Map" width="30" height="30"/>
         <image name="Profile" width="30" height="30"/>
+        <image name="Refresh" width="30" height="30"/>
         <image name="Teamwork" width="1600" height="1200"/>
         <image name="User" width="30" height="30"/>
     </resources>

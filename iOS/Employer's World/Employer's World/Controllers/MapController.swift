@@ -51,14 +51,9 @@ class MapController: UIViewController, CLLocationManagerDelegate, MKMapViewDeleg
     func configureUI() {
         self.navigationItem.title = "Maps"
         
-        currentLocationButton.layer.cornerRadius = currentLocationButton.frame.height/2
-        currentLocationButton.clipsToBounds = true
-        
-        self.navigationController?.navigationBar.layer.masksToBounds = false
-        self.navigationController?.navigationBar.layer.shadowColor = UIColor.lightGray.cgColor
-        self.navigationController?.navigationBar.layer.shadowOffset = CGSize(width: 0, height: 1.0)
-        self.navigationController?.navigationBar.layer.shadowRadius = 4
-        self.navigationController?.navigationBar.layer.shadowOpacity = 0.8
+        currentLocationButton.roundedCornersWithBorder(cornerRadius: currentLocationButton.frame.height/2)
+        currentLocationButton.elevateView(shadowOffset: CGSize(width: 1.0, height: 1.0))
+        self.navigationController?.navigationBar.elevateView()
         
     }
     
@@ -87,6 +82,11 @@ class MapController: UIViewController, CLLocationManagerDelegate, MKMapViewDeleg
     
     //  MARK: - IBActions
     @IBAction func findMe() {
+        let rotationAnimation = CABasicAnimation(keyPath: "transform.rotation")
+        rotationAnimation.fromValue = 0.0
+        rotationAnimation.toValue = Double.pi/2
+        rotationAnimation.duration = 0.4
+        currentLocationButton.layer.add(rotationAnimation, forKey: nil)
         setupCoreLocation()
     }
     

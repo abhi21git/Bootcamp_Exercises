@@ -26,5 +26,13 @@ extension UIView {
         self.layer.borderColor = borderColor
     }
     
+    func elevateView(shadowColor: CGColor = UIColor.lightGray.cgColor, shadowOffset: CGSize = CGSize(width: 0.0, height: 1.0), shadowRadius: CGFloat = 4, shadowOpacity: Float = 0.8) {
+        self.layer.masksToBounds = false
+        self.layer.shadowColor = shadowColor
+        self.layer.shadowOffset = shadowOffset
+        self.layer.shadowRadius = shadowRadius
+        self.layer.shadowOpacity = shadowOpacity
+    }
+    
 }
 

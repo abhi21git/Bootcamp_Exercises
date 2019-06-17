@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GalleryController: UIViewController, UICollectionViewDelegate , UICollectionViewDataSource , UICollectionViewDelegateFlowLayout {
+class GalleryController: UIViewController, UICollectionViewDelegate , UICollectionViewDataSource , UICollectionViewDelegateFlowLayout, UISearchBarDelegate {
     
     //  MARK: - Variables
     var isTabBarVC = true
@@ -38,6 +38,7 @@ class GalleryController: UIViewController, UICollectionViewDelegate , UICollecti
         }
         else {
             self.navigationItem.title = "Google Images"
+            showSearchBar()
         }
         
         self.navigationController?.navigationBar.layer.masksToBounds = false
@@ -47,6 +48,19 @@ class GalleryController: UIViewController, UICollectionViewDelegate , UICollecti
         self.navigationController?.navigationBar.layer.shadowOpacity = 0.8
         
     }
+    
+    func showSearchBar() {
+        let searchBar = UISearchBar()
+        searchBar.delegate = self
+        searchBar.placeholder = "Search here!"
+        searchBar.showsCancelButton = false
+        searchBar.barTintColor = UIColor.white
+        searchBar.layer.shadowColor = UIColor.white.cgColor
+        searchBar.sizeToFit()
+//        employeeGallery.collectionViewLayou = searchBar
+        //        self.navigationItem.titleView = searchBar
+    }
+
     
     
     //  MARK: - IBActions

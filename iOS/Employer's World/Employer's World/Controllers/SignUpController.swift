@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SignUpController: UIViewController {
+class SignUpController: UIViewController, Toastable {
     
     //  MARK: - Variables
     var passwordMatched = false
@@ -43,7 +43,9 @@ class SignUpController: UIViewController {
         firstNameTF.becomeFirstResponder()
         self.navigationItem.title = "Signup"
         self.navigationItem.hidesBackButton = true
-        
+        for each in [firstNameTF, lastNameTF, emailTF, passwordTF, confirmPasswordTF] {
+            each?.elevateView(shadowOffset: CGSize(width: 1.0, height: 1.0))
+        }
         signupButton.roundedCornersWithBorder(cornerRadius: 4)
         
     }
@@ -71,8 +73,7 @@ class SignUpController: UIViewController {
                         if status.Status.statusCode == 1 {
                             self.emailChecker.textColor = UIColor.red
                             self.emailChecker.text = "!"
-                            //show toast later
-                        }
+                            self.showToast(controller: self, message: "Email ID already in use", seconds: 1.2)                        }
                         else {
                             self.emailChecker.text = ""
                         }
@@ -156,23 +157,10 @@ class SignUpController: UIViewController {
             }
         }
         else {
-            showToast(controller: self, message : "Password didn't matched", seconds: 2.0)
+            showToast(controller: self, message : "Password did not matched", seconds: 1.2)
         }
     }
     
-    func showToast(controller: UIViewController, message : String, seconds: Double) {
-        let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
-        alert.view.backgroundColor = UIColor.black
-        alert.view.alpha = 0.6
-        alert.view.layer.cornerRadius = 15
-        
-        controller.present(alert, animated: true)
-        
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + seconds) {
-            alert.dismiss(animated: true)
-        }
-    }
-
     
     
 }

@@ -34,6 +34,7 @@ class EmployeeListController: UIViewController, UITableViewDelegate, UITableView
     //  MARK: - IBOutlets
     @IBOutlet weak var employeeTableView: UITableView!
     @IBOutlet weak var loader: UIActivityIndicatorView!
+    @IBOutlet weak var refreshButton: UIButton!
     
     
     //  MARK: - LifeCycle
@@ -63,18 +64,11 @@ class EmployeeListController: UIViewController, UITableViewDelegate, UITableView
         
         employeeTableView.isHidden = true
         loader.roundedCornersWithBorder(cornerRadius: loader.frame.height/6)
+        refreshButton.roundedCornersWithBorder(cornerRadius: refreshButton.frame.height/2)
+        refreshButton.elevateView(shadowOffset: CGSize(width: 1.0, height: 1.0))
+        self.tabBarController?.tabBar.elevateView()
+        self.navigationController?.navigationBar.elevateView()
         
-        self.tabBarController?.tabBar.layer.masksToBounds = false
-        self.tabBarController?.tabBar.layer.shadowColor = UIColor.lightGray.cgColor
-        self.tabBarController?.tabBar.layer.shadowOffset = CGSize(width: 0.0, height: 1.0)
-        self.tabBarController?.tabBar.layer.shadowRadius = 4
-        self.tabBarController?.tabBar.layer.shadowOpacity = 0.8
-        
-        self.navigationController?.navigationBar.layer.masksToBounds = false
-        self.navigationController?.navigationBar.layer.shadowColor = UIColor.lightGray.cgColor
-        self.navigationController?.navigationBar.layer.shadowOffset = CGSize(width: 0, height: 1.0)
-        self.navigationController?.navigationBar.layer.shadowRadius = 4
-        self.navigationController?.navigationBar.layer.shadowOpacity = 0.8
         
     }
     
@@ -90,19 +84,14 @@ class EmployeeListController: UIViewController, UITableViewDelegate, UITableView
         let searchBar = UISearchBar()
         searchBar.delegate = self
         searchBar.placeholder = "Search here!"
-        //        searchBar.showsCancelButton = false
+        searchBar.showsCancelButton = false
         searchBar.barTintColor = UIColor.white
         searchBar.layer.shadowColor = UIColor.white.cgColor
         searchBar.sizeToFit()
         employeeTableView.tableHeaderView = searchBar
-        //        self.navigationItem.titleView = searchBar
+//        self.navigationItem.titleView = searchBar
     }
     
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        searchBar.showsCancelButton = false
-        searchBar.text = ""
-        searchBar.resignFirstResponder()
-    }
     
     func employeeFetching() {
         
@@ -137,7 +126,17 @@ class EmployeeListController: UIViewController, UITableViewDelegate, UITableView
     
     
     //  MARK: - IBActions
-    
+    @IBAction func refreshData() {
+        let rotationAnimation = CABasicAnimation(keyPath: "transform.rotation")
+        rotationAnimation.fromValue = 0.0
+        rotationAnimation.toValue = Double.pi
+        rotationAnimation.duration = 0.6
+        refreshButton.layer.add(rotationAnimation, forKey: nil)
+        employeeTableView.reloadSections([0], with: .right)
+        employeeTableView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
+        employeeFetching()
+        
+    }
     
 }
 
@@ -157,7 +156,7 @@ extension EmployeeListController {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        employeeTableView.reloadData()
+        employeeFetching()
         let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "EmployeeDetailsControllers") as! EmployeeDetailsControllers
         controller.empID = searchedEmployee[indexPath.row].id ?? "0"

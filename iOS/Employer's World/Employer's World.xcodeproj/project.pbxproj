@@ -19,6 +19,8 @@
 		4691EAAB229E723F00BF08A6 /* RootTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4691EAAA229E723F00BF08A6 /* RootTabBarController.swift */; };
 		4691EAAD229E922700BF08A6 /* Employee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4691EAAC229E922700BF08A6 /* Employee.swift */; };
 		4691EAB422A0FA3F00BF08A6 /* ServiceErrorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4691EAB322A0FA3F00BF08A6 /* ServiceErrorExtension.swift */; };
+		46C4CFDC22B7A41700CC7E3F /* ToastableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C4CFDB22B7A41700CC7E3F /* ToastableProtocol.swift */; };
+		46C4CFDE22B7A45E00CC7E3F /* ToastableExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C4CFDD22B7A45E00CC7E3F /* ToastableExtension.swift */; };
 		46C6FBB62269D4720099E17C /* CustomEmployeeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C6FBB42269D4720099E17C /* CustomEmployeeCell.swift */; };
 		46C6FBB72269D4720099E17C /* CustomEmployeeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 46C6FBB52269D4720099E17C /* CustomEmployeeCell.xib */; };
 		46C6FBBA2269D4B10099E17C /* CollectionGalleryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C6FBB82269D4B10099E17C /* CollectionGalleryCell.swift */; };
@@ -48,6 +50,8 @@
 		4691EAAA229E723F00BF08A6 /* RootTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabBarController.swift; sourceTree = "<group>"; wrapsLines = 1; };
 		4691EAAC229E922700BF08A6 /* Employee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Employee.swift; sourceTree = "<group>"; wrapsLines = 1; };
 		4691EAB322A0FA3F00BF08A6 /* ServiceErrorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceErrorExtension.swift; sourceTree = "<group>"; wrapsLines = 1; };
+		46C4CFDB22B7A41700CC7E3F /* ToastableProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastableProtocol.swift; sourceTree = "<group>"; };
+		46C4CFDD22B7A45E00CC7E3F /* ToastableExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastableExtension.swift; sourceTree = "<group>"; };
 		46C6FBB42269D4720099E17C /* CustomEmployeeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomEmployeeCell.swift; sourceTree = "<group>"; wrapsLines = 1; };
 		46C6FBB52269D4720099E17C /* CustomEmployeeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomEmployeeCell.xib; sourceTree = "<group>"; };
 		46C6FBB82269D4B10099E17C /* CollectionGalleryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionGalleryCell.swift; sourceTree = "<group>"; wrapsLines = 1; };
@@ -89,6 +93,7 @@
 		460D530C227046250020DE92 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				46C4CFDB22B7A41700CC7E3F /* ToastableProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -186,6 +191,7 @@
 			children = (
 				46C6FBC4226D8FBC0099E17C /* UIViewExtension.swift */,
 				4691EAB322A0FA3F00BF08A6 /* ServiceErrorExtension.swift */,
+				46C4CFDD22B7A45E00CC7E3F /* ToastableExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -314,6 +320,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				46C6FBBF2269E6FA0099E17C /* LoginController.swift in Sources */,
+				46C4CFDE22B7A45E00CC7E3F /* ToastableExtension.swift in Sources */,
 				46C6FBC5226D8FBC0099E17C /* UIViewExtension.swift in Sources */,
 				46C6FBBA2269D4B10099E17C /* CollectionGalleryCell.swift in Sources */,
 				46C6FBC7226D9F530099E17C /* EmployeeDetailsControllers.swift in Sources */,
@@ -332,6 +339,7 @@
 				46313A502269B954003D702C /* GalleryController.swift in Sources */,
 				4691EAAD229E922700BF08A6 /* Employee.swift in Sources */,
 				46C6FBB62269D4720099E17C /* CustomEmployeeCell.swift in Sources */,
+				46C4CFDC22B7A41700CC7E3F /* ToastableProtocol.swift in Sources */,
 				46313A522269B981003D702C /* ProfileController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

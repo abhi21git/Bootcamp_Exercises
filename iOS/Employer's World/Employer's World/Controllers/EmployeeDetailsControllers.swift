@@ -53,7 +53,8 @@ class EmployeeDetailsControllers: UIViewController, UICollectionViewDelegate , U
         ageLabel.roundedCornersWithBorder(cornerRadius: 4)
         empIDLabel.roundedCornersWithBorder(cornerRadius: 4)
         salaryLabel.roundedCornersWithBorder(cornerRadius: 4)
-        detailsContentView.roundedCornersWithBorder(cornerRadius: 4, borderWidth: 1)
+        detailsContentView.roundedCornersWithBorder(cornerRadius: 4)
+        detailsContentView.elevateView(shadowOffset: CGSize(width: 1.0, height: 1.0), shadowRadius: 8)
         gallaryAndMapContentView.roundedCornersWithBorder(cornerRadius: 4, borderWidth: 1)
         customSegment.roundedCornersWithBorder(cornerRadius: 4, borderWidth: 1)
         

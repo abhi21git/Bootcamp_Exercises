@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LoginController: UIViewController {
+class LoginController: UIViewController, Toastable {
     
     //  MARK: - Variables
     
@@ -47,15 +47,13 @@ class LoginController: UIViewController {
         userNameTF.becomeFirstResponder()
         self.navigationItem.title = "Login"
         loginButton.roundedCornersWithBorder(cornerRadius: 4)
+        loginButton.elevateView(shadowOffset: CGSize(width: 1.0, height: 1.0))
+        userNameTF.elevateView(shadowOffset: CGSize(width: 1.0, height: 1.0))
+        passwordTF.elevateView(shadowOffset: CGSize(width: 1.0, height: 1.0))
         userNameChecker.roundedCornersWithBorder(cornerRadius: userNameChecker.frame.height/2)
         passwordChecker.roundedCornersWithBorder(cornerRadius: userNameChecker.frame.height/2)
         
-        self.navigationController?.navigationBar.layer.masksToBounds = false
-        self.navigationController?.navigationBar.layer.shadowColor = UIColor.lightGray.cgColor
-        self.navigationController?.navigationBar.layer.shadowOffset = CGSize(width: 0, height: 1.0)
-        self.navigationController?.navigationBar.layer.shadowRadius = 4
-        self.navigationController?.navigationBar.layer.shadowOpacity = 0.8
-        
+        self.navigationController?.navigationBar.elevateView()
     }
     
     
@@ -156,7 +154,7 @@ class LoginController: UIViewController {
             
         }
         else {
-            //show toast here for empty username
+            showToast(controller: self, message: "Empty username", seconds: 1.2)
         }
         
     }
