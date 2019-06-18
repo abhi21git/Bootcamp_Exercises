@@ -59,6 +59,7 @@ class ProfileController: UIViewController {
     //  MARK: - IBActions
     @IBAction func logout() {
         //remove child view
+        UserDefaults.standard.set(true, forKey: "isFirstTime")
         self.navigationController?.popViewController(animated: false)
     }
     

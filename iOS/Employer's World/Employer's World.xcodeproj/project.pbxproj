@@ -42,7 +42,7 @@
 		460D530A226F36C60020DE92 /* CustomSegment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegment.swift; sourceTree = "<group>"; wrapsLines = 1; };
 		461026F522AE6345001F70EA /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; wrapsLines = 1; };
 		46229B97229BEE7A00CBA6B5 /* WelcomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeController.swift; sourceTree = "<group>"; wrapsLines = 1; };
-		46313A4D2269B922003D702C /* EmployeeListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeListController.swift; sourceTree = "<group>"; wrapsLines = 1; };
+		46313A4D2269B922003D702C /* EmployeeListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeListController.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		46313A4F2269B954003D702C /* GalleryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryController.swift; sourceTree = "<group>"; wrapsLines = 1; };
 		46313A512269B981003D702C /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; wrapsLines = 1; };
 		46313A532269B9A4003D702C /* MapController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapController.swift; sourceTree = "<group>"; wrapsLines = 1; };
@@ -57,7 +57,7 @@
 		46C6FBB82269D4B10099E17C /* CollectionGalleryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionGalleryCell.swift; sourceTree = "<group>"; wrapsLines = 1; };
 		46C6FBB92269D4B10099E17C /* CollectionGalleryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionGalleryCell.xib; sourceTree = "<group>"; };
 		46C6FBBC2269E5140099E17C /* SignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; wrapsLines = 1; };
-		46C6FBBE2269E6FA0099E17C /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; wrapsLines = 1; };
+		46C6FBBE2269E6FA0099E17C /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		46C6FBC4226D8FBC0099E17C /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; wrapsLines = 1; };
 		46C6FBC6226D9F530099E17C /* EmployeeDetailsControllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeDetailsControllers.swift; sourceTree = "<group>"; wrapsLines = 1; };
 		46C747682293F9A000A65403 /* NetworkManager.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; tabWidth = 4; usesTabs = 1; wrapsLines = 1; };

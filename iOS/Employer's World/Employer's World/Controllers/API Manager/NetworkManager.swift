@@ -94,7 +94,7 @@ class NetworkManager {
 				
 			}
 			else {
-				completion(nil , ServiceError.customError("Could not fetch Data."))
+				completion(nil , ServiceError.customError("Could not login."))
 			}
 		}
 		sessionTask.resume()
@@ -125,7 +125,7 @@ class NetworkManager {
 				
             }
             else {
-                completion(nil , ServiceError.customError("Error"))
+                completion(nil , ServiceError.customError("Please check your connection."))
             }
         }
         sessionTask.resume()

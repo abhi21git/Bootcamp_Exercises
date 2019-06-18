@@ -41,24 +41,18 @@ class GalleryController: UIViewController, UICollectionViewDelegate , UICollecti
             showSearchBar()
         }
         
-        self.navigationController?.navigationBar.layer.masksToBounds = false
-        self.navigationController?.navigationBar.layer.shadowColor = UIColor.lightGray.cgColor
-        self.navigationController?.navigationBar.layer.shadowOffset = CGSize(width: 0, height: 1.0)
-        self.navigationController?.navigationBar.layer.shadowRadius = 4
-        self.navigationController?.navigationBar.layer.shadowOpacity = 0.8
+        self.navigationController?.navigationItem.searchController?.searchBar.elevateView()
+
         
     }
     
     func showSearchBar() {
-        let searchBar = UISearchBar()
-        searchBar.delegate = self
-        searchBar.placeholder = "Search here!"
-        searchBar.showsCancelButton = false
-        searchBar.barTintColor = UIColor.white
-        searchBar.layer.shadowColor = UIColor.white.cgColor
-        searchBar.sizeToFit()
-//        employeeGallery.collectionViewLayou = searchBar
-        //        self.navigationItem.titleView = searchBar
+        let searchController = UISearchController(searchResultsController: nil)
+        searchController.searchBar.delegate = self
+        searchController.searchBar.sizeToFit()
+        searchController.searchBar.placeholder = "Search for images on Google"
+        navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = false
     }
 
     

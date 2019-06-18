@@ -34,7 +34,7 @@ class WelcomeController: UIViewController {
     
     //  MARK:- IBActions
     @IBAction func continueClicked() {
-        UserDefaults.standard.set(true, forKey: "isFirstTime")
+        UserDefaults.standard.set(false, forKey: "isFirstTime")
         let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
         let controller = storyBoard.instantiateViewController(withIdentifier: "RootTabBarController") as! RootTabBarController
         self.navigationController?.pushViewController(controller, animated: true)

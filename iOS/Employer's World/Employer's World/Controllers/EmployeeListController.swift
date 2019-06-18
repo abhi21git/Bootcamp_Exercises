@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class EmployeeListController: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate, UISearchBarDelegate, UIScrollViewDelegate{
+class EmployeeListController: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate, UISearchBarDelegate, UIScrollViewDelegate, Toastable {
     
     //  MARK: - Variables
     var employeeList = [Employee]()
@@ -67,7 +67,7 @@ class EmployeeListController: UIViewController, UITableViewDelegate, UITableView
         refreshButton.roundedCornersWithBorder(cornerRadius: refreshButton.frame.height/2)
         refreshButton.elevateView(shadowOffset: CGSize(width: 1.0, height: 1.0))
         self.tabBarController?.tabBar.elevateView()
-        self.navigationController?.navigationBar.elevateView()
+        self.navigationController?.navigationItem.searchController?.searchBar.elevateView()
         
         
     }
@@ -81,19 +81,17 @@ class EmployeeListController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func showSearchBar() {
-        let searchBar = UISearchBar()
-        searchBar.delegate = self
-        searchBar.placeholder = "Search here!"
-        searchBar.showsCancelButton = false
-        searchBar.barTintColor = UIColor.white
-        searchBar.layer.shadowColor = UIColor.white.cgColor
-        searchBar.sizeToFit()
-        employeeTableView.tableHeaderView = searchBar
-//        self.navigationItem.titleView = searchBar
+        let searchController = UISearchController(searchResultsController: nil)
+        searchController.searchBar.delegate = self
+        searchController.searchBar.sizeToFit()
+        searchController.searchBar.placeholder = "Search employee name or ID"
+        navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = false
     }
     
     
     func employeeFetching() {
+        loader.isHidden = false
         
         let employeeListURL = "http://dummy.restapiexample.com/api/v1/employees"
         
@@ -103,10 +101,15 @@ class EmployeeListController: UIViewController, UITableViewDelegate, UITableView
                 
                 print(error.localizedDescription)
                 let alert  = UIAlertController(title: "Something went wrong", message: error.localizedDescription, preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "Retry", style: .default, handler: { action in self.employeeFetching() })) // Retry option to hit api in case internet didn't worked in first place
+                alert.addAction(UIAlertAction(title: "Retry", style: .destructive, handler: { action in self.employeeFetching() })) // Retry option to hit api in case internet didn't worked in first place
+                alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { action in
+                    self.loader.isHidden = true
+                    self.showToast(controller: self, message: "No internet connection.", seconds: 1.2)
+                }))
                 self.present(alert, animated: true, completion: nil)
                 
-            } else {
+            }
+            else {
                 if data != nil {
                     DispatchQueue.global().async {
                         self.employeeList = data as! [Employee]
@@ -124,15 +127,14 @@ class EmployeeListController: UIViewController, UITableViewDelegate, UITableView
     }
     
     
-    
     //  MARK: - IBActions
     @IBAction func refreshData() {
         let rotationAnimation = CABasicAnimation(keyPath: "transform.rotation")
         rotationAnimation.fromValue = 0.0
         rotationAnimation.toValue = Double.pi
-        rotationAnimation.duration = 0.6
+        rotationAnimation.duration = 0.4
         refreshButton.layer.add(rotationAnimation, forKey: nil)
-        employeeTableView.reloadSections([0], with: .right)
+        employeeTableView.reloadSections([0], with: .fade)
         employeeTableView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
         employeeFetching()
         
@@ -173,11 +175,18 @@ extension EmployeeListController {
             if (employee.name?.range(of: searchText, options: .caseInsensitive) != nil || employee.id?.range(of: searchText, options:  .caseInsensitive) != nil) {
                 searchedEmployee.append(employee)
             }
-            else if searchText.isEmpty{
+            else if searchText == "" {
                 searchedEmployee = employeeList
             }
         }
         employeeTableView.reloadData()
+    }
+    
+    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+        searchBar.text = ""
+        searchBar.showsCancelButton = false
+        employeeTableView.reloadSections([0], with: .fade)
+        
     }
     
 }

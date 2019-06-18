@@ -11,7 +11,12 @@ import UIKit
 class LoginController: UIViewController, Toastable {
     
     //  MARK: - Variables
-    
+    enum checkStatus: String {
+        case correct = "✓"
+        case incorrect = "✗"
+        case unknown = "?"
+        case none = ""
+    }
     
     
     //  MARK: - IBOutlets
@@ -34,8 +39,8 @@ class LoginController: UIViewController, Toastable {
     override func viewWillDisappear(_ animated: Bool) {
         userNameTF.text = ""
         passwordTF.text = ""
-        userNameChecker.text = ""
-        passwordChecker.text = ""
+        userNameChecker.text = checkStatus.none.rawValue
+        passwordChecker.text = checkStatus.none.rawValue
         userNameTF.becomeFirstResponder()
         
     }
@@ -60,9 +65,9 @@ class LoginController: UIViewController, Toastable {
     //  MARK: - IBActions
     @IBAction func userNameValidation() {
         if userNameTF.text!.isEmpty {
-            userNameChecker.textColor = UIColor.white
+            userNameChecker.text = checkStatus.none.rawValue
         }
-        else {
+        else if true { //Implement regex here
             let validationURL = "https://qa.curiousworld.com/api/v3/Validate/Email?_format=json"
             let parameters = ["mail" : userNameTF.text!]
             
@@ -75,13 +80,20 @@ class LoginController: UIViewController, Toastable {
                         DispatchQueue.main.async {
                             if status.Status.statusCode == 1 {
                                 self.userNameChecker.textColor = UIColor.green
-                                self.userNameChecker.text = "✓"
+                                self.userNameChecker.text = checkStatus.correct.rawValue
                             }
                             else {
                                 self.userNameChecker.textColor = UIColor.red
-                                self.userNameChecker.text = "✗"
+                                self.userNameChecker.text = checkStatus.incorrect.rawValue
                             }
                         }
+                    }
+                }
+                else {
+                    DispatchQueue.main.async {
+                        self.userNameChecker.textColor = UIColor.blue
+                        self.userNameChecker.text = checkStatus.unknown.rawValue
+                        //                        self.showToast(controller: self, message: "Somwthing went wrong", seconds: 1.2)
                     }
                 }
             })
@@ -93,13 +105,17 @@ class LoginController: UIViewController, Toastable {
         if passwordTF.text!.isEmpty {
             passwordChecker.textColor = UIColor.white
         }
+        else if userNameChecker.text == checkStatus.unknown.rawValue {
+            passwordChecker.textColor = UIColor.blue
+            passwordChecker.text = checkStatus.unknown.rawValue
+        }
         else if passwordTF.text!.count < 8 {
             passwordChecker.textColor = UIColor.red
-            passwordChecker.text = "✗"
+            passwordChecker.text = checkStatus.incorrect.rawValue
         }
         else {
             passwordChecker.textColor = UIColor.green
-            passwordChecker.text = "✓"
+            passwordChecker.text = checkStatus.correct.rawValue
         }
     }
     
@@ -121,10 +137,18 @@ class LoginController: UIViewController, Toastable {
             NetworkManager.sharedInstance.logIn(urlString: loginURL, parameters: parametersData, completion: { (data, responseError) in
                 if let error = responseError {
                     
-                    print(error.localizedDescription)
-                    let alert  = UIAlertController(title: "Something went wrong", message: error.localizedDescription, preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "Retry", style: .default, handler: { action in self.loginIn() })) // Retry option to hit api in case internet didn't worked in first place
-                    self.present(alert, animated: true, completion: nil)
+                    DispatchQueue.main.async {
+                        let alert  = UIAlertController(title: "Something went wrong", message: error.localizedDescription, preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "Retry", style: .destructive, handler: { action in self.loginIn() })) // Retry option to hit api in case internet didn't worked in first place
+                        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { action in
+                            self.userNameTF.text = ""
+                            self.userNameChecker.text = checkStatus.none.rawValue
+                            self.passwordTF.text = ""
+                            self.passwordChecker.text = checkStatus.none.rawValue
+                            self.userNameTF.becomeFirstResponder()
+                        }))
+                        self.present(alert, animated: true, completion: nil)
+                    }
                     
                 } else {
                     if data != nil {
@@ -159,6 +183,51 @@ class LoginController: UIViewController, Toastable {
         
     }
     
+    
+    @IBAction func forgetPassword() {
+        if userNameTF.text!.isEmpty || userNameChecker.text == checkStatus.incorrect.rawValue {
+            showToast(controller: self, message: "First enter a valid mail", seconds: 1.2)
+        }
+        else if userNameChecker.text == checkStatus.correct.rawValue {
+            let forgetURL = "https://qa.curiousworld.com/api/v3/ForgetPassword?_format=json"
+            let parameters = ["mail" :  userNameTF.text!]
+            
+            NetworkManager.sharedInstance.profileApi(urlString: forgetURL, parameters: parameters, completion: { (data, responseError) in
+                if let error = responseError {
+                    DispatchQueue.global().async {
+                        let alert  = UIAlertController(title: "Something went wrong", message: error.localizedDescription, preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "Retry", style: .destructive, handler: { action in self.loginIn() })) // Retry option to hit api in case internet didn't worked in first place
+                        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+                        self.present(alert, animated: true, completion: nil)
+                    }
+                }
+                else {
+                    if data != nil {
+                        DispatchQueue.global().async {
+                            let forgetResponse = data as! ProfileModel
+                            DispatchQueue.main.async {
+                                let alertController = UIAlertController(title: "Alert", message: forgetResponse.Status.message, preferredStyle: .alert)
+                                alertController.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+                                self.present(alertController, animated: true, completion: nil)
+                            }
+                        }
+                    }
+                    else {
+                        DispatchQueue.main.async {
+                            let alertController = UIAlertController(title: "Alert", message: "Invalid email entered", preferredStyle: .alert)
+                            alertController.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+                            self.present(alertController, animated: true, completion: nil)
+                        }
+                    }
+                }
+            })
+        }
+        else if userNameChecker.text == checkStatus.unknown.rawValue {
+            showToast(controller: self, message: "Please check your connection", seconds: 1.2)
+        }
+    }
+    
+    
     @IBAction func signUp() {
         //add to child view later
         let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
@@ -167,38 +236,6 @@ class LoginController: UIViewController, Toastable {
         
     }
     
-    @IBAction func forgetPassword() {
-        let forgetURL = "https://qa.curiousworld.com/api/v3/ForgetPassword?_format=json"
-        let parameters = ["mail" :  userNameTF.text!]
-        
-        NetworkManager.sharedInstance.profileApi(urlString: forgetURL, parameters: parameters, completion: { (data, responseError) in
-            if let error = responseError {
-                
-                let alert  = UIAlertController(title: "Something went wrong", message: error.localizedDescription, preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "Retry", style: .default, handler: { action in self.loginIn() })) // Retry option to hit api in case internet didn't worked in first place
-                self.present(alert, animated: true, completion: nil)
-                
-            } else {
-                if data != nil {
-                    DispatchQueue.global().async {
-                        let forgetResponse = data as! ProfileModel
-                        DispatchQueue.main.async {
-                            let alertController = UIAlertController(title: "Alert", message: forgetResponse.Status.message, preferredStyle: .alert)
-                            alertController.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
-                            self.present(alertController, animated: true, completion: nil)
-                        }
-                    }
-                }
-                else {
-                    DispatchQueue.main.async {
-                        let alertController = UIAlertController(title: "Alert", message: "Invalid email entered", preferredStyle: .alert)
-                        alertController.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
-                        self.present(alertController, animated: true, completion: nil)
-                    }
-                }
-            }
-        })
-    }
     
     func getPostDataAttributes(params:[String:String]) -> Data {
         var data = Data()
