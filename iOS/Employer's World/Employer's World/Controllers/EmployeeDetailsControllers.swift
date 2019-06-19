@@ -8,12 +8,14 @@
 
 import UIKit
 import MapKit
+import CoreData
 
-class EmployeeDetailsControllers: UIViewController, UICollectionViewDelegate , UICollectionViewDataSource , UIPickerViewDelegate, UICollectionViewDelegateFlowLayout, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class EmployeeDetailsControllers: UIViewController, UICollectionViewDelegate , UICollectionViewDataSource , UIPickerViewDelegate, UICollectionViewDelegateFlowLayout, UIImagePickerControllerDelegate, UINavigationControllerDelegate, Toastable {
     
     //  MARK: - Variables
     var empID: String = "0"
     var employeeArray = [EmployeeDetails]()
+    
     
     //  MARK: - IBOutlets
     @IBOutlet weak var detailsContentView: UIView!
@@ -23,9 +25,9 @@ class EmployeeDetailsControllers: UIViewController, UICollectionViewDelegate , U
     @IBOutlet weak var salaryLabel: UILabel!
     @IBOutlet weak var employeePicture: UIImageView!
     @IBOutlet weak var customSegment: CustomSegment!
-    @IBOutlet weak var gallaryAndMapContentView: UIView!
+    @IBOutlet weak var galleryAndMapContentView: UIView!
     @IBOutlet weak var employeeMapView: MKMapView!
-    @IBOutlet weak var employeeGallary: UICollectionView!
+    @IBOutlet weak var employeeGallery: UICollectionView!
     
     
     //  MARK: - LifeCycle
@@ -33,10 +35,10 @@ class EmployeeDetailsControllers: UIViewController, UICollectionViewDelegate , U
         super.viewDidLoad()
         
         let nib = UINib(nibName: "CollectionGalleryCell", bundle: nil)
-        employeeGallary.register(nib, forCellWithReuseIdentifier: "galleryCell")
+        employeeGallery.register(nib, forCellWithReuseIdentifier: "galleryCell")
         
-        employeeGallary.delegate = self
-        employeeGallary.dataSource = self
+        employeeGallery.delegate = self
+        employeeGallery.dataSource = self
         
         configureUI()
         customSegmentHandling()
@@ -55,18 +57,18 @@ class EmployeeDetailsControllers: UIViewController, UICollectionViewDelegate , U
         salaryLabel.roundedCornersWithBorder(cornerRadius: 4)
         detailsContentView.roundedCornersWithBorder(cornerRadius: 4)
         detailsContentView.elevateView(shadowOffset: CGSize(width: 1.0, height: 1.0), shadowRadius: 8)
-        gallaryAndMapContentView.roundedCornersWithBorder(cornerRadius: 4, borderWidth: 1)
+        galleryAndMapContentView.roundedCornersWithBorder(cornerRadius: 4, borderWidth: 1)
         customSegment.roundedCornersWithBorder(cornerRadius: 4, borderWidth: 1)
         
         employeeMapView.isHidden = true
-        employeeGallary.isHidden = true
+        employeeGallery.isHidden = true
     }
     
     func customSegmentHandling() {
-        gallarySegmentAction() //so that gallary segement always get selected by default
+        gallerySegmentAction() //so that gallery segement always get selected by default
         
-        customSegment.gallaryButton.addTarget(self, action: #selector(self.gallarySegmentAction), for: .touchUpInside)
-        customSegment.addToGallaryButton.addTarget(self, action: #selector(self.addToGallarySegmentAction), for: .touchUpInside)
+        customSegment.galleryButton.addTarget(self, action: #selector(self.gallerySegmentAction), for: .touchUpInside)
+        customSegment.addToGalleryButton.addTarget(self, action: #selector(self.addToGallerySegmentAction), for: .touchUpInside)
         customSegment.mapButton.addTarget(self, action: #selector(self.mapSegmentAction), for: .touchUpInside)
         customSegment.addToMapButton.addTarget(self, action: #selector(self.addToMapSegmentAction), for: .touchUpInside)
     }
@@ -148,25 +150,26 @@ class EmployeeDetailsControllers: UIViewController, UICollectionViewDelegate , U
     
     
     //  MARK: - IBActions
-    @objc func gallarySegmentAction() {
-        employeeGallary.isHidden = false
+    @objc func gallerySegmentAction() {
+        employeeGallery.isHidden = false
         employeeMapView.isHidden = true
+        
     }
     
-    @objc func addToGallarySegmentAction() {
-        employeeGallary.isHidden = false
+    @objc func addToGallerySegmentAction() {
+        employeeGallery.isHidden = false
         employeeMapView.isHidden = true
         displayActionSheet()
     }
     
     @objc func mapSegmentAction() {
         employeeMapView.isHidden = false
-        employeeGallary.isHidden = true
+        employeeGallery.isHidden = true
     }
     
     @objc func addToMapSegmentAction() {
         employeeMapView.isHidden = false
-        employeeGallary.isHidden = true
+        employeeGallery.isHidden = true
     }
 }
 

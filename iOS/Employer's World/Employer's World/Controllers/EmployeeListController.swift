@@ -9,26 +9,11 @@
 import UIKit
 import CoreData
 
-class EmployeeListController: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate, UISearchBarDelegate, UIScrollViewDelegate, Toastable {
+class EmployeeListController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UIScrollViewDelegate, Toastable {
     
     //  MARK: - Variables
     var employeeList = [Employee]()
     var searchedEmployee = [Employee]()
-    
-    fileprivate lazy var fetchedResultController: NSFetchedResultsController<EmployeeCoreData> = {
-        let appDelegate = UIApplication.shared.delegate as? AppDelegate
-        let context = appDelegate?.persistentContainer.viewContext
-        let fetchRequest:NSFetchRequest = EmployeeCoreData.fetchRequest()
-        
-        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "id", ascending: true)]
-        let fetchResultController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context!, sectionNameKeyPath: nil, cacheName: nil)
-        
-        fetchResultController.delegate = self
-        
-        try! fetchResultController.performFetch()
-        return fetchResultController
-        
-    }()
     
     
     //  MARK: - IBOutlets

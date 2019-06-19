@@ -17,8 +17,9 @@
 		46313A542269B9A4003D702C /* MapController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46313A532269B9A4003D702C /* MapController.swift */; };
 		465F2FB522707C9400A5CE02 /* PhotoPreviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 465F2FB422707C9400A5CE02 /* PhotoPreviewController.swift */; };
 		4691EAAB229E723F00BF08A6 /* RootTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4691EAAA229E723F00BF08A6 /* RootTabBarController.swift */; };
-		4691EAAD229E922700BF08A6 /* Employee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4691EAAC229E922700BF08A6 /* Employee.swift */; };
+		4691EAAD229E922700BF08A6 /* EmployeeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4691EAAC229E922700BF08A6 /* EmployeeModel.swift */; };
 		4691EAB422A0FA3F00BF08A6 /* ServiceErrorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4691EAB322A0FA3F00BF08A6 /* ServiceErrorExtension.swift */; };
+		46BAE2EA22BA159100854F1C /* GoogleImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BAE2E922BA159100854F1C /* GoogleImageModel.swift */; };
 		46C4CFDC22B7A41700CC7E3F /* ToastableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C4CFDB22B7A41700CC7E3F /* ToastableProtocol.swift */; };
 		46C4CFDE22B7A45E00CC7E3F /* ToastableExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C4CFDD22B7A45E00CC7E3F /* ToastableExtension.swift */; };
 		46C6FBB62269D4720099E17C /* CustomEmployeeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C6FBB42269D4720099E17C /* CustomEmployeeCell.swift */; };
@@ -42,14 +43,15 @@
 		460D530A226F36C60020DE92 /* CustomSegment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegment.swift; sourceTree = "<group>"; wrapsLines = 1; };
 		461026F522AE6345001F70EA /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; wrapsLines = 1; };
 		46229B97229BEE7A00CBA6B5 /* WelcomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeController.swift; sourceTree = "<group>"; wrapsLines = 1; };
-		46313A4D2269B922003D702C /* EmployeeListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeListController.swift; sourceTree = "<group>"; wrapsLines = 0; };
+		46313A4D2269B922003D702C /* EmployeeListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeListController.swift; sourceTree = "<group>"; wrapsLines = 1; };
 		46313A4F2269B954003D702C /* GalleryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryController.swift; sourceTree = "<group>"; wrapsLines = 1; };
 		46313A512269B981003D702C /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; wrapsLines = 1; };
 		46313A532269B9A4003D702C /* MapController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapController.swift; sourceTree = "<group>"; wrapsLines = 1; };
 		465F2FB422707C9400A5CE02 /* PhotoPreviewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPreviewController.swift; sourceTree = "<group>"; wrapsLines = 1; };
 		4691EAAA229E723F00BF08A6 /* RootTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabBarController.swift; sourceTree = "<group>"; wrapsLines = 1; };
-		4691EAAC229E922700BF08A6 /* Employee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Employee.swift; sourceTree = "<group>"; wrapsLines = 1; };
+		4691EAAC229E922700BF08A6 /* EmployeeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeModel.swift; sourceTree = "<group>"; wrapsLines = 1; };
 		4691EAB322A0FA3F00BF08A6 /* ServiceErrorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceErrorExtension.swift; sourceTree = "<group>"; wrapsLines = 1; };
+		46BAE2E922BA159100854F1C /* GoogleImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleImageModel.swift; sourceTree = "<group>"; };
 		46C4CFDB22B7A41700CC7E3F /* ToastableProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastableProtocol.swift; sourceTree = "<group>"; };
 		46C4CFDD22B7A45E00CC7E3F /* ToastableExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastableExtension.swift; sourceTree = "<group>"; };
 		46C6FBB42269D4720099E17C /* CustomEmployeeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomEmployeeCell.swift; sourceTree = "<group>"; wrapsLines = 1; };
@@ -57,7 +59,7 @@
 		46C6FBB82269D4B10099E17C /* CollectionGalleryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionGalleryCell.swift; sourceTree = "<group>"; wrapsLines = 1; };
 		46C6FBB92269D4B10099E17C /* CollectionGalleryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionGalleryCell.xib; sourceTree = "<group>"; };
 		46C6FBBC2269E5140099E17C /* SignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; wrapsLines = 1; };
-		46C6FBBE2269E6FA0099E17C /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; wrapsLines = 0; };
+		46C6FBBE2269E6FA0099E17C /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; wrapsLines = 1; };
 		46C6FBC4226D8FBC0099E17C /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; wrapsLines = 1; };
 		46C6FBC6226D9F530099E17C /* EmployeeDetailsControllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeDetailsControllers.swift; sourceTree = "<group>"; wrapsLines = 1; };
 		46C747682293F9A000A65403 /* NetworkManager.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; tabWidth = 4; usesTabs = 1; wrapsLines = 1; };
@@ -81,15 +83,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		460D5309226F369E0020DE92 /* CustomSegment */ = {
-			isa = PBXGroup;
-			children = (
-				460D530A226F36C60020DE92 /* CustomSegment.swift */,
-				460D5307226F364D0020DE92 /* CustomSegment.xib */,
-			);
-			name = CustomSegment;
-			sourceTree = "<group>";
-		};
 		460D530C227046250020DE92 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
@@ -98,92 +91,58 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
-		46229B92229BE7D300CBA6B5 /* Employee Tab */ = {
-			isa = PBXGroup;
-			children = (
-				46313A4D2269B922003D702C /* EmployeeListController.swift */,
-				46C6FBC6226D9F530099E17C /* EmployeeDetailsControllers.swift */,
-			);
-			name = "Employee Tab";
-			sourceTree = "<group>";
-		};
-		46229B93229BE7E700CBA6B5 /* Gallery Tab */ = {
-			isa = PBXGroup;
-			children = (
-				46313A4F2269B954003D702C /* GalleryController.swift */,
-				465F2FB422707C9400A5CE02 /* PhotoPreviewController.swift */,
-			);
-			name = "Gallery Tab";
-			sourceTree = "<group>";
-		};
-		46229B94229BE80C00CBA6B5 /* Profile Tab */ = {
-			isa = PBXGroup;
-			children = (
-				46C6FBBE2269E6FA0099E17C /* LoginController.swift */,
-				46C6FBBC2269E5140099E17C /* SignUpController.swift */,
-				46313A512269B981003D702C /* ProfileController.swift */,
-			);
-			name = "Profile Tab";
-			sourceTree = "<group>";
-		};
 		46313A552269BD13003D702C /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				46C747672293F97A00A65403 /* API Manager */,
 				46229B97229BEE7A00CBA6B5 /* WelcomeController.swift */,
-				4691EAB0229EA09200BF08A6 /* RootTabBar */,
-				46C6FBC2226A047D0099E17C /* CustomTableCell */,
-				46C6FBC0226A04590099E17C /* CustomCollectionCell */,
-				460D5309226F369E0020DE92 /* CustomSegment */,
+				4691EAAA229E723F00BF08A6 /* RootTabBarController.swift */,
+				46313A4D2269B922003D702C /* EmployeeListController.swift */,
+				46C6FBC6226D9F530099E17C /* EmployeeDetailsControllers.swift */,
+				46313A4F2269B954003D702C /* GalleryController.swift */,
+				465F2FB422707C9400A5CE02 /* PhotoPreviewController.swift */,
+				46313A532269B9A4003D702C /* MapController.swift */,
+				46C6FBBE2269E6FA0099E17C /* LoginController.swift */,
+				46C6FBBC2269E5140099E17C /* SignUpController.swift */,
+				46313A512269B981003D702C /* ProfileController.swift */,
+				46C6FBB42269D4720099E17C /* CustomEmployeeCell.swift */,
+				46C6FBB82269D4B10099E17C /* CollectionGalleryCell.swift */,
+				460D530A226F36C60020DE92 /* CustomSegment.swift */,
 			);
 			path = Controllers;
-			sourceTree = "<group>";
-		};
-		4691EAA7229E6C2E00BF08A6 /* Map Tab */ = {
-			isa = PBXGroup;
-			children = (
-				46313A532269B9A4003D702C /* MapController.swift */,
-			);
-			name = "Map Tab";
-			sourceTree = "<group>";
-		};
-		4691EAB0229EA09200BF08A6 /* RootTabBar */ = {
-			isa = PBXGroup;
-			children = (
-				4691EAAA229E723F00BF08A6 /* RootTabBarController.swift */,
-				46229B92229BE7D300CBA6B5 /* Employee Tab */,
-				46229B93229BE7E700CBA6B5 /* Gallery Tab */,
-				4691EAA7229E6C2E00BF08A6 /* Map Tab */,
-				46229B94229BE80C00CBA6B5 /* Profile Tab */,
-			);
-			name = RootTabBar;
 			sourceTree = "<group>";
 		};
 		46AA9BAA2272EC8200F5C394 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				4691EAAC229E922700BF08A6 /* Employee.swift */,
+				4691EAAC229E922700BF08A6 /* EmployeeModel.swift */,
 				461026F522AE6345001F70EA /* LoginModel.swift */,
+				46BAE2E922BA159100854F1C /* GoogleImageModel.swift */,
+				46C747682293F9A000A65403 /* NetworkManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
 		};
-		46C6FBC0226A04590099E17C /* CustomCollectionCell */ = {
+		46C4CFDF22BA0E6900CC7E3F /* View */ = {
 			isa = PBXGroup;
 			children = (
-				46C6FBB82269D4B10099E17C /* CollectionGalleryCell.swift */,
+				46C6FBB52269D4720099E17C /* CustomEmployeeCell.xib */,
 				46C6FBB92269D4B10099E17C /* CollectionGalleryCell.xib */,
+				460D5307226F364D0020DE92 /* CustomSegment.xib */,
+				46FF2D232268D1620006BE82 /* LaunchScreen.storyboard */,
+				46FF2D1B2268D15F0006BE82 /* Main.storyboard */,
 			);
-			name = CustomCollectionCell;
+			path = View;
 			sourceTree = "<group>";
 		};
-		46C6FBC2226A047D0099E17C /* CustomTableCell */ = {
+		46C4CFE022BA0F0B00CC7E3F /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
-				46C6FBB42269D4720099E17C /* CustomEmployeeCell.swift */,
-				46C6FBB52269D4720099E17C /* CustomEmployeeCell.xib */,
+				46FF2D172268D15F0006BE82 /* AppDelegate.swift */,
+				46FF2D212268D1610006BE82 /* Assets.xcassets */,
+				46FF2D262268D1620006BE82 /* Info.plist */,
+				46FF2D1E2268D15F0006BE82 /* Employer_s_World.xcdatamodeld */,
 			);
-			name = CustomTableCell;
+			path = SupportingFiles;
 			sourceTree = "<group>";
 		};
 		46C6FBC3226D8FAC0099E17C /* Extensions */ = {
@@ -194,23 +153,6 @@
 				46C4CFDD22B7A45E00CC7E3F /* ToastableExtension.swift */,
 			);
 			path = Extensions;
-			sourceTree = "<group>";
-		};
-		46C6FBC8226EF2CD0099E17C /* Storyboard */ = {
-			isa = PBXGroup;
-			children = (
-				46FF2D1B2268D15F0006BE82 /* Main.storyboard */,
-				46FF2D232268D1620006BE82 /* LaunchScreen.storyboard */,
-			);
-			path = Storyboard;
-			sourceTree = "<group>";
-		};
-		46C747672293F97A00A65403 /* API Manager */ = {
-			isa = PBXGroup;
-			children = (
-				46C747682293F9A000A65403 /* NetworkManager.swift */,
-			);
-			path = "API Manager";
 			sourceTree = "<group>";
 		};
 		46FF2D0B2268D15F0006BE82 = {
@@ -232,15 +174,12 @@
 		46FF2D162268D15F0006BE82 /* Employer's World */ = {
 			isa = PBXGroup;
 			children = (
-				46FF2D172268D15F0006BE82 /* AppDelegate.swift */,
 				46C6FBC3226D8FAC0099E17C /* Extensions */,
 				460D530C227046250020DE92 /* Protocols */,
 				46AA9BAA2272EC8200F5C394 /* Model */,
+				46C4CFDF22BA0E6900CC7E3F /* View */,
 				46313A552269BD13003D702C /* Controllers */,
-				46C6FBC8226EF2CD0099E17C /* Storyboard */,
-				46FF2D212268D1610006BE82 /* Assets.xcassets */,
-				46FF2D262268D1620006BE82 /* Info.plist */,
-				46FF2D1E2268D15F0006BE82 /* Employer_s_World.xcdatamodeld */,
+				46C4CFE022BA0F0B00CC7E3F /* SupportingFiles */,
 			);
 			path = "Employer's World";
 			sourceTree = "<group>";
@@ -329,6 +268,7 @@
 				46229B98229BEE7A00CBA6B5 /* WelcomeController.swift in Sources */,
 				46C747692293F9A000A65403 /* NetworkManager.swift in Sources */,
 				46313A542269B9A4003D702C /* MapController.swift in Sources */,
+				46BAE2EA22BA159100854F1C /* GoogleImageModel.swift in Sources */,
 				4691EAB422A0FA3F00BF08A6 /* ServiceErrorExtension.swift in Sources */,
 				46FF2D182268D15F0006BE82 /* AppDelegate.swift in Sources */,
 				46C6FBBD2269E5140099E17C /* SignUpController.swift in Sources */,
@@ -337,7 +277,7 @@
 				461026F622AE6345001F70EA /* LoginModel.swift in Sources */,
 				465F2FB522707C9400A5CE02 /* PhotoPreviewController.swift in Sources */,
 				46313A502269B954003D702C /* GalleryController.swift in Sources */,
-				4691EAAD229E922700BF08A6 /* Employee.swift in Sources */,
+				4691EAAD229E922700BF08A6 /* EmployeeModel.swift in Sources */,
 				46C6FBB62269D4720099E17C /* CustomEmployeeCell.swift in Sources */,
 				46C4CFDC22B7A41700CC7E3F /* ToastableProtocol.swift in Sources */,
 				46313A522269B981003D702C /* ProfileController.swift in Sources */,
@@ -490,7 +430,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = "Employer's World/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Employer's World/SupportingFiles/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -510,7 +450,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = "Employer's World/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Employer's World/SupportingFiles/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

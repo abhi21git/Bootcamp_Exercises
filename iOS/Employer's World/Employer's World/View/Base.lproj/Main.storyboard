@@ -229,6 +229,12 @@
                                                     <constraint firstAttribute="bottom" secondItem="je9-DZ-JCi" secondAttribute="bottom" id="kTd-vN-FbK"/>
                                                     <constraint firstAttribute="trailing" secondItem="Hto-85-e6N" secondAttribute="trailing" id="rVm-cu-GAL"/>
                                                 </constraints>
+                                                <variation key="default">
+                                                    <mask key="subviews">
+                                                        <exclude reference="je9-DZ-JCi"/>
+                                                        <exclude reference="Hto-85-e6N"/>
+                                                    </mask>
+                                                </variation>
                                             </view>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -273,10 +279,10 @@
                         <outlet property="customSegment" destination="XRu-yL-ld8" id="R6C-FW-h29"/>
                         <outlet property="detailsContentView" destination="tbS-PU-dj5" id="CCg-Uj-cxY"/>
                         <outlet property="empIDLabel" destination="oL3-7a-d13" id="Vfw-lf-RkZ"/>
-                        <outlet property="employeeGallary" destination="je9-DZ-JCi" id="fhJ-Ki-ady"/>
+                        <outlet property="employeeGallery" destination="je9-DZ-JCi" id="fhJ-Ki-ady"/>
                         <outlet property="employeeMapView" destination="Hto-85-e6N" id="rSF-1I-dLF"/>
                         <outlet property="employeePicture" destination="A8p-6O-8XB" id="kEC-dn-KOb"/>
-                        <outlet property="gallaryAndMapContentView" destination="f9c-7b-173" id="1zz-GH-H9C"/>
+                        <outlet property="galleryAndMapContentView" destination="f9c-7b-173" id="1zz-GH-H9C"/>
                         <outlet property="nameLabel" destination="w41-2X-q0a" id="tyC-LC-Ira"/>
                         <outlet property="salaryLabel" destination="25p-FX-pwA" id="DDE-aO-oaJ"/>
                     </connections>
@@ -1614,7 +1620,7 @@ We reserve all rights to terminate accounts, edit or remove content and cancel o
         <scene sceneID="Wdg-fa-cS7">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2jC-5G-98K" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="GALLERY" image="Gallary" id="GDs-Hg-zUo"/>
+                    <tabBarItem key="tabBarItem" title="GALLERY" image="Gallery" id="GDs-Hg-zUo"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="fFv-l3-cWl">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
@@ -1668,7 +1674,7 @@ We reserve all rights to terminate accounts, edit or remove content and cancel o
     <resources>
         <image name="CurrentLocation" width="30" height="30"/>
         <image name="EmployeeList" width="30" height="30"/>
-        <image name="Gallary" width="30" height="30"/>
+        <image name="Gallery" width="30" height="30"/>
         <image name="Map" width="30" height="30"/>
         <image name="Profile" width="30" height="30"/>
         <image name="Refresh" width="30" height="30"/>

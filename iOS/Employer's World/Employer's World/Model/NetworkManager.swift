@@ -129,7 +129,31 @@ class NetworkManager {
             }
         }
         sessionTask.resume()
-        
     }
+	
+	func googleImageSearch(parameters: [String : String], completion: @escaping((Any?, Error?) -> ())) {
+		var querry: String?
+		var start: String?
+		var num: String?
+		
+		for (key, value) in parameters {
+			if key == "querry" {
+				querry = value
+			}
+			if key == "start" {
+				start = value
+			}
+			if key == "num" {
+				num = value
+			}
+		}
+		
+		guard let url = URL(string: "https://www.googleapis.com/customsearch/v1?q=\(String(describing: querry))&cx=014779335774980121077 %3Aj4u2pcebgfi&searchType=image&key=AIzaSyDFQJjdsS7BbaEUQYfbwOT93j00G O9kKQw&start=\(String(describing: start))&num=\(String(describing: num))") else { return }
+		var request = URLRequest(url: url)
+
+		request.httpMethod = RequestMethod.get.rawValue
+		
+		
+	}
     
 }

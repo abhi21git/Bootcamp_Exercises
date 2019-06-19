@@ -7,11 +7,27 @@
 //
 
 import UIKit
+import CoreData
 
-class GalleryController: UIViewController, UICollectionViewDelegate , UICollectionViewDataSource , UICollectionViewDelegateFlowLayout, UISearchBarDelegate {
+class GalleryController: UIViewController, UICollectionViewDelegate , UICollectionViewDataSource , UICollectionViewDelegateFlowLayout, UISearchBarDelegate, NSFetchedResultsControllerDelegate, Toastable {
     
     //  MARK: - Variables
     var isTabBarVC = true
+    
+    fileprivate lazy var fetchedResultController: NSFetchedResultsController<Employees> = {
+        let appDelegate = UIApplication.shared.delegate as? AppDelegate
+        let context = appDelegate?.persistentContainer.viewContext
+        let fetchRequest:NSFetchRequest = Employees.fetchRequest()
+        
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "id", ascending: true)]
+        let fetchResultController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context!, sectionNameKeyPath: nil, cacheName: nil)
+        
+        fetchResultController.delegate = self
+        
+        try! fetchResultController.performFetch()
+        return fetchResultController
+        
+    }()
     
     //  MARK: - IBOutlets
     @IBOutlet weak var employeeGallery: UICollectionView!
@@ -54,6 +70,21 @@ class GalleryController: UIViewController, UICollectionViewDelegate , UICollecti
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
     }
+    
+    func imageSearch(querry : String) {
+        var start = "1"
+        var num = "8"
+        
+        let parameters = [
+            "querry" : querry,
+            "start" : start,
+            "num" : num
+        ]
+        
+        NetworkManager.sharedInstance.googleImageSearch(parameters: parameters, completion: {(data, responseError) in
+        
+        })
+    }
 
     
     
@@ -90,5 +121,17 @@ extension GalleryController {
         
         return CGSize(width: size, height: size)
     }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        imageSearch(querry: searchText)
+        
+    }
+    
+    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+        searchBar.text = ""
+        searchBar.showsCancelButton = false
+        
+    }
+
     
 }

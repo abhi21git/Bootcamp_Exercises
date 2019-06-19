@@ -11,12 +11,12 @@ import UIKit
 @IBDesignable class CustomSegment: UIView {
     
     //  MARK:- Variables
-    
+
     
     
     //  MARK:- IBOutlets
-    @IBOutlet weak var gallaryButton: UIButton!
-    @IBOutlet weak var addToGallaryButton: UIButton!
+    @IBOutlet weak var galleryButton: UIButton!
+    @IBOutlet weak var addToGalleryButton: UIButton!
     @IBOutlet weak var mapButton: UIButton!
     @IBOutlet weak var addToMapButton: UIButton!
     
@@ -43,19 +43,19 @@ import UIKit
             self.addSubview(view)
         }
         
-        gallarySegmentSelected()
+        gallerySegmentSelected() //so that gallery segment get selected by default
     }
     
     
     //  MARK: - Functions
-    func gallarySegmentSelected() {
+    func gallerySegmentSelected() {
         let addImage = UIImage(named: "AddIcon")
         let selectedAddImage = UIImage(named: "AddSelectedIcon")
         
-        gallaryButton.backgroundColor = UIColor.gray
-        gallaryButton.tintColor = UIColor.white
-        addToGallaryButton.backgroundColor = UIColor.gray
-        addToGallaryButton.setImage(selectedAddImage, for: .normal)
+        galleryButton.backgroundColor = UIColor.gray
+        galleryButton.tintColor = UIColor.white
+        addToGalleryButton.backgroundColor = UIColor.gray
+        addToGalleryButton.setImage(selectedAddImage, for: .normal)
         
         mapButton.backgroundColor = UIColor.white
         mapButton.tintColor = UIColor.black
@@ -72,20 +72,20 @@ import UIKit
         addToMapButton.backgroundColor = UIColor.gray
         addToMapButton.setImage(selectedAddImage, for: .normal)
         
-        gallaryButton.backgroundColor = UIColor.white
-        gallaryButton.tintColor = UIColor.black
-        addToGallaryButton.backgroundColor = UIColor.white
-        addToGallaryButton.setImage(addImage, for: .normal)
+        galleryButton.backgroundColor = UIColor.white
+        galleryButton.tintColor = UIColor.black
+        addToGalleryButton.backgroundColor = UIColor.white
+        addToGalleryButton.setImage(addImage, for: .normal)
     }
     
     
     //  MARK:- IBActions
-    @IBAction func gallaryClicked(_ sender: Any) {
-        gallarySegmentSelected()
+    @IBAction func galleryClicked(_ sender: Any) {
+        gallerySegmentSelected()
     }
     
-    @IBAction func addToGallaryClicked(_ sender: Any) {
-        gallarySegmentSelected()
+    @IBAction func addToGalleryClicked(_ sender: Any) {
+        gallerySegmentSelected()
     }
     
     @IBAction func mapClicked(_ sender: Any) {

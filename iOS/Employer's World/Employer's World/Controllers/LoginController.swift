@@ -11,7 +11,7 @@ import UIKit
 class LoginController: UIViewController, Toastable {
     
     //  MARK: - Variables
-    enum checkStatus: String {
+    enum CheckStatus: String {
         case correct = "✓"
         case incorrect = "✗"
         case unknown = "?"
@@ -39,8 +39,8 @@ class LoginController: UIViewController, Toastable {
     override func viewWillDisappear(_ animated: Bool) {
         userNameTF.text = ""
         passwordTF.text = ""
-        userNameChecker.text = checkStatus.none.rawValue
-        passwordChecker.text = checkStatus.none.rawValue
+        userNameChecker.text = CheckStatus.none.rawValue
+        passwordChecker.text = CheckStatus.none.rawValue
         userNameTF.becomeFirstResponder()
         
     }
@@ -65,62 +65,62 @@ class LoginController: UIViewController, Toastable {
     //  MARK: - IBActions
     @IBAction func userNameValidation() {
         if userNameTF.text!.isEmpty {
-            userNameChecker.text = checkStatus.none.rawValue
+            userNameChecker.text = CheckStatus.none.rawValue
         }
-        else if true { //Implement regex here
-            let validationURL = "https://qa.curiousworld.com/api/v3/Validate/Email?_format=json"
-            let parameters = ["mail" : userNameTF.text!]
+        else if userNameTF.text != nil {
+            self.userNameChecker.textColor = UIColor.red
+            self.userNameChecker.text = CheckStatus.incorrect.rawValue
             
-            NetworkManager.sharedInstance.profileApi(urlString: validationURL, parameters: parameters, completion: { (data, responseError) in
+            if isValidEmail(testStr: userNameTF.text!) {
+                let validationURL = "https://qa.curiousworld.com/api/v3/Validate/Email?_format=json"
+                let parameters = ["mail" : userNameTF.text!]
                 
-                if data != nil {
-                    DispatchQueue.global().async {
-                        let status = data as! ProfileModel
-                        
+                NetworkManager.sharedInstance.profileApi(urlString: validationURL, parameters: parameters, completion: { (data, responseError) in
+                    if data == nil{
                         DispatchQueue.main.async {
-                            if status.Status.statusCode == 1 {
-                                self.userNameChecker.textColor = UIColor.green
-                                self.userNameChecker.text = checkStatus.correct.rawValue
-                            }
-                            else {
-                                self.userNameChecker.textColor = UIColor.red
-                                self.userNameChecker.text = checkStatus.incorrect.rawValue
+                            self.userNameChecker.textColor = UIColor.blue
+                            self.userNameChecker.text = CheckStatus.unknown.rawValue
+//                            self.showToast(controller: self, message: "Somwthing went wrong", seconds: 1.2)
+                        }
+                    }
+                    else if data != nil {
+                        DispatchQueue.global().async {
+                            let status = data as! ProfileModel
+                            
+                            DispatchQueue.main.async {
+                                if status.Status.statusCode == 1 {
+                                    self.userNameChecker.textColor = UIColor.green
+                                    self.userNameChecker.text = CheckStatus.correct.rawValue
+                                }
                             }
                         }
                     }
-                }
-                else {
-                    DispatchQueue.main.async {
-                        self.userNameChecker.textColor = UIColor.blue
-                        self.userNameChecker.text = checkStatus.unknown.rawValue
-                        //                        self.showToast(controller: self, message: "Somwthing went wrong", seconds: 1.2)
-                    }
-                }
-            })
+                })
+            }
         }
     }
     
     
     @IBAction func passwordValidation() {
         if passwordTF.text!.isEmpty {
-            passwordChecker.textColor = UIColor.white
+            passwordChecker.text = CheckStatus.none.rawValue
         }
-        else if userNameChecker.text == checkStatus.unknown.rawValue {
+        else if userNameChecker.text == CheckStatus.unknown.rawValue {
             passwordChecker.textColor = UIColor.blue
-            passwordChecker.text = checkStatus.unknown.rawValue
+            passwordChecker.text = CheckStatus.unknown.rawValue
         }
-        else if passwordTF.text!.count < 8 {
-            passwordChecker.textColor = UIColor.red
-            passwordChecker.text = checkStatus.incorrect.rawValue
+        else if isValidPassword(testStr: passwordTF.text!){
+            passwordChecker.textColor = UIColor.green
+            passwordChecker.text = CheckStatus.correct.rawValue
         }
         else {
-            passwordChecker.textColor = UIColor.green
-            passwordChecker.text = checkStatus.correct.rawValue
+            passwordChecker.textColor = UIColor.red
+            passwordChecker.text = CheckStatus.incorrect.rawValue
         }
     }
     
     @IBAction func loginIn() {
-        if !userNameTF.text!.isEmpty {
+        if userNameChecker.text == CheckStatus.correct.rawValue {
             let loginURL = "https://qa.curiousworld.com/api/v3/Login?_format=json"
             let loginParam = [
                 "mail" : userNameTF.text! ,
@@ -142,9 +142,9 @@ class LoginController: UIViewController, Toastable {
                         alert.addAction(UIAlertAction(title: "Retry", style: .destructive, handler: { action in self.loginIn() })) // Retry option to hit api in case internet didn't worked in first place
                         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { action in
                             self.userNameTF.text = ""
-                            self.userNameChecker.text = checkStatus.none.rawValue
+                            self.userNameChecker.text = CheckStatus.none.rawValue
                             self.passwordTF.text = ""
-                            self.passwordChecker.text = checkStatus.none.rawValue
+                            self.passwordChecker.text = CheckStatus.none.rawValue
                             self.userNameTF.becomeFirstResponder()
                         }))
                         self.present(alert, animated: true, completion: nil)
@@ -164,31 +164,26 @@ class LoginController: UIViewController, Toastable {
                             }
                         }
                     }
-                    else {
-                        //wrong email or password
-                        DispatchQueue.main.async {
-                            let alertController = UIAlertController(title: "Alert", message: "Could not login", preferredStyle: .alert)
-                            alertController.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
-                            self.present(alertController, animated: true, completion: nil)
-                        }
-                    }
                 }
             })
-            
-            
         }
-        else {
-            showToast(controller: self, message: "Empty username", seconds: 1.2)
+        else if userNameChecker.text == CheckStatus.incorrect.rawValue || passwordChecker.text == CheckStatus.incorrect.rawValue {
+            showToast(controller: self, message: "Wrong username or password", seconds: 1.2)
         }
-        
+        else if userNameChecker.text == CheckStatus.unknown.rawValue {
+            showToast(controller: self, message: "Login failed, check internet.", seconds: 1.2)
+        }
+        else if userNameChecker.text == CheckStatus.none.rawValue {
+            showToast(controller: self, message: "", seconds: 1.2)
+        }
     }
     
     
     @IBAction func forgetPassword() {
-        if userNameTF.text!.isEmpty || userNameChecker.text == checkStatus.incorrect.rawValue {
+        if userNameTF.text!.isEmpty || userNameChecker.text == CheckStatus.incorrect.rawValue {
             showToast(controller: self, message: "First enter a valid mail", seconds: 1.2)
         }
-        else if userNameChecker.text == checkStatus.correct.rawValue {
+        else if userNameChecker.text == CheckStatus.correct.rawValue {
             let forgetURL = "https://qa.curiousworld.com/api/v3/ForgetPassword?_format=json"
             let parameters = ["mail" :  userNameTF.text!]
             
@@ -222,7 +217,7 @@ class LoginController: UIViewController, Toastable {
                 }
             })
         }
-        else if userNameChecker.text == checkStatus.unknown.rawValue {
+        else if userNameChecker.text == CheckStatus.unknown.rawValue {
             showToast(controller: self, message: "Please check your connection", seconds: 1.2)
         }
     }
@@ -250,6 +245,16 @@ class LoginController: UIViewController, Toastable {
     }
     
     
+    func isValidEmail(testStr:String) -> Bool {
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+        return NSPredicate(format:"SELF MATCHES %@", emailRegEx).evaluate(with: testStr)
+    }
+
+    func isValidPassword(testStr:String) -> Bool {
+        let passwordRegEx = "(?=.*[a-zA-Z])(?=.*[0-9]).{8,64}$"
+        return NSPredicate(format:"SELF MATCHES %@", passwordRegEx).evaluate(with: testStr)
+    }
+
 }
 
 

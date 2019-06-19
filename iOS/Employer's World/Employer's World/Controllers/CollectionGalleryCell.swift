@@ -1,5 +1,5 @@
 //
-//  CollectionGallaryCell.swift
+//  CollectionGalleryCell.swift
 //  Employer's World
 //
 //  Created by Abhishek Maurya on 19/04/19.

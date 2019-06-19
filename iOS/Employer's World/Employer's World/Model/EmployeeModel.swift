@@ -1,5 +1,5 @@
 //
-//  Employee.swift
+//  EmployeeModel.swift
 //  Employer's World
 //
 //  Created by Abhishek Maurya on 29/05/19.
