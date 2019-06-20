@@ -13,6 +13,13 @@ class GalleryController: UIViewController, UICollectionViewDelegate , UICollecti
     
     //  MARK: - Variables
     var isTabBarVC = true
+    var googleImagesResponse = [GoogleImages]()
+    var imageData = [GoogleImages]()
+    var query = ""
+    let cx = "018004629090563794309:4-knw3rlcoo"
+    let key = "AIzaSyDFTIW28gbTwjayShhM2M7qy5ar7RWIqY8"
+    var start = 1
+    var num = 10
     
     fileprivate lazy var fetchedResultController: NSFetchedResultsController<Employees> = {
         let appDelegate = UIApplication.shared.delegate as? AppDelegate
@@ -30,7 +37,7 @@ class GalleryController: UIViewController, UICollectionViewDelegate , UICollecti
     }()
     
     //  MARK: - IBOutlets
-    @IBOutlet weak var employeeGallery: UICollectionView!
+    @IBOutlet weak var gallery: UICollectionView!
     
     
     //  MARK: - LifeCycle
@@ -38,10 +45,10 @@ class GalleryController: UIViewController, UICollectionViewDelegate , UICollecti
         super.viewDidLoad()
         
         let nib = UINib(nibName: "CollectionGalleryCell", bundle: nil)
-        employeeGallery.register(nib, forCellWithReuseIdentifier: "galleryCell")
+        gallery.register(nib, forCellWithReuseIdentifier: "galleryCell")
         
-        employeeGallery.delegate = self
-        employeeGallery.dataSource = self
+        gallery.delegate = self
+        gallery.dataSource = self
         
         configureUI()
     }
@@ -54,38 +61,59 @@ class GalleryController: UIViewController, UICollectionViewDelegate , UICollecti
         }
         else {
             self.navigationItem.title = "Google Images"
+            self.definesPresentationContext = true
             showSearchBar()
         }
         
-        self.navigationController?.navigationItem.searchController?.searchBar.elevateView()
-
         
     }
     
     func showSearchBar() {
         let searchController = UISearchController(searchResultsController: nil)
         searchController.searchBar.delegate = self
+        searchController.dimsBackgroundDuringPresentation = false
+        searchController.hidesNavigationBarDuringPresentation = false
+        searchController.searchBar.tintColor = UIColor.black
         searchController.searchBar.sizeToFit()
+        searchController.searchBar.returnKeyType = UIReturnKeyType.done
         searchController.searchBar.placeholder = "Search for images on Google"
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
     }
     
-    func imageSearch(querry : String) {
-        var start = "1"
-        var num = "8"
+    func imageSearch() {
         
-        let parameters = [
-            "querry" : querry,
-            "start" : start,
-            "num" : num
-        ]
+        let urlString = "https://www.googleapis.com/customsearch/v1?q=\(query)&key=\(key)&cx=\(cx)&searchType=image&start=\(start)&num=\(num)"
         
-        NetworkManager.sharedInstance.googleImageSearch(parameters: parameters, completion: {(data, responseError) in
-        
+        NetworkManager.sharedInstance.googleImageSearch(urlString: urlString, completion: {(data, responseError) in
+            
+            if let error = responseError {
+                DispatchQueue.main.async {
+                    self.showToast(controller: self, message: error.localizedDescription, seconds: 1.2)
+                }
+            }
+            else {
+                if data != nil {
+                    DispatchQueue.global().async {
+                        self.googleImagesResponse = [data as! GoogleImages]
+                        for items in self.googleImagesResponse{
+                            self.imageData = [items]
+                        }
+                        DispatchQueue.main.async {
+                            self.gallery.reloadData()
+                        }
+                    }
+                }
+            }
         })
     }
+    
+    func clearSearch() {
+        googleImagesResponse.removeAll()
+        gallery.reloadData()
 
+    }
+    
     
     
     //  MARK: - IBActions
@@ -100,37 +128,81 @@ class GalleryController: UIViewController, UICollectionViewDelegate , UICollecti
 extension GalleryController {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 25
+        if isTabBarVC {
+            return 32
+        }
+        else {
+            var count = 0
+            for items in imageData {
+                count = items.items?.count ?? 0
+            }
+            return count
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "galleryCell", for: indexPath) as! CollectionGalleryCell
-        
-        return cell
+        if isTabBarVC {
+            
+            return cell
+        }
+        else {
+            var thumbnailLink: String?
+            for items in imageData {
+                thumbnailLink = items.items![indexPath.row].image?.thumbnailLink
+                    let url = URL(string: thumbnailLink!)
+                    UIImage.loadFrom(url: url!, completion: { image in
+                        cell.thumbnailImage.image = image
+                    })
+            }
+            cell.imageTitle.isHidden = true
+            
+            return cell
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
         let controller = storyBoard.instantiateViewController(withIdentifier: "PhotoPreviewController") as! PhotoPreviewController
+        for items in imageData {
+            controller.imageLink = items.items![indexPath.row].imageLink
+        }
         self.navigationController?.pushViewController(controller, animated: true)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        let size = (collectionView.frame.width/2.0)-15
+        let size = (collectionView.frame.width/2.0) - 15
         
         return CGSize(width: size, height: size)
     }
     
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        imageSearch(querry: searchText)
+//    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+//        for items in imageData {
+//            if indexPath.row == items.items!.count - 1 {
+//                start += 1
+//                imageSearch()
+//                gallery.reloadData()
+//            }
+//        }
+//    }
+    
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        if searchBar.text?.isEmpty ?? true {
+            clearSearch()
+        }
+        else {
+            query = searchBar.text!.replacingOccurrences(of: " ", with: "%20")
+            imageSearch()
+        }
         
     }
     
     func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+        clearSearch()
         searchBar.text = ""
         searchBar.showsCancelButton = false
-        
     }
 
     

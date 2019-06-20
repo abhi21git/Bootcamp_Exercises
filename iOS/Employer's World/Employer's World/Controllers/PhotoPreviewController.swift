@@ -11,10 +11,12 @@ import UIKit
 class PhotoPreviewController: UIViewController {
     
     //  MARK:- Variables
-    
+    var imageLink: String?
     
     
     //  MARK:- IBOutlets
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var imageLoader: UIActivityIndicatorView!
     
     
     
@@ -23,12 +25,22 @@ class PhotoPreviewController: UIViewController {
         super.viewDidLoad()
         
         configureUI()
+        loadImage(url: imageLink ?? "")
     }
     
     
     //  MARK:- Functions
     func configureUI() {
         self.title = "Preview"
+        imageLoader.roundedCornersWithBorder(cornerRadius: imageLoader.frame.height/6)
+    }
+    
+    func loadImage(url: String) {
+        let url = URL(string: url)
+        UIImage.loadFrom(url: url!, completion: { image in
+            self.imageView.image = image
+            self.imageLoader.isHidden = true
+        })
     }
     
     

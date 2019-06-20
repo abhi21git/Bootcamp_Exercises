@@ -13,7 +13,7 @@
         <!--Employer's World-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="EmployeeListController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="EmployeeListController" customModule="Employer_s_World" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EmployeeListController" extendedLayoutIncludesOpaqueBars="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="EmployeeListController" customModule="Employer_s_World" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -36,7 +36,7 @@
                                 </connections>
                             </button>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="QWh-fG-R08">
-                                <rect key="frame" x="177" y="685" width="60" height="60"/>
+                                <rect key="frame" x="177" y="565.5" width="60" height="60"/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="0.7011183647260274" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="SIS-sM-RnD"/>
@@ -44,10 +44,10 @@
                                 </constraints>
                             </activityIndicatorView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ZlU-Oo-Bvr" secondAttribute="bottom" constant="20" id="Mtl-h9-pMx"/>
-                            <constraint firstItem="QWh-fG-R08" firstAttribute="centerY" secondItem="5Rd-fa-fb2" secondAttribute="centerY" multiplier="3/2" id="Oxi-ku-yQk"/>
+                            <constraint firstItem="QWh-fG-R08" firstAttribute="centerY" secondItem="5Rd-fa-fb2" secondAttribute="centerY" multiplier="5/4" id="Oxi-ku-yQk"/>
                             <constraint firstItem="5Rd-fa-fb2" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="QLQ-XF-qhu"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ZlU-Oo-Bvr" secondAttribute="trailing" constant="20" id="Y7w-7m-Ywk"/>
                             <constraint firstItem="QWh-fG-R08" firstAttribute="centerX" secondItem="5Rd-fa-fb2" secondAttribute="centerX" id="ens-y6-Xnx"/>
@@ -71,7 +71,7 @@
         <!--Item-->
         <scene sceneID="Ysn-3D-NZm">
             <objects>
-                <viewController storyboardIdentifier="EmployeeDetailsControllers" useStoryboardIdentifierAsRestorationIdentifier="YES" id="EId-tB-kra" customClass="EmployeeDetailsControllers" customModule="Employer_s_World" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EmployeeDetailsControllers" extendedLayoutIncludesOpaqueBars="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="EId-tB-kra" customClass="EmployeeDetailsControllers" customModule="Employer_s_World" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="V6S-yX-qoa">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -229,12 +229,6 @@
                                                     <constraint firstAttribute="bottom" secondItem="je9-DZ-JCi" secondAttribute="bottom" id="kTd-vN-FbK"/>
                                                     <constraint firstAttribute="trailing" secondItem="Hto-85-e6N" secondAttribute="trailing" id="rVm-cu-GAL"/>
                                                 </constraints>
-                                                <variation key="default">
-                                                    <mask key="subviews">
-                                                        <exclude reference="je9-DZ-JCi"/>
-                                                        <exclude reference="Hto-85-e6N"/>
-                                                    </mask>
-                                                </variation>
                                             </view>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -294,7 +288,7 @@
         <!--Sign Up Controller-->
         <scene sceneID="Dc3-cz-i1B">
             <objects>
-                <viewController storyboardIdentifier="SignUpController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="g0y-GR-wef" customClass="SignUpController" customModule="Employer_s_World" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignUpController" extendedLayoutIncludesOpaqueBars="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="g0y-GR-wef" customClass="SignUpController" customModule="Employer_s_World" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="oPh-do-qiT">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -501,7 +495,7 @@
         <!--Login-->
         <scene sceneID="zxO-Ke-KzZ">
             <objects>
-                <viewController storyboardIdentifier="LoginController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="UbZ-j7-dhi" customClass="LoginController" customModule="Employer_s_World" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginController" extendedLayoutIncludesOpaqueBars="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="UbZ-j7-dhi" customClass="LoginController" customModule="Employer_s_World" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hzh-Sc-gj6">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -538,6 +532,7 @@
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress" returnKeyType="continue" enablesReturnKeyAutomatically="YES" textContentType="email"/>
                                                 <connections>
                                                     <action selector="userNameValidation" destination="UbZ-j7-dhi" eventType="editingChanged" id="SlI-tw-UTf"/>
+                                                    <outlet property="delegate" destination="UbZ-j7-dhi" id="JHj-oD-15w"/>
                                                 </connections>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h2H-bB-ZRH">
@@ -556,6 +551,7 @@
                                                 <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES" secureTextEntry="YES" textContentType="password"/>
                                                 <connections>
                                                     <action selector="passwordValidation" destination="UbZ-j7-dhi" eventType="editingChanged" id="feE-gs-ZAD"/>
+                                                    <outlet property="delegate" destination="UbZ-j7-dhi" id="stz-fn-KfW"/>
                                                 </connections>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YBI-wV-7se">
@@ -669,7 +665,7 @@
         <!--Gallery-->
         <scene sceneID="xU2-fH-hpC">
             <objects>
-                <viewController storyboardIdentifier="GalleryController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="IQQ-F6-dH9" customClass="GalleryController" customModule="Employer_s_World" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GalleryController" extendedLayoutIncludesOpaqueBars="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="IQQ-F6-dH9" customClass="GalleryController" customModule="Employer_s_World" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="d9B-lX-8uY">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -701,7 +697,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Gallery" id="MGy-Ai-gK3"/>
                     <connections>
-                        <outlet property="employeeGallery" destination="EKL-XS-k5a" id="ptE-09-CGo"/>
+                        <outlet property="gallery" destination="EKL-XS-k5a" id="ptE-09-CGo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wyi-Fu-rgj" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -711,33 +707,47 @@
         <!--Photo Preview Controller-->
         <scene sceneID="HfF-ue-qsn">
             <objects>
-                <viewController storyboardIdentifier="PhotoPreviewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="qFM-95-oO7" customClass="PhotoPreviewController" customModule="Employer_s_World" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PhotoPreviewController" extendedLayoutIncludesOpaqueBars="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="qFM-95-oO7" customClass="PhotoPreviewController" customModule="Employer_s_World" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="EVh-GZ-8mS">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Teamwork" translatesAutoresizingMaskIntoConstraints="NO" id="iBE-ac-Vl3">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iBE-ac-Vl3">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
                             </imageView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="fO7-bE-87b">
+                                <rect key="frame" x="177" y="509" width="60" height="60"/>
+                                <color key="backgroundColor" white="0.33333333329999998" alpha="0.7011183647" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="34D-4a-GKX"/>
+                                    <constraint firstAttribute="width" secondItem="fO7-bE-87b" secondAttribute="height" multiplier="1:1" id="iQK-bx-AKq"/>
+                                </constraints>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="nXg-GA-6yT" firstAttribute="bottom" secondItem="iBE-ac-Vl3" secondAttribute="bottom" id="Bbl-4f-ZWe"/>
-                            <constraint firstItem="iBE-ac-Vl3" firstAttribute="leading" secondItem="nXg-GA-6yT" secondAttribute="leading" id="MuN-aX-xSX"/>
-                            <constraint firstItem="iBE-ac-Vl3" firstAttribute="top" secondItem="nXg-GA-6yT" secondAttribute="top" id="fyH-KU-gpc"/>
-                            <constraint firstItem="nXg-GA-6yT" firstAttribute="trailing" secondItem="iBE-ac-Vl3" secondAttribute="trailing" id="hgL-9m-8FF"/>
+                            <constraint firstItem="fO7-bE-87b" firstAttribute="centerY" secondItem="iBE-ac-Vl3" secondAttribute="centerY" multiplier="5/4" id="IdT-gr-5kI"/>
+                            <constraint firstItem="iBE-ac-Vl3" firstAttribute="trailing" secondItem="nXg-GA-6yT" secondAttribute="trailing" id="L9o-hK-5S9"/>
+                            <constraint firstItem="nXg-GA-6yT" firstAttribute="bottom" secondItem="iBE-ac-Vl3" secondAttribute="bottom" id="RcK-3H-dNA"/>
+                            <constraint firstItem="iBE-ac-Vl3" firstAttribute="top" secondItem="EVh-GZ-8mS" secondAttribute="top" id="Z6f-He-cgU"/>
+                            <constraint firstItem="iBE-ac-Vl3" firstAttribute="leading" secondItem="nXg-GA-6yT" secondAttribute="leading" id="aIN-oz-WrF"/>
+                            <constraint firstItem="fO7-bE-87b" firstAttribute="centerX" secondItem="iBE-ac-Vl3" secondAttribute="centerX" id="bGl-or-S3P"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="nXg-GA-6yT"/>
                     </view>
+                    <connections>
+                        <outlet property="imageLoader" destination="fO7-bE-87b" id="HWr-C2-Gdd"/>
+                        <outlet property="imageView" destination="iBE-ac-Vl3" id="1xa-zN-xpv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5jP-OX-btt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2400" y="-287.27678571428572"/>
+            <point key="canvasLocation" x="2398.5507246376815" y="-287.27678571428572"/>
         </scene>
         <!--Maps-->
         <scene sceneID="GFB-Yf-ecd">
             <objects>
-                <viewController storyboardIdentifier="MapController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="qsG-Ry-2od" customClass="MapController" customModule="Employer_s_World" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MapController" extendedLayoutIncludesOpaqueBars="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="qsG-Ry-2od" customClass="MapController" customModule="Employer_s_World" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6iZ-hz-L0W">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1380,7 +1390,7 @@ We reserve all rights to terminate accounts, edit or remove content and cancel o
         <!--Root Tab Bar Controller-->
         <scene sceneID="ULv-DC-CMc">
             <objects>
-                <tabBarController storyboardIdentifier="RootTabBarController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="m3E-cP-ckR" customClass="RootTabBarController" customModule="Employer_s_World" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="RootTabBarController" extendedLayoutIncludesOpaqueBars="YES" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="m3E-cP-ckR" customClass="RootTabBarController" customModule="Employer_s_World" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="LFt-GS-hv5">
@@ -1403,7 +1413,7 @@ We reserve all rights to terminate accounts, edit or remove content and cancel o
         <!--Profile Controller-->
         <scene sceneID="RfN-vz-3e6">
             <objects>
-                <viewController storyboardIdentifier="ProfileController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="4Lz-YO-mb6" customClass="ProfileController" customModule="Employer_s_World" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProfileController" extendedLayoutIncludesOpaqueBars="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="4Lz-YO-mb6" customClass="ProfileController" customModule="Employer_s_World" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="N58-Yd-w7v">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1561,12 +1571,13 @@ We reserve all rights to terminate accounts, edit or remove content and cancel o
         <!--PROFILE-->
         <scene sceneID="KTU-Hb-5Y3">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="1OH-c8-pLD" sceneMemberID="viewController">
+                <navigationController extendedLayoutIncludesOpaqueBars="YES" automaticallyAdjustsScrollViewInsets="NO" id="1OH-c8-pLD" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="PROFILE" image="User" id="Myj-EV-CfE"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="OXy-Be-LHh">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <textAttributes key="titleTextAttributes">
@@ -1588,15 +1599,14 @@ We reserve all rights to terminate accounts, edit or remove content and cancel o
         <!--EMPLOYEES-->
         <scene sceneID="z24-W1-z3Z">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Z2f-rX-6iM" sceneMemberID="viewController">
+                <navigationController extendedLayoutIncludesOpaqueBars="YES" automaticallyAdjustsScrollViewInsets="NO" id="Z2f-rX-6iM" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="EMPLOYEES" image="EmployeeList" id="8nB-tE-7c6"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="7N7-Vc-1nE">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" largeTitles="YES" id="7N7-Vc-1nE">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.96333133521145342" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
                         </textAttributes>
@@ -1619,12 +1629,13 @@ We reserve all rights to terminate accounts, edit or remove content and cancel o
         <!--GALLERY-->
         <scene sceneID="Wdg-fa-cS7">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="2jC-5G-98K" sceneMemberID="viewController">
+                <navigationController extendedLayoutIncludesOpaqueBars="YES" automaticallyAdjustsScrollViewInsets="NO" id="2jC-5G-98K" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="GALLERY" image="Gallery" id="GDs-Hg-zUo"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="fFv-l3-cWl">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
@@ -1645,7 +1656,7 @@ We reserve all rights to terminate accounts, edit or remove content and cancel o
         <!--MAP-->
         <scene sceneID="Tea-Vh-kBP">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qtt-JV-DML" sceneMemberID="viewController">
+                <navigationController extendedLayoutIncludesOpaqueBars="YES" automaticallyAdjustsScrollViewInsets="NO" id="qtt-JV-DML" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="MAP" image="Map" id="btI-Zf-k7v">
                         <inset key="largeContentSizeImageInsets" minX="0.0" minY="3" maxX="0.0" maxY="0.0"/>
                     </tabBarItem>
@@ -1653,6 +1664,7 @@ We reserve all rights to terminate accounts, edit or remove content and cancel o
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="rce-1J-ThU">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
@@ -1678,7 +1690,6 @@ We reserve all rights to terminate accounts, edit or remove content and cancel o
         <image name="Map" width="30" height="30"/>
         <image name="Profile" width="30" height="30"/>
         <image name="Refresh" width="30" height="30"/>
-        <image name="Teamwork" width="1600" height="1200"/>
         <image name="User" width="30" height="30"/>
     </resources>
 </document>

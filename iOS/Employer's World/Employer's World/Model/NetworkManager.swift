@@ -32,9 +32,10 @@ class NetworkManager {
     func loadEmployee(urlString: String, completion: @escaping ((Any?,Error?) -> ())){
         
         guard let url = URL(string: urlString) else { return }
-        
         var request = URLRequest(url: url)
+		
         request.httpMethod = RequestMethod.get.rawValue
+		
         let session = URLSession.shared
         let sessionTask = session.dataTask(with: request) { (data, response, error) in
             
@@ -131,28 +132,27 @@ class NetworkManager {
         sessionTask.resume()
     }
 	
-	func googleImageSearch(parameters: [String : String], completion: @escaping((Any?, Error?) -> ())) {
-		var querry: String?
-		var start: String?
-		var num: String?
-		
-		for (key, value) in parameters {
-			if key == "querry" {
-				querry = value
-			}
-			if key == "start" {
-				start = value
-			}
-			if key == "num" {
-				num = value
-			}
-		}
-		
-		guard let url = URL(string: "https://www.googleapis.com/customsearch/v1?q=\(String(describing: querry))&cx=014779335774980121077 %3Aj4u2pcebgfi&searchType=image&key=AIzaSyDFQJjdsS7BbaEUQYfbwOT93j00G O9kKQw&start=\(String(describing: start))&num=\(String(describing: num))") else { return }
+	func googleImageSearch(urlString: String, completion: @escaping((Any?, Error?) -> ())) {
+
+		guard let url = URL(string: urlString) else { return }
 		var request = URLRequest(url: url)
 
 		request.httpMethod = RequestMethod.get.rawValue
 		
+		let session = URLSession.shared
+		let sessionTask = session.dataTask(with: request) { (data, response, error) in
+			
+			var result: Any?
+			if error ==  nil {
+				let decoder = JSONDecoder()
+				result = try? decoder.decode(GoogleImages.self, from: data!)
+				completion(result, nil)
+			}
+			else {
+				completion(nil, ServiceError.customError("Please check your internet connection and try again."))
+			}
+		}
+		sessionTask.resume()
 		
 	}
     

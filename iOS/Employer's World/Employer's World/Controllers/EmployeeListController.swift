@@ -46,14 +46,13 @@ class EmployeeListController: UIViewController, UITableViewDelegate, UITableView
     //  MARK: - Functions
     func configureUI() {
         self.navigationItem.title = "Employer's World"
-        
+        self.definesPresentationContext = true
         employeeTableView.isHidden = true
         loader.roundedCornersWithBorder(cornerRadius: loader.frame.height/6)
         refreshButton.roundedCornersWithBorder(cornerRadius: refreshButton.frame.height/2)
         refreshButton.elevateView(shadowOffset: CGSize(width: 1.0, height: 1.0))
         self.tabBarController?.tabBar.elevateView()
-        self.navigationController?.navigationItem.searchController?.searchBar.elevateView()
-        
+
         
     }
     
@@ -67,6 +66,9 @@ class EmployeeListController: UIViewController, UITableViewDelegate, UITableView
     
     func showSearchBar() {
         let searchController = UISearchController(searchResultsController: nil)
+        searchController.dimsBackgroundDuringPresentation = false
+        searchController.hidesNavigationBarDuringPresentation = false
+        searchController.searchBar.tintColor = UIColor.black
         searchController.searchBar.delegate = self
         searchController.searchBar.sizeToFit()
         searchController.searchBar.placeholder = "Search employee name or ID"
@@ -84,7 +86,6 @@ class EmployeeListController: UIViewController, UITableViewDelegate, UITableView
             
             if let error = responseError {
                 
-                print(error.localizedDescription)
                 let alert  = UIAlertController(title: "Something went wrong", message: error.localizedDescription, preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "Retry", style: .destructive, handler: { action in self.employeeFetching() })) // Retry option to hit api in case internet didn't worked in first place
                 alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { action in
@@ -120,7 +121,7 @@ class EmployeeListController: UIViewController, UITableViewDelegate, UITableView
         rotationAnimation.duration = 0.4
         refreshButton.layer.add(rotationAnimation, forKey: nil)
         employeeTableView.reloadSections([0], with: .fade)
-        employeeTableView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
+        employeeTableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
         employeeFetching()
         
     }

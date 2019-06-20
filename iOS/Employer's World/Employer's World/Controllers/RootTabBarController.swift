@@ -28,13 +28,7 @@ class RootTabBarController: UITabBarController {
     
     //  MARK: - Functions
     func configureUI() {
-        //        if UserDefaults.standard.bool(forKey: "LoggedIn") == true {
-        //            let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        //            appDelegate.window?.rootViewController = self
-        //        }
-        
-        
-        
+
         if UserDefaults.standard.string(forKey: "ProfileStatus") == "login" {
             
         }

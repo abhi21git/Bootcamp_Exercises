@@ -21,7 +21,6 @@
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Teamwork" translatesAutoresizingMaskIntoConstraints="NO" id="b4L-vI-hmu">
                         <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="b4L-vI-hmu" secondAttribute="height" multiplier="1:1" id="IOd-Ia-XPy"/>
                         </constraints>
@@ -47,8 +46,8 @@
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="200" height="200"/>
             <connections>
-                <outlet property="employeeImage" destination="b4L-vI-hmu" id="6JM-E5-4ue"/>
-                <outlet property="employeeNameLabel" destination="phV-p9-kC7" id="mKg-Zm-uS6"/>
+                <outlet property="imageTitle" destination="phV-p9-kC7" id="mKg-Zm-uS6"/>
+                <outlet property="thumbnailImage" destination="b4L-vI-hmu" id="6JM-E5-4ue"/>
             </connections>
             <point key="canvasLocation" x="-26.086956521739133" y="22.767857142857142"/>
         </collectionViewCell>

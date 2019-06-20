@@ -15,8 +15,8 @@ class CollectionGalleryCell: UICollectionViewCell {
     
     
     //  MARK:- IBOutlets
-    @IBOutlet weak var employeeImage: UIImageView!
-    @IBOutlet weak var employeeNameLabel: UILabel!
+    @IBOutlet weak var thumbnailImage: UIImageView!
+    @IBOutlet weak var imageTitle: UILabel!
     
     
     //  MARK:- LifeCycle
@@ -29,10 +29,11 @@ class CollectionGalleryCell: UICollectionViewCell {
     
     //  MARK: - Functions
     func configureUI() {
-        employeeImage.layer.cornerRadius = employeeNameLabel.frame.height/2
-        employeeNameLabel.layer.cornerRadius = employeeNameLabel.frame.height/2
-        employeeImage.clipsToBounds = true
-        employeeNameLabel.clipsToBounds = true
+        thumbnailImage.elevateView(shadowOffset: CGSize(width: 1.0, height: 1.0))
+        thumbnailImage.layer.cornerRadius = imageTitle.frame.height/2
+        imageTitle.layer.cornerRadius = imageTitle.frame.height/2
+        thumbnailImage.clipsToBounds = true
+        imageTitle.clipsToBounds = true
     }
     
     

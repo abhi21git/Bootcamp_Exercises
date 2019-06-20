@@ -8,14 +8,30 @@
 
 import Foundation
 
-struct imageData: Decodable {
+struct GoogleImages: Decodable {
+    let items: [ImageData]?
+    
+    enum CodingKeys: String, CodingKey {
+        case items = "items"
+    }
+}
+
+struct ImageData: Decodable {
     let title: String?
     let imageLink: String?
-    let thumbnailLink: String?
+    let image: ImageDetails?
     
     enum CodingKeys: String, CodingKey {
         case title = "title"
         case imageLink = "link"
+        case image = "image"
+    }
+}
+
+struct ImageDetails: Decodable {
+    let thumbnailLink: String?
+    
+    enum CodingKeys: String, CodingKey {
         case thumbnailLink = "thumbnailLink"
     }
 }

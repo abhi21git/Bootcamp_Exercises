@@ -53,7 +53,6 @@ class MapController: UIViewController, CLLocationManagerDelegate, MKMapViewDeleg
         
         currentLocationButton.roundedCornersWithBorder(cornerRadius: currentLocationButton.frame.height/2)
         currentLocationButton.elevateView(shadowOffset: CGSize(width: 1.0, height: 1.0))
-        self.navigationController?.navigationBar.elevateView()
         
     }
     

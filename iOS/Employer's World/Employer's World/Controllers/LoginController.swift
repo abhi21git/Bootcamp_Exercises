@@ -28,7 +28,6 @@ class LoginController: UIViewController, Toastable {
     @IBOutlet weak var forgetButton: UIButton!
     
     
-    
     //  MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,10 +56,39 @@ class LoginController: UIViewController, Toastable {
         passwordTF.elevateView(shadowOffset: CGSize(width: 1.0, height: 1.0))
         userNameChecker.roundedCornersWithBorder(cornerRadius: userNameChecker.frame.height/2)
         passwordChecker.roundedCornersWithBorder(cornerRadius: userNameChecker.frame.height/2)
-        
-        self.navigationController?.navigationBar.elevateView()
+        userNameTF.returnKeyType = UIReturnKeyType.next
+        passwordTF.returnKeyType = UIReturnKeyType.done
     }
     
+    func getPostDataAttributes(params:[String:String]) -> Data {
+        var data = Data()
+        for(key, value) in params {
+            let string = "--CuriousWorld\r\n".data(using: .utf8)
+            data.append(string!)
+            data.append(String.init(format: "Content-Disposition: form-data; name=%@\r\n\r\n", key).data(using: .utf8)!)
+            data.append(String.init(format: "%@\r\n", value).data(using: .utf8)!)
+            data.append(String.init(format: "--CuriousWorld--\r\n").data(using: .utf8)!)
+        }
+        return data
+    }
+    
+    
+    func isValidEmail(testStr:String) -> Bool {
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+        return NSPredicate(format:"SELF MATCHES %@", emailRegEx).evaluate(with: testStr)
+    }
+    
+    func isValidPassword(testStr:String) -> Bool {
+        let passwordRegEx = "(?=.*[a-zA-Z])(?=.*[0-9]).{8,64}$"
+        return NSPredicate(format:"SELF MATCHES %@", passwordRegEx).evaluate(with: testStr)
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        userNameTF.resignFirstResponder()
+        passwordTF.resignFirstResponder()
+        view.endEditing(true)
+    }
+
     
     //  MARK: - IBActions
     @IBAction func userNameValidation() {
@@ -76,14 +104,13 @@ class LoginController: UIViewController, Toastable {
                 let parameters = ["mail" : userNameTF.text!]
                 
                 NetworkManager.sharedInstance.profileApi(urlString: validationURL, parameters: parameters, completion: { (data, responseError) in
-                    if data == nil{
-                        DispatchQueue.main.async {
-                            self.userNameChecker.textColor = UIColor.blue
-                            self.userNameChecker.text = CheckStatus.unknown.rawValue
-//                            self.showToast(controller: self, message: "Somwthing went wrong", seconds: 1.2)
-                        }
+                    DispatchQueue.main.async {
+                        self.userNameChecker.textColor = UIColor.blue
+                        self.userNameChecker.text = CheckStatus.unknown.rawValue
+                        //                            self.showToast(controller: self, message: "Somwthing went wrong", seconds: 1.2)
                     }
-                    else if data != nil {
+                    
+                    if data != nil {
                         DispatchQueue.global().async {
                             let status = data as! ProfileModel
                             
@@ -164,6 +191,11 @@ class LoginController: UIViewController, Toastable {
                             }
                         }
                     }
+                    else {
+                        DispatchQueue.main.async {
+                            self.showToast(controller: self, message: "Cannot Login", seconds: 1.2)
+                        }
+                    }
                 }
             })
         }
@@ -173,8 +205,8 @@ class LoginController: UIViewController, Toastable {
         else if userNameChecker.text == CheckStatus.unknown.rawValue {
             showToast(controller: self, message: "Login failed, check internet.", seconds: 1.2)
         }
-        else if userNameChecker.text == CheckStatus.none.rawValue {
-            showToast(controller: self, message: "", seconds: 1.2)
+        else if userNameChecker.text == CheckStatus.none.rawValue || passwordChecker.text == CheckStatus.none.rawValue {
+            showToast(controller: self, message: "Enter username and password", seconds: 1.2)
         }
     }
     
@@ -232,33 +264,21 @@ class LoginController: UIViewController, Toastable {
     }
     
     
-    func getPostDataAttributes(params:[String:String]) -> Data {
-        var data = Data()
-        for(key, value) in params {
-            let string = "--CuriousWorld\r\n".data(using: .utf8)
-            data.append(string!)
-            data.append(String.init(format: "Content-Disposition: form-data; name=%@\r\n\r\n", key).data(using: .utf8)!)
-            data.append(String.init(format: "%@\r\n", value).data(using: .utf8)!)
-            data.append(String.init(format: "--CuriousWorld--\r\n").data(using: .utf8)!)
-        }
-        return data
-    }
-    
-    
-    func isValidEmail(testStr:String) -> Bool {
-        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
-        return NSPredicate(format:"SELF MATCHES %@", emailRegEx).evaluate(with: testStr)
-    }
-
-    func isValidPassword(testStr:String) -> Bool {
-        let passwordRegEx = "(?=.*[a-zA-Z])(?=.*[0-9]).{8,64}$"
-        return NSPredicate(format:"SELF MATCHES %@", passwordRegEx).evaluate(with: testStr)
-    }
-
 }
 
 
 //  MARK: - Extensions
-extension LoginController {
+extension LoginController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == userNameTF {
+            userNameTF.resignFirstResponder()
+            passwordTF.becomeFirstResponder()
+        }
+        else if textField == passwordTF {
+            passwordTF.resignFirstResponder()
+        }
+        return true
+    }
     
 }
