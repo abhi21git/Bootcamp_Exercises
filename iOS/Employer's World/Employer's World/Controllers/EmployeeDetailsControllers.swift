@@ -23,7 +23,7 @@ class EmployeeDetailsControllers: UIViewController, UICollectionViewDelegate , U
     @IBOutlet weak var ageLabel: UILabel!
     @IBOutlet weak var empIDLabel: UILabel!
     @IBOutlet weak var salaryLabel: UILabel!
-    @IBOutlet weak var employeePicture: UIImageView!
+//    @IBOutlet weak var employeePicture: UIImageView!
     @IBOutlet weak var customSegment: CustomSegment!
     @IBOutlet weak var galleryAndMapContentView: UIView!
     @IBOutlet weak var employeeMapView: MKMapView!
@@ -50,7 +50,7 @@ class EmployeeDetailsControllers: UIViewController, UICollectionViewDelegate , U
     func configureUI() {
         self.title = "Employee Details"
         
-        employeePicture.roundedCornersWithBorder(cornerRadius: employeePicture.frame.height/2)
+//        employeePicture.roundedCornersWithBorder(cornerRadius: employeePicture.frame.height/2)
         nameLabel.roundedCornersWithBorder(cornerRadius: 4)
         ageLabel.roundedCornersWithBorder(cornerRadius: 4)
         empIDLabel.roundedCornersWithBorder(cornerRadius: 4)

@@ -115,11 +115,7 @@ class EmployeeListController: UIViewController, UITableViewDelegate, UITableView
     
     //  MARK: - IBActions
     @IBAction func refreshData() {
-        let rotationAnimation = CABasicAnimation(keyPath: "transform.rotation")
-        rotationAnimation.fromValue = 0.0
-        rotationAnimation.toValue = Double.pi
-        rotationAnimation.duration = 0.4
-        refreshButton.layer.add(rotationAnimation, forKey: nil)
+        refreshButton.roatateView(duration: 0.6, roatation: 0.5)
         employeeTableView.reloadSections([0], with: .fade)
         employeeTableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
         employeeFetching()

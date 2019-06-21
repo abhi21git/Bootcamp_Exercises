@@ -12,6 +12,7 @@ class PhotoPreviewController: UIViewController {
     
     //  MARK:- Variables
     var imageURL: String?
+    var isGoogleImage = false
     
     
     //  MARK:- IBOutlets
@@ -36,11 +37,16 @@ class PhotoPreviewController: UIViewController {
     }
     
     func loadImage(url: String) {
-        let url = URL(string: url)
-        UIImage.loadFrom(url: url!, completion: { image in
-            self.imageView.image = image
-            self.imageLoader.isHidden = true
-        })
+        if isGoogleImage{
+            let url = URL(string: url)
+            UIImage.loadFrom(url: url!, completion: { image in
+                self.imageView.image = image
+                self.imageLoader.isHidden = true
+            })
+        }
+        else {
+            
+        }
     }
     
     

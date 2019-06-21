@@ -81,11 +81,7 @@ class MapController: UIViewController, CLLocationManagerDelegate, MKMapViewDeleg
     
     //  MARK: - IBActions
     @IBAction func findMe() {
-        let rotationAnimation = CABasicAnimation(keyPath: "transform.rotation")
-        rotationAnimation.fromValue = 0.0
-        rotationAnimation.toValue = Double.pi/2
-        rotationAnimation.duration = 0.4
-        currentLocationButton.layer.add(rotationAnimation, forKey: nil)
+        currentLocationButton.roatateView(duration: 0.3, roatation: 0.25)
         setupCoreLocation()
     }
     

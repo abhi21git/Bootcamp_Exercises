@@ -34,5 +34,13 @@ extension UIView {
         self.layer.shadowOpacity = shadowOpacity
     }
     
+    func roatateView(duration: CFTimeInterval, roatation: Double = 1) {
+        let rotationAnimation = CABasicAnimation(keyPath: "transform.rotation")
+        rotationAnimation.fromValue = 0.0
+        rotationAnimation.toValue = Double.pi * roatation * 2
+        rotationAnimation.duration = duration
+        self.layer.add(rotationAnimation, forKey: nil)
+    }
+    
 }
 

@@ -79,7 +79,7 @@ class GalleryController: UIViewController, UICollectionViewDelegate , UICollecti
         searchController.hidesNavigationBarDuringPresentation = false
         searchController.searchBar.tintColor = UIColor.black
         searchController.searchBar.sizeToFit()
-        searchController.searchBar.returnKeyType = UIReturnKeyType.done
+        searchController.searchBar.returnKeyType = UIReturnKeyType.search
         searchController.searchBar.placeholder = "Search for images on Google"
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
@@ -169,12 +169,14 @@ extension GalleryController {
         if isGalleryVC {
             let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
             let controller = storyBoard.instantiateViewController(withIdentifier: "PhotoPreviewController") as! PhotoPreviewController
+            controller.isGoogleImage = false
             self.navigationController?.pushViewController(controller, animated: true)
         }
         else {
             let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
             let controller = storyBoard.instantiateViewController(withIdentifier: "PhotoPreviewController") as! PhotoPreviewController
             controller.imageURL = imageURL[indexPath.row]
+            controller.isGoogleImage = true
             self.navigationController?.pushViewController(controller, animated: true)
         }
     }
@@ -194,18 +196,18 @@ extension GalleryController {
 //        }
 //    }
     
-    
-    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        clearSearch()
-        query = searchBar.text!.replacingOccurrences(of: " ", with: "%20")
-        imageSearch()
-        
-    }
-    
     func searchBarCancelButtonClicked(searchBar: UISearchBar) {
         clearSearch()
         searchBar.text = ""
         searchBar.showsCancelButton = false
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        clearSearch()
+        let textField: UITextField = searchBar.value(forKey: "_searchField") as! UITextField
+        textField.clearButtonMode = .never
+        query = searchBar.text!.replacingOccurrences(of: " ", with: "%20")
+        imageSearch()
     }
 
     
