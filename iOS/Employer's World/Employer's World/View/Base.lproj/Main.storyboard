@@ -37,7 +37,7 @@
                             </button>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="QWh-fG-R08">
                                 <rect key="frame" x="177" y="565.5" width="60" height="60"/>
-                                <color key="backgroundColor" white="0.33333333333333331" alpha="0.7011183647260274" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.33000000000000002" alpha="0.7011183647260274" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="SIS-sM-RnD"/>
                                     <constraint firstAttribute="width" secondItem="QWh-fG-R08" secondAttribute="height" multiplier="1:1" id="iyL-PQ-3UZ"/>
@@ -500,7 +500,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="2f9-he-jUg">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" keyboardDismissMode="onDrag" translatesAutoresizingMaskIntoConstraints="NO" id="2f9-he-jUg">
                                 <rect key="frame" x="0.0" y="140" width="414" height="673"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0U3-dC-P4d">

@@ -12,12 +12,16 @@ import CoreData
 class GalleryController: UIViewController, UICollectionViewDelegate , UICollectionViewDataSource , UICollectionViewDelegateFlowLayout, UISearchBarDelegate, NSFetchedResultsControllerDelegate, Toastable {
     
     //  MARK: - Variables
-    var isTabBarVC = true
+    var isGalleryVC = true
     var googleImagesResponse = [GoogleImages]()
-    var imageData = [GoogleImages]()
+    var imageTitle = [String]()
+    var imageURL = [String]()
+    var thumbnailURL = [String]()
     var query = ""
     let cx = "018004629090563794309:4-knw3rlcoo"
-    let key = "AIzaSyDFTIW28gbTwjayShhM2M7qy5ar7RWIqY8"
+    let key = "AIzaSyDIUO4kqd6rHZEbNg5-phC6z6-jmHD0jLI"
+//    let cx = "018004629090563794309:4-knw3rlcoo"
+//    let key = "AIzaSyDFTIW28gbTwjayShhM2M7qy5ar7RWIqY8"
     var start = 1
     var num = 10
     
@@ -56,7 +60,7 @@ class GalleryController: UIViewController, UICollectionViewDelegate , UICollecti
     
     //  MARK: - Functions
     func configureUI() {
-        if isTabBarVC {
+        if isGalleryVC {
             self.navigationItem.title = "Gallery"
         }
         else {
@@ -96,8 +100,12 @@ class GalleryController: UIViewController, UICollectionViewDelegate , UICollecti
                 if data != nil {
                     DispatchQueue.global().async {
                         self.googleImagesResponse = [data as! GoogleImages]
-                        for items in self.googleImagesResponse{
-                            self.imageData = [items]
+                        for elements in self.googleImagesResponse {
+                            for items in elements.items!{
+                                self.imageTitle.append(items.title!)
+                                self.imageURL.append(items.imageLink!)
+                                self.thumbnailURL.append((items.imageDetails?.thumbnailLink)!)
+                            }
                         }
                         DispatchQueue.main.async {
                             self.gallery.reloadData()
@@ -110,6 +118,9 @@ class GalleryController: UIViewController, UICollectionViewDelegate , UICollecti
     
     func clearSearch() {
         googleImagesResponse.removeAll()
+        imageTitle.removeAll()
+        imageURL.removeAll()
+        thumbnailURL.removeAll()
         gallery.reloadData()
 
     }
@@ -128,33 +139,26 @@ class GalleryController: UIViewController, UICollectionViewDelegate , UICollecti
 extension GalleryController {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if isTabBarVC {
+        if isGalleryVC {
             return 32
         }
         else {
-            var count = 0
-            for items in imageData {
-                count = items.items?.count ?? 0
-            }
-            return count
+            return imageURL.count
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "galleryCell", for: indexPath) as! CollectionGalleryCell
-        if isTabBarVC {
+        if isGalleryVC {
             
             return cell
         }
         else {
-            var thumbnailLink: String?
-            for items in imageData {
-                thumbnailLink = items.items![indexPath.row].image?.thumbnailLink
-                    let url = URL(string: thumbnailLink!)
-                    UIImage.loadFrom(url: url!, completion: { image in
-                        cell.thumbnailImage.image = image
-                    })
-            }
+            let url = URL(string: thumbnailURL[indexPath.row])
+            UIImage.loadFrom(url: url!, completion: { image in
+                cell.thumbnailImage.image = image
+                cell.loadingIndicator.isHidden = true
+            })
             cell.imageTitle.isHidden = true
             
             return cell
@@ -162,12 +166,17 @@ extension GalleryController {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
-        let controller = storyBoard.instantiateViewController(withIdentifier: "PhotoPreviewController") as! PhotoPreviewController
-        for items in imageData {
-            controller.imageLink = items.items![indexPath.row].imageLink
+        if isGalleryVC {
+            let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
+            let controller = storyBoard.instantiateViewController(withIdentifier: "PhotoPreviewController") as! PhotoPreviewController
+            self.navigationController?.pushViewController(controller, animated: true)
         }
-        self.navigationController?.pushViewController(controller, animated: true)
+        else {
+            let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
+            let controller = storyBoard.instantiateViewController(withIdentifier: "PhotoPreviewController") as! PhotoPreviewController
+            controller.imageURL = imageURL[indexPath.row]
+            self.navigationController?.pushViewController(controller, animated: true)
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -178,24 +187,18 @@ extension GalleryController {
     }
     
 //    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-//        for items in imageData {
-//            if indexPath.row == items.items!.count - 1 {
-//                start += 1
-//                imageSearch()
-//                gallery.reloadData()
-//            }
+//        if indexPath.row == imageURL.count - 1 {
+//            start += 1
+//            imageSearch()
+//            gallery.reloadData()
 //        }
 //    }
     
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        if searchBar.text?.isEmpty ?? true {
-            clearSearch()
-        }
-        else {
-            query = searchBar.text!.replacingOccurrences(of: " ", with: "%20")
-            imageSearch()
-        }
+        clearSearch()
+        query = searchBar.text!.replacingOccurrences(of: " ", with: "%20")
+        imageSearch()
         
     }
     

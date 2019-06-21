@@ -19,12 +19,12 @@ struct GoogleImages: Decodable {
 struct ImageData: Decodable {
     let title: String?
     let imageLink: String?
-    let image: ImageDetails?
+    let imageDetails: ImageDetails?
     
     enum CodingKeys: String, CodingKey {
         case title = "title"
         case imageLink = "link"
-        case image = "image"
+        case imageDetails = "image"
     }
 }
 

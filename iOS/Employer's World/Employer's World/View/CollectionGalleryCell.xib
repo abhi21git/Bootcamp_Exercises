@@ -19,8 +19,9 @@
                 <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Teamwork" translatesAutoresizingMaskIntoConstraints="NO" id="b4L-vI-hmu">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="b4L-vI-hmu">
                         <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="b4L-vI-hmu" secondAttribute="height" multiplier="1:1" id="IOd-Ia-XPy"/>
                         </constraints>
@@ -32,6 +33,14 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="qHV-UL-opg">
+                        <rect key="frame" x="85" y="85" width="30" height="30"/>
+                        <color key="backgroundColor" white="0.33333333329999998" alpha="0.7011183647" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="qHV-UL-opg" secondAttribute="height" multiplier="1:1" id="Bmn-Os-KsQ"/>
+                            <constraint firstAttribute="width" constant="30" id="zlO-nz-Fu0"/>
+                        </constraints>
+                    </activityIndicatorView>
                 </subviews>
             </view>
             <constraints>
@@ -40,19 +49,19 @@
                 <constraint firstAttribute="bottom" secondItem="b4L-vI-hmu" secondAttribute="bottom" id="Ht3-00-Gjq"/>
                 <constraint firstItem="b4L-vI-hmu" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="RPd-bK-x0x"/>
                 <constraint firstAttribute="bottom" secondItem="phV-p9-kC7" secondAttribute="bottom" id="Y1A-JE-TbX"/>
+                <constraint firstItem="qHV-UL-opg" firstAttribute="centerX" secondItem="b4L-vI-hmu" secondAttribute="centerX" id="dUZ-eO-fkY"/>
                 <constraint firstItem="b4L-vI-hmu" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="dec-9l-fhI"/>
                 <constraint firstAttribute="trailing" secondItem="phV-p9-kC7" secondAttribute="trailing" id="rP7-wh-8gm"/>
+                <constraint firstItem="qHV-UL-opg" firstAttribute="centerY" secondItem="b4L-vI-hmu" secondAttribute="centerY" id="zen-4n-hmz"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="200" height="200"/>
             <connections>
                 <outlet property="imageTitle" destination="phV-p9-kC7" id="mKg-Zm-uS6"/>
+                <outlet property="loadingIndicator" destination="qHV-UL-opg" id="9eB-IA-ft1"/>
                 <outlet property="thumbnailImage" destination="b4L-vI-hmu" id="6JM-E5-4ue"/>
             </connections>
             <point key="canvasLocation" x="-26.086956521739133" y="22.767857142857142"/>
         </collectionViewCell>
     </objects>
-    <resources>
-        <image name="Teamwork" width="1600" height="1200"/>
-    </resources>
 </document>

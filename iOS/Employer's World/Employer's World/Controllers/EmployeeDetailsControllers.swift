@@ -143,7 +143,7 @@ class EmployeeDetailsControllers: UIViewController, UICollectionViewDelegate , U
     func googleImage() {
         let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
         let controller = storyBoard.instantiateViewController(withIdentifier: "GalleryController") as! GalleryController
-        controller.isTabBarVC = false
+        controller.isGalleryVC = false
         self.navigationController?.pushViewController(controller, animated: true)
 
     }

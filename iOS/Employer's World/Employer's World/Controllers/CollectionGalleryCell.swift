@@ -17,6 +17,7 @@ class CollectionGalleryCell: UICollectionViewCell {
     //  MARK:- IBOutlets
     @IBOutlet weak var thumbnailImage: UIImageView!
     @IBOutlet weak var imageTitle: UILabel!
+    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     
     
     //  MARK:- LifeCycle
@@ -30,8 +31,9 @@ class CollectionGalleryCell: UICollectionViewCell {
     //  MARK: - Functions
     func configureUI() {
         thumbnailImage.elevateView(shadowOffset: CGSize(width: 1.0, height: 1.0))
-        thumbnailImage.layer.cornerRadius = imageTitle.frame.height/2
-        imageTitle.layer.cornerRadius = imageTitle.frame.height/2
+        thumbnailImage.roundedCornersWithBorder(cornerRadius: imageTitle.frame.height/2)
+        imageTitle.roundedCornersWithBorder(cornerRadius: imageTitle.frame.height/2)
+        loadingIndicator.roundedCornersWithBorder(cornerRadius: loadingIndicator.frame.height/2)
         thumbnailImage.clipsToBounds = true
         imageTitle.clipsToBounds = true
     }

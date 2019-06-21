@@ -11,7 +11,7 @@ import UIKit
 class PhotoPreviewController: UIViewController {
     
     //  MARK:- Variables
-    var imageLink: String?
+    var imageURL: String?
     
     
     //  MARK:- IBOutlets
@@ -25,7 +25,7 @@ class PhotoPreviewController: UIViewController {
         super.viewDidLoad()
         
         configureUI()
-        loadImage(url: imageLink ?? "")
+        loadImage(url: imageURL ?? "")
     }
     
     
