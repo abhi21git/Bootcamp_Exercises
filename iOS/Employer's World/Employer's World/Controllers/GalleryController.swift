@@ -13,6 +13,7 @@ class GalleryController: UIViewController, UICollectionViewDelegate , UICollecti
     
     //  MARK: - Variables
     var isGalleryVC = true
+    var isSelectionOn = false
     var googleImagesResponse = [GoogleImages]()
     var imageTitle = [String]()
     var imageURL = [String]()
@@ -24,13 +25,15 @@ class GalleryController: UIViewController, UICollectionViewDelegate , UICollecti
 //    let key = "AIzaSyDFTIW28gbTwjayShhM2M7qy5ar7RWIqY8"
     var start = 1
     var num = 10
+
     
-    fileprivate lazy var fetchedResultController: NSFetchedResultsController<Employees> = {
+    
+    fileprivate lazy var fetchedResultController: NSFetchedResultsController<EmployeeImages> = {
         let appDelegate = UIApplication.shared.delegate as? AppDelegate
         let context = appDelegate?.persistentContainer.viewContext
-        let fetchRequest:NSFetchRequest = Employees.fetchRequest()
+        let fetchRequest:NSFetchRequest = EmployeeImages.fetchRequest()
         
-        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "id", ascending: true)]
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "thumbnailURL", ascending: true)]
         let fetchResultController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context!, sectionNameKeyPath: nil, cacheName: nil)
         
         fetchResultController.delegate = self
@@ -42,6 +45,7 @@ class GalleryController: UIViewController, UICollectionViewDelegate , UICollecti
     
     //  MARK: - IBOutlets
     @IBOutlet weak var gallery: UICollectionView!
+    @IBOutlet weak var selectButton: UIButton!
     
     
     //  MARK: - LifeCycle
@@ -50,7 +54,6 @@ class GalleryController: UIViewController, UICollectionViewDelegate , UICollecti
         
         let nib = UINib(nibName: "CollectionGalleryCell", bundle: nil)
         gallery.register(nib, forCellWithReuseIdentifier: "galleryCell")
-        
         gallery.delegate = self
         gallery.dataSource = self
         
@@ -62,13 +65,15 @@ class GalleryController: UIViewController, UICollectionViewDelegate , UICollecti
     func configureUI() {
         if isGalleryVC {
             self.navigationItem.title = "Gallery"
+            selectButton.isHidden = true
         }
         else {
             self.navigationItem.title = "Google Images"
             self.definesPresentationContext = true
+            selectButton.isHidden = false
             showSearchBar()
+            
         }
-        
         
     }
     
@@ -128,7 +133,16 @@ class GalleryController: UIViewController, UICollectionViewDelegate , UICollecti
     
     
     //  MARK: - IBActions
-    
+    @IBAction func selectPressed() {
+        if isSelectionOn {
+            isSelectionOn = false
+            selectButton.setTitle("Select", for: .normal)
+        }
+        else {
+            isSelectionOn = true
+            selectButton.setTitle("Done", for: .normal)
+        }
+    }
     
     
 }
@@ -140,15 +154,16 @@ extension GalleryController {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if isGalleryVC {
-            return 32
+            return 20
         }
         else {
             return imageURL.count
         }
     }
     
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "galleryCell", for: indexPath) as! CollectionGalleryCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "galleryCell", for: indexPath) as! CustomGalleryCell
         if isGalleryVC {
             
             return cell
@@ -160,12 +175,14 @@ extension GalleryController {
                 cell.loadingIndicator.isHidden = true
             })
             cell.imageTitle.isHidden = true
-            
+            cell.selectionIndicator.isHidden = true
             return cell
         }
     }
     
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let currentCell = gallery.cellForItem(at: indexPath) as! CustomGalleryCell
         if isGalleryVC {
             let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
             let controller = storyBoard.instantiateViewController(withIdentifier: "PhotoPreviewController") as! PhotoPreviewController
@@ -173,13 +190,31 @@ extension GalleryController {
             self.navigationController?.pushViewController(controller, animated: true)
         }
         else {
-            let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
-            let controller = storyBoard.instantiateViewController(withIdentifier: "PhotoPreviewController") as! PhotoPreviewController
-            controller.imageURL = imageURL[indexPath.row]
-            controller.isGoogleImage = true
-            self.navigationController?.pushViewController(controller, animated: true)
+            if isSelectionOn {
+                // save photos here
+                if currentCell.isUnselectedCell {
+                    currentCell.isUnselectedCell = false
+                    currentCell.selectionIndicator.isHidden = false
+                    currentCell.thumbnailImage.layer.borderColor = UIColor(red: 0/255, green: 150/255, blue: 1, alpha: 1.0).cgColor
+                    currentCell.thumbnailImage.layer.borderWidth = 2
+                }
+                else {
+                    currentCell.isUnselectedCell = true
+                    currentCell.selectionIndicator.isHidden = true
+                    currentCell.thumbnailImage.layer.borderWidth = 0
+                }
+                
+            }
+            else {
+                let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
+                let controller = storyBoard.instantiateViewController(withIdentifier: "PhotoPreviewController") as! PhotoPreviewController
+                controller.imageURL = imageURL[indexPath.row]
+                controller.isGoogleImage = true
+                self.navigationController?.pushViewController(controller, animated: true)
+            }
         }
     }
+
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
@@ -188,19 +223,13 @@ extension GalleryController {
         return CGSize(width: size, height: size)
     }
     
-//    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-//        if indexPath.row == imageURL.count - 1 {
-//            start += 1
-//            imageSearch()
-//            gallery.reloadData()
-//        }
-//    }
     
     func searchBarCancelButtonClicked(searchBar: UISearchBar) {
         clearSearch()
         searchBar.text = ""
         searchBar.showsCancelButton = false
     }
+    
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         clearSearch()

@@ -16,7 +16,7 @@ class MapController: UIViewController, CLLocationManagerDelegate, MKMapViewDeleg
     
     
     //  MARK: - IBOutlets
-    @IBOutlet weak var employeeMapView: MKMapView!
+    @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var currentLocationButton: UIButton!
     
     
@@ -24,7 +24,7 @@ class MapController: UIViewController, CLLocationManagerDelegate, MKMapViewDeleg
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        employeeMapView.delegate = self
+        mapView.delegate = self
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
         
@@ -56,7 +56,7 @@ class MapController: UIViewController, CLLocationManagerDelegate, MKMapViewDeleg
         
     }
     
-    func setupCoreLocation(){
+    func setupCoreLocation() {
         switch CLLocationManager.authorizationStatus(){
         case .authorizedAlways:
             enableLocationServices()
@@ -68,9 +68,11 @@ class MapController: UIViewController, CLLocationManagerDelegate, MKMapViewDeleg
     func enableLocationServices(){
         if CLLocationManager.locationServicesEnabled(){
             locationManager.desiredAccuracy = kCLLocationAccuracyBest
-            locationManager.distanceFilter =  10
+            locationManager.distanceFilter =  100
             locationManager.startUpdatingLocation()
-            employeeMapView.setUserTrackingMode(.followWithHeading, animated: true)
+            mapView.setUserTrackingMode(.followWithHeading, animated: true)
+            mapView.showsUserLocation = true
+
         }
     }
     
@@ -112,7 +114,7 @@ extension MapController {
         let coordinations =  CLLocationCoordinate2D(latitude: location.coordinate.latitude,longitude: location.coordinate.longitude)
         let span = MKCoordinateSpan(latitudeDelta: 0.2,longitudeDelta: 0.2)
         let region = MKCoordinateRegion(center: coordinations, span: span)
-        employeeMapView.setRegion(region, animated: true)
+        mapView.setRegion(region, animated: true)
     }
     
     

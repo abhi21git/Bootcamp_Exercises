@@ -66,14 +66,16 @@ class EmployeeListController: UIViewController, UITableViewDelegate, UITableView
     
     func showSearchBar() {
         let searchController = UISearchController(searchResultsController: nil)
+        searchController.searchBar.delegate = self
         searchController.dimsBackgroundDuringPresentation = false
         searchController.hidesNavigationBarDuringPresentation = false
         searchController.searchBar.tintColor = UIColor.black
-        searchController.searchBar.delegate = self
         searchController.searchBar.sizeToFit()
+        searchController.searchBar.returnKeyType = UIReturnKeyType.search
         searchController.searchBar.placeholder = "Search employee name or ID"
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
+        
     }
     
     
