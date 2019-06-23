@@ -59,7 +59,7 @@
 		46C6FBB52269D4720099E17C /* CustomEmployeeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomEmployeeCell.xib; sourceTree = "<group>"; };
 		46C6FBB82269D4B10099E17C /* CustomGalleryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomGalleryCell.swift; sourceTree = "<group>"; wrapsLines = 1; };
 		46C6FBB92269D4B10099E17C /* CollectionGalleryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionGalleryCell.xib; sourceTree = "<group>"; };
-		46C6FBBC2269E5140099E17C /* SignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; wrapsLines = 1; };
+		46C6FBBC2269E5140099E17C /* SignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		46C6FBBE2269E6FA0099E17C /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; wrapsLines = 1; };
 		46C6FBC4226D8FBC0099E17C /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; wrapsLines = 1; };
 		46C6FBC6226D9F530099E17C /* EmployeeDetailsControllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeDetailsControllers.swift; sourceTree = "<group>"; wrapsLines = 1; };

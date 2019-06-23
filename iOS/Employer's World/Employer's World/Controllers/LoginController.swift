@@ -258,9 +258,11 @@ class LoginController: UIViewController, Toastable {
     @IBAction func signUp() {
         //add to child view later
         let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
-        let controller = storyboard.instantiateViewController(withIdentifier: "SignUpController") as! SignUpController
-        self.navigationController?.pushViewController(controller, animated: false)
+        let signupVC = storyboard.instantiateViewController(withIdentifier: "SignUpController") as! SignUpController
         
+        addChild(signupVC)
+        self.view.addSubview(signupVC.view)
+        signupVC.didMove(toParent: self)        
     }
     
     

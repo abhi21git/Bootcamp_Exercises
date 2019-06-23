@@ -10,7 +10,7 @@ import UIKit
 import MapKit
 import CoreData
 
-class EmployeeDetailsControllers: UIViewController, UICollectionViewDelegate , UICollectionViewDataSource , UIPickerViewDelegate, UICollectionViewDelegateFlowLayout, UIImagePickerControllerDelegate, UINavigationControllerDelegate, Toastable {
+class EmployeeDetailsControllers: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, Toastable {
     
     //  MARK: - Variables
     var empID: String = "0"
@@ -41,7 +41,6 @@ class EmployeeDetailsControllers: UIViewController, UICollectionViewDelegate , U
     func configureUI() {
         self.title = "Employee Details"
         
-//        employeePicture.roundedCornersWithBorder(cornerRadius: employeePicture.frame.height/2)
         nameLabel.roundedCornersWithBorder(cornerRadius: 4)
         ageLabel.roundedCornersWithBorder(cornerRadius: 4)
         empIDLabel.roundedCornersWithBorder(cornerRadius: 4)
@@ -60,23 +59,6 @@ class EmployeeDetailsControllers: UIViewController, UICollectionViewDelegate , U
         customSegment.addToGalleryButton.addTarget(self, action: #selector(self.addToGallerySegmentAction), for: .touchUpInside)
         customSegment.mapButton.addTarget(self, action: #selector(self.mapSegmentAction), for: .touchUpInside)
         customSegment.addToMapButton.addTarget(self, action: #selector(self.addToMapSegmentAction), for: .touchUpInside)
-    }
-    
-    func displayActionSheet() {
-        
-        let optionMenu = UIAlertController(title: "Choose options", message: nil, preferredStyle: .actionSheet)
-        
-        let cameraAction = UIAlertAction(title: "Camera", style: .default, handler: { action in  self.camera()})
-        let galleryAction = UIAlertAction(title: "Gallery", style: .default, handler: { action in self.photoLibrary()})
-        let googleImagesAction = UIAlertAction(title: "Google Images", style: .default, handler: { acttion in self.googleImage()})
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
-        
-        optionMenu.addAction(cameraAction)
-        optionMenu.addAction(galleryAction)
-        optionMenu.addAction(googleImagesAction)
-        optionMenu.addAction(cancelAction)
-        
-        self.present(optionMenu, animated: true, completion: nil)
     }
     
     
@@ -108,6 +90,23 @@ class EmployeeDetailsControllers: UIViewController, UICollectionViewDelegate , U
                 }
             }
         })
+    }
+    
+    func displayActionSheet() {
+        
+        let optionMenu = UIAlertController(title: "Choose options", message: nil, preferredStyle: .actionSheet)
+        
+        let cameraAction = UIAlertAction(title: "Camera", style: .default, handler: { action in  self.camera()})
+        let galleryAction = UIAlertAction(title: "Gallery", style: .default, handler: { action in self.photoLibrary()})
+        let googleImagesAction = UIAlertAction(title: "Google Images", style: .default, handler: { acttion in self.googleImage()})
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        
+        optionMenu.addAction(cameraAction)
+        optionMenu.addAction(galleryAction)
+        optionMenu.addAction(googleImagesAction)
+        optionMenu.addAction(cancelAction)
+        
+        self.present(optionMenu, animated: true, completion: nil)
     }
     
     func camera() {
@@ -187,27 +186,5 @@ class EmployeeDetailsControllers: UIViewController, UICollectionViewDelegate , U
 //  MARK: - Extensions
 extension EmployeeDetailsControllers {
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 25
-    }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "galleryCell", for: indexPath) as! CustomGalleryCell
-        
-        return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
-        let controller = storyBoard.instantiateViewController(withIdentifier: "PhotoPreviewController") as! PhotoPreviewController
-        self.navigationController?.pushViewController(controller, animated: true)
-        
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        let size = (collectionView.frame.width-30)/2
-        return CGSize(width: size, height: size)
-    }
 }

@@ -57,7 +57,9 @@ class SignUpController: UIViewController, Toastable {
     
     //  MARK: - IBActions
     @IBAction func login() {
-        self.navigationController?.popViewController(animated: false)
+        self.willMove(toParent: nil)
+        self.view.removeFromSuperview()
+        self.removeFromParent()
     }
     
     @IBAction func emailValidation() {
@@ -126,31 +128,26 @@ class SignUpController: UIViewController, Toastable {
             
             NetworkManager.sharedInstance.profileApi(urlString: signpURL, parameters: parameters) { (data, responseError) in
                 if let error = responseError {
-                    let alert  = UIAlertController(title: "Something went wrong", message: error.localizedDescription, preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "Retry", style: .default, handler: { action in self.signUp() })) // Retry option to hit api in case internet didn't worked in first place
-                    self.present(alert, animated: true, completion: nil)
+                    self.showToast(controller: self, message: error.localizedDescription, seconds: 1.2)
                     
                 } else {
                     if data != nil {
                         DispatchQueue.global().async {
                             let signupResponse = data as! ProfileModel
                             DispatchQueue.main.async {
-                                //add to child view later
                                 let alert  = UIAlertController(title: "Alert", message: signupResponse.Status.message, preferredStyle: .alert)
                                 alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: { action in
                                     if signupResponse.Status.statusCode == 1 {
-                                        self.navigationController?.popViewController(animated: false)
+                                        self.login()
                                     }
-                                })) // Retry option to hit api in case internet didn't worked in first place
+                                }))
                                 self.present(alert, animated: true, completion: nil)
                             }
                         }
                     }
                     else {
                         DispatchQueue.main.async {
-                            let alertController = UIAlertController(title: "Alert", message: "Invalid email or password", preferredStyle: .alert)
-                            alertController.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
-                            self.present(alertController, animated: true, completion: nil)
+                            self.showToast(controller: self, message: "Invalid response!", seconds: 1.2)
                         }
                     }
                 }
