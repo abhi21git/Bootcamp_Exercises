@@ -23,22 +23,13 @@ class EmployeeDetailsControllers: UIViewController, UICollectionViewDelegate , U
     @IBOutlet weak var ageLabel: UILabel!
     @IBOutlet weak var empIDLabel: UILabel!
     @IBOutlet weak var salaryLabel: UILabel!
-//    @IBOutlet weak var employeePicture: UIImageView!
     @IBOutlet weak var customSegment: CustomSegment!
     @IBOutlet weak var galleryAndMapContentView: UIView!
-    @IBOutlet weak var employeeMapView: MKMapView!
-    @IBOutlet weak var employeeGallery: UICollectionView!
     
     
     //  MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let nib = UINib(nibName: "CollectionGalleryCell", bundle: nil)
-        employeeGallery.register(nib, forCellWithReuseIdentifier: "galleryCell")
-        
-        employeeGallery.delegate = self
-        employeeGallery.dataSource = self
         
         configureUI()
         customSegmentHandling()
@@ -60,8 +51,6 @@ class EmployeeDetailsControllers: UIViewController, UICollectionViewDelegate , U
         galleryAndMapContentView.roundedCornersWithBorder(cornerRadius: 4, borderWidth: 1)
         customSegment.roundedCornersWithBorder(cornerRadius: 4, borderWidth: 1)
         
-        employeeMapView.isHidden = true
-        employeeGallery.isHidden = true
     }
     
     func customSegmentHandling() {
@@ -148,29 +137,49 @@ class EmployeeDetailsControllers: UIViewController, UICollectionViewDelegate , U
         self.navigationController?.pushViewController(controller, animated: true)
 
     }
-    
+
+    func addChildVC(isGallery: Bool) {
+        let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
+        let galleryVC = storyBoard.instantiateViewController(withIdentifier: "GalleryController") as! GalleryController
+        let mapVC = storyBoard.instantiateViewController(withIdentifier: "MapController") as! MapController
+        
+        if self.children.count > 0 {
+            let viewControllers:[UIViewController] = self.children
+            for viewContoller in viewControllers{
+                viewContoller.willMove(toParent: nil)
+                viewContoller.view.removeFromSuperview()
+                viewContoller.removeFromParent()
+            }
+        }
+        
+        if isGallery {
+            addChild(galleryVC)
+            galleryAndMapContentView.addSubview(galleryVC.view)
+            galleryVC.didMove(toParent: self)
+        }
+        else {
+            addChild(mapVC)
+            galleryAndMapContentView.addSubview(mapVC.view)
+            mapVC.didMove(toParent: self)
+        }
+    }
     
     //  MARK: - IBActions
     @objc func gallerySegmentAction() {
-        employeeGallery.isHidden = false
-        employeeMapView.isHidden = true
-        
+        addChildVC(isGallery: true)
     }
     
     @objc func addToGallerySegmentAction() {
-        employeeGallery.isHidden = false
-        employeeMapView.isHidden = true
+        gallerySegmentAction()
         displayActionSheet()
     }
     
     @objc func mapSegmentAction() {
-        employeeMapView.isHidden = false
-        employeeGallery.isHidden = true
+        addChildVC(isGallery: false)
     }
     
     @objc func addToMapSegmentAction() {
-        employeeMapView.isHidden = false
-        employeeGallery.isHidden = true
+        mapSegmentAction()
     }
 }
 

@@ -165,33 +165,7 @@
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f9c-7b-173">
                                                 <rect key="frame" x="20" y="270" width="374" height="480"/>
-                                                <subviews>
-                                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="je9-DZ-JCi">
-                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="480"/>
-                                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="W4I-CB-v1x">
-                                                            <size key="itemSize" width="50" height="50"/>
-                                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                                            <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
-                                                        </collectionViewFlowLayout>
-                                                        <cells/>
-                                                    </collectionView>
-                                                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Hto-85-e6N">
-                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="480"/>
-                                                    </mapView>
-                                                </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstItem="je9-DZ-JCi" firstAttribute="leading" secondItem="f9c-7b-173" secondAttribute="leading" id="1cy-1e-3eU"/>
-                                                    <constraint firstItem="Hto-85-e6N" firstAttribute="top" secondItem="f9c-7b-173" secondAttribute="top" id="8c2-h8-fEs"/>
-                                                    <constraint firstAttribute="bottom" secondItem="Hto-85-e6N" secondAttribute="bottom" id="E7F-vY-qIj"/>
-                                                    <constraint firstItem="Hto-85-e6N" firstAttribute="leading" secondItem="f9c-7b-173" secondAttribute="leading" id="VcR-BA-mmF"/>
-                                                    <constraint firstItem="je9-DZ-JCi" firstAttribute="top" secondItem="f9c-7b-173" secondAttribute="top" id="XHQ-SD-xJr"/>
-                                                    <constraint firstAttribute="trailing" secondItem="je9-DZ-JCi" secondAttribute="trailing" id="dWT-G8-ybh"/>
-                                                    <constraint firstAttribute="bottom" secondItem="je9-DZ-JCi" secondAttribute="bottom" id="kTd-vN-FbK"/>
-                                                    <constraint firstAttribute="trailing" secondItem="Hto-85-e6N" secondAttribute="trailing" id="rVm-cu-GAL"/>
-                                                </constraints>
                                             </view>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -236,8 +210,6 @@
                         <outlet property="customSegment" destination="XRu-yL-ld8" id="R6C-FW-h29"/>
                         <outlet property="detailsContentView" destination="tbS-PU-dj5" id="CCg-Uj-cxY"/>
                         <outlet property="empIDLabel" destination="oL3-7a-d13" id="Vfw-lf-RkZ"/>
-                        <outlet property="employeeGallery" destination="je9-DZ-JCi" id="fhJ-Ki-ady"/>
-                        <outlet property="employeeMapView" destination="Hto-85-e6N" id="rSF-1I-dLF"/>
                         <outlet property="galleryAndMapContentView" destination="f9c-7b-173" id="1zz-GH-H9C"/>
                         <outlet property="nameLabel" destination="w41-2X-q0a" id="tyC-LC-Ira"/>
                         <outlet property="salaryLabel" destination="25p-FX-pwA" id="DDE-aO-oaJ"/>
