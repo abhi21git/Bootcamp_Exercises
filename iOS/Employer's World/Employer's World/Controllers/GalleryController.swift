@@ -71,7 +71,7 @@ class GalleryController: UIViewController, NSFetchedResultsControllerDelegate, T
             selectButton.isHidden = true
             refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
             refreshControl.addTarget(self, action: #selector(refresh), for: UIControl.Event.valueChanged)
-            gallery.addSubview(refreshControl)
+            gallery.refreshControl = refreshControl
         }
         else {
             self.navigationItem.title = "Google Images"
