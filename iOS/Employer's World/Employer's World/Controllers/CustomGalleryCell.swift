@@ -39,10 +39,6 @@ class CustomGalleryCell: UICollectionViewCell {
         imageTitle.clipsToBounds = true
         selectionIndicator.roundedCornersWithBorder(cornerRadius: selectionIndicator.frame.height/2, borderWidth: 1, borderColor: UIColor.white.cgColor)
         
-        if !isUnselectedCell {
-            selectionIndicator.isHidden = false
-        }
-//        selectionIndicator.isHidden = true
     }
     
     

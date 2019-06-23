@@ -14,12 +14,11 @@ class EmployeeListController: UIViewController, UITableViewDelegate, UITableView
     //  MARK: - Variables
     var employeeList = [Employee]()
     var searchedEmployee = [Employee]()
-    
+    var refreshControl = UIRefreshControl()
     
     //  MARK: - IBOutlets
     @IBOutlet weak var employeeTableView: UITableView!
     @IBOutlet weak var loader: UIActivityIndicatorView!
-    @IBOutlet weak var refreshButton: UIButton!
     
     
     //  MARK: - LifeCycle
@@ -30,10 +29,6 @@ class EmployeeListController: UIViewController, UITableViewDelegate, UITableView
         configureUI()
         employeeFetching()
         showSearchBar()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -48,13 +43,14 @@ class EmployeeListController: UIViewController, UITableViewDelegate, UITableView
         self.navigationItem.title = "Employer's World"
         self.definesPresentationContext = true
         employeeTableView.isHidden = true
-        loader.roundedCornersWithBorder(cornerRadius: loader.frame.height/6)
-        refreshButton.roundedCornersWithBorder(cornerRadius: refreshButton.frame.height/2)
-        refreshButton.elevateView(shadowOffset: CGSize(width: 1.0, height: 1.0))
         self.tabBarController?.tabBar.elevateView()
-
-        
+        loader.roundedCornersWithBorder(cornerRadius: loader.frame.height/6)
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl.addTarget(self, action: #selector(refresh), for: UIControl.Event.valueChanged)
+        employeeTableView.addSubview(refreshControl)
     }
+    
+
     
     func tableViewHandling() {
         let nib = UINib(nibName: "CustomEmployeeCell", bundle: nil)
@@ -79,7 +75,7 @@ class EmployeeListController: UIViewController, UITableViewDelegate, UITableView
     }
     
     
-    func employeeFetching() {
+    @discardableResult func employeeFetching() -> Bool {
         loader.isHidden = false
         
         let employeeListURL = "http://dummy.restapiexample.com/api/v1/employees"
@@ -112,17 +108,19 @@ class EmployeeListController: UIViewController, UITableViewDelegate, UITableView
                 }
             }
         })
+        return true
     }
     
     
     //  MARK: - IBActions
-    @IBAction func refreshData() {
-        refreshButton.roatateView(duration: 0.6, roatation: 0.5)
+    @objc func refresh() {
+        let refreshed = employeeFetching()
         employeeTableView.reloadSections([0], with: .fade)
-        employeeTableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
-        employeeFetching()
-        
+        if refreshed {
+            refreshControl.endRefreshing()
+        }
     }
+    
     
 }
 
@@ -166,7 +164,7 @@ extension EmployeeListController {
         employeeTableView.reloadData()
     }
     
-    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.text = ""
         searchBar.showsCancelButton = false
         employeeTableView.reloadSections([0], with: .fade)

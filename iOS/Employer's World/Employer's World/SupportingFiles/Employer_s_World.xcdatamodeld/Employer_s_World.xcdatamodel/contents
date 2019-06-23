@@ -2,25 +2,21 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14490.99" systemVersion="18F132" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="EmployeeCoordinates" representedClassName="EmployeeCoordinates" syncable="YES" codeGenerationType="class">
         <attribute name="locations" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="relationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Employees" inverseName="oneToManyCoordinates" inverseEntity="Employees" syncable="YES"/>
     </entity>
     <entity name="EmployeeImages" representedClassName="EmployeeImages" syncable="YES" codeGenerationType="class">
+        <attribute name="employeeName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="imageURL" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="thumbnailURL" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="titile" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="relationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Employees" inverseName="oneToManyImages" inverseEntity="Employees" syncable="YES"/>
     </entity>
     <entity name="Employees" representedClassName="Employees" syncable="YES" codeGenerationType="class">
         <attribute name="age" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="salary" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="oneToManyCoordinates" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="EmployeeCoordinates" inverseName="relationship" inverseEntity="EmployeeCoordinates" syncable="YES"/>
-        <relationship name="oneToManyImages" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="EmployeeImages" inverseName="relationship" inverseEntity="EmployeeImages" syncable="YES"/>
     </entity>
     <elements>
-        <element name="EmployeeCoordinates" positionX="-59.953125" positionY="-226.44921875" width="128" height="73"/>
-        <element name="EmployeeImages" positionX="-61.6796875" positionY="28.27734375" width="128" height="103"/>
-        <element name="Employees" positionX="-288.6875" positionY="-174.4765625" width="128" height="133"/>
+        <element name="EmployeeCoordinates" positionX="-59.953125" positionY="-226.44921875" width="128" height="58"/>
+        <element name="EmployeeImages" positionX="-61.6796875" positionY="28.27734375" width="128" height="88"/>
+        <element name="Employees" positionX="-288.6875" positionY="-174.4765625" width="128" height="103"/>
     </elements>
 </model>

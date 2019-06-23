@@ -144,6 +144,7 @@ class EmployeeDetailsControllers: UIViewController, UICollectionViewDelegate , U
         let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
         let controller = storyBoard.instantiateViewController(withIdentifier: "GalleryController") as! GalleryController
         controller.isGalleryVC = false
+        controller.tempName = nameLabel.text!
         self.navigationController?.pushViewController(controller, animated: true)
 
     }
