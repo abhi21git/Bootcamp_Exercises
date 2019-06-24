@@ -80,7 +80,7 @@ class EmployeeListController: UIViewController, UITableViewDelegate, UITableView
         
         let employeeListURL = "http://dummy.restapiexample.com/api/v1/employees"
         
-        NetworkManager.sharedInstance.loadEmployee(urlString: employeeListURL, completion: { (data, responseError) in
+        NetworkManager.sharedInstance.loadEmployees(urlString: employeeListURL, completion: { (data, responseError) in
             
             if let error = responseError {
                 

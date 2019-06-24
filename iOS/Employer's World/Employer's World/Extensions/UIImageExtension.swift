@@ -11,15 +11,23 @@ import UIKit
 
 extension UIImage {
     
-    public static func loadFrom(url: URL, completion: @escaping (_ image: UIImage?) -> ()) {
+    public static func loadFrom(url: String, completion: @escaping (_ image: UIImage?) -> ()) {
         DispatchQueue.global().async {
-            if let data = try? Data(contentsOf: url) {
+            if let data = try? Data(contentsOf: URL(string: url)!) {
                 DispatchQueue.main.async {
                     completion(UIImage(data: data))
                 }
-            } else {
+            }
+            else {
                 DispatchQueue.main.async {
-                    completion(nil)
+                    let documentDirectory = FileManager.SearchPathDirectory.documentDirectory
+                    let userDomainMask = FileManager.SearchPathDomainMask.userDomainMask
+                    let paths = NSSearchPathForDirectoriesInDomains(documentDirectory, userDomainMask, true).first
+                    let path: String = paths!
+                    let dirPath = path.replacingOccurrences(of: "Documents", with: "tmp")
+                    let imageURL = URL(fileURLWithPath: dirPath).appendingPathComponent("\(url)")
+                    let image = UIImage(contentsOfFile: imageURL.path)
+                    completion(image)
                 }
             }
         }

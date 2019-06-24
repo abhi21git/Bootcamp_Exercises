@@ -8,6 +8,7 @@
 
 import Foundation
 
+//Model used in loadEmployees()
 struct Employee: Decodable {
     let id: String?
     let name: String?
@@ -18,6 +19,7 @@ struct Employee: Decodable {
     }
 }
 
+//Model used in loadSelectedEmployee
 struct EmployeeDetails: Decodable {
     let id: String?
     let name: String?

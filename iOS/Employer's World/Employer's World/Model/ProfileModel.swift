@@ -1,5 +1,5 @@
 //
-//  LoginData.swift
+//  ProfileModel.swift
 //  Employer's World
 //
 //  Created by Abhishek Maurya on 10/06/19.
@@ -8,6 +8,7 @@
 
 import Foundation
 
+//Model used in logIn()
 struct LoginModel: Decodable {
     let Status: UserStatus
     let Data: UserData
@@ -32,6 +33,7 @@ struct UserData: Decodable {
     }
 }
 
+//Model used in profileApi()
 struct ProfileModel: Decodable {
     let Status: UserStatus
     

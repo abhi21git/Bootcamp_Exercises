@@ -8,6 +8,8 @@
 
 import UIKit
 
+
+//This view controller will only pe presented once and will only be seen only if user logouts.
 class WelcomeController: UIViewController {
     
     //  MARK:- Variables
@@ -28,7 +30,7 @@ class WelcomeController: UIViewController {
     
     //  MARK:- Functions
     func configureUI() {
-        termsTextView.roundedCornersWithBorder(cornerRadius: 10, borderWidth: 1)
+        termsTextView.roundedCornersWithBorder(cornerRadius: 4, borderWidth: 1)
     }
     
     

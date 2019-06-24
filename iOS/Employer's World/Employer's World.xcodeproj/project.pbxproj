@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		460D5308226F364D0020DE92 /* CustomSegment.xib in Resources */ = {isa = PBXBuildFile; fileRef = 460D5307226F364D0020DE92 /* CustomSegment.xib */; };
 		460D530B226F36C60020DE92 /* CustomSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460D530A226F36C60020DE92 /* CustomSegment.swift */; };
-		461026F622AE6345001F70EA /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 461026F522AE6345001F70EA /* LoginModel.swift */; };
+		461026F622AE6345001F70EA /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 461026F522AE6345001F70EA /* ProfileModel.swift */; };
 		46229B98229BEE7A00CBA6B5 /* WelcomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46229B97229BEE7A00CBA6B5 /* WelcomeController.swift */; };
 		46313A4E2269B922003D702C /* EmployeeListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46313A4D2269B922003D702C /* EmployeeListController.swift */; };
 		46313A502269B954003D702C /* GalleryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46313A4F2269B954003D702C /* GalleryController.swift */; };
@@ -42,7 +42,7 @@
 /* Begin PBXFileReference section */
 		460D5307226F364D0020DE92 /* CustomSegment.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomSegment.xib; sourceTree = "<group>"; };
 		460D530A226F36C60020DE92 /* CustomSegment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegment.swift; sourceTree = "<group>"; wrapsLines = 1; };
-		461026F522AE6345001F70EA /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; wrapsLines = 1; };
+		461026F522AE6345001F70EA /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; wrapsLines = 1; };
 		46229B97229BEE7A00CBA6B5 /* WelcomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeController.swift; sourceTree = "<group>"; wrapsLines = 1; };
 		46313A4D2269B922003D702C /* EmployeeListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeListController.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		46313A4F2269B954003D702C /* GalleryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryController.swift; sourceTree = "<group>"; wrapsLines = 1; };
@@ -62,7 +62,7 @@
 		46C6FBBC2269E5140099E17C /* SignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		46C6FBBE2269E6FA0099E17C /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; wrapsLines = 1; };
 		46C6FBC4226D8FBC0099E17C /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; wrapsLines = 1; };
-		46C6FBC6226D9F530099E17C /* EmployeeDetailsControllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeDetailsControllers.swift; sourceTree = "<group>"; wrapsLines = 1; };
+		46C6FBC6226D9F530099E17C /* EmployeeDetailsControllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeDetailsControllers.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		46C747682293F9A000A65403 /* NetworkManager.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; tabWidth = 4; usesTabs = 1; wrapsLines = 1; };
 		46C8184B22BA40F400B654D9 /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 		46FF2D142268D15F0006BE82 /* Employer's World.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Employer's World.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -117,7 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				4691EAAC229E922700BF08A6 /* EmployeeModel.swift */,
-				461026F522AE6345001F70EA /* LoginModel.swift */,
+				461026F522AE6345001F70EA /* ProfileModel.swift */,
 				46BAE2E922BA159100854F1C /* GoogleImageModel.swift */,
 				46C747682293F9A000A65403 /* NetworkManager.swift */,
 			);
@@ -277,7 +277,7 @@
 				46C6FBBD2269E5140099E17C /* SignUpController.swift in Sources */,
 				460D530B226F36C60020DE92 /* CustomSegment.swift in Sources */,
 				46313A4E2269B922003D702C /* EmployeeListController.swift in Sources */,
-				461026F622AE6345001F70EA /* LoginModel.swift in Sources */,
+				461026F622AE6345001F70EA /* ProfileModel.swift in Sources */,
 				465F2FB522707C9400A5CE02 /* PhotoPreviewController.swift in Sources */,
 				46313A502269B954003D702C /* GalleryController.swift in Sources */,
 				4691EAAD229E922700BF08A6 /* EmployeeModel.swift in Sources */,

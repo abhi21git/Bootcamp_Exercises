@@ -10,7 +10,7 @@ import UIKit
 import MapKit
 import CoreData
 
-class EmployeeDetailsControllers: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, Toastable {
+class EmployeeDetailsControllers: UIViewController, Toastable {
     
     //  MARK: - Variables
     var empID: String = "0"
@@ -46,7 +46,7 @@ class EmployeeDetailsControllers: UIViewController, UIImagePickerControllerDeleg
         empIDLabel.roundedCornersWithBorder(cornerRadius: 4)
         salaryLabel.roundedCornersWithBorder(cornerRadius: 4)
         detailsContentView.roundedCornersWithBorder(cornerRadius: 4)
-        detailsContentView.elevateView(shadowOffset: CGSize(width: 1.0, height: 1.0), shadowRadius: 8)
+        detailsContentView.elevateView(shadowOffset: CGSize(width: 1.0, height: 1.0), shadowRadius: 4)
         galleryAndMapContentView.roundedCornersWithBorder(cornerRadius: 4, borderWidth: 1)
         customSegment.roundedCornersWithBorder(cornerRadius: 4, borderWidth: 1)
         
@@ -184,7 +184,22 @@ class EmployeeDetailsControllers: UIViewController, UIImagePickerControllerDeleg
 
 
 //  MARK: - Extensions
-extension EmployeeDetailsControllers {
+extension EmployeeDetailsControllers: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
+    
+    // delegate handling to save data from photo library
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        guard let imageName = info[UIImagePickerController.InfoKey.imageURL] as? URL else { return }
+        
+        let appDelegate = UIApplication.shared.delegate as? AppDelegate
+        if let context = appDelegate?.persistentContainer.viewContext {
+            let entity = NSEntityDescription.insertNewObject(forEntityName: "EmployeeImages", into: context) as? EmployeeImages
+            entity?.employeeName = nameLabel.text
+            entity?.imageURL = "\(imageName.lastPathComponent)"
+            entity?.thumbnailURL = "\(imageName.lastPathComponent)"
+            appDelegate?.saveContext()
+        }
+        dismiss(animated: true, completion: nil)
+    }
     
 }

@@ -8,6 +8,7 @@
 
 import Foundation
 
+//Model used in googleImageSearch()
 struct GoogleImages: Decodable {
     let items: [ImageData]?
     

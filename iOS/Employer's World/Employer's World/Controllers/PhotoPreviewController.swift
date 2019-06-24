@@ -24,7 +24,7 @@ class PhotoPreviewController: UIViewController {
         super.viewDidLoad()
         
         configureUI()
-        loadImage(url: imageURL ?? "")
+        loadImage(url: imageURL!)
     }
     
     
@@ -35,8 +35,8 @@ class PhotoPreviewController: UIViewController {
     }
     
     func loadImage(url: String) {
-        let url = URL(string: url)
-        UIImage.loadFrom(url: url!, completion: { image in
+//        let url = URL(string: url)
+        UIImage.loadFrom(url: url, completion: { image in
             self.imageView.image = image
             self.imageLoader.isHidden = true
         })

@@ -36,13 +36,13 @@ class GalleryController: UIViewController, NSFetchedResultsControllerDelegate, T
         let fetchRequest:NSFetchRequest = EmployeeImages.fetchRequest()
         
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "thumbnailURL", ascending: true)]
+        
         let fetchResultController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context!, sectionNameKeyPath: nil, cacheName: nil)
         
         fetchResultController.delegate = self
         
-        try! fetchResultController.performFetch()
+        try? fetchResultController.performFetch()
         return fetchResultController
-        
     }()
     
     //  MARK: - IBOutlets
@@ -58,6 +58,11 @@ class GalleryController: UIViewController, NSFetchedResultsControllerDelegate, T
         gallery.register(nib, forCellWithReuseIdentifier: "galleryCell")
         gallery.delegate = self
         gallery.dataSource = self
+        
+        let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        urls[urls.count-1] as NSURL
+        print(urls)
+
         
         configureUI()
         loadImages()
@@ -184,9 +189,8 @@ extension GalleryController: UICollectionViewDelegate , UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "galleryCell", for: indexPath) as! CustomGalleryCell
         if isGalleryVC {
-            let thumbUrl = URL(string: thumbnailURL[indexPath.row])
             cell.selectionIndicator.isHidden = true
-            UIImage.loadFrom(url: thumbUrl!, completion: { image in
+            UIImage.loadFrom(url: thumbnailURL[indexPath.row], completion: { image in
                 cell.thumbnailImage.image = image
                 cell.imageTitle.text = self.tempName
                 cell.loadingIndicator.isHidden = true
@@ -197,8 +201,7 @@ extension GalleryController: UICollectionViewDelegate , UICollectionViewDataSour
         }
         else {
             
-            let url = URL(string: thumbnailURL[indexPath.row])
-            UIImage.loadFrom(url: url!, completion: { image in
+            UIImage.loadFrom(url: thumbnailURL[indexPath.row], completion: { image in
                 cell.thumbnailImage.image = image
                 cell.loadingIndicator.isHidden = true
             })
@@ -229,9 +232,11 @@ extension GalleryController: UICollectionViewDelegate , UICollectionViewDataSour
                         entity?.imageURL = imageURL[indexPath.row]
                         entity?.thumbnailURL = thumbnailURL[indexPath.row]
                         appDelegate?.saveContext()
+
                     }
                     currentCell.isUnselectedCell = false
                     currentCell.selectionIndicator.isHidden = false
+                    currentCell.elevateView(shadowColor: UIColor(red: 0/255, green: 150/255, blue: 1, alpha: 1.0).cgColor, shadowRadius: 4, shadowOpacity: 1)
                     currentCell.thumbnailImage.layer.borderColor = UIColor(red: 0/255, green: 150/255, blue: 1, alpha: 1.0).cgColor
                     currentCell.thumbnailImage.layer.borderWidth = 2
                     

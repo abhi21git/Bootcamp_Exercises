@@ -26,10 +26,11 @@ enum RequestMethod: String {
 
 class NetworkManager {
     
-    static let sharedInstance = NetworkManager()
+    static let sharedInstance = NetworkManager() // to make this class singleton
 	
-    
-    func loadEmployee(urlString: String, completion: @escaping ((Any?,Error?) -> ())){
+	
+	// function which will load employees
+    func loadEmployees(urlString: String, completion: @escaping ((Any?,Error?) -> ())){
         
         guard let url = URL(string: urlString) else { return }
         var request = URLRequest(url: url)
@@ -39,10 +40,8 @@ class NetworkManager {
         let session = URLSession.shared
         let sessionTask = session.dataTask(with: request) { (data, response, error) in
             
-            var result: Any?
             if error ==  nil {
-                let decoder = JSONDecoder()
-                result = try? decoder.decode([Employee].self, from: data!)
+                let result = try? JSONDecoder().decode([Employee].self, from: data!)
                 completion(result, nil)
             }
             else {
@@ -52,12 +51,15 @@ class NetworkManager {
         sessionTask.resume()
     }
     
-    
+	
+	//function which will load details of specific employee
     func loadSelectedEmployee(urlString: String, completion: @escaping((Any?, Error?) ->())) {
         
         guard let url = URL(string: urlString) else { return }
         var request = URLRequest(url: url)
+		
         request.httpMethod = RequestMethod.get.rawValue
+		
         let session = URLSession.shared
         let sessionTask  = session.dataTask(with: request) {(data, response, error) in
 			
@@ -68,12 +70,12 @@ class NetworkManager {
             else {
                 completion(nil, ServiceError.customError("Couldn't fetch employee details."))
             }
-			
         }
         sessionTask.resume()
     }
     
 	
+	//function which will give response of login API
 	func logIn(urlString: String, parameters: Data, completion: @escaping((Any?, Error?) -> ())) {
 		
 		guard let url = URL(string: urlString) else {return}
@@ -102,6 +104,7 @@ class NetworkManager {
 	}
     
 	
+	//function which will give response of validation, forget and signup api
     func profileApi(urlString: String, parameters: [String : String], completion: @escaping((Any?, Error?) -> ())) {
         
         guard let url = URL(string: urlString) else { return }
@@ -132,6 +135,8 @@ class NetworkManager {
         sessionTask.resume()
     }
 	
+	
+	//functon which will give response from google custom search api
 	func googleImageSearch(urlString: String, completion: @escaping((Any?, Error?) -> ())) {
 
 		guard let url = URL(string: urlString) else { return }
@@ -153,7 +158,7 @@ class NetworkManager {
 			}
 		}
 		sessionTask.resume()
-		
 	}
+
     
 }
