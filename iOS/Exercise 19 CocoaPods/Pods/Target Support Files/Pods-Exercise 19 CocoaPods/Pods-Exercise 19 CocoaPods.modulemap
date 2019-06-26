@@ -1,6 +1,0 @@
-framework module Pods_Exercise_19_CocoaPods {
-  umbrella header "Pods-Exercise 19 CocoaPods-umbrella.h"
-
-  export *
-  module * { export * }
-}
