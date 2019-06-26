@@ -42,7 +42,6 @@ class EmployeeListController: UIViewController, UITableViewDelegate, UITableView
     func configureUI() {
         self.navigationItem.title = "Employer's World"
         self.definesPresentationContext = true
-        employeeTableView.isHidden = true
         self.tabBarController?.tabBar.elevateView()
         loader.roundedCornersWithBorder(cornerRadius: loader.frame.height/6)
         refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
@@ -83,15 +82,14 @@ class EmployeeListController: UIViewController, UITableViewDelegate, UITableView
         NetworkManager.sharedInstance.loadEmployees(urlString: employeeListURL, completion: { (data, responseError) in
             
             if let error = responseError {
-                
-                let alert  = UIAlertController(title: "Something went wrong", message: error.localizedDescription, preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "Retry", style: .destructive, handler: { action in self.employeeFetching() })) // Retry option to hit api in case internet didn't worked in first place
-                alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { action in
+                self.showToast(controller: self, message: error.localizedDescription, seconds: 1.2)
+                DispatchQueue.main.async {
                     self.loader.isHidden = true
-                    self.showToast(controller: self, message: "No internet connection.", seconds: 1.2)
-                }))
-                self.present(alert, animated: true, completion: nil)
-                
+                    let alert: UILabel  = UILabel(frame: CGRect(x: 0, y: 0, width: self.employeeTableView.bounds.size.width, height: self.employeeTableView.bounds.size.height))
+                    alert.text = "Pull down to refresh."
+                    alert.textAlignment = .center
+                    self.employeeTableView.tableHeaderView = alert
+                }
             }
             else {
                 if data != nil {
@@ -101,7 +99,7 @@ class EmployeeListController: UIViewController, UITableViewDelegate, UITableView
                         
                         DispatchQueue.main.async {
                             self.loader.isHidden = true
-                            self.employeeTableView.isHidden = false
+                            self.employeeTableView.tableHeaderView = .none
                             self.employeeTableView.reloadData()
                         }
                     }

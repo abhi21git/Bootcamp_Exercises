@@ -28,7 +28,7 @@
 		<true/>
 		<key>NSExceptionDomains</key>
 		<dict>
-			<key>example.com</key>
+			<key>google.com</key>
 			<dict>
 				<key>NSExceptionAllowsInsecureHTTPLoads</key>
 				<true/>
@@ -42,7 +42,7 @@
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>Showing location of other users</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Showing user's Current location</string>
+	<string>Showing user&apos;s Current location</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>$(PRODUCT_NAME) photo use</string>
 	<key>UILaunchStoryboardName</key>

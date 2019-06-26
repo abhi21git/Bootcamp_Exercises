@@ -10,9 +10,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CustomGalleryCell" customModule="Employer_s_World" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CustomGalleryCell" customModule="Employer_World" customModuleProvider="target"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="galleryCell" id="gTV-IL-0wX" customClass="CustomGalleryCell" customModule="Employer_s_World" customModuleProvider="target">
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="galleryCell" id="gTV-IL-0wX" customClass="CustomGalleryCell" customModule="Employer_World" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -54,17 +54,17 @@
                 </subviews>
             </view>
             <constraints>
+                <constraint firstItem="qHV-UL-opg" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="4r2-wk-rBj"/>
                 <constraint firstItem="phV-p9-kC7" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="5io-dD-qnB"/>
                 <constraint firstAttribute="trailing" secondItem="b4L-vI-hmu" secondAttribute="trailing" id="Hbs-kJ-Qi0"/>
                 <constraint firstAttribute="bottom" secondItem="b4L-vI-hmu" secondAttribute="bottom" id="Ht3-00-Gjq"/>
                 <constraint firstItem="b4L-vI-hmu" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="RPd-bK-x0x"/>
                 <constraint firstAttribute="trailing" secondItem="plt-mF-xF9" secondAttribute="trailing" constant="8" id="X1g-uO-d6N"/>
                 <constraint firstAttribute="bottom" secondItem="phV-p9-kC7" secondAttribute="bottom" id="Y1A-JE-TbX"/>
-                <constraint firstItem="qHV-UL-opg" firstAttribute="centerX" secondItem="b4L-vI-hmu" secondAttribute="centerX" id="dUZ-eO-fkY"/>
                 <constraint firstItem="b4L-vI-hmu" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="dec-9l-fhI"/>
+                <constraint firstItem="qHV-UL-opg" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="gkc-4s-yey"/>
                 <constraint firstAttribute="trailing" secondItem="phV-p9-kC7" secondAttribute="trailing" id="rP7-wh-8gm"/>
                 <constraint firstItem="plt-mF-xF9" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="8" id="xBl-Ac-caB"/>
-                <constraint firstItem="qHV-UL-opg" firstAttribute="centerY" secondItem="b4L-vI-hmu" secondAttribute="centerY" id="zen-4n-hmz"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="200" height="200"/>

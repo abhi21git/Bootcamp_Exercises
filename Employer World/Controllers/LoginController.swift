@@ -26,6 +26,7 @@ class LoginController: UIViewController, Toastable {
     @IBOutlet weak var userNameChecker: UILabel!
     @IBOutlet weak var passwordChecker: UILabel!
     @IBOutlet weak var forgetButton: UIButton!
+    @IBOutlet weak var loader: UIActivityIndicatorView!
     
     
     //  MARK: - LifeCycle
@@ -40,6 +41,8 @@ class LoginController: UIViewController, Toastable {
         userNameTF.becomeFirstResponder()
         self.navigationItem.title = "Login"
         loginButton.roundedCornersWithBorder(cornerRadius: 4)
+        loader.roundedCornersWithBorder(cornerRadius: loader.frame.height/6)
+        loader.isHidden = true
         loginButton.elevateView(shadowOffset: CGSize(width: 1.0, height: 1.0))
         userNameTF.elevateView(shadowOffset: CGSize(width: 1.0, height: 1.0))
         passwordTF.elevateView(shadowOffset: CGSize(width: 1.0, height: 1.0))
@@ -109,7 +112,6 @@ class LoginController: UIViewController, Toastable {
                     DispatchQueue.main.async {
                         self.userNameChecker.textColor = UIColor.blue
                         self.userNameChecker.text = CheckStatus.unknown.rawValue
-                        //                            self.showToast(controller: self, message: "Somwthing went wrong", seconds: 1.2)
                     }
                     
                     if data != nil {
@@ -150,6 +152,9 @@ class LoginController: UIViewController, Toastable {
     
     @IBAction func loginIn() {
         if userNameChecker.text == CheckStatus.correct.rawValue {
+            
+            loader.isHidden = false
+            
             let loginURL = "https://qa.curiousworld.com/api/v3/Login?_format=json"
             let loginParam = [
                 "mail" : userNameTF.text! ,
@@ -165,18 +170,10 @@ class LoginController: UIViewController, Toastable {
             
             NetworkManager.sharedInstance.logIn(urlString: loginURL, parameters: parametersData, completion: { (data, responseError) in
                 if let error = responseError {
-                    
+                    self.showToast(controller: self, message: error.localizedDescription, seconds: 1.2)
                     DispatchQueue.main.async {
-                        let alert  = UIAlertController(title: "Something went wrong", message: error.localizedDescription, preferredStyle: .alert)
-                        alert.addAction(UIAlertAction(title: "Retry", style: .destructive, handler: { action in self.loginIn() })) // Retry option to hit api in case internet didn't worked in first place
-                        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { action in
-                            self.userNameTF.text = ""
-                            self.userNameChecker.text = CheckStatus.none.rawValue
-                            self.passwordTF.text = ""
-                            self.passwordChecker.text = CheckStatus.none.rawValue
-                            self.userNameTF.becomeFirstResponder()
-                        }))
-                        self.present(alert, animated: true, completion: nil)
+                        self.userNameChecker.text = CheckStatus.unknown.rawValue
+                        self.passwordChecker.text = CheckStatus.unknown.rawValue
                     }
                     
                 } else {
@@ -192,19 +189,16 @@ class LoginController: UIViewController, Toastable {
                                 self.view.addSubview(profileVC.view)
                                 profileVC.didMove(toParent: self)
                                 
+                                self.loader.isHidden = true
                                 self.userNameTF.text = ""
                                 self.passwordTF.text = ""
                                 self.userNameChecker.text = CheckStatus.none.rawValue
-                                self.passwordChecker.text = CheckStatus.none.rawValue
-                                self.userNameTF.becomeFirstResponder()
-                                
+                                self.passwordChecker.text = CheckStatus.none.rawValue                                
                             }
                         }
                     }
                     else {
-                        DispatchQueue.main.async {
-                            self.showToast(controller: self, message: "Cannot Login", seconds: 1.2)
-                        }
+                        self.showToast(controller: self, message: "Cannot Login", seconds: 1.2)
                     }
                 }
             })
@@ -232,27 +226,18 @@ class LoginController: UIViewController, Toastable {
             NetworkManager.sharedInstance.profileApi(urlString: forgetURL, parameters: parameters, completion: { (data, responseError) in
                 if let error = responseError {
                     DispatchQueue.global().async {
-                        let alert  = UIAlertController(title: "Something went wrong", message: error.localizedDescription, preferredStyle: .alert)
-                        alert.addAction(UIAlertAction(title: "Retry", style: .destructive, handler: { action in self.loginIn() })) // Retry option to hit api in case internet didn't worked in first place
-                        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-                        self.present(alert, animated: true, completion: nil)
+                        self.showToast(controller: self, message: error.localizedDescription, seconds: 1.2)
                     }
                 }
                 else {
                     if data != nil {
                         DispatchQueue.global().async {
                             let forgetResponse = data as! ProfileModel
-                            DispatchQueue.main.async {
-                                let alertController = UIAlertController(title: "Alert", message: forgetResponse.Status.message, preferredStyle: .alert)
-                                alertController.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
-                                self.present(alertController, animated: true, completion: nil)
-                            }
+                            self.showToast(controller: self, message: forgetResponse.Status.message!, seconds: 2)
                         }
                     }
                     else {
-                        DispatchQueue.main.async {
-                            self.showToast(controller: self, message: "Invalid email entered", seconds: 1.2)
-                        }
+                        self.showToast(controller: self, message: "Invalid email entered", seconds: 1.2)
                     }
                 }
             })

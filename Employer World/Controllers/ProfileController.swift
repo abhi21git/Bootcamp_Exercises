@@ -66,13 +66,13 @@ class ProfileController: UIViewController {
     //  MARK: - IBActions
     @IBAction func logout() {
         //remove child view
-        UserDefaults.standard.set(true, forKey: "isFirstTime")
-        UserDefaults.standard.set(false, forKey: "isLoggenIn")
-        UserDefaults.standard.set("login", forKey: "ProfileStatus")
-        UserDefaults.standard.removeObject(forKey: "fname")
-        UserDefaults.standard.removeObject(forKey: "lname")
-        UserDefaults.standard.removeObject(forKey: "uid")
-        UserDefaults.standard.removeObject(forKey: "subscription")
+        profile.set(true, forKey: "isFirstTime")
+        profile.set(false, forKey: "isLoggenIn")
+        profile.set("login", forKey: "ProfileStatus")
+        profile.removeObject(forKey: "fname")
+        profile.removeObject(forKey: "lname")
+        profile.removeObject(forKey: "uid")
+        profile.removeObject(forKey: "subscription")
         
         self.willMove(toParent: nil)
         self.view.removeFromSuperview()

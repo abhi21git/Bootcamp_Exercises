@@ -70,13 +70,9 @@ class EmployeeDetailsControllers: UIViewController, Toastable {
         NetworkManager.sharedInstance.loadSelectedEmployee(urlString: employeeURL, completion: { (data, responseError) in
             
             if let error = responseError {
-                
-                print(error.localizedDescription)
-                let alert  = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-                self.present(alert, animated: true, completion: nil)
-                
-            } else {
+                self.showToast(controller: self, message: error.localizedDescription, seconds: 1.2)
+            }
+            else {
                 if data != nil {
                     DispatchQueue.global().async {
                         self.employeeArray = [data as! EmployeeDetails]
@@ -150,18 +146,17 @@ class EmployeeDetailsControllers: UIViewController, Toastable {
         //to remove pre-existing sub-views
         if self.children.count > 0 {
         let viewControllers = self.children
-//        for viewController in viewControllers{
-//            viewController.willMove(toParent: nil)
-//            viewController.view.removeFromSuperview()
-//            viewController.removeFromParent()
-//        }
-            viewControllers[0].willMove(toParent: nil)
-            viewControllers[0].view.removeFromSuperview()
-            viewControllers[0].removeFromParent()
+            for viewController in viewControllers{
+                viewController.willMove(toParent: nil)
+                viewController.view.removeFromSuperview()
+                viewController.removeFromParent()
+            }
+            
         }
 
         if isGallery {
             addChild(galleryVC)
+//            galleryVC.view.frame = bottomContainerView.bounds
             bottomContainerView.addSubview(galleryVC.view)
             galleryVC.didMove(toParent: self)
         }

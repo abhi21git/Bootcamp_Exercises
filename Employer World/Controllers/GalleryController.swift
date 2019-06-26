@@ -119,9 +119,7 @@ class GalleryController: UIViewController, NSFetchedResultsControllerDelegate, T
         NetworkManager.sharedInstance.googleImageSearch(urlString: urlString, completion: {(data, responseError) in
             
             if let error = responseError {
-                DispatchQueue.main.async {
-                    self.showToast(controller: self, message: error.localizedDescription, seconds: 1.2)
-                }
+                self.showToast(controller: self, message: error.localizedDescription, seconds: 1.2)
             }
             else {
                 if data != nil {
@@ -169,7 +167,6 @@ class GalleryController: UIViewController, NSFetchedResultsControllerDelegate, T
         gallery.reloadData()
         refreshControl.endRefreshing()
     }
-
     
     
 }
@@ -257,18 +254,22 @@ extension GalleryController: UICollectionViewDelegate , UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         var cellSize: CGFloat?
-        
+        if indexPath.row == 0 {
+            temp = 0
+        }
         if temp <= 2 {
             temp += 1
-            cellSize = (collectionView.frame.width/3.0) - 8
+            cellSize = (collectionView.bounds.width/3.0) - 8.5
         }
         else {
             temp += 1
-            cellSize = (collectionView.frame.width/2.0) - 9
+            cellSize = (collectionView.bounds.width/2.0) - 9.5
             if temp == 5 {
                 temp = 0
             }
         }
+        
+
         
         return CGSize(width: cellSize!, height: cellSize!)
     }

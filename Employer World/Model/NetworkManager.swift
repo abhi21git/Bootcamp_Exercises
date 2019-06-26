@@ -45,7 +45,7 @@ class NetworkManager {
                 completion(result, nil)
             }
             else {
-                completion(nil, ServiceError.customError("Please check your internet connection and try again."))
+                completion(nil, ServiceError.customError("Please check your internet connection"))
             }
         }
         sessionTask.resume()

@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5Rd-fa-fb2">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5Rd-fa-fb2">
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="separatorInset" minX="60" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -65,7 +65,7 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TpB-sV-4t1">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="770"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="781"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tbS-PU-dj5">
                                                 <rect key="frame" x="20" y="20" width="374" height="160"/>
@@ -163,9 +163,9 @@
                                                     <constraint firstAttribute="height" constant="50" id="OoF-MV-9oP"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f9c-7b-173">
-                                                <rect key="frame" x="20" y="270" width="374" height="480"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f9c-7b-173">
+                                                <rect key="frame" x="20" y="270" width="374" height="491"/>
+                                                <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </view>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -180,7 +180,6 @@
                                             <constraint firstItem="XRu-yL-ld8" firstAttribute="top" secondItem="tbS-PU-dj5" secondAttribute="bottom" constant="20" id="g7g-Gg-FRE"/>
                                             <constraint firstAttribute="trailing" secondItem="f9c-7b-173" secondAttribute="trailing" constant="20" id="pY5-dW-axW"/>
                                             <constraint firstItem="f9c-7b-173" firstAttribute="top" secondItem="XRu-yL-ld8" secondAttribute="bottom" constant="20" id="r6r-LS-p3l"/>
-                                            <constraint firstItem="f9c-7b-173" firstAttribute="height" secondItem="tbS-PU-dj5" secondAttribute="height" multiplier="3" id="yxJ-8j-EHe"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -200,6 +199,7 @@
                             <constraint firstItem="wWk-Iu-BTn" firstAttribute="trailing" secondItem="SIl-44-KWf" secondAttribute="trailing" id="308-GG-JJy"/>
                             <constraint firstItem="SIl-44-KWf" firstAttribute="top" secondItem="wWk-Iu-BTn" secondAttribute="top" id="7KU-DV-Vdu"/>
                             <constraint firstItem="wWk-Iu-BTn" firstAttribute="bottom" secondItem="SIl-44-KWf" secondAttribute="bottom" id="CtT-SO-dSw"/>
+                            <constraint firstItem="f9c-7b-173" firstAttribute="height" secondItem="wWk-Iu-BTn" secondAttribute="height" multiplier="0.6" id="Uf7-QF-f0d"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="wWk-Iu-BTn"/>
                     </view>
@@ -231,42 +231,42 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JZR-ES-HLE">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="811.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="831"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Are you new to" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2av-OJ-Tyb">
-                                                <rect key="frame" x="60" y="120" width="294" height="39"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Are you new to" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2av-OJ-Tyb">
+                                                <rect key="frame" x="60" y="120" width="294" height="38.5"/>
                                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="32"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" text="Employer World" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V7J-03-hX9">
-                                                <rect key="frame" x="60" y="179" width="294" height="29"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Employer World" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V7J-03-hX9">
+                                                <rect key="frame" x="60" y="178.5" width="294" height="29"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="24"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please Signup to enjoy all features" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AlB-mg-uCD">
-                                                <rect key="frame" x="60" y="248" width="294" height="19.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Please Signup to enjoy all features" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AlB-mg-uCD">
+                                                <rect key="frame" x="60" y="247.5" width="294" height="19.5"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
                                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField autoresizesSubviews="NO" opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="254" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="40" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter firstname" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TCE-NF-JWM">
-                                                <rect key="frame" x="60" y="307.5" width="294" height="40"/>
+                                            <textField autoresizesSubviews="NO" opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="40" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter firstname" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TCE-NF-JWM">
+                                                <rect key="frame" x="60" y="307" width="294" height="40"/>
                                                 <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <textInputTraits key="textInputTraits" textContentType="username"/>
                                             </textField>
-                                            <textField autoresizesSubviews="NO" opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="255" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="40" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter lastname" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Riv-db-ZbD">
-                                                <rect key="frame" x="60" y="367.5" width="294" height="40"/>
+                                            <textField autoresizesSubviews="NO" opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="40" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter lastname" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Riv-db-ZbD">
+                                                <rect key="frame" x="60" y="367" width="294" height="40"/>
                                                 <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <textInputTraits key="textInputTraits" textContentType="username"/>
                                             </textField>
-                                            <textField autoresizesSubviews="NO" opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="256" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="40" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pRl-qq-fW2">
-                                                <rect key="frame" x="60" y="427.5" width="294" height="40"/>
+                                            <textField autoresizesSubviews="NO" opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="40" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pRl-qq-fW2">
+                                                <rect key="frame" x="60" y="427" width="294" height="40"/>
                                                 <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -275,8 +275,8 @@
                                                     <action selector="emailValidation" destination="g0y-GR-wef" eventType="editingChanged" id="XDg-os-5bD"/>
                                                 </connections>
                                             </textField>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qf2-9T-9sf">
-                                                <rect key="frame" x="326" y="447.5" width="0.0" height="0.0"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qf2-9T-9sf">
+                                                <rect key="frame" x="326" y="447" width="0.0" height="0.0"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="Qf2-9T-9sf" secondAttribute="height" multiplier="1:1" id="00c-NC-RWa"/>
                                                 </constraints>
@@ -284,8 +284,8 @@
                                                 <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="257" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="41" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YXJ-gd-ozR">
-                                                <rect key="frame" x="60" y="487.5" width="294" height="41"/>
+                                            <textField opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="41" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YXJ-gd-ozR">
+                                                <rect key="frame" x="60" y="487" width="294" height="41"/>
                                                 <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -294,8 +294,8 @@
                                                     <action selector="passwordValidation" destination="g0y-GR-wef" eventType="editingChanged" id="Fsl-TJ-97R"/>
                                                 </connections>
                                             </textField>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mJO-57-A4N">
-                                                <rect key="frame" x="326" y="508" width="0.0" height="0.0"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mJO-57-A4N">
+                                                <rect key="frame" x="326" y="507.5" width="0.0" height="0.0"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="mJO-57-A4N" secondAttribute="height" multiplier="1:1" id="TkU-2W-czo"/>
                                                 </constraints>
@@ -303,8 +303,8 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="258" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="41" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6lf-Eq-bdy">
-                                                <rect key="frame" x="60" y="548.5" width="294" height="41"/>
+                                            <textField opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="41" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6lf-Eq-bdy">
+                                                <rect key="frame" x="60" y="548" width="294" height="41"/>
                                                 <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -313,8 +313,8 @@
                                                     <action selector="passwordMatching" destination="g0y-GR-wef" eventType="editingChanged" id="iSy-UH-haK"/>
                                                 </connections>
                                             </textField>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8mL-Be-Vqz">
-                                                <rect key="frame" x="326" y="569" width="0.0" height="0.0"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8mL-Be-Vqz">
+                                                <rect key="frame" x="326" y="568.5" width="0.0" height="0.0"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="8mL-Be-Vqz" secondAttribute="height" multiplier="1:1" id="YKb-Cb-chw"/>
                                                 </constraints>
@@ -322,8 +322,8 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="259" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="auV-Yu-ndn">
-                                                <rect key="frame" x="60" y="629.5" width="294" height="30"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="auV-Yu-ndn">
+                                                <rect key="frame" x="60" y="629" width="294" height="30"/>
                                                 <state key="normal" title="Already have an account?">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
@@ -331,8 +331,8 @@
                                                     <action selector="login" destination="g0y-GR-wef" eventType="touchUpInside" id="hGq-i8-5Ju"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="260" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="grT-2m-h3t">
-                                                <rect key="frame" x="60" y="679.5" width="294" height="32"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="grT-2m-h3t">
+                                                <rect key="frame" x="60" y="679" width="294" height="32"/>
                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -346,14 +346,13 @@
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="grT-2m-h3t" secondAttribute="bottom" constant="40" id="0TZ-Bn-2E9"/>
                                             <constraint firstItem="Riv-db-ZbD" firstAttribute="top" secondItem="TCE-NF-JWM" secondAttribute="bottom" constant="20" id="1BE-4s-NQZ"/>
                                             <constraint firstItem="8mL-Be-Vqz" firstAttribute="width" secondItem="8mL-Be-Vqz" secondAttribute="height" multiplier="1:1" id="39Q-E1-m0c"/>
                                             <constraint firstItem="pRl-qq-fW2" firstAttribute="top" secondItem="Riv-db-ZbD" secondAttribute="bottom" constant="20" id="6rX-EL-Z9a"/>
                                             <constraint firstItem="6lf-Eq-bdy" firstAttribute="leading" secondItem="YXJ-gd-ozR" secondAttribute="leading" id="7TM-Md-Vbd"/>
                                             <constraint firstItem="YXJ-gd-ozR" firstAttribute="top" secondItem="pRl-qq-fW2" secondAttribute="bottom" constant="20" id="9jD-q4-gSJ"/>
                                             <constraint firstItem="2av-OJ-Tyb" firstAttribute="leading" secondItem="JZR-ES-HLE" secondAttribute="leading" constant="60" id="ALD-rq-TKw"/>
-                                            <constraint firstAttribute="bottom" relation="lessThanOrEqual" secondItem="grT-2m-h3t" secondAttribute="bottom" constant="100" id="BYc-nb-pPw"/>
+                                            <constraint firstAttribute="bottom" secondItem="grT-2m-h3t" secondAttribute="bottom" constant="120" id="BYc-nb-pPw"/>
                                             <constraint firstItem="Qf2-9T-9sf" firstAttribute="centerY" secondItem="pRl-qq-fW2" secondAttribute="centerY" id="DNx-nU-GA5"/>
                                             <constraint firstItem="auV-Yu-ndn" firstAttribute="leading" secondItem="6lf-Eq-bdy" secondAttribute="leading" id="Fc9-Lc-KJr"/>
                                             <constraint firstItem="TCE-NF-JWM" firstAttribute="trailing" secondItem="AlB-mg-uCD" secondAttribute="trailing" id="IzN-eT-HEW"/>
@@ -386,9 +385,8 @@
                                             <constraint firstItem="V7J-03-hX9" firstAttribute="trailing" secondItem="AlB-mg-uCD" secondAttribute="trailing" id="rqP-1Z-JQJ"/>
                                             <constraint firstItem="TCE-NF-JWM" firstAttribute="leading" secondItem="AlB-mg-uCD" secondAttribute="leading" id="saV-e7-YzQ"/>
                                             <constraint firstItem="YXJ-gd-ozR" firstAttribute="leading" secondItem="pRl-qq-fW2" secondAttribute="leading" id="tf6-JA-5Sa"/>
-                                            <constraint firstItem="2av-OJ-Tyb" firstAttribute="top" relation="greaterThanOrEqual" secondItem="JZR-ES-HLE" secondAttribute="top" constant="40" id="tm0-OL-2pE"/>
                                             <constraint firstItem="2av-OJ-Tyb" firstAttribute="trailing" secondItem="V7J-03-hX9" secondAttribute="trailing" id="uGi-aq-UHv"/>
-                                            <constraint firstItem="2av-OJ-Tyb" firstAttribute="top" relation="lessThanOrEqual" secondItem="JZR-ES-HLE" secondAttribute="top" constant="120" id="vrS-hU-Xbz"/>
+                                            <constraint firstItem="2av-OJ-Tyb" firstAttribute="top" secondItem="JZR-ES-HLE" secondAttribute="top" constant="120" id="vrS-hU-Xbz"/>
                                             <constraint firstItem="8mL-Be-Vqz" firstAttribute="leading" secondItem="6lf-Eq-bdy" secondAttribute="trailing" constant="-28" id="wzr-UQ-gTa"/>
                                         </constraints>
                                     </view>
@@ -440,28 +438,28 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0U3-dC-P4d">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="699"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Welcome to" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fBJ-BW-UKd">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Welcome to" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fBJ-BW-UKd">
                                                 <rect key="frame" x="60" y="120" width="294" height="38.5"/>
                                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="32"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please Login to enjoy all features" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jnh-YE-gvJ">
-                                                <rect key="frame" x="60" y="227.5" width="294" height="45.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Please Login to enjoy all features" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jnh-YE-gvJ">
+                                                <rect key="frame" x="60" y="227.5" width="294" height="19.5"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="16"/>
                                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" text="Employer World" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KbP-Fu-YhT">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Employer World" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KbP-Fu-YhT">
                                                 <rect key="frame" x="60" y="178.5" width="294" height="29"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="24"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField autoresizesSubviews="NO" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="254" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="40" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter username" textAlignment="natural" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="ugR-zL-WDw">
-                                                <rect key="frame" x="60" y="333" width="294" height="40"/>
+                                            <textField autoresizesSubviews="NO" opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="40" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter username" textAlignment="natural" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="ugR-zL-WDw">
+                                                <rect key="frame" x="60" y="307" width="294" height="40"/>
                                                 <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -471,16 +469,16 @@
                                                     <outlet property="delegate" destination="UbZ-j7-dhi" id="JHj-oD-15w"/>
                                                 </connections>
                                             </textField>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h2H-bB-ZRH">
-                                                <rect key="frame" x="326" y="353" width="0.0" height="0.0"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h2H-bB-ZRH">
+                                                <rect key="frame" x="326" y="327" width="0.0" height="0.0"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="h2H-bB-ZRH" secondAttribute="height" multiplier="1:1" id="dNf-AV-RdT"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="255" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="40" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter password" textAlignment="natural" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="eHc-Pw-Y9V">
-                                                <rect key="frame" x="60" y="393" width="294" height="40"/>
+                                            <textField opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="40" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter password" textAlignment="natural" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="eHc-Pw-Y9V">
+                                                <rect key="frame" x="60" y="367" width="294" height="40"/>
                                                 <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -490,16 +488,16 @@
                                                     <outlet property="delegate" destination="UbZ-j7-dhi" id="stz-fn-KfW"/>
                                                 </connections>
                                             </textField>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YBI-wV-7se">
-                                                <rect key="frame" x="326" y="413" width="0.0" height="0.0"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YBI-wV-7se">
+                                                <rect key="frame" x="326" y="387" width="0.0" height="0.0"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="YBI-wV-7se" secondAttribute="height" multiplier="1:1" id="9K4-VF-zYv"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="256" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Om0-qS-Ejo">
-                                                <rect key="frame" x="60" y="473" width="294" height="30"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Om0-qS-Ejo">
+                                                <rect key="frame" x="60" y="447" width="294" height="30"/>
                                                 <state key="normal" title="Forgot password">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
@@ -507,8 +505,8 @@
                                                     <action selector="forgetPassword" destination="UbZ-j7-dhi" eventType="touchUpInside" id="osG-XY-ayg"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="257" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G0P-uf-cB8">
-                                                <rect key="frame" x="60" y="523" width="294" height="30"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G0P-uf-cB8">
+                                                <rect key="frame" x="60" y="497" width="294" height="30"/>
                                                 <state key="normal" title="Don't have an account?">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
@@ -516,8 +514,8 @@
                                                     <action selector="signUp" destination="UbZ-j7-dhi" eventType="touchUpInside" id="FsI-17-dCi"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="258" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qrm-Tr-Ehg">
-                                                <rect key="frame" x="60" y="573" width="294" height="32"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qrm-Tr-Ehg">
+                                                <rect key="frame" x="60" y="547" width="294" height="32"/>
                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -542,10 +540,9 @@
                                             <constraint firstAttribute="trailing" secondItem="fBJ-BW-UKd" secondAttribute="trailing" constant="60" id="LJj-qD-fXv"/>
                                             <constraint firstItem="qrm-Tr-Ehg" firstAttribute="trailing" secondItem="G0P-uf-cB8" secondAttribute="trailing" id="OKP-tq-M6N"/>
                                             <constraint firstItem="KbP-Fu-YhT" firstAttribute="top" secondItem="fBJ-BW-UKd" secondAttribute="bottom" constant="20" id="Qei-VX-g17"/>
-                                            <constraint firstItem="fBJ-BW-UKd" firstAttribute="top" relation="lessThanOrEqual" secondItem="0U3-dC-P4d" secondAttribute="top" constant="120" id="S3G-Zs-jRs"/>
+                                            <constraint firstItem="fBJ-BW-UKd" firstAttribute="top" secondItem="0U3-dC-P4d" secondAttribute="top" constant="120" id="S3G-Zs-jRs"/>
                                             <constraint firstItem="G0P-uf-cB8" firstAttribute="trailing" secondItem="Om0-qS-Ejo" secondAttribute="trailing" id="S4H-kq-zU2"/>
                                             <constraint firstItem="Jnh-YE-gvJ" firstAttribute="leading" secondItem="KbP-Fu-YhT" secondAttribute="leading" id="TFf-sU-qbh"/>
-                                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="qrm-Tr-Ehg" secondAttribute="bottom" constant="40" id="UZb-gt-fP8"/>
                                             <constraint firstItem="Om0-qS-Ejo" firstAttribute="trailing" secondItem="eHc-Pw-Y9V" secondAttribute="trailing" id="Wk0-gg-rlc"/>
                                             <constraint firstItem="qrm-Tr-Ehg" firstAttribute="leading" secondItem="G0P-uf-cB8" secondAttribute="leading" id="Yrb-jo-14g"/>
                                             <constraint firstItem="YBI-wV-7se" firstAttribute="leading" secondItem="eHc-Pw-Y9V" secondAttribute="trailing" constant="-28" id="bi6-Wj-rWO"/>
@@ -556,10 +553,9 @@
                                             <constraint firstItem="eHc-Pw-Y9V" firstAttribute="trailing" secondItem="ugR-zL-WDw" secondAttribute="trailing" id="fhA-hM-UQg"/>
                                             <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="YBI-wV-7se" secondAttribute="trailing" constant="88" id="gDj-RK-M9u"/>
                                             <constraint firstItem="Om0-qS-Ejo" firstAttribute="top" secondItem="eHc-Pw-Y9V" secondAttribute="bottom" constant="40" id="h4R-OA-tXd"/>
-                                            <constraint firstItem="fBJ-BW-UKd" firstAttribute="top" relation="greaterThanOrEqual" secondItem="0U3-dC-P4d" secondAttribute="top" constant="40" id="htf-9H-P4C"/>
                                             <constraint firstItem="h2H-bB-ZRH" firstAttribute="leading" secondItem="ugR-zL-WDw" secondAttribute="trailing" constant="-28" id="lIn-yg-J0O"/>
                                             <constraint firstItem="KbP-Fu-YhT" firstAttribute="trailing" secondItem="fBJ-BW-UKd" secondAttribute="trailing" id="rgf-F7-O3F"/>
-                                            <constraint firstAttribute="bottom" relation="lessThanOrEqual" secondItem="qrm-Tr-Ehg" secondAttribute="bottom" constant="120" id="sJu-pH-WjG"/>
+                                            <constraint firstAttribute="bottom" secondItem="qrm-Tr-Ehg" secondAttribute="bottom" constant="120" id="sJu-pH-WjG"/>
                                             <constraint firstItem="eHc-Pw-Y9V" firstAttribute="leading" secondItem="ugR-zL-WDw" secondAttribute="leading" id="tg4-PQ-QtW"/>
                                             <constraint firstItem="Om0-qS-Ejo" firstAttribute="leading" secondItem="eHc-Pw-Y9V" secondAttribute="leading" id="thy-Pb-5Mt"/>
                                             <constraint firstItem="fBJ-BW-UKd" firstAttribute="leading" secondItem="0U3-dC-P4d" secondAttribute="leading" constant="60" id="wxU-Lq-Rgq"/>
@@ -568,7 +564,7 @@
                                     </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="0U3-dC-P4d" firstAttribute="height" secondItem="2f9-he-jUg" secondAttribute="height" priority="749" id="Fzj-KN-i9x"/>
+                                    <constraint firstItem="0U3-dC-P4d" firstAttribute="height" secondItem="2f9-he-jUg" secondAttribute="height" priority="249" id="Fzj-KN-i9x"/>
                                     <constraint firstAttribute="bottom" secondItem="0U3-dC-P4d" secondAttribute="bottom" id="LaU-gf-90a"/>
                                     <constraint firstAttribute="trailing" secondItem="0U3-dC-P4d" secondAttribute="trailing" id="OV4-WL-nL7"/>
                                     <constraint firstItem="0U3-dC-P4d" firstAttribute="leading" secondItem="2f9-he-jUg" secondAttribute="leading" id="Vhi-Gn-T8s"/>
@@ -576,19 +572,30 @@
                                     <constraint firstItem="0U3-dC-P4d" firstAttribute="width" secondItem="2f9-he-jUg" secondAttribute="width" id="jpU-EP-Yos"/>
                                 </constraints>
                             </scrollView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="ppt-O2-J82">
+                                <rect key="frame" x="177" y="533" width="60" height="60"/>
+                                <color key="backgroundColor" white="0.33000000000000002" alpha="0.7011183647" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="LZ2-Kk-1iG"/>
+                                    <constraint firstAttribute="width" secondItem="ppt-O2-J82" secondAttribute="height" multiplier="1:1" id="iOk-B8-8AV"/>
+                                </constraints>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="2f9-he-jUg" firstAttribute="leading" secondItem="Q3p-f3-xfv" secondAttribute="leading" id="CIt-tm-X8u"/>
+                            <constraint firstItem="ppt-O2-J82" firstAttribute="centerY" secondItem="2f9-he-jUg" secondAttribute="centerY" multiplier="5/4" id="Jve-fC-ohB"/>
                             <constraint firstItem="Q3p-f3-xfv" firstAttribute="trailing" secondItem="2f9-he-jUg" secondAttribute="trailing" id="WCb-vY-L09"/>
                             <constraint firstItem="2f9-he-jUg" firstAttribute="top" secondItem="Q3p-f3-xfv" secondAttribute="top" id="gV5-4X-bC4"/>
                             <constraint firstItem="Q3p-f3-xfv" firstAttribute="bottom" secondItem="2f9-he-jUg" secondAttribute="bottom" id="lAO-3y-9zZ"/>
+                            <constraint firstItem="ppt-O2-J82" firstAttribute="centerX" secondItem="2f9-he-jUg" secondAttribute="centerX" id="lNQ-1Q-qFb"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Q3p-f3-xfv"/>
                     </view>
                     <navigationItem key="navigationItem" title="Login" id="eal-jD-Pnu"/>
                     <connections>
                         <outlet property="forgetButton" destination="Om0-qS-Ejo" id="v39-iX-LwN"/>
+                        <outlet property="loader" destination="ppt-O2-J82" id="yEz-C3-9vD"/>
                         <outlet property="loginButton" destination="qrm-Tr-Ehg" id="9uN-d4-wwl"/>
                         <outlet property="passwordChecker" destination="YBI-wV-7se" id="mOO-cw-nN3"/>
                         <outlet property="passwordTF" destination="eHc-Pw-Y9V" id="57P-Ma-tKC"/>
@@ -801,7 +808,7 @@
                                             <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                             <font key="NSFont" size="16" name="HelveticaNeue"/>
                                             <real key="NSKern" value="0.0"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="15" minimumLineHeight="18" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="15" minimumLineHeight="18" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
                                                 <tabStops/>
                                             </paragraphStyle>
                                             <color key="NSStrokeColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -816,7 +823,7 @@ Cg
                                             <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                             <font key="NSFont" metaFont="system" size="16"/>
                                             <real key="NSKern" value="0.0"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="15" minimumLineHeight="18" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="15" minimumLineHeight="18" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
                                                 <tabStops/>
                                             </paragraphStyle>
                                             <color key="NSStrokeColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -828,7 +835,7 @@ Cg
                                             <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                             <font key="NSFont" metaFont="systemBold" size="16"/>
                                             <real key="NSKern" value="0.0"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="15" minimumLineHeight="19" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="15" minimumLineHeight="19" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
                                                 <tabStops/>
                                             </paragraphStyle>
                                             <color key="NSStrokeColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -843,7 +850,7 @@ Cg
                                             <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                             <font key="NSFont" metaFont="system" size="16"/>
                                             <real key="NSKern" value="0.0"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="15" minimumLineHeight="19" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="15" minimumLineHeight="19" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
                                                 <tabStops/>
                                             </paragraphStyle>
                                             <color key="NSStrokeColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -857,7 +864,7 @@ Cg
                                             <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                             <font key="NSFont" metaFont="system" size="16"/>
                                             <real key="NSKern" value="0.0"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="15" minimumLineHeight="18" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="15" minimumLineHeight="18" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
                                                 <tabStops/>
                                             </paragraphStyle>
                                             <color key="NSStrokeColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -869,7 +876,7 @@ Cg
                                             <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                             <font key="NSFont" metaFont="systemBold" size="16"/>
                                             <real key="NSKern" value="0.0"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="15" minimumLineHeight="19" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="15" minimumLineHeight="19" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
                                                 <tabStops/>
                                             </paragraphStyle>
                                             <color key="NSStrokeColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -884,7 +891,7 @@ Cg
                                             <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                             <font key="NSFont" metaFont="system" size="16"/>
                                             <real key="NSKern" value="0.0"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="15" minimumLineHeight="19" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="15" minimumLineHeight="19" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
                                                 <tabStops/>
                                             </paragraphStyle>
                                             <color key="NSStrokeColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -898,7 +905,7 @@ Cg
                                             <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                             <font key="NSFont" metaFont="system" size="16"/>
                                             <real key="NSKern" value="0.0"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="15" minimumLineHeight="18" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="15" minimumLineHeight="18" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
                                                 <tabStops/>
                                             </paragraphStyle>
                                             <color key="NSStrokeColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -910,7 +917,7 @@ Cg
                                             <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                             <font key="NSFont" metaFont="systemBold" size="16"/>
                                             <real key="NSKern" value="0.0"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="15" minimumLineHeight="19" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="15" minimumLineHeight="19" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
                                                 <tabStops/>
                                             </paragraphStyle>
                                             <color key="NSStrokeColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -925,7 +932,7 @@ Cg
                                             <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                             <font key="NSFont" metaFont="system" size="16"/>
                                             <real key="NSKern" value="0.0"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="15" minimumLineHeight="19" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="15" minimumLineHeight="19" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
                                                 <tabStops/>
                                             </paragraphStyle>
                                             <color key="NSStrokeColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -937,7 +944,7 @@ Cg
                                             <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                             <font key="NSFont" metaFont="system" size="16"/>
                                             <real key="NSKern" value="0.0"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="15" minimumLineHeight="18" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="15" minimumLineHeight="18" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
                                                 <tabStops/>
                                             </paragraphStyle>
                                             <color key="NSStrokeColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -949,7 +956,7 @@ Cg
                                             <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                             <font key="NSFont" size="16" name="HelveticaNeue"/>
                                             <real key="NSKern" value="0.0"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="15" minimumLineHeight="18" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="15" minimumLineHeight="18" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
                                                 <tabStops/>
                                             </paragraphStyle>
                                             <color key="NSStrokeColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -961,7 +968,7 @@ Cg
                                             <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                             <font key="NSFont" metaFont="system" size="16"/>
                                             <real key="NSKern" value="0.0"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="15" minimumLineHeight="18" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="15" minimumLineHeight="18" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
                                                 <tabStops/>
                                             </paragraphStyle>
                                             <color key="NSStrokeColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -973,7 +980,7 @@ Cg
                                             <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                             <font key="NSFont" size="16" name="HelveticaNeue"/>
                                             <real key="NSKern" value="0.0"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="15" minimumLineHeight="18" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="15" minimumLineHeight="18" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
                                                 <tabStops/>
                                             </paragraphStyle>
                                             <color key="NSStrokeColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -984,7 +991,7 @@ Cg
                                             <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                             <font key="NSFont" metaFont="system" size="16"/>
                                             <real key="NSKern" value="0.0"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="15" minimumLineHeight="18" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="15" minimumLineHeight="18" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
                                                 <tabStops/>
                                             </paragraphStyle>
                                             <color key="NSStrokeColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -996,7 +1003,7 @@ Cg
                                             <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                             <font key="NSFont" size="16" name="HelveticaNeue"/>
                                             <real key="NSKern" value="0.0"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="15" minimumLineHeight="18" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="15" minimumLineHeight="18" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
                                                 <tabStops/>
                                             </paragraphStyle>
                                             <color key="NSStrokeColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1009,7 +1016,7 @@ Cg
                                             <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                             <font key="NSFont" metaFont="system" size="16"/>
                                             <real key="NSKern" value="0.0"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="15" minimumLineHeight="18" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="15" minimumLineHeight="18" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
                                                 <tabStops/>
                                             </paragraphStyle>
                                             <color key="NSStrokeColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1021,7 +1028,7 @@ Cg
                                             <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                             <font key="NSFont" metaFont="systemBold" size="16"/>
                                             <real key="NSKern" value="0.0"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="15" minimumLineHeight="19" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="15" minimumLineHeight="19" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
                                                 <tabStops/>
                                             </paragraphStyle>
                                             <color key="NSStrokeColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1036,7 +1043,7 @@ Cg
                                             <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                             <font key="NSFont" metaFont="system" size="16"/>
                                             <real key="NSKern" value="0.0"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="15" minimumLineHeight="19" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="15" minimumLineHeight="19" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
                                                 <tabStops/>
                                             </paragraphStyle>
                                             <color key="NSStrokeColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1050,7 +1057,7 @@ Cg
                                             <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                             <font key="NSFont" metaFont="system" size="16"/>
                                             <real key="NSKern" value="0.0"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="15" minimumLineHeight="18" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="15" minimumLineHeight="18" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
                                                 <tabStops/>
                                             </paragraphStyle>
                                             <color key="NSStrokeColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1062,7 +1069,7 @@ Cg
                                             <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                             <font key="NSFont" metaFont="systemBold" size="16"/>
                                             <real key="NSKern" value="0.0"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="15" minimumLineHeight="19" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="15" minimumLineHeight="19" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
                                                 <tabStops/>
                                             </paragraphStyle>
                                             <color key="NSStrokeColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1077,7 +1084,7 @@ Cg
                                             <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                             <font key="NSFont" metaFont="system" size="16"/>
                                             <real key="NSKern" value="0.0"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="15" minimumLineHeight="19" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="15" minimumLineHeight="19" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
                                                 <tabStops/>
                                             </paragraphStyle>
                                             <color key="NSStrokeColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1090,7 +1097,7 @@ Cg
                                             <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                             <font key="NSFont" metaFont="system" size="16"/>
                                             <real key="NSKern" value="0.0"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="15" minimumLineHeight="18" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="15" minimumLineHeight="18" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
                                                 <tabStops/>
                                             </paragraphStyle>
                                             <color key="NSStrokeColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1102,7 +1109,7 @@ Cg
                                             <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                             <font key="NSFont" size="16" name="HelveticaNeue"/>
                                             <real key="NSKern" value="0.0"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="15" minimumLineHeight="18" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="15" minimumLineHeight="18" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
                                                 <tabStops/>
                                             </paragraphStyle>
                                             <color key="NSStrokeColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1115,7 +1122,7 @@ Cg
                                             <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                             <font key="NSFont" metaFont="system" size="16"/>
                                             <real key="NSKern" value="0.0"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="15" minimumLineHeight="18" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="15" minimumLineHeight="18" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
                                                 <tabStops/>
                                             </paragraphStyle>
                                             <color key="NSStrokeColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1127,7 +1134,7 @@ Cg
                                             <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                             <font key="NSFont" metaFont="systemBold" size="16"/>
                                             <real key="NSKern" value="0.0"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="15" minimumLineHeight="19" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="15" minimumLineHeight="19" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
                                                 <tabStops/>
                                             </paragraphStyle>
                                             <color key="NSStrokeColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1142,7 +1149,7 @@ Cg
                                             <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                             <font key="NSFont" metaFont="system" size="16"/>
                                             <real key="NSKern" value="0.0"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="15" minimumLineHeight="19" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="15" minimumLineHeight="19" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
                                                 <tabStops/>
                                             </paragraphStyle>
                                             <color key="NSStrokeColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1156,7 +1163,7 @@ Cg
                                             <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                             <font key="NSFont" metaFont="system" size="16"/>
                                             <real key="NSKern" value="0.0"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="15" minimumLineHeight="18" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="15" minimumLineHeight="18" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
                                                 <tabStops/>
                                             </paragraphStyle>
                                             <color key="NSStrokeColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1168,7 +1175,7 @@ Cg
                                             <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                             <font key="NSFont" metaFont="systemBold" size="16"/>
                                             <real key="NSKern" value="0.0"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="15" minimumLineHeight="19" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="15" minimumLineHeight="19" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
                                                 <tabStops/>
                                             </paragraphStyle>
                                             <color key="NSStrokeColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1183,7 +1190,7 @@ Cg
                                             <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                             <font key="NSFont" metaFont="system" size="16"/>
                                             <real key="NSKern" value="0.0"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="15" minimumLineHeight="19" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="15" minimumLineHeight="19" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
                                                 <tabStops/>
                                             </paragraphStyle>
                                             <color key="NSStrokeColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1197,7 +1204,7 @@ We reserve all rights (but not the obligation) to remove and/or edit such conten
                                             <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                             <font key="NSFont" metaFont="system" size="16"/>
                                             <real key="NSKern" value="0.0"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="15" minimumLineHeight="18" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="15" minimumLineHeight="18" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
                                                 <tabStops/>
                                             </paragraphStyle>
                                             <color key="NSStrokeColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1209,7 +1216,7 @@ We reserve all rights (but not the obligation) to remove and/or edit such conten
                                             <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                             <font key="NSFont" size="16" name="HelveticaNeue"/>
                                             <real key="NSKern" value="0.0"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="15" minimumLineHeight="18" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="15" minimumLineHeight="18" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
                                                 <tabStops/>
                                             </paragraphStyle>
                                             <color key="NSStrokeColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1222,7 +1229,7 @@ We reserve all rights (but not the obligation) to remove and/or edit such conten
                                             <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                             <font key="NSFont" metaFont="system" size="16"/>
                                             <real key="NSKern" value="0.0"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="15" minimumLineHeight="18" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="15" minimumLineHeight="18" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
                                                 <tabStops/>
                                             </paragraphStyle>
                                             <color key="NSStrokeColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1234,7 +1241,7 @@ We reserve all rights (but not the obligation) to remove and/or edit such conten
                                             <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                             <font key="NSFont" metaFont="systemBold" size="16"/>
                                             <real key="NSKern" value="0.0"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="15" minimumLineHeight="19" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="15" minimumLineHeight="19" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
                                                 <tabStops/>
                                             </paragraphStyle>
                                             <color key="NSStrokeColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1249,7 +1256,7 @@ Cg
                                             <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                             <font key="NSFont" metaFont="system" size="16"/>
                                             <real key="NSKern" value="0.0"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="15" minimumLineHeight="19" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="15" minimumLineHeight="19" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
                                                 <tabStops/>
                                             </paragraphStyle>
                                             <color key="NSStrokeColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1263,7 +1270,7 @@ Cg
                                             <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                             <font key="NSFont" metaFont="system" size="16"/>
                                             <real key="NSKern" value="0.0"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="15" minimumLineHeight="18" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="15" minimumLineHeight="18" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
                                                 <tabStops/>
                                             </paragraphStyle>
                                             <color key="NSStrokeColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1275,7 +1282,7 @@ Cg
                                             <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                             <font key="NSFont" metaFont="systemBold" size="16"/>
                                             <real key="NSKern" value="0.0"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="15" minimumLineHeight="19" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="15" minimumLineHeight="19" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
                                                 <tabStops/>
                                             </paragraphStyle>
                                             <color key="NSStrokeColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1290,7 +1297,7 @@ Cg
                                             <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                             <font key="NSFont" metaFont="system" size="16"/>
                                             <real key="NSKern" value="0.0"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="15" minimumLineHeight="19" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="15" minimumLineHeight="19" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
                                                 <tabStops/>
                                             </paragraphStyle>
                                             <color key="NSStrokeColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1305,7 +1312,7 @@ We reserve all rights to terminate accounts, edit or remove content and cancel o
                                             <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                             <font key="NSFont" metaFont="system" size="16"/>
                                             <real key="NSKern" value="0.0"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="15" minimumLineHeight="18" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" paragraphSpacing="15" minimumLineHeight="18" defaultTabInterval="36" tighteningFactorForTruncation="0.0">
                                                 <tabStops/>
                                             </paragraphStyle>
                                             <color key="NSStrokeColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1373,70 +1380,70 @@ We reserve all rights to terminate accounts, edit or remove content and cancel o
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fiC-Ga-gT3">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="640"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="639.5"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Profile" translatesAutoresizingMaskIntoConstraints="NO" id="bXk-Ec-Ehu">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="Profile" translatesAutoresizingMaskIntoConstraints="NO" id="bXk-Ec-Ehu">
                                                 <rect key="frame" x="162" y="80" width="90" height="90"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="90" id="Ssr-Vz-hEb"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" text="Hello " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ILR-C0-Gxg">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Hello " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ILR-C0-Gxg">
                                                 <rect key="frame" x="60" y="210" width="87" height="39"/>
                                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="32"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xHd-15-Fe1">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xHd-15-Fe1">
                                                 <rect key="frame" x="155" y="210" width="199" height="39"/>
                                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="32"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="254" text="Welcome to Employer World" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OIq-Qu-2us">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Welcome to Employer World" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OIq-Qu-2us">
                                                 <rect key="frame" x="60" y="269" width="294" height="29"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="24"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Here are your details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hYe-4a-yco">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Here are your details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hYe-4a-yco">
                                                 <rect key="frame" x="60" y="318" width="294" height="24"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="20"/>
                                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="256" text="UID:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="grX-rC-qCJ">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="UID:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="grX-rC-qCJ">
                                                 <rect key="frame" x="60" y="424" width="106" height="22"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" text="UID Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cId-HC-4nH">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="UID Number" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cId-HC-4nH">
                                                 <rect key="frame" x="186" y="424" width="168" height="22"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="257" text="Subscription:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ju3-Tv-Ift">
-                                                <rect key="frame" x="60" y="466" width="106" height="22"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Subscription:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ju3-Tv-Ift">
+                                                <rect key="frame" x="60" y="466" width="106" height="21.5"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="250" text="Subscription Status" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c4j-6L-WgJ">
-                                                <rect key="frame" x="186" y="466" width="168" height="22"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Subscription Status" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c4j-6L-WgJ">
+                                                <rect key="frame" x="186" y="466" width="168" height="21.5"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="255" text="Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="scc-yT-hrU">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="scc-yT-hrU">
                                                 <rect key="frame" x="60" y="382" width="106" height="22"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" text="Full Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sfb-qZ-gT9">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Full Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sfb-qZ-gT9">
                                                 <rect key="frame" x="186" y="382" width="168" height="22"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="258" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lq8-bD-43H">
-                                                <rect key="frame" x="60" y="528" width="294" height="32"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lq8-bD-43H">
+                                                <rect key="frame" x="60" y="527.5" width="294" height="32"/>
                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1444,14 +1451,16 @@ We reserve all rights to terminate accounts, edit or remove content and cancel o
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="logout" destination="4Lz-YO-mb6" eventType="touchUpInside" id="sp8-sQ-Jfb"/>
+                                                    <action selector="logout" destination="4Lz-YO-mb6" eventType="touchUpInside" id="tPa-3Q-Myy"/>
                                                 </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
+                                            <constraint firstItem="cId-HC-4nH" firstAttribute="bottom" secondItem="grX-rC-qCJ" secondAttribute="bottom" id="0mu-Rx-UIW"/>
                                             <constraint firstItem="ILR-C0-Gxg" firstAttribute="leading" secondItem="fiC-Ga-gT3" secondAttribute="leading" constant="60" id="1UD-DA-If9"/>
-                                            <constraint firstAttribute="bottom" relation="lessThanOrEqual" secondItem="lq8-bD-43H" secondAttribute="bottom" constant="80" id="4xz-RO-dfv"/>
+                                            <constraint firstItem="c4j-6L-WgJ" firstAttribute="bottom" secondItem="Ju3-Tv-Ift" secondAttribute="bottom" id="4bJ-TK-WEE"/>
+                                            <constraint firstAttribute="bottom" secondItem="lq8-bD-43H" secondAttribute="bottom" constant="80" id="4xz-RO-dfv"/>
                                             <constraint firstItem="scc-yT-hrU" firstAttribute="leading" secondItem="hYe-4a-yco" secondAttribute="leading" id="7C7-Rk-isZ"/>
                                             <constraint firstItem="scc-yT-hrU" firstAttribute="trailing" secondItem="grX-rC-qCJ" secondAttribute="trailing" id="7UG-Fe-ivr"/>
                                             <constraint firstItem="scc-yT-hrU" firstAttribute="top" secondItem="hYe-4a-yco" secondAttribute="bottom" constant="40" id="Abv-WD-h5u"/>
@@ -1465,7 +1474,6 @@ We reserve all rights to terminate accounts, edit or remove content and cancel o
                                             <constraint firstItem="hYe-4a-yco" firstAttribute="trailing" secondItem="OIq-Qu-2us" secondAttribute="trailing" id="Riy-pJ-SqQ"/>
                                             <constraint firstItem="Ju3-Tv-Ift" firstAttribute="leading" secondItem="grX-rC-qCJ" secondAttribute="leading" id="RrH-cq-Ie8"/>
                                             <constraint firstItem="xHd-15-Fe1" firstAttribute="top" secondItem="ILR-C0-Gxg" secondAttribute="top" id="Rwk-FU-h0d"/>
-                                            <constraint firstItem="bXk-Ec-Ehu" firstAttribute="top" relation="greaterThanOrEqual" secondItem="fiC-Ga-gT3" secondAttribute="top" constant="40" id="UFH-c5-ew5"/>
                                             <constraint firstItem="sfb-qZ-gT9" firstAttribute="leading" secondItem="scc-yT-hrU" secondAttribute="trailing" constant="20" id="VDC-WX-BhN"/>
                                             <constraint firstItem="bXk-Ec-Ehu" firstAttribute="width" secondItem="bXk-Ec-Ehu" secondAttribute="height" multiplier="1:1" id="XFt-qW-0q6"/>
                                             <constraint firstItem="OIq-Qu-2us" firstAttribute="trailing" secondItem="xHd-15-Fe1" secondAttribute="trailing" id="YFP-jt-Nhl"/>
@@ -1481,11 +1489,11 @@ We reserve all rights to terminate accounts, edit or remove content and cancel o
                                             <constraint firstItem="grX-rC-qCJ" firstAttribute="leading" secondItem="hYe-4a-yco" secondAttribute="leading" id="kCn-FZ-31L"/>
                                             <constraint firstItem="sfb-qZ-gT9" firstAttribute="trailing" secondItem="hYe-4a-yco" secondAttribute="trailing" id="kaC-Yp-JNg"/>
                                             <constraint firstItem="OIq-Qu-2us" firstAttribute="top" secondItem="ILR-C0-Gxg" secondAttribute="bottom" constant="20" id="l3b-lB-Wh5"/>
-                                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="lq8-bD-43H" secondAttribute="bottom" constant="40" id="ntV-3u-4PS"/>
                                             <constraint firstItem="lq8-bD-43H" firstAttribute="trailing" secondItem="c4j-6L-WgJ" secondAttribute="trailing" id="pI3-bp-T1F"/>
-                                            <constraint firstItem="bXk-Ec-Ehu" firstAttribute="top" relation="lessThanOrEqual" secondItem="fiC-Ga-gT3" secondAttribute="top" constant="80" id="pOb-LS-glP"/>
+                                            <constraint firstItem="bXk-Ec-Ehu" firstAttribute="top" secondItem="fiC-Ga-gT3" secondAttribute="top" constant="80" id="pOb-LS-glP"/>
                                             <constraint firstItem="xHd-15-Fe1" firstAttribute="leading" secondItem="ILR-C0-Gxg" secondAttribute="trailing" constant="8" id="sxX-9K-ogY"/>
                                             <constraint firstItem="c4j-6L-WgJ" firstAttribute="leading" secondItem="cId-HC-4nH" secondAttribute="leading" id="vIc-vt-w0G"/>
+                                            <constraint firstItem="sfb-qZ-gT9" firstAttribute="bottom" secondItem="scc-yT-hrU" secondAttribute="bottom" id="wFS-de-mo0"/>
                                             <constraint firstItem="Ju3-Tv-Ift" firstAttribute="top" secondItem="grX-rC-qCJ" secondAttribute="bottom" constant="20" id="x1o-3Q-dGa"/>
                                         </constraints>
                                     </view>
@@ -1495,7 +1503,7 @@ We reserve all rights to terminate accounts, edit or remove content and cancel o
                                     <constraint firstAttribute="trailing" secondItem="fiC-Ga-gT3" secondAttribute="trailing" id="PDw-PU-30P"/>
                                     <constraint firstItem="fiC-Ga-gT3" firstAttribute="width" secondItem="Cwf-Vy-rFz" secondAttribute="width" id="QPx-7o-a9Z"/>
                                     <constraint firstAttribute="bottom" secondItem="fiC-Ga-gT3" secondAttribute="bottom" id="lIH-ZS-OTl"/>
-                                    <constraint firstItem="fiC-Ga-gT3" firstAttribute="height" secondItem="Cwf-Vy-rFz" secondAttribute="height" priority="250" constant="52" id="sgG-It-za9"/>
+                                    <constraint firstItem="fiC-Ga-gT3" firstAttribute="height" secondItem="Cwf-Vy-rFz" secondAttribute="height" priority="249" id="sgG-It-za9"/>
                                     <constraint firstItem="fiC-Ga-gT3" firstAttribute="top" secondItem="Cwf-Vy-rFz" secondAttribute="top" id="uiq-vh-q1s"/>
                                 </constraints>
                             </scrollView>
@@ -1525,7 +1533,7 @@ We reserve all rights to terminate accounts, edit or remove content and cancel o
         <!--PROFILE-->
         <scene sceneID="KTU-Hb-5Y3">
             <objects>
-                <navigationController extendedLayoutIncludesOpaqueBars="YES" automaticallyAdjustsScrollViewInsets="NO" id="1OH-c8-pLD" sceneMemberID="viewController">
+                <navigationController extendedLayoutIncludesOpaqueBars="YES" id="1OH-c8-pLD" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="PROFILE" image="User" id="Myj-EV-CfE"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="OXy-Be-LHh">
@@ -1553,7 +1561,7 @@ We reserve all rights to terminate accounts, edit or remove content and cancel o
         <!--EMPLOYEES-->
         <scene sceneID="z24-W1-z3Z">
             <objects>
-                <navigationController extendedLayoutIncludesOpaqueBars="YES" automaticallyAdjustsScrollViewInsets="NO" id="Z2f-rX-6iM" sceneMemberID="viewController">
+                <navigationController extendedLayoutIncludesOpaqueBars="YES" id="Z2f-rX-6iM" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="EMPLOYEES" image="EmployeeList" id="8nB-tE-7c6"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="7N7-Vc-1nE">
@@ -1583,7 +1591,7 @@ We reserve all rights to terminate accounts, edit or remove content and cancel o
         <!--GALLERY-->
         <scene sceneID="Wdg-fa-cS7">
             <objects>
-                <navigationController extendedLayoutIncludesOpaqueBars="YES" automaticallyAdjustsScrollViewInsets="NO" id="2jC-5G-98K" sceneMemberID="viewController">
+                <navigationController extendedLayoutIncludesOpaqueBars="YES" id="2jC-5G-98K" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="GALLERY" image="Gallery" id="GDs-Hg-zUo"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="fFv-l3-cWl">
@@ -1610,7 +1618,7 @@ We reserve all rights to terminate accounts, edit or remove content and cancel o
         <!--MAP-->
         <scene sceneID="Tea-Vh-kBP">
             <objects>
-                <navigationController extendedLayoutIncludesOpaqueBars="YES" automaticallyAdjustsScrollViewInsets="NO" id="qtt-JV-DML" sceneMemberID="viewController">
+                <navigationController extendedLayoutIncludesOpaqueBars="YES" id="qtt-JV-DML" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="MAP" image="Map" id="btI-Zf-k7v">
                         <inset key="largeContentSizeImageInsets" minX="0.0" minY="3" maxX="0.0" maxY="0.0"/>
                     </tabBarItem>

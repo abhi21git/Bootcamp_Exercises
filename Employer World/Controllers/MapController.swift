@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 
-class MapController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
+class MapController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate, Toastable {
     
     //  MARK: - Variables
     let locationManager = CLLocationManager()
@@ -49,9 +49,7 @@ class MapController: UIViewController, CLLocationManagerDelegate, MKMapViewDeleg
             locationManager.requestAlwaysAuthorization()
         }
         else if CLLocationManager.authorizationStatus() == .denied {
-            let alert = UIAlertController(title: "Location Permission Denied", message: "Location services denied. Please enable location services for this app.", preferredStyle: UIAlertController.Style.alert)
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
+            showToast(controller: self, message: "Location services denied. Please enable location services for this app.", seconds: 1.2)
         }
         else if CLLocationManager.authorizationStatus() == .authorizedAlways {
             locationManager.startUpdatingLocation()

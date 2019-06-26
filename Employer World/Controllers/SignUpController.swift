@@ -35,19 +35,18 @@ class SignUpController: UIViewController, Toastable {
     
     //  MARK: - Functions
     func configureUI() {
-        for textFields in [firstNameTF, lastNameTF, emailTF, passwordTF, confirmPasswordTF] {
+        [firstNameTF, lastNameTF, emailTF, passwordTF, confirmPasswordTF].forEach { textFields in
             textFields?.delegate = self
         }
-
-        
+        [firstNameTF, lastNameTF, emailTF, passwordTF, confirmPasswordTF].forEach { textFields in
+            textFields?.elevateView(shadowOffset: CGSize(width: 1.0, height: 1.0))
+        }
         firstNameTF.becomeFirstResponder()
         self.navigationController?.navigationBar.topItem?.title = "Signup"
         self.navigationItem.hidesBackButton = true
-        for each in [firstNameTF, lastNameTF, emailTF, passwordTF, confirmPasswordTF] {
-            each?.elevateView(shadowOffset: CGSize(width: 1.0, height: 1.0))
-        }
+        
         signupButton.roundedCornersWithBorder(cornerRadius: 4)
-        for textFields in [firstNameTF, lastNameTF, emailTF, passwordTF] {
+        [firstNameTF, lastNameTF, emailTF, passwordTF].forEach { textFields in
             textFields?.returnKeyType = UIReturnKeyType.next
         }
         confirmPasswordTF.returnKeyType = UIReturnKeyType.done
@@ -139,21 +138,16 @@ class SignUpController: UIViewController, Toastable {
                     if data != nil {
                         DispatchQueue.global().async {
                             let signupResponse = data as! ProfileModel
+                            self.showToast(controller: self, message: signupResponse.Status.message!, seconds: 2)
                             DispatchQueue.main.async {
-                                let alert  = UIAlertController(title: "Alert", message: signupResponse.Status.message, preferredStyle: .alert)
-                                alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: { action in
-                                    if signupResponse.Status.statusCode == 1 {
-                                        self.login()
-                                    }
-                                }))
-                                self.present(alert, animated: true, completion: nil)
+                                if signupResponse.Status.statusCode == 1 {
+                                    self.login()
+                                }
                             }
                         }
                     }
                     else {
-                        DispatchQueue.main.async {
-                            self.showToast(controller: self, message: "Invalid response!", seconds: 1.2)
-                        }
+                        self.showToast(controller: self, message: "Invalid response!", seconds: 1.2)
                     }
                 }
             }
