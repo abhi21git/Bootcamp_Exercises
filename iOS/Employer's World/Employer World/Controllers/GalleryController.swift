@@ -97,9 +97,6 @@ class GalleryController: UIViewController, NSFetchedResultsControllerDelegate, T
                 thumbnailURL.append(items.thumbnailURL!)
             }
         }
-        else {
-            
-        }
     }
     
     func showSearchBar() {

@@ -21,7 +21,6 @@
 		4691EAB422A0FA3F00BF08A6 /* ServiceErrorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4691EAB322A0FA3F00BF08A6 /* ServiceErrorExtension.swift */; };
 		46BAE2EA22BA159100854F1C /* GoogleImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46BAE2E922BA159100854F1C /* GoogleImageModel.swift */; };
 		46C4CFDC22B7A41700CC7E3F /* ToastableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C4CFDB22B7A41700CC7E3F /* ToastableProtocol.swift */; };
-		46C4CFDE22B7A45E00CC7E3F /* ToastableExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C4CFDD22B7A45E00CC7E3F /* ToastableExtension.swift */; };
 		46C6FBB62269D4720099E17C /* CustomEmployeeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C6FBB42269D4720099E17C /* CustomEmployeeCell.swift */; };
 		46C6FBB72269D4720099E17C /* CustomEmployeeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 46C6FBB52269D4720099E17C /* CustomEmployeeCell.xib */; };
 		46C6FBBA2269D4B10099E17C /* CustomGalleryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C6FBB82269D4B10099E17C /* CustomGalleryCell.swift */; };
@@ -54,13 +53,12 @@
 		4691EAB322A0FA3F00BF08A6 /* ServiceErrorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceErrorExtension.swift; sourceTree = "<group>"; wrapsLines = 1; };
 		46BAE2E922BA159100854F1C /* GoogleImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleImageModel.swift; sourceTree = "<group>"; };
 		46C4CFDB22B7A41700CC7E3F /* ToastableProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastableProtocol.swift; sourceTree = "<group>"; };
-		46C4CFDD22B7A45E00CC7E3F /* ToastableExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastableExtension.swift; sourceTree = "<group>"; };
 		46C6FBB42269D4720099E17C /* CustomEmployeeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomEmployeeCell.swift; sourceTree = "<group>"; wrapsLines = 1; };
 		46C6FBB52269D4720099E17C /* CustomEmployeeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomEmployeeCell.xib; sourceTree = "<group>"; };
 		46C6FBB82269D4B10099E17C /* CustomGalleryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomGalleryCell.swift; sourceTree = "<group>"; wrapsLines = 1; };
 		46C6FBB92269D4B10099E17C /* CollectionGalleryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionGalleryCell.xib; sourceTree = "<group>"; };
 		46C6FBBC2269E5140099E17C /* SignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; wrapsLines = 0; };
-		46C6FBBE2269E6FA0099E17C /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; wrapsLines = 1; };
+		46C6FBBE2269E6FA0099E17C /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		46C6FBC4226D8FBC0099E17C /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; wrapsLines = 1; };
 		46C6FBC6226D9F530099E17C /* EmployeeDetailsControllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeDetailsControllers.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		46C747682293F9A000A65403 /* NetworkManager.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; tabWidth = 4; usesTabs = 1; wrapsLines = 1; };
@@ -168,7 +166,6 @@
 			children = (
 				46C6FBC4226D8FBC0099E17C /* UIViewExtension.swift */,
 				4691EAB322A0FA3F00BF08A6 /* ServiceErrorExtension.swift */,
-				46C4CFDD22B7A45E00CC7E3F /* ToastableExtension.swift */,
 				46C8184B22BA40F400B654D9 /* UIImageExtension.swift */,
 			);
 			path = Extensions;
@@ -278,7 +275,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				46C6FBBF2269E6FA0099E17C /* LoginController.swift in Sources */,
-				46C4CFDE22B7A45E00CC7E3F /* ToastableExtension.swift in Sources */,
 				46C6FBC5226D8FBC0099E17C /* UIViewExtension.swift in Sources */,
 				46C6FBBA2269D4B10099E17C /* CustomGalleryCell.swift in Sources */,
 				46C6FBC7226D9F530099E17C /* EmployeeDetailsControllers.swift in Sources */,
@@ -332,6 +328,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "";
+				ASSETCATALOG_COMPILER_OPTIMIZATION = "";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -397,6 +394,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "";
+				ASSETCATALOG_COMPILER_OPTIMIZATION = "";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -454,7 +452,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_OPTIMIZATION = time;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
@@ -476,7 +473,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_OPTIMIZATION = time;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";

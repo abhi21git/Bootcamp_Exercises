@@ -15,6 +15,7 @@ class EmployeeDetailsControllers: UIViewController, Toastable {
     //  MARK: - Variables
     var empID: String = "0"
     var employeeArray = [EmployeeDetails]()
+    var isGallarySelected = true
     
     
     //  MARK: - IBOutlets
@@ -95,7 +96,7 @@ class EmployeeDetailsControllers: UIViewController, Toastable {
     //function to show action sheet on add button clicked
     func displayActionSheet() {
         
-        let optionMenu = UIAlertController(title: "Choose options", message: nil, preferredStyle: .actionSheet)
+        let optionMenu = UIAlertController(title: "From where to pick images", message: nil, preferredStyle: .actionSheet)
         let cameraAction = UIAlertAction(title: "Camera", style: .default, handler: { action in  self.camera()})
         let galleryAction = UIAlertAction(title: "Photo Library", style: .default, handler: { action in self.photoLibrary()})
         let googleImagesAction = UIAlertAction(title: "Google Image Search", style: .default, handler: { acttion in self.googleImage()})
@@ -174,20 +175,26 @@ class EmployeeDetailsControllers: UIViewController, Toastable {
     
     //  MARK: - IBActions
     @objc func gallerySegmentAction() {
+        isGallarySelected = true
         addChildVC(isGallery: true)
     }
     
     @objc func addToGallerySegmentAction() {
-        gallerySegmentAction()
+        if !isGallarySelected{
+            gallerySegmentAction()
+        }
         displayActionSheet()
     }
     
     @objc func mapSegmentAction() {
+        isGallarySelected = false
         addChildVC(isGallery: false)
     }
     
     @objc func addToMapSegmentAction() {
-        mapSegmentAction()
+        if isGallarySelected{
+            mapSegmentAction()
+        }
         //add functionality for adding annotation later
     }
 }

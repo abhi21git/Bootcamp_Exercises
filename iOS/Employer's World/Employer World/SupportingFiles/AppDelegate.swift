@@ -25,19 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             self.window?.rootViewController = initialViewController
             self.window?.makeKeyAndVisible()
         }
-        
-        //        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        //
-        //        if UserDefaults.standard.string(forKey: "ProfileStatus") == "login" {
-        //
-        //        }
-        //        else if UserDefaults.standard.string(forKey: "ProfileStatus") == "signup" {
-        //
-        //        }
-        //        else if UserDefaults.standard.string(forKey: "ProfileStatus") == "profile" {
-        //
-        //        }
-        
+                
         return true
     }
     

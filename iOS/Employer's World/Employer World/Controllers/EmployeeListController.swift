@@ -134,7 +134,7 @@ extension EmployeeListController {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "employeeCell") as! CustomEmployeeCell
-        cell.employeeNameLabel.text = searchedEmployee[indexPath.row].name
+        cell.employeeNameLabel.text = searchedEmployee[indexPath.row].name?.capitalized
         cell.employeeIDLabel.text = searchedEmployee[indexPath.row].id
         return cell
     }

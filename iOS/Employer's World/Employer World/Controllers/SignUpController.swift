@@ -30,11 +30,8 @@ class SignUpController: UIViewController, Toastable {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        UserDefaults.standard.set("signup", forKey: "ProfileStatus")
-        
         configureUI()
-    }
-    
+    }    
     
     //  MARK: - Functions
     func configureUI() {
@@ -44,7 +41,7 @@ class SignUpController: UIViewController, Toastable {
 
         
         firstNameTF.becomeFirstResponder()
-        self.navigationItem.title = "Signup"
+        self.navigationController?.navigationBar.topItem?.title = "Signup"
         self.navigationItem.hidesBackButton = true
         for each in [firstNameTF, lastNameTF, emailTF, passwordTF, confirmPasswordTF] {
             each?.elevateView(shadowOffset: CGSize(width: 1.0, height: 1.0))
@@ -67,6 +64,7 @@ class SignUpController: UIViewController, Toastable {
         self.willMove(toParent: nil)
         self.view.removeFromSuperview()
         self.removeFromParent()
+        UserDefaults.standard.set("login", forKey: "ProfileStatus")
     }
     
     @IBAction func emailValidation() {
@@ -185,6 +183,10 @@ extension SignUpController: UITextFieldDelegate {
         if textField == emailTF {
             emailTF.resignFirstResponder()
             passwordTF.becomeFirstResponder()
+        }
+        if textField == passwordTF {
+            passwordTF.resignFirstResponder()
+            confirmPasswordTF.becomeFirstResponder()
         }
         if textField == confirmPasswordTF {
             confirmPasswordTF.resignFirstResponder()

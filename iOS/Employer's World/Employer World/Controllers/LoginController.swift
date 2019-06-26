@@ -31,23 +31,12 @@ class LoginController: UIViewController, Toastable {
     //  MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        UserDefaults.standard.set("login", forKey: "ProfileStatus")
         configureUI()
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        userNameTF.text = ""
-        passwordTF.text = ""
-        userNameChecker.text = CheckStatus.none.rawValue
-        passwordChecker.text = CheckStatus.none.rawValue
-        userNameTF.becomeFirstResponder()
-        
     }
     
     
     //  MARK: - Functions
     func configureUI() {
-        //        self.title = "LOG IN"
         userNameTF.becomeFirstResponder()
         self.navigationItem.title = "Login"
         loginButton.roundedCornersWithBorder(cornerRadius: 4)
@@ -58,6 +47,19 @@ class LoginController: UIViewController, Toastable {
         passwordChecker.roundedCornersWithBorder(cornerRadius: userNameChecker.frame.height/2)
         userNameTF.returnKeyType = UIReturnKeyType.next
         passwordTF.returnKeyType = UIReturnKeyType.done
+        
+        let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
+        
+        if UserDefaults.standard.string(forKey: "ProfileStatus") == "signup" {
+            signUp()
+        }
+        else if UserDefaults.standard.string(forKey: "ProfileStatus") == "profile" {
+            let profileVC = storyBoard.instantiateViewController(withIdentifier: "ProfileController") as! ProfileController
+            
+            addChild(profileVC)
+            self.view.addSubview(profileVC.view)
+            profileVC.didMove(toParent: self)
+        }
     }
     
     func getPostDataAttributes(params:[String:String]) -> Data {
@@ -184,10 +186,18 @@ class LoginController: UIViewController, Toastable {
                             DispatchQueue.main.async {
                                 //add to child view later
                                 let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
-                                let controller = storyboard.instantiateViewController(withIdentifier: "ProfileController") as! ProfileController
-                                controller.profileData = loginResponse
-                                self.navigationController?.pushViewController(controller, animated: false)
-                                UserDefaults.standard.set(true, forKey: "isLoggenIn")
+                                let profileVC = storyboard.instantiateViewController(withIdentifier: "ProfileController") as! ProfileController
+                                profileVC.profileData = loginResponse
+                                self.addChild(profileVC)
+                                self.view.addSubview(profileVC.view)
+                                profileVC.didMove(toParent: self)
+                                
+                                self.userNameTF.text = ""
+                                self.passwordTF.text = ""
+                                self.userNameChecker.text = CheckStatus.none.rawValue
+                                self.passwordChecker.text = CheckStatus.none.rawValue
+                                self.userNameTF.becomeFirstResponder()
+                                
                             }
                         }
                     }
@@ -260,7 +270,9 @@ class LoginController: UIViewController, Toastable {
         
         addChild(signupVC)
         self.view.addSubview(signupVC.view)
-        signupVC.didMove(toParent: self)        
+        signupVC.didMove(toParent: self)
+        
+        UserDefaults.standard.set("signup", forKey: "ProfileStatus")
     }
     
     
