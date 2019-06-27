@@ -109,9 +109,11 @@ class LoginController: UIViewController, Toastable {
                 let parameters = ["mail" : userNameTF.text!]
                 
                 NetworkManager.sharedInstance.profileApi(urlString: validationURL, parameters: parameters, completion: { (data, responseError) in
-                    DispatchQueue.main.async {
-                        self.userNameChecker.textColor = UIColor.blue
-                        self.userNameChecker.text = CheckStatus.unknown.rawValue
+                    if responseError != nil {
+                        DispatchQueue.main.async {
+                            self.userNameChecker.textColor = UIColor.blue
+                            self.userNameChecker.text = CheckStatus.unknown.rawValue
+                        }
                     }
                     
                     if data != nil {
@@ -170,7 +172,7 @@ class LoginController: UIViewController, Toastable {
             
             NetworkManager.sharedInstance.logIn(urlString: loginURL, parameters: parametersData, completion: { (data, responseError) in
                 if let error = responseError {
-                    self.showToast(controller: self, message: error.localizedDescription, seconds: 1.2)
+                    self.showToast(controller: self, message: error.localizedDescription)
                     DispatchQueue.main.async {
                         self.userNameChecker.text = CheckStatus.unknown.rawValue
                         self.passwordChecker.text = CheckStatus.unknown.rawValue
@@ -198,26 +200,26 @@ class LoginController: UIViewController, Toastable {
                         }
                     }
                     else {
-                        self.showToast(controller: self, message: "Cannot Login", seconds: 1.2)
+                        self.showToast(controller: self, message: "Cannot Login")
                     }
                 }
             })
         }
         else if userNameChecker.text == CheckStatus.incorrect.rawValue || passwordChecker.text == CheckStatus.incorrect.rawValue {
-            showToast(controller: self, message: "Wrong username or password", seconds: 1.2)
+            showToast(controller: self, message: "Wrong username or password")
         }
         else if userNameChecker.text == CheckStatus.unknown.rawValue {
-            showToast(controller: self, message: "Login failed, check internet.", seconds: 1.2)
+            showToast(controller: self, message: "Login failed, check internet.")
         }
         else if userNameChecker.text == CheckStatus.none.rawValue || passwordChecker.text == CheckStatus.none.rawValue {
-            showToast(controller: self, message: "Enter username and password", seconds: 1.2)
+            showToast(controller: self, message: "Enter username and password")
         }
     }
     
     
     @IBAction func forgetPassword() {
         if userNameTF.text!.isEmpty || userNameChecker.text == CheckStatus.incorrect.rawValue {
-            showToast(controller: self, message: "First enter a valid mail", seconds: 1.2)
+            showToast(controller: self, message: "First enter a valid mail")
         }
         else if userNameChecker.text == CheckStatus.correct.rawValue {
             let forgetURL = "https://qa.curiousworld.com/api/v3/ForgetPassword?_format=json"
@@ -226,7 +228,7 @@ class LoginController: UIViewController, Toastable {
             NetworkManager.sharedInstance.profileApi(urlString: forgetURL, parameters: parameters, completion: { (data, responseError) in
                 if let error = responseError {
                     DispatchQueue.global().async {
-                        self.showToast(controller: self, message: error.localizedDescription, seconds: 1.2)
+                        self.showToast(controller: self, message: error.localizedDescription)
                     }
                 }
                 else {
@@ -243,7 +245,7 @@ class LoginController: UIViewController, Toastable {
             })
         }
         else if userNameChecker.text == CheckStatus.unknown.rawValue {
-            showToast(controller: self, message: "Please check your connection", seconds: 1.2)
+            showToast(controller: self, message: "Please check your connection")
         }
     }
     

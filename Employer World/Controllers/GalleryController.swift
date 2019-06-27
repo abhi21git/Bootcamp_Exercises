@@ -35,7 +35,7 @@ class GalleryController: UIViewController, NSFetchedResultsControllerDelegate, T
         let context = appDelegate?.persistentContainer.viewContext
         let fetchRequest:NSFetchRequest = EmployeeImages.fetchRequest()
         
-        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "thumbnailURL", ascending: true)]
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "employeeName", ascending: true)]
         
         let fetchResultController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context!, sectionNameKeyPath: nil, cacheName: nil)
         
@@ -119,7 +119,7 @@ class GalleryController: UIViewController, NSFetchedResultsControllerDelegate, T
         NetworkManager.sharedInstance.googleImageSearch(urlString: urlString, completion: {(data, responseError) in
             
             if let error = responseError {
-                self.showToast(controller: self, message: error.localizedDescription, seconds: 1.2)
+                self.showToast(controller: self, message: error.localizedDescription)
             }
             else {
                 if data != nil {

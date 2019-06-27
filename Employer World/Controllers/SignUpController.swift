@@ -79,7 +79,8 @@ class SignUpController: UIViewController, Toastable {
                         if status.Status.statusCode == 1 {
                             self.emailChecker.textColor = UIColor.red
                             self.emailChecker.text = "!"
-                            self.showToast(controller: self, message: "Email ID already in use", seconds: 1.2)                        }
+                            self.showToast(controller: self, message: "Email ID already in use")
+                        }
                         else {
                             self.emailChecker.text = ""
                         }
@@ -132,7 +133,7 @@ class SignUpController: UIViewController, Toastable {
             
             NetworkManager.sharedInstance.profileApi(urlString: signpURL, parameters: parameters) { (data, responseError) in
                 if let error = responseError {
-                    self.showToast(controller: self, message: error.localizedDescription, seconds: 1.2)
+                    self.showToast(controller: self, message: error.localizedDescription)
                     
                 } else {
                     if data != nil {
@@ -147,13 +148,13 @@ class SignUpController: UIViewController, Toastable {
                         }
                     }
                     else {
-                        self.showToast(controller: self, message: "Invalid response!", seconds: 1.2)
+                        self.showToast(controller: self, message: "Invalid response!")
                     }
                 }
             }
         }
         else {
-            showToast(controller: self, message : "Password did not matched", seconds: 1.2)
+            showToast(controller: self, message : "Password did not matched")
         }
     }
     

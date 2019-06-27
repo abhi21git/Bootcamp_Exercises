@@ -82,11 +82,11 @@ class EmployeeListController: UIViewController, UITableViewDelegate, UITableView
         NetworkManager.sharedInstance.loadEmployees(urlString: employeeListURL, completion: { (data, responseError) in
             
             if let error = responseError {
-                self.showToast(controller: self, message: error.localizedDescription, seconds: 1.2)
+                self.showToast(controller: self, message: error.localizedDescription, seconds: 1.6)
                 DispatchQueue.main.async {
                     self.loader.isHidden = true
-                    let alert: UILabel  = UILabel(frame: CGRect(x: 0, y: 0, width: self.employeeTableView.bounds.size.width, height: self.employeeTableView.bounds.size.height))
-                    alert.text = "Pull down to refresh."
+                    let alert = UILabel(frame: CGRect(x: 0, y: 0, width: self.employeeTableView.bounds.size.width, height: self.employeeTableView.bounds.size.height))
+                    alert.text = "Pull down to retry."
                     alert.textAlignment = .center
                     self.employeeTableView.tableHeaderView = alert
                 }

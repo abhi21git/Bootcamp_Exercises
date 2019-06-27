@@ -15,7 +15,8 @@ class EmployeeDetailsControllers: UIViewController, Toastable {
     //  MARK: - Variables
     var empID: String = "0"
     var employeeArray = [EmployeeDetails]()
-    var isGallarySelected = true
+    var gallerySelected = true
+    var droppingPins = true
     
     
     //  MARK: - IBOutlets
@@ -70,7 +71,7 @@ class EmployeeDetailsControllers: UIViewController, Toastable {
         NetworkManager.sharedInstance.loadSelectedEmployee(urlString: employeeURL, completion: { (data, responseError) in
             
             if let error = responseError {
-                self.showToast(controller: self, message: error.localizedDescription, seconds: 1.2)
+                self.showToast(controller: self, message: error.localizedDescription)
             }
             else {
                 if data != nil {
@@ -138,10 +139,8 @@ class EmployeeDetailsControllers: UIViewController, Toastable {
     }
 
     //function to add and remove subviews for gallary and map controller
-    func addChildVC(isGallery: Bool) {
+    func addChildVC(addAnnotation: Bool = false) {
         let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
-        let galleryVC = storyBoard.instantiateViewController(withIdentifier: "GalleryController") as! GalleryController
-        let mapVC = storyBoard.instantiateViewController(withIdentifier: "MapController") as! MapController
         
         //to remove pre-existing sub-views
         if self.children.count > 0 {
@@ -151,16 +150,20 @@ class EmployeeDetailsControllers: UIViewController, Toastable {
                 viewController.view.removeFromSuperview()
                 viewController.removeFromParent()
             }
-            
+
         }
 
-        if isGallery {
+        if gallerySelected {
+            let galleryVC = storyBoard.instantiateViewController(withIdentifier: "GalleryController") as! GalleryController
+            
             addChild(galleryVC)
-//            galleryVC.view.frame = bottomContainerView.bounds
             bottomContainerView.addSubview(galleryVC.view)
             galleryVC.didMove(toParent: self)
         }
         else {
+            let mapVC = storyBoard.instantiateViewController(withIdentifier: "MapController") as! MapController
+            
+            mapVC.addAnnotation = addAnnotation
             mapVC.inSubView = true
             addChild(mapVC)
             bottomContainerView.addSubview(mapVC.view)
@@ -170,27 +173,34 @@ class EmployeeDetailsControllers: UIViewController, Toastable {
     
     //  MARK: - IBActions
     @objc func gallerySegmentAction() {
-        isGallarySelected = true
-        addChildVC(isGallery: true)
+        gallerySelected = true
+        addChildVC()
     }
     
     @objc func addToGallerySegmentAction() {
-        if !isGallarySelected{
+        if !gallerySelected{
             gallerySegmentAction()
         }
         displayActionSheet()
+        //if gallery is not selected then select gallery and then show options
     }
     
-    @objc func mapSegmentAction() {
-        isGallarySelected = false
-        addChildVC(isGallery: false)
+    @objc func mapSegmentAction(addAnnotation: Bool) {
+        gallerySelected = false
+        addChildVC(addAnnotation: addAnnotation)
     }
     
     @objc func addToMapSegmentAction() {
-        if isGallarySelected{
-            mapSegmentAction()
+        if droppingPins {
+            droppingPins = false
+            mapSegmentAction(addAnnotation: true)
+            showToast(controller: self, message: "Dropping annotation enabled")
         }
-        //add functionality for adding annotation later
+        else {
+            droppingPins = true
+            mapSegmentAction(addAnnotation: false)
+            showToast(controller: self, message: "Dropping annotation disabled")
+        }
     }
 }
 

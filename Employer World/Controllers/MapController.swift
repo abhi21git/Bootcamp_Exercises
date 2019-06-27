@@ -14,6 +14,7 @@ class MapController: UIViewController, CLLocationManagerDelegate, MKMapViewDeleg
     //  MARK: - Variables
     let locationManager = CLLocationManager()
     var inSubView = false
+    var addAnnotation = false
     
     
     //  MARK: - IBOutlets
@@ -34,10 +35,19 @@ class MapController: UIViewController, CLLocationManagerDelegate, MKMapViewDeleg
     
     //  MARK: - Functions
     func configureUI() {
-        self.navigationItem.title = "Maps"
-        
-        currentLocationButton.roundedCornersWithBorder(cornerRadius: currentLocationButton.frame.height/2)
-        currentLocationButton.elevateView(shadowOffset: CGSize(width: 1.0, height: 1.0))
+        let longPressAction = UILongPressGestureRecognizer(target: self, action: #selector(dropPin(_ :)))
+        mapView.addGestureRecognizer(longPressAction)
+
+        if inSubView {
+            currentLocationButton.isHidden = true
+            
+        }
+        else {
+            self.navigationItem.title = "Maps"
+            currentLocationButton.roundedCornersWithBorder(cornerRadius: currentLocationButton.frame.height/2)
+            currentLocationButton.elevateView(shadowOffset: CGSize(width: 1.0, height: 1.0))
+
+        }
     }
     
     func mapHandling() {
@@ -49,7 +59,7 @@ class MapController: UIViewController, CLLocationManagerDelegate, MKMapViewDeleg
             locationManager.requestAlwaysAuthorization()
         }
         else if CLLocationManager.authorizationStatus() == .denied {
-            showToast(controller: self, message: "Location services denied. Please enable location services for this app.", seconds: 1.2)
+            showToast(controller: self, message: "Location services denied. Please enable location services for this app.")
         }
         else if CLLocationManager.authorizationStatus() == .authorizedAlways {
             locationManager.startUpdatingLocation()
@@ -82,6 +92,21 @@ class MapController: UIViewController, CLLocationManagerDelegate, MKMapViewDeleg
     
     func disableLocationServices(){
         locationManager.stopUpdatingLocation()
+    }
+    
+    @objc func dropPin(_ gestureReconizer: UILongPressGestureRecognizer) {
+        if addAnnotation && inSubView {
+            if gestureReconizer.state == .began {
+                let location = gestureReconizer.location(in: mapView)
+                let coordinate = mapView.convert(location,toCoordinateFrom: mapView)
+                let annotation = MKPointAnnotation()
+                
+                annotation.coordinate = coordinate
+                annotation.title = "Latitude:" + String(format: "%.02f",annotation.coordinate.latitude) + " Longitude:" + String(format: "%.02f",annotation.coordinate.longitude)
+                mapView.addAnnotation(annotation)
+            }
+        }
+        
     }
     
     

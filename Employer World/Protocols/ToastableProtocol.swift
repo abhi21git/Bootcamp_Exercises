@@ -14,7 +14,7 @@ protocol Toastable {
 }
 
 extension Toastable {
-    func showToast(controller: UIViewController, message : String, seconds: Double) {
+    func showToast(controller: UIViewController, message : String, seconds: Double = 1.2) {
         
         let alert = UIAlertController(title: nil, message: message, preferredStyle: .actionSheet)
         alert.view.layer.cornerRadius = 8
