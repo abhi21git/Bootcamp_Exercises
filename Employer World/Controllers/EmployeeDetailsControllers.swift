@@ -79,7 +79,7 @@ class EmployeeDetailsControllers: UIViewController, Toastable {
                         self.employeeArray = [data as! EmployeeDetails]
                         
                         DispatchQueue.main.async {
-                            self.nameLabel.text = self.employeeArray[0].name
+                            self.nameLabel.text = self.employeeArray[0].name?.capitalized
                             self.ageLabel.text = self.employeeArray[0].age
                             self.salaryLabel.text = self.employeeArray[0].salary
                             self.empIDLabel.text = self.employeeArray[0].id
@@ -165,6 +165,7 @@ class EmployeeDetailsControllers: UIViewController, Toastable {
             
             mapVC.addAnnotation = addAnnotation
             mapVC.inSubView = true
+            mapVC.empName = self.nameLabel.text!
             addChild(mapVC)
             bottomContainerView.addSubview(mapVC.view)
             mapVC.didMove(toParent: self)

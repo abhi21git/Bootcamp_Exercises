@@ -8,13 +8,30 @@
 
 import UIKit
 import MapKit
+import CoreData
 
-class MapController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate, Toastable {
+class MapController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate, NSFetchedResultsControllerDelegate, Toastable {
     
     //  MARK: - Variables
     let locationManager = CLLocationManager()
     var inSubView = false
     var addAnnotation = false
+    var empName = ""
+    
+    fileprivate lazy var fetchedResultController: NSFetchedResultsController<EmployeeCoordinates> = {
+        let appDelegate = UIApplication.shared.delegate as? AppDelegate
+        let context = appDelegate?.persistentContainer.viewContext
+        let fetchRequest:NSFetchRequest = EmployeeCoordinates.fetchRequest()
+        
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "empName", ascending: true)]
+        
+        let fetchResultController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context!, sectionNameKeyPath: nil, cacheName: nil)
+        
+        fetchResultController.delegate = self
+        
+        try? fetchResultController.performFetch()
+        return fetchResultController 
+    }()
     
     
     //  MARK: - IBOutlets
@@ -29,6 +46,15 @@ class MapController: UIViewController, CLLocationManagerDelegate, MKMapViewDeleg
         mapHandling()
         configureUI()
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        for item in fetchedResultController.fetchedObjects! {
+            let anotationn = MKPointAnnotation()
+            anotationn.title = item.empName
+            anotationn.coordinate = CLLocationCoordinate2D(latitude: item.lattitude, longitude: item.longitude)
+            mapView.addAnnotation(anotationn)
+        }
     }
     
     
@@ -82,7 +108,7 @@ class MapController: UIViewController, CLLocationManagerDelegate, MKMapViewDeleg
     func enableLocationServices(){
         if CLLocationManager.locationServicesEnabled(){
             locationManager.desiredAccuracy = kCLLocationAccuracyBest
-            locationManager.distanceFilter =  100
+            locationManager.distanceFilter =  10
             locationManager.startUpdatingLocation()
             mapView.setUserTrackingMode(.followWithHeading, animated: true)
             mapView.showsUserLocation = true
@@ -93,6 +119,7 @@ class MapController: UIViewController, CLLocationManagerDelegate, MKMapViewDeleg
     func disableLocationServices(){
         locationManager.stopUpdatingLocation()
     }
+
     
     @objc func dropPin(_ gestureReconizer: UILongPressGestureRecognizer) {
         if addAnnotation && inSubView {
@@ -104,9 +131,9 @@ class MapController: UIViewController, CLLocationManagerDelegate, MKMapViewDeleg
                 annotation.coordinate = coordinate
                 annotation.title = "Latitude:" + String(format: "%.02f",annotation.coordinate.latitude) + " Longitude:" + String(format: "%.02f",annotation.coordinate.longitude)
                 mapView.addAnnotation(annotation)
+                saveLocation(name: empName, latitude: annotation.coordinate.latitude, longitude: annotation.coordinate.longitude)
             }
         }
-        
     }
     
     
@@ -144,6 +171,18 @@ extension MapController {
         let span = MKCoordinateSpan(latitudeDelta: 0.2,longitudeDelta: 0.2)
         let region = MKCoordinateRegion(center: coordinations, span: span)
         mapView.setRegion(region, animated: true)
+    }
+    
+    func saveLocation(name: String, latitude: Double, longitude: Double ) {
+        let appDelegate = UIApplication.shared.delegate as? AppDelegate
+        if let context = appDelegate?.persistentContainer.viewContext {
+            let entity = NSEntityDescription.insertNewObject(forEntityName: "EmployeeCoordinates", into: context) as? EmployeeCoordinates
+            entity?.empName = name
+            entity?.lattitude = latitude
+            entity?.longitude = longitude
+            
+            appDelegate?.saveContext()
+        }
     }
     
     

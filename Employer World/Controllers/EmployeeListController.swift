@@ -25,6 +25,11 @@ class EmployeeListController: UIViewController, UITableViewDelegate, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        DispatchQueue.main.async {
+            print("One")
+            self.doSomething()
+        }
+        
         tableViewHandling()
         configureUI()
         employeeFetching()
@@ -37,6 +42,14 @@ class EmployeeListController: UIViewController, UITableViewDelegate, UITableView
         }
     }
     
+    func doSomething() {
+        print("two")
+        DispatchQueue.main.async {
+            print("three")
+            print("four")
+        }
+        print("five")
+    }
     
     //  MARK: - Functions
     func configureUI() {
