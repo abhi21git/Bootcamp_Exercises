@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SignUpController: UIViewController, Toastable {
+class SignUpController: UIViewController, UserDataValidation, Toastable {
     
     //  MARK: - Variables
     var passwordMatched = false
@@ -39,10 +39,10 @@ class SignUpController: UIViewController, Toastable {
             textFields?.delegate = self
         }
         [firstNameTF, lastNameTF, emailTF, passwordTF, confirmPasswordTF].forEach { textFields in
-            textFields?.elevateView(shadowOffset: CGSize(width: 1.0, height: 1.0))
+            textFields?.elevateView(shadowOffset: SHADOWOFFSET)
         }
         firstNameTF.becomeFirstResponder()
-        self.navigationController?.navigationBar.topItem?.title = "Signup"
+        self.navigationController?.navigationBar.topItem?.title = SIGNUPTITLE
         self.navigationItem.hidesBackButton = true
         
         signupButton.roundedCornersWithBorder(cornerRadius: 4)
@@ -63,14 +63,16 @@ class SignUpController: UIViewController, Toastable {
         self.willMove(toParent: nil)
         self.view.removeFromSuperview()
         self.removeFromParent()
-        UserDefaults.standard.set("login", forKey: "ProfileStatus")
+        
+        UserDefault.set(PROFILESTATUSLOGIN, forKey: PROFILESTATUS)
     }
     
     @IBAction func emailValidation() {
-        let validationURL = "https://qa.curiousworld.com/api/v3/Validate/Email?_format=json"
+        //TODO reduce hits like login
+        
         let parameters = ["mail" : emailTF.text!]
         
-        NetworkManager.sharedInstance.profileApi(urlString: validationURL, parameters: parameters, completion: { (data, responseError) in
+        NetworkManager.sharedInstance.profileApi(urlString: EMAILVALIDATIONURL, parameters: parameters, completion: { (data, responseError) in
             
             if data != nil {
                 DispatchQueue.global().async {
@@ -93,45 +95,44 @@ class SignUpController: UIViewController, Toastable {
     
     @IBAction func passwordValidation() {
         if passwordTF.text!.isEmpty {
-            passwordChecker.text = ""
+            passwordChecker.text = CheckStatus.none.rawValue
         }
         else if passwordTF.text!.count < 8 {
             passwordChecker.textColor = UIColor.red
-            passwordChecker.text = "✗"
+            passwordChecker.text = CheckStatus.incorrect.rawValue
         }
         else {
             passwordChecker.textColor = UIColor.green
-            passwordChecker.text = "✓"
+            passwordChecker.text = CheckStatus.correct.rawValue
         }
     }
     
     @IBAction func passwordMatching() {
         if confirmPasswordTF.text!.isEmpty{
-            samePasswordChecker.text = ""
+            samePasswordChecker.text = CheckStatus.none.rawValue
         }
         else if (passwordTF.text == confirmPasswordTF.text){
             samePasswordChecker.textColor = UIColor.green
-            samePasswordChecker.text = "✓"
+            samePasswordChecker.text = CheckStatus.correct.rawValue
             passwordMatched = true
         }
         else {
             samePasswordChecker.textColor = UIColor.red
-            samePasswordChecker.text = "✗"
+            samePasswordChecker.text = CheckStatus.incorrect.rawValue
             passwordMatched = false
         }
     }
     
     @IBAction func signUp() {
         if passwordMatched {
-            let signpURL = "https://qa.curiousworld.com/api/v3/SignUp"
             let parameters = [
-                "firstName" : firstNameTF.text ?? "",
-                "lastName" : lastNameTF.text ?? "",
-                "mail" : emailTF.text ?? "",
-                "password" : passwordTF.text ?? ""
+                "firstName" : firstNameTF.text ?? BLANKSTRING,
+                "lastName" : lastNameTF.text ?? BLANKSTRING,
+                "mail" : emailTF.text ?? BLANKSTRING,
+                "password" : passwordTF.text ?? BLANKSTRING
             ]
             
-            NetworkManager.sharedInstance.profileApi(urlString: signpURL, parameters: parameters) { (data, responseError) in
+            NetworkManager.sharedInstance.profileApi(urlString: SIGNUPURL, parameters: parameters) { (data, responseError) in
                 if let error = responseError {
                     self.showToast(controller: self, message: error.localizedDescription)
                     
@@ -157,7 +158,6 @@ class SignUpController: UIViewController, Toastable {
             showToast(controller: self, message : "Password did not matched")
         }
     }
-    
     
     
 }

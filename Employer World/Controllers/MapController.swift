@@ -16,7 +16,7 @@ class MapController: UIViewController, CLLocationManagerDelegate, MKMapViewDeleg
     let locationManager = CLLocationManager()
     var inSubView = false
     var addAnnotation = false
-    var empName = ""
+    var empName = BLANKSTRING
     
     fileprivate lazy var fetchedResultController: NSFetchedResultsController<EmployeeCoordinates> = {
         let appDelegate = UIApplication.shared.delegate as? AppDelegate
@@ -69,9 +69,9 @@ class MapController: UIViewController, CLLocationManagerDelegate, MKMapViewDeleg
             
         }
         else {
-            self.navigationItem.title = "Maps"
+            self.navigationItem.title = MAPSTITLE
             currentLocationButton.roundedCornersWithBorder(cornerRadius: currentLocationButton.frame.height/2)
-            currentLocationButton.elevateView(shadowOffset: CGSize(width: 1.0, height: 1.0))
+            currentLocationButton.elevateView(shadowOffset: SHADOWOFFSET)
 
         }
     }
@@ -152,13 +152,13 @@ extension MapController {
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         switch status {
         case .authorizedAlways:
-            print("authorized")
+            print("Authorized")
             
         case .denied:
-            print("not authorized")
+            print("Not authorized")
             
         default:
-            print("unknown")
+            print("Unknown")
             break
         }
     }

@@ -17,14 +17,10 @@ class GalleryController: UIViewController, NSFetchedResultsControllerDelegate, T
     var isSelectionOn = false
     var googleImagesResponse = [GoogleImages]()
     var employeeName = [String]()
-    var tempName = ""
+    var tempName = BLANKSTRING
     var imageURL = [String]()
     var thumbnailURL = [String]()
-    var query = ""
-    let cx = "018004629090563794309:4-knw3rlcoo"
-    let key = "AIzaSyDIUO4kqd6rHZEbNg5-phC6z6-jmHD0jLI"
-//    let cx = "018004629090563794309:4-knw3rlcoo"
-//    let key = "AIzaSyDFTIW28gbTwjayShhM2M7qy5ar7RWIqY8"
+    var query = BLANKSTRING
     var start = 1
     var num = 10
     var temp = 0
@@ -46,7 +42,7 @@ class GalleryController: UIViewController, NSFetchedResultsControllerDelegate, T
     }()
     
     //  MARK: - IBOutlets
-    @IBOutlet weak var gallery: UICollectionView!
+    @IBOutlet weak var galleryView: UICollectionView!
     @IBOutlet weak var selectButton: UIButton!
     
     
@@ -62,24 +58,25 @@ class GalleryController: UIViewController, NSFetchedResultsControllerDelegate, T
     
     //  MARK: - Functions
     func collectionViewHandling() {
-        let nib = UINib(nibName: "CollectionGalleryCell", bundle: nil)
-        gallery.register(nib, forCellWithReuseIdentifier: "galleryCell")
-        gallery.delegate = self
-        gallery.dataSource = self
+        let nib = UINib(nibName: CUSTOMGALLERYCELLXIBNAME, bundle: nil)
+        galleryView.register(nib, forCellWithReuseIdentifier: CUSTOMGALLERYCELLNAME)
+        galleryView.delegate = self
+        galleryView.dataSource = self
 
     }
 
     
     func configureUI() {
         if isGalleryVC {
-            self.navigationItem.title = "Gallery"
+            self.navigationItem.title = GALLERYTITLE
             selectButton.isHidden = true
-            refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+            refreshControl.attributedTitle = NSAttributedString(string: PULLTOREFRESHMESSAGE)
             refreshControl.addTarget(self, action: #selector(refresh), for: UIControl.Event.valueChanged)
-            gallery.refreshControl = refreshControl
+            galleryView.refreshControl = refreshControl
+            navigationController?.navigationBar.addBlurEffect()
         }
         else {
-            self.navigationItem.title = "Google Images"
+            self.navigationItem.title = GOOGLEIMAGESEARCHTITLE
             self.definesPresentationContext = true
             selectButton.isHidden = false
             showSearchBar()
@@ -107,14 +104,14 @@ class GalleryController: UIViewController, NSFetchedResultsControllerDelegate, T
         searchController.searchBar.tintColor = UIColor.black
         searchController.searchBar.sizeToFit()
         searchController.searchBar.returnKeyType = UIReturnKeyType.search
-        searchController.searchBar.placeholder = "Search for images on Google"
+        searchController.searchBar.placeholder = GOOGLESEARCHPLACEHOLDERTEXT
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
     }
     
     func imageSearch() {
         
-        let urlString = "https://www.googleapis.com/customsearch/v1?q=\(query)&key=\(key)&cx=\(cx)&searchType=image&start=\(start)&num=\(num)"
+        let urlString = "\(GOOGLECUSTOMSEARCHSBASEURL)?q=\(query)&key=\(GOOGLEKEY)&cx=\(GOOGLECX)&searchType=image&start=\(start)&num=\(num)"
         
         NetworkManager.sharedInstance.googleImageSearch(urlString: urlString, completion: {(data, responseError) in
             
@@ -132,7 +129,7 @@ class GalleryController: UIViewController, NSFetchedResultsControllerDelegate, T
                             }
                         }
                         DispatchQueue.main.async {
-                            self.gallery.reloadData()
+                            self.galleryView.reloadData()
                         }
                     }
                 }
@@ -145,7 +142,7 @@ class GalleryController: UIViewController, NSFetchedResultsControllerDelegate, T
         employeeName.removeAll()
         imageURL.removeAll()
         thumbnailURL.removeAll()
-        gallery.reloadData()
+        galleryView.reloadData()
 
     }
     
@@ -164,7 +161,7 @@ class GalleryController: UIViewController, NSFetchedResultsControllerDelegate, T
     }
     
     @objc func refresh() {
-        gallery.reloadData()
+        galleryView.reloadData()
         refreshControl.endRefreshing()
     }
     
@@ -182,14 +179,15 @@ extension GalleryController: UICollectionViewDelegate , UICollectionViewDataSour
     
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "galleryCell", for: indexPath) as! CustomGalleryCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CUSTOMGALLERYCELLNAME, for: indexPath) as! CustomGalleryCell
         if isGalleryVC {
+            //add subview functionality later
             cell.selectionIndicator.isHidden = true
             UIImage.loadFrom(url: thumbnailURL[indexPath.row], completion: { image in
                 cell.thumbnailImage.image = image
-                cell.imageTitle.text = self.tempName
+                cell.imageTitle.text = self.employeeName[indexPath.row]
                 cell.loadingIndicator.isHidden = true
-                cell.imageTitle.isHidden = false
+//                cell.imageTitle.isHidden = false
                 
             })
             return cell
@@ -208,7 +206,7 @@ extension GalleryController: UICollectionViewDelegate , UICollectionViewDataSour
     
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let currentCell = gallery.cellForItem(at: indexPath) as! CustomGalleryCell
+        let currentCell = galleryView.cellForItem(at: indexPath) as! CustomGalleryCell
         let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
         let controller = storyBoard.instantiateViewController(withIdentifier: "PhotoPreviewController") as! PhotoPreviewController
         controller.imageURL = imageURL[indexPath.row]
@@ -218,17 +216,17 @@ extension GalleryController: UICollectionViewDelegate , UICollectionViewDataSour
         }
         else {
             if isSelectionOn {
-
+                guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+                let managedContext = appDelegate.persistentContainer.viewContext
+                
                 if currentCell.isUnselectedCell {
-                    let appDelegate = UIApplication.shared.delegate as? AppDelegate
-                    if let context = appDelegate?.persistentContainer.viewContext {
-                        let entity = NSEntityDescription.insertNewObject(forEntityName: "EmployeeImages", into: context) as? EmployeeImages
-                        entity?.employeeName = tempName
-                        entity?.imageURL = imageURL[indexPath.row]
-                        entity?.thumbnailURL = thumbnailURL[indexPath.row]
-                        appDelegate?.saveContext()
 
-                    }
+                    let entity = NSEntityDescription.insertNewObject(forEntityName: "EmployeeImages", into: managedContext) as? EmployeeImages
+                    entity?.employeeName = tempName
+                    entity?.imageURL = imageURL[indexPath.row]
+                    entity?.thumbnailURL = thumbnailURL[indexPath.row]
+                    appDelegate.saveContext()
+
                     currentCell.isUnselectedCell = false
                     currentCell.selectionIndicator.isHidden = false
                     currentCell.elevateView(shadowColor: UIColor(red: 0/255, green: 150/255, blue: 1, alpha: 1.0).cgColor, shadowRadius: 4, shadowOpacity: 1)
@@ -237,7 +235,13 @@ extension GalleryController: UICollectionViewDelegate , UICollectionViewDataSour
                     
                 }
                 else {
-                    //delete unselected image here
+                    let fetchedRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "EmployeeImages")
+                    fetchedRequest.predicate = NSPredicate(format: "thumbnailURL == %@", thumbnailURL[indexPath.row])
+                    let data = try? managedContext.fetch(fetchedRequest)
+                    let unselectedData = data?[0] as! NSManagedObject
+                    managedContext.delete(unselectedData)
+                    try? managedContext.save()
+
                     currentCell.elevateView(shadowColor: UIColor.white.cgColor, shadowRadius: 0, shadowOpacity: 0)
                     currentCell.isUnselectedCell = true
                     currentCell.selectionIndicator.isHidden = true

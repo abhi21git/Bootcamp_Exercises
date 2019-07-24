@@ -13,7 +13,7 @@ import CoreData
 class EmployeeDetailsControllers: UIViewController, Toastable {
     
     //  MARK: - Variables
-    var empID: String = "0"
+    var empID: String = NULLVALUE
     var employeeArray = [EmployeeDetails]()
     var gallerySelected = true
     var droppingPins = true
@@ -41,16 +41,16 @@ class EmployeeDetailsControllers: UIViewController, Toastable {
     
     //  MARK: - Functions
     func configureUI() {
-        self.title = "Employee Details"
+        self.title = EMPLOYEEDETAILSTITLE
         
-        nameLabel.roundedCornersWithBorder(cornerRadius: 4)
-        ageLabel.roundedCornersWithBorder(cornerRadius: 4)
-        empIDLabel.roundedCornersWithBorder(cornerRadius: 4)
-        salaryLabel.roundedCornersWithBorder(cornerRadius: 4)
-        detailsContentView.roundedCornersWithBorder(cornerRadius: 4)
-        detailsContentView.elevateView(shadowOffset: CGSize(width: 1.0, height: 1.0), shadowRadius: 4)
-        bottomContainerView.roundedCornersWithBorder(cornerRadius: 4, borderWidth: 1)
-        customSegment.roundedCornersWithBorder(cornerRadius: 4, borderWidth: 1)
+        nameLabel.roundedCornersWithBorder(cornerRadius: THEMECORNERRADIUS)
+        ageLabel.roundedCornersWithBorder(cornerRadius: THEMECORNERRADIUS)
+        empIDLabel.roundedCornersWithBorder(cornerRadius: THEMECORNERRADIUS)
+        salaryLabel.roundedCornersWithBorder(cornerRadius: THEMECORNERRADIUS)
+        detailsContentView.roundedCornersWithBorder(cornerRadius: THEMECORNERRADIUS)
+        detailsContentView.elevateView(shadowOffset: SHADOWOFFSET, shadowRadius: 4)
+        bottomContainerView.roundedCornersWithBorder(cornerRadius: THEMECORNERRADIUS, borderWidth: 1)
+        customSegment.roundedCornersWithBorder(cornerRadius: THEMECORNERRADIUS, borderWidth: 1)
         
     }
     
@@ -66,8 +66,7 @@ class EmployeeDetailsControllers: UIViewController, Toastable {
     
     func apiHandling() {
         
-        let employeeURL = "http://dummy.restapiexample.com/api/v1/employee/\(empID)"
-        
+        let employeeURL = EMPLOYEEBASEURL + "/" + empID
         NetworkManager.sharedInstance.loadSelectedEmployee(urlString: employeeURL, completion: { (data, responseError) in
             
             if let error = responseError {

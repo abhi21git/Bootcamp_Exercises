@@ -30,12 +30,8 @@ class PhotoPreviewController: UIViewController {
     
     //  MARK:- Functions
     func configureUI() {
-        self.title = "Preview"
+        self.title = PHOTOPREVIEWTITLE
         imageLoader.roundedCornersWithBorder(cornerRadius: imageLoader.frame.height/6)
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.5)
-        
     }
     
     func loadImage(urlString: String) {

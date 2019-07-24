@@ -8,15 +8,9 @@
 
 import UIKit
 
-class LoginController: UIViewController, Toastable {
+class LoginController: UIViewController, UserDataValidation, Toastable {
     
     //  MARK: - Variables
-    enum CheckStatus: String {
-        case correct = "✓"
-        case incorrect = "✗"
-        case unknown = "?"
-        case none = ""
-    }
     
     
     //  MARK: - IBOutlets
@@ -39,24 +33,24 @@ class LoginController: UIViewController, Toastable {
     //  MARK: - Functions
     func configureUI() {
         userNameTF.becomeFirstResponder()
-        self.navigationItem.title = "Login"
+        self.navigationItem.title = LOGINTITLE
+        navigationController?.navigationBar.addBlurEffect()
+        loader.isHidden = true
         loginButton.roundedCornersWithBorder(cornerRadius: 4)
         loader.roundedCornersWithBorder(cornerRadius: loader.frame.height/6)
-        loader.isHidden = true
-        loginButton.elevateView(shadowOffset: CGSize(width: 1.0, height: 1.0))
-        userNameTF.elevateView(shadowOffset: CGSize(width: 1.0, height: 1.0))
-        passwordTF.elevateView(shadowOffset: CGSize(width: 1.0, height: 1.0))
         userNameChecker.roundedCornersWithBorder(cornerRadius: userNameChecker.frame.height/2)
         passwordChecker.roundedCornersWithBorder(cornerRadius: userNameChecker.frame.height/2)
+        loginButton.elevateView(shadowOffset: SHADOWOFFSET)
+        userNameTF.elevateView(shadowOffset: SHADOWOFFSET)
+        passwordTF.elevateView(shadowOffset: SHADOWOFFSET)
         userNameTF.returnKeyType = UIReturnKeyType.next
         passwordTF.returnKeyType = UIReturnKeyType.done
         
-        let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
-        
-        if UserDefaults.standard.string(forKey: "ProfileStatus") == "signup" {
+        if UserDefault.string(forKey: PROFILESTATUS) == PROFILESTATUSSIGNUP {
             signUp()
         }
-        else if UserDefaults.standard.string(forKey: "ProfileStatus") == "profile" {
+        else if UserDefault.string(forKey: PROFILESTATUS) == PROFILESTATUSPROFILE {
+            let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
             let profileVC = storyBoard.instantiateViewController(withIdentifier: "ProfileController") as! ProfileController
             
             addChild(profileVC)
@@ -77,17 +71,7 @@ class LoginController: UIViewController, Toastable {
         return data
     }
     
-    
-    func isValidEmail(testStr:String) -> Bool {
-        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
-        return NSPredicate(format:"SELF MATCHES %@", emailRegEx).evaluate(with: testStr)
-    }
-    
-    func isValidPassword(testStr:String) -> Bool {
-        let passwordRegEx = "(?=.*[a-zA-Z])(?=.*[0-9]).{8,64}$"
-        return NSPredicate(format:"SELF MATCHES %@", passwordRegEx).evaluate(with: testStr)
-    }
-    
+        
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         userNameTF.resignFirstResponder()
         passwordTF.resignFirstResponder()
@@ -105,17 +89,15 @@ class LoginController: UIViewController, Toastable {
             self.userNameChecker.text = CheckStatus.incorrect.rawValue
             
             if isValidEmail(testStr: userNameTF.text!) {
-                let validationURL = "https://qa.curiousworld.com/api/v3/Validate/Email?_format=json"
                 let parameters = ["mail" : userNameTF.text!]
                 
-                NetworkManager.sharedInstance.profileApi(urlString: validationURL, parameters: parameters, completion: { (data, responseError) in
+                NetworkManager.sharedInstance.profileApi(urlString: EMAILVALIDATIONURL, parameters: parameters, completion: { (data, responseError) in
                     if responseError != nil {
                         DispatchQueue.main.async {
                             self.userNameChecker.textColor = UIColor.blue
                             self.userNameChecker.text = CheckStatus.unknown.rawValue
                         }
                     }
-                    
                     if data != nil {
                         DispatchQueue.global().async {
                             let status = data as! ProfileModel
@@ -152,12 +134,20 @@ class LoginController: UIViewController, Toastable {
         }
     }
     
+    @IBAction func removeCheck() {
+        if userNameTF.text!.isEmpty {
+            userNameChecker.text = CheckStatus.none.rawValue
+        }
+        if passwordTF.text!.isEmpty {
+            passwordChecker.text = CheckStatus.none.rawValue
+        }
+    }
+    
     @IBAction func loginIn() {
         if userNameChecker.text == CheckStatus.correct.rawValue {
             
             loader.isHidden = false
             
-            let loginURL = "https://qa.curiousworld.com/api/v3/Login?_format=json"
             let loginParam = [
                 "mail" : userNameTF.text! ,
                 "password" : passwordTF.text!,
@@ -170,7 +160,7 @@ class LoginController: UIViewController, Toastable {
             
             let parametersData = getPostDataAttributes(params: loginParam)
             
-            NetworkManager.sharedInstance.logIn(urlString: loginURL, parameters: parametersData, completion: { (data, responseError) in
+            NetworkManager.sharedInstance.logIn(urlString: LOGINURL, parameters: parametersData, completion: { (data, responseError) in
                 if let error = responseError {
                     self.showToast(controller: self, message: error.localizedDescription)
                     DispatchQueue.main.async {
@@ -183,7 +173,6 @@ class LoginController: UIViewController, Toastable {
                         DispatchQueue.global().async {
                             let loginResponse = data as! LoginModel
                             DispatchQueue.main.async {
-                                //add to child view later
                                 let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
                                 let profileVC = storyboard.instantiateViewController(withIdentifier: "ProfileController") as! ProfileController
                                 profileVC.profileData = loginResponse
@@ -192,8 +181,8 @@ class LoginController: UIViewController, Toastable {
                                 profileVC.didMove(toParent: self)
                                 
                                 self.loader.isHidden = true
-                                self.userNameTF.text = ""
-                                self.passwordTF.text = ""
+                                self.userNameTF.text = BLANKSTRING
+                                self.passwordTF.text = BLANKSTRING
                                 self.userNameChecker.text = CheckStatus.none.rawValue
                                 self.passwordChecker.text = CheckStatus.none.rawValue                                
                             }
@@ -218,16 +207,26 @@ class LoginController: UIViewController, Toastable {
     
     
     @IBAction func forgetPassword() {
-        if userNameTF.text!.isEmpty || userNameChecker.text == CheckStatus.incorrect.rawValue {
-            showToast(controller: self, message: "First enter a valid mail")
+//        let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+//        let resetVC = storyboard.instantiateViewController(withIdentifier: "ResetPasswordController") as! ResetPasswordController
+//
+//        addChild(resetVC)
+//        self.view.addSubview(resetVC.view)
+//        resetVC.didMove(toParent: self)
+        
+        let alert = UIAlertController(title: "Reset Password", message: "To reset your password please enter your email address.", preferredStyle: UIAlertController.Style.alert)
+        alert.addTextField { textField in
+            textField.placeholder = "Enter email address"
         }
-        else if userNameChecker.text == CheckStatus.correct.rawValue {
-            let forgetURL = "https://qa.curiousworld.com/api/v3/ForgetPassword?_format=json"
-            let parameters = ["mail" :  userNameTF.text!]
+        alert.addAction(UIAlertAction(title: "Reset", style: .destructive, handler: {action in
+            self.loader.isHidden = false
             
-            NetworkManager.sharedInstance.profileApi(urlString: forgetURL, parameters: parameters, completion: { (data, responseError) in
+            let parameters = ["mail" :  alert.textFields![0].text!]
+            
+            NetworkManager.sharedInstance.profileApi(urlString: FORGOTEMAILURL, parameters: parameters, completion: { (data, responseError) in
                 if let error = responseError {
-                    DispatchQueue.global().async {
+                    DispatchQueue.main.async {
+                        self.loader.isHidden = true
                         self.showToast(controller: self, message: error.localizedDescription)
                     }
                 }
@@ -235,23 +234,28 @@ class LoginController: UIViewController, Toastable {
                     if data != nil {
                         DispatchQueue.global().async {
                             let forgetResponse = data as! ProfileModel
-                            self.showToast(controller: self, message: forgetResponse.Status.message!, seconds: 2)
+                            DispatchQueue.main.async {
+                                self.loader.isHidden = true
+                                self.showToast(controller: self, message: forgetResponse.Status.message!, seconds: 2)
+                            }
                         }
                     }
                     else {
-                        self.showToast(controller: self, message: "Invalid email entered", seconds: 1.2)
+                        DispatchQueue.main.async {
+                            self.loader.isHidden = true
+                            self.showToast(controller: self, message: "Invalid email entered", seconds: 1.2)
+                        }
                     }
                 }
             })
-        }
-        else if userNameChecker.text == CheckStatus.unknown.rawValue {
-            showToast(controller: self, message: "Please check your connection")
-        }
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        present(alert, animated: true, completion: nil)
+        
     }
     
     
     @IBAction func signUp() {
-        //add to child view later
         let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
         let signupVC = storyboard.instantiateViewController(withIdentifier: "SignUpController") as! SignUpController
         
@@ -259,7 +263,7 @@ class LoginController: UIViewController, Toastable {
         self.view.addSubview(signupVC.view)
         signupVC.didMove(toParent: self)
         
-        UserDefaults.standard.set("signup", forKey: "ProfileStatus")
+        UserDefault.set(PROFILESTATUSSIGNUP, forKey: PROFILESTATUS)
     }
     
     

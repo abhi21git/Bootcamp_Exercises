@@ -12,7 +12,6 @@ class ProfileController: UIViewController {
     
     //  MARK: - Variables
     var profileData: LoginModel!
-    let profile = UserDefaults.standard
     
     
     //  MARK: - IBOutlets
@@ -33,7 +32,7 @@ class ProfileController: UIViewController {
     
     //  MARK: - Functions
     func configureUI() {
-        self.navigationController?.navigationBar.topItem?.title = "Profile"
+        self.navigationController?.navigationBar.topItem?.title = PROFILETITLE
 
         logoutButton.roundedCornersWithBorder(cornerRadius: 4)
         
@@ -42,22 +41,22 @@ class ProfileController: UIViewController {
     func loadProfile() {
         
         func loadData() {
-            firstNameLabel.text = profile.string(forKey: "fname")?.capitalized
-            fullNameLabel.text = (profile.string(forKey: "fname")! + " " + profile.string(forKey: "lname")!).capitalized
-            uidNumber.text = profile.string(forKey: "uid")
-            subscriptionLabel.text = profile.string(forKey: "subscription")
+            firstNameLabel.text = UserDefault.string(forKey: "fname")?.capitalized
+            fullNameLabel.text = (UserDefault.string(forKey: "fname")! + " " + UserDefault.string(forKey: "lname")!).capitalized
+            uidNumber.text = UserDefault.string(forKey: "uid")
+            subscriptionLabel.text = UserDefault.string(forKey: "subscription")
         }
         
-        if profile.bool(forKey: "isLoggenIn") {
+        if UserDefault.bool(forKey: LOGINKEY) {
             loadData()
         }
         else {
-            profile.setValue(profileData.Data.firstName ?? "???", forKey: "fname")
-            profile.setValue(profileData.Data.lastName ?? "???", forKey: "lname")
-            profile.setValue(profileData.Data.userID ?? "???", forKey: "uid")
-            profile.setValue(profileData.Data.subscriptionStatus ?? "???", forKey: "subscription")
-            profile.set(true, forKey: "isLoggenIn")
-            profile.set("profile", forKey: "ProfileStatus")
+            UserDefault.setValue(profileData.Data.firstName ?? BLANKSTRING, forKey: "fname")
+            UserDefault.setValue(profileData.Data.lastName ?? BLANKSTRING, forKey: "lname")
+            UserDefault.setValue(profileData.Data.userID ?? BLANKSTRING, forKey: "uid")
+            UserDefault.setValue(profileData.Data.subscriptionStatus ?? BLANKSTRING, forKey: "subscription")
+            UserDefault.set(true, forKey: LOGINKEY)
+            UserDefault.set(PROFILESTATUSPROFILE, forKey: PROFILESTATUS)
             loadData()
         }
     }
@@ -66,13 +65,13 @@ class ProfileController: UIViewController {
     //  MARK: - IBActions
     @IBAction func logout() {
         //remove child view
-        profile.set(true, forKey: "isFirstTime")
-        profile.set(false, forKey: "isLoggenIn")
-        profile.set("login", forKey: "ProfileStatus")
-        profile.removeObject(forKey: "fname")
-        profile.removeObject(forKey: "lname")
-        profile.removeObject(forKey: "uid")
-        profile.removeObject(forKey: "subscription")
+        UserDefault.set(true, forKey: FIRSTTIMEKEY)
+        UserDefault.set(false, forKey: LOGINKEY)
+        UserDefault.set(PROFILESTATUSLOGIN, forKey: PROFILESTATUS)
+        UserDefault.removeObject(forKey: "fname")
+        UserDefault.removeObject(forKey: "lname")
+        UserDefault.removeObject(forKey: "uid")
+        UserDefault.removeObject(forKey: "subscription")
         
         self.willMove(toParent: nil)
         self.view.removeFromSuperview()

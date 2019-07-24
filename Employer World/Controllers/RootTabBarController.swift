@@ -29,13 +29,13 @@ class RootTabBarController: UITabBarController {
     //  MARK: - Functions
     func configureUI() {
 
-        if UserDefaults.standard.string(forKey: "ProfileStatus") == "login" {
+        if UserDefault.string(forKey: PROFILESTATUS) == PROFILESTATUSLOGIN {
             
         }
-        else if UserDefaults.standard.string(forKey: "ProfileStatus") == "signup" {
+        else if UserDefault.string(forKey: PROFILESTATUS) == PROFILESTATUSSIGNUP {
             
         }
-        else if UserDefaults.standard.string(forKey: "ProfileStatus") == "profile" {
+        else if UserDefault.string(forKey: PROFILESTATUS) == PROFILESTATUSPROFILE {
             
         }
     }

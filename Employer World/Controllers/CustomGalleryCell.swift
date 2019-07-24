@@ -31,9 +31,11 @@ class CustomGalleryCell: UICollectionViewCell {
     
     //  MARK: - Functions
     func configureUI() {
-        thumbnailImage.elevateView(shadowOffset: CGSize(width: 1.0, height: 1.0))
-        thumbnailImage.roundedCornersWithBorder(cornerRadius: imageTitle.frame.height/2)
-        imageTitle.roundedCornersWithBorder(cornerRadius: imageTitle.frame.height/2)
+        thumbnailImage.elevateView(shadowOffset: SHADOWOFFSET)
+//        thumbnailImage.roundedCornersWithBorder(cornerRadius: imageTitle.frame.height/2)
+//        imageTitle.roundedCornersWithBorder(cornerRadius: imageTitle.frame.height/2)
+        self.contentView.roundedCornersWithBorder(cornerRadius: imageTitle.frame.height/2)
+        self.contentView.clipsToBounds = true
         loadingIndicator.roundedCornersWithBorder(cornerRadius: loadingIndicator.frame.height/2)
         thumbnailImage.clipsToBounds = true
         imageTitle.clipsToBounds = true
