@@ -104,7 +104,7 @@ class GalleryController: UIViewController, NSFetchedResultsControllerDelegate, T
         searchController.searchBar.tintColor = UIColor.black
         searchController.searchBar.sizeToFit()
         searchController.searchBar.returnKeyType = UIReturnKeyType.search
-        searchController.searchBar.placeholder = GOOGLESEARCHPLACEHOLDERTEXT
+        searchController.searchBar.placeholder = "Search for images on Google"
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
     }

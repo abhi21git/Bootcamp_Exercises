@@ -45,6 +45,7 @@ class EmployeeListController: UIViewController, UITableViewDelegate, UITableView
         configureUI()
         showSearchBar()
 //        employeeLoading()
+        directEmployeeFetching()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -86,7 +87,7 @@ class EmployeeListController: UIViewController, UITableViewDelegate, UITableView
         searchController.searchBar.backgroundColor = UIColor.white
         searchController.searchBar.sizeToFit()
         searchController.searchBar.returnKeyType = UIReturnKeyType.search
-        searchController.searchBar.placeholder = EMPLOYEESEARCHPLACEHOLDERTEXT
+        searchController.searchBar.placeholder = "Search employee name or ID"
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
         
@@ -139,6 +140,40 @@ class EmployeeListController: UIViewController, UITableViewDelegate, UITableView
         return true
     }
     
+    @discardableResult func directEmployeeFetching() -> Bool {
+        loader.isHidden = false
+        
+        let url = EMPLOYEEBASEURL + "s"
+        NetworkManager.sharedInstance.loadEmployees(urlString: url, completion: { (data, responseError) in
+            
+            if let error = responseError {
+                self.showToast(controller: self, message: error.localizedDescription, seconds: 1.6)
+                DispatchQueue.main.async {
+                    self.loader.isHidden = true
+                    let alert = UILabel(frame: CGRect(x: 0, y: 0, width: self.employeeTableView.bounds.size.width, height: self.employeeTableView.bounds.size.height))
+                    alert.text = "Pull down to retry."
+                    alert.textAlignment = .center
+                    self.employeeTableView.tableHeaderView = alert
+                }
+            }
+            else {
+                if data != nil {
+                    DispatchQueue.global().async {
+                        self.employeeList = data as! [Employee]
+                        self.searchedEmployee = self.employeeList
+                        
+                        DispatchQueue.main.async {
+                            self.loader.isHidden = true
+                            self.employeeTableView.tableHeaderView = .none
+                            self.employeeTableView.reloadData()
+                        }
+                    }
+                }
+            }
+        })
+        return true
+    }
+    
     
     //  MARK: - IBActions
     @objc func refresh() {
@@ -170,7 +205,9 @@ extension EmployeeListController {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        employeeFetching() //remove later
+//        employeeFetching()
+        directEmployeeFetching //remove later
+        
         let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "EmployeeDetailsControllers") as! EmployeeDetailsControllers
         controller.empID = searchedEmployee[indexPath.row].id ?? NULLVALUE

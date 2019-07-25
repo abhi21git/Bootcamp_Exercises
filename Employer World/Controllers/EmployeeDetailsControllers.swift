@@ -66,8 +66,8 @@ class EmployeeDetailsControllers: UIViewController, Toastable {
     
     func apiHandling() {
         
-        let employeeURL = EMPLOYEEBASEURL + "/" + empID
-        NetworkManager.sharedInstance.loadSelectedEmployee(urlString: employeeURL, completion: { (data, responseError) in
+        let url = EMPLOYEEBASEURL + "/" + empID
+        NetworkManager.sharedInstance.loadSelectedEmployee(urlString: url, completion: { (data, responseError) in
             
             if let error = responseError {
                 self.showToast(controller: self, message: error.localizedDescription)

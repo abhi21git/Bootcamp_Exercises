@@ -39,14 +39,11 @@ let CUSTOMGALLERYCELLNAME               =   "galleryCell"
 let FIRSTTIMEKEY                        =   "isFirstTime"
 let LOGINKEY                            =   "isLoggenIn"
 
-let EMPLOYEESEARCHPLACEHOLDERTEXT       =   "Search employee name or ID"
-let GOOGLESEARCHPLACEHOLDERTEXT         =   "Search for images on Google"
-
 let BLANKSTRING                         =   ""
 let NULLVALUE                           =   "0"
 
 
-let EMPLOYEEBASEURL                     =   "http://dummy.restapiexample.com/api/v1/employees"
+let EMPLOYEEBASEURL                     =   "http://dummy.restapiexample.com/api/v1/employee"
 
 let GOOGLECUSTOMSEARCHSBASEURL          =   "https://www.googleapis.com/customsearch/v1"
 let GOOGLECX                            =   "018004629090563794309:4-knw3rlcoo"         // "018004629090563794309:4-knw3rlcoo"
@@ -59,7 +56,7 @@ let FORGOTEMAILURL                      =   PROFILEBASEURL + "/ForgetPassword?_f
 let SIGNUPURL                           =   PROFILEBASEURL + "/SignUp"
 
 
-let UserDefault                         = UserDefaults.standard
+let UserDefault                         =   UserDefaults.standard
 
 enum CheckStatus: String {
     case correct = "✓"
