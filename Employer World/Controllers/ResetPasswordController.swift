@@ -99,15 +99,14 @@ class ResetPasswordController: UIViewController, UserDataValidation, Toastable {
                     DispatchQueue.global().async {
                         self.showToast(controller: self, message: error.localizedDescription)
                     }
-                }
-                else {
+                } else {
                     if data != nil {
                         DispatchQueue.global().async {
                             let forgetResponse = data as! ProfileModel
                             self.showToast(controller: self, message: forgetResponse.Status.message!, seconds: 2)
+                            self.resetPassword()
                         }
-                    }
-                    else {
+                    } else {
                         self.showToast(controller: self, message: "Invalid email entered", seconds: 1.2)
                     }
                 }
@@ -116,19 +115,6 @@ class ResetPasswordController: UIViewController, UserDataValidation, Toastable {
         else if userNameChecker.text == CheckStatus.unknown.rawValue {
             showToast(controller: self, message: "Please check your connection")
         }
-    }
-    
-    
-    @IBAction func signUp() {
-        //add to child view later
-        let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
-        let signupVC = storyboard.instantiateViewController(withIdentifier: "SignUpController") as! SignUpController
-        
-        addChild(signupVC)
-        self.view.addSubview(signupVC.view)
-        signupVC.didMove(toParent: self)
-        
-        UserDefaults.standard.set("signup", forKey: "ProfileStatus")
     }
     
     

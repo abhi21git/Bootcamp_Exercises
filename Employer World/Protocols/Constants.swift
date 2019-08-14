@@ -14,7 +14,7 @@ let PROFILESTATUSLOGIN                  =   "login"
 let PROFILESTATUSSIGNUP                 =   "signup"
 let PROFILESTATUSPROFILE                =   "profile"
 
-let APPTITLE                            =   "Employer's World"
+let APPTITLE                            =   "Employer World"
 let EMPLOYEEDETAILSTITLE                =   "Employee Details"
 let GALLERYTITLE                        =   "Gallery"
 let GOOGLEIMAGESEARCHTITLE              =   "Google Images"
@@ -43,7 +43,7 @@ let BLANKSTRING                         =   ""
 let NULLVALUE                           =   "0"
 
 
-let EMPLOYEEBASEURL                     =   "http://dummy.restapiexample.com/api/v1/employee"
+let EMPLOYEEBASEURL                     =   "http://dummy.restapiexample.com/api/v1/employees"
 
 let GOOGLECUSTOMSEARCHSBASEURL          =   "https://www.googleapis.com/customsearch/v1"
 let GOOGLECX                            =   "018004629090563794309:4-knw3rlcoo"         // "018004629090563794309:4-knw3rlcoo"

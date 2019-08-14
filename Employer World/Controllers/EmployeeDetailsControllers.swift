@@ -13,8 +13,7 @@ import CoreData
 class EmployeeDetailsControllers: UIViewController, Toastable {
     
     //  MARK: - Variables
-    var empID: String = NULLVALUE
-    var employeeArray = [EmployeeDetails]()
+    var employeeDetails: EmployeeDetails?
     var gallerySelected = true
     var droppingPins = true
     
@@ -35,7 +34,7 @@ class EmployeeDetailsControllers: UIViewController, Toastable {
         
         configureUI()
         customSegmentHandling()
-        apiHandling()
+        loadEmployeeDetails()
     }
     
     
@@ -63,30 +62,11 @@ class EmployeeDetailsControllers: UIViewController, Toastable {
         customSegment.addToMapButton.addTarget(self, action: #selector(self.addToMapSegmentAction), for: .touchUpInside)
     }
     
-    
-    func apiHandling() {
-        
-        let url = EMPLOYEEBASEURL + "/" + empID
-        NetworkManager.sharedInstance.loadSelectedEmployee(urlString: url, completion: { (data, responseError) in
-            
-            if let error = responseError {
-                self.showToast(controller: self, message: error.localizedDescription)
-            }
-            else {
-                if data != nil {
-                    DispatchQueue.global().async {
-                        self.employeeArray = [data as! EmployeeDetails]
-                        
-                        DispatchQueue.main.async {
-                            self.nameLabel.text = self.employeeArray[0].name?.capitalized
-                            self.ageLabel.text = self.employeeArray[0].age
-                            self.salaryLabel.text = self.employeeArray[0].salary
-                            self.empIDLabel.text = self.employeeArray[0].id
-                        }
-                    }
-                }
-            }
-        })
+    func loadEmployeeDetails() {
+        nameLabel.text = employeeDetails?.name ?? ""
+        ageLabel.text = employeeDetails?.age ?? ""
+        salaryLabel.text = employeeDetails?.salary ?? ""
+        empIDLabel.text = employeeDetails?.id ?? ""
     }
     
     //function to show action sheet on add button clicked
@@ -118,11 +98,9 @@ class EmployeeDetailsControllers: UIViewController, Toastable {
     
     //Photo library action sheet handler
     func photoLibrary() {
-        
         let myPickerController = UIImagePickerController()
         myPickerController.delegate = self
         myPickerController.sourceType = UIImagePickerController.SourceType.photoLibrary
-        
         self.present(myPickerController, animated: true, completion: nil)
         
     }

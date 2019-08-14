@@ -9,17 +9,6 @@
 import Foundation
 
 //Model used in loadEmployees()
-struct Employee: Decodable {
-    let id: String?
-    let name: String?
-    
-    enum CodingKeys: String, CodingKey {
-        case id = "id"
-        case name = "employee_name"
-    }
-}
-
-//Model used in loadSelectedEmployee
 struct EmployeeDetails: Decodable {
     let id: String?
     let name: String?

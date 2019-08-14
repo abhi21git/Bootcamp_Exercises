@@ -30,13 +30,9 @@ class GalleryController: UIViewController, NSFetchedResultsControllerDelegate, T
         let appDelegate = UIApplication.shared.delegate as? AppDelegate
         let context = appDelegate?.persistentContainer.viewContext
         let fetchRequest:NSFetchRequest = EmployeeImages.fetchRequest()
-        
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "employeeName", ascending: true)]
-        
         let fetchResultController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context!, sectionNameKeyPath: nil, cacheName: nil)
-        
         fetchResultController.delegate = self
-        
         try? fetchResultController.performFetch()
         return fetchResultController
     }()
@@ -62,7 +58,6 @@ class GalleryController: UIViewController, NSFetchedResultsControllerDelegate, T
         galleryView.register(nib, forCellWithReuseIdentifier: CUSTOMGALLERYCELLNAME)
         galleryView.delegate = self
         galleryView.dataSource = self
-
     }
 
     
@@ -110,15 +105,12 @@ class GalleryController: UIViewController, NSFetchedResultsControllerDelegate, T
     }
     
     func imageSearch() {
-        
         let urlString = "\(GOOGLECUSTOMSEARCHSBASEURL)?q=\(query)&key=\(GOOGLEKEY)&cx=\(GOOGLECX)&searchType=image&start=\(start)&num=\(num)"
-        
         NetworkManager.sharedInstance.googleImageSearch(urlString: urlString, completion: {(data, responseError) in
             
             if let error = responseError {
                 self.showToast(controller: self, message: error.localizedDescription)
-            }
-            else {
+            }else{
                 if data != nil {
                     DispatchQueue.global().async {
                         self.googleImagesResponse = [data as! GoogleImages]
@@ -145,7 +137,6 @@ class GalleryController: UIViewController, NSFetchedResultsControllerDelegate, T
         galleryView.reloadData()
 
     }
-    
     
     
     //  MARK: - IBActions

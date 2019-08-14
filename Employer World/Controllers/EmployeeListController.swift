@@ -12,18 +12,19 @@ import CoreData
 class EmployeeListController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UIScrollViewDelegate, NSFetchedResultsControllerDelegate, Toastable {
     
     //  MARK: - Variables
-    var employeeList = [Employee]()
-    var searchedEmployee = [Employee]()
+    var employeeList = [EmployeeDetails]()
+    var searchedEmployee = [EmployeeDetails]()
     var refreshControl = UIRefreshControl()
+    let progress = Progress(totalUnitCount: 100)
+
     
     fileprivate lazy var fetchedResultController: NSFetchedResultsController<Employees> = {
         let appDelegate = UIApplication.shared.delegate as? AppDelegate
         let context = appDelegate?.persistentContainer.viewContext
         let fetchRequest:NSFetchRequest = Employees.fetchRequest()
-        
-        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "id", ascending: true)]
         let fetchResultController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context!, sectionNameKeyPath: nil, cacheName: nil)
         
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "id", ascending: true)]
         fetchResultController.delegate = self
         
         try! fetchResultController.performFetch()
@@ -35,6 +36,7 @@ class EmployeeListController: UIViewController, UITableViewDelegate, UITableView
     //  MARK: - IBOutlets
     @IBOutlet weak var employeeTableView: UITableView!
     @IBOutlet weak var loader: UIActivityIndicatorView!
+    @IBOutlet weak var progressBar: UIProgressView!
     
     
     //  MARK: - LifeCycle
@@ -44,8 +46,8 @@ class EmployeeListController: UIViewController, UITableViewDelegate, UITableView
         tableViewHandling()
         configureUI()
         showSearchBar()
-//        employeeLoading()
         directEmployeeFetching()
+//        employeeLoading()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -65,6 +67,16 @@ class EmployeeListController: UIViewController, UITableViewDelegate, UITableView
         refreshControl.addTarget(self, action: #selector(refresh), for: UIControl.Event.valueChanged)
         employeeTableView.addSubview(refreshControl)
         navigationController?.navigationBar.addBlurEffect()
+        progressBar.setProgress(0, animated: false)
+        
+        Timer.scheduledTimer(withTimeInterval: 0.03, repeats: true) { (timer) in
+            if self.progress.completedUnitCount == 60 {
+                timer.invalidate()
+            }else{
+                self.progress.completedUnitCount += 1
+                self.progressBar.setProgress(Float(self.progress.fractionCompleted), animated: true)
+            }
+        }
     }
     
 
@@ -90,7 +102,6 @@ class EmployeeListController: UIViewController, UITableViewDelegate, UITableView
         searchController.searchBar.placeholder = "Search employee name or ID"
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
-        
     }
     
     func employeeLoading() {
@@ -109,7 +120,7 @@ class EmployeeListController: UIViewController, UITableViewDelegate, UITableView
                 self.showToast(controller: self, message: error.localizedDescription, seconds: 1.6)
             }
             else if data != nil {
-                self.employeeList = data as! [Employee]
+                self.employeeList = data as! [EmployeeDetails]
                 self.searchedEmployee = self.employeeList
                 DispatchQueue.main.async {
                     
@@ -129,9 +140,7 @@ class EmployeeListController: UIViewController, UITableViewDelegate, UITableView
                                 appDelegate.saveContext()
                             }
                         }
-                        
                     }
-                
                     self.loader.isHidden = true
                     self.employeeTableView.reloadData()
                 }
@@ -143,8 +152,7 @@ class EmployeeListController: UIViewController, UITableViewDelegate, UITableView
     @discardableResult func directEmployeeFetching() -> Bool {
         loader.isHidden = false
         
-        let url = EMPLOYEEBASEURL + "s"
-        NetworkManager.sharedInstance.loadEmployees(urlString: url, completion: { (data, responseError) in
+        NetworkManager.sharedInstance.loadEmployees(urlString: EMPLOYEEBASEURL, completion: { (data, responseError) in
             
             if let error = responseError {
                 self.showToast(controller: self, message: error.localizedDescription, seconds: 1.6)
@@ -155,14 +163,22 @@ class EmployeeListController: UIViewController, UITableViewDelegate, UITableView
                     alert.textAlignment = .center
                     self.employeeTableView.tableHeaderView = alert
                 }
-            }
-            else {
+            }else{
                 if data != nil {
                     DispatchQueue.global().async {
-                        self.employeeList = data as! [Employee]
+                        self.employeeList = data as! [EmployeeDetails]
                         self.searchedEmployee = self.employeeList
                         
                         DispatchQueue.main.async {
+                            Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true) { (timer) in
+                                if self.progress.completedUnitCount == 100 {
+                                    timer.invalidate()
+                                    self.progressBar.isHidden = true
+                                }else{
+                                    self.progress.completedUnitCount += 1
+                                    self.progressBar.setProgress(Float(self.progress.fractionCompleted), animated: true)
+                                }
+                            }
                             self.loader.isHidden = true
                             self.employeeTableView.tableHeaderView = .none
                             self.employeeTableView.reloadData()
@@ -178,12 +194,9 @@ class EmployeeListController: UIViewController, UITableViewDelegate, UITableView
     //  MARK: - IBActions
     @objc func refresh() {
         employeeLoading()
-        let refreshed = employeeFetching()
         employeeTableView.reloadSections([0], with: .fade)
-        if refreshed {
-            loader.isHidden = true
-            refreshControl.endRefreshing()
-        }
+        loader.isHidden = true
+        refreshControl.endRefreshing()
     }
     
     
@@ -199,8 +212,7 @@ extension EmployeeListController {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CUSTOMEMPLOYEECELLNAME) as! CustomEmployeeCell
-        cell.employeeNameLabel.text = searchedEmployee[indexPath.row].name?.capitalized
-        cell.employeeIDLabel.text = searchedEmployee[indexPath.row].id
+        cell.configureCell(employeeData: searchedEmployee[indexPath.row])
         return cell
     }
     
@@ -210,7 +222,7 @@ extension EmployeeListController {
         
         let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "EmployeeDetailsControllers") as! EmployeeDetailsControllers
-        controller.empID = searchedEmployee[indexPath.row].id ?? NULLVALUE
+        controller.employeeDetails = searchedEmployee[indexPath.row]
         self.navigationController?.pushViewController(controller, animated: true)
     }
     

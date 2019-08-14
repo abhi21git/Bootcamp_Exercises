@@ -187,8 +187,7 @@ class LoginController: UIViewController, UserDataValidation, Toastable {
                                 self.passwordChecker.text = CheckStatus.none.rawValue                                
                             }
                         }
-                    }
-                    else {
+                    } else {
                         self.showToast(controller: self, message: "Cannot Login")
                     }
                 }
@@ -207,50 +206,50 @@ class LoginController: UIViewController, UserDataValidation, Toastable {
     
     
     @IBAction func forgetPassword() {
-//        let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
-//        let resetVC = storyboard.instantiateViewController(withIdentifier: "ResetPasswordController") as! ResetPasswordController
-//
-//        addChild(resetVC)
-//        self.view.addSubview(resetVC.view)
-//        resetVC.didMove(toParent: self)
+        let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+        let resetVC = storyboard.instantiateViewController(withIdentifier: "ResetPasswordController") as! ResetPasswordController
+
+        addChild(resetVC)
+        self.view.addSubview(resetVC.view)
+        resetVC.didMove(toParent: self)
         
-        let alert = UIAlertController(title: "Reset Password", message: "To reset your password please enter your email address.", preferredStyle: UIAlertController.Style.alert)
-        alert.addTextField { textField in
-            textField.placeholder = "Enter email address"
-        }
-        alert.addAction(UIAlertAction(title: "Reset", style: .destructive, handler: {action in
-            self.loader.isHidden = false
-            
-            let parameters = ["mail" :  alert.textFields![0].text!]
-            
-            NetworkManager.sharedInstance.profileApi(urlString: FORGOTEMAILURL, parameters: parameters, completion: { (data, responseError) in
-                if let error = responseError {
-                    DispatchQueue.main.async {
-                        self.loader.isHidden = true
-                        self.showToast(controller: self, message: error.localizedDescription)
-                    }
-                }
-                else {
-                    if data != nil {
-                        DispatchQueue.global().async {
-                            let forgetResponse = data as! ProfileModel
-                            DispatchQueue.main.async {
-                                self.loader.isHidden = true
-                                self.showToast(controller: self, message: forgetResponse.Status.message!, seconds: 2)
-                            }
-                        }
-                    }
-                    else {
-                        DispatchQueue.main.async {
-                            self.loader.isHidden = true
-                            self.showToast(controller: self, message: "Invalid email entered", seconds: 1.2)
-                        }
-                    }
-                }
-            })
-        }))
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        present(alert, animated: true, completion: nil)
+//        let alert = UIAlertController(title: "Reset Password", message: "To reset your password please enter your email address.", preferredStyle: UIAlertController.Style.alert)
+//        alert.addTextField { textField in
+//            textField.placeholder = "Enter email address"
+//        }
+//        alert.addAction(UIAlertAction(title: "Reset", style: .destructive, handler: {action in
+//            self.loader.isHidden = false
+//            
+//            let parameters = ["mail" :  alert.textFields![0].text!]
+//            
+//            NetworkManager.sharedInstance.profileApi(urlString: FORGOTEMAILURL, parameters: parameters, completion: { (data, responseError) in
+//                if let error = responseError {
+//                    DispatchQueue.main.async {
+//                        self.loader.isHidden = true
+//                        self.showToast(controller: self, message: error.localizedDescription)
+//                    }
+//                }
+//                else {
+//                    if data != nil {
+//                        DispatchQueue.global().async {
+//                            let forgetResponse = data as! ProfileModel
+//                            DispatchQueue.main.async {
+//                                self.loader.isHidden = true
+//                                self.showToast(controller: self, message: forgetResponse.Status.message!, seconds: 2)
+//                            }
+//                        }
+//                    }
+//                    else {
+//                        DispatchQueue.main.async {
+//                            self.loader.isHidden = true
+//                            self.showToast(controller: self, message: "Invalid email entered", seconds: 1.2)
+//                        }
+//                    }
+//                }
+//            })
+//        }))
+//        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+//        present(alert, animated: true, completion: nil)
         
     }
     

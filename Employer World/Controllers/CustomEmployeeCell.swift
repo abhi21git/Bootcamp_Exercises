@@ -41,6 +41,11 @@ class CustomEmployeeCell: UITableViewCell {
         //        contentView.layer.borderColor = UIColor.gray.cgColor
     }
     
+    func configureCell(employeeData: EmployeeDetails) {
+        employeeNameLabel.text = employeeData.name?.capitalized
+        employeeIDLabel.text = employeeData.id
+    }
+    
     
     //  MARK:- IBActions
     override func layoutSubviews() {

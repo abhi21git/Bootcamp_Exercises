@@ -41,7 +41,7 @@ class NetworkManager {
         let sessionTask = session.dataTask(with: request) { (data, response, error) in
             
             if error ==  nil {
-                let result = try? JSONDecoder().decode([Employee].self, from: data!)
+                let result = try? JSONDecoder().decode([EmployeeDetails].self, from: data!)
                 completion(result, nil)
             }
             else {
