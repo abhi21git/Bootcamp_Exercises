@@ -41,15 +41,14 @@ class SignUpController: UIViewController, UserDataValidation, Toastable {
         [firstNameTF, lastNameTF, emailTF, passwordTF, confirmPasswordTF].forEach { textFields in
             textFields?.elevateView(shadowOffset: SHADOWOFFSET)
         }
-        firstNameTF.becomeFirstResponder()
-        self.navigationController?.navigationBar.topItem?.title = SIGNUPTITLE
-        self.navigationItem.hidesBackButton = true
-        
-        signupButton.roundedCornersWithBorder(cornerRadius: 4)
         [firstNameTF, lastNameTF, emailTF, passwordTF].forEach { textFields in
             textFields?.returnKeyType = UIReturnKeyType.next
         }
         confirmPasswordTF.returnKeyType = UIReturnKeyType.done
+        firstNameTF.becomeFirstResponder()
+        self.navigationController?.navigationBar.topItem?.title = SIGNUPTITLE
+        self.navigationItem.hidesBackButton = true
+        signupButton.roundedCornersWithBorder(cornerRadius: 4)
         
     }
     

@@ -12,8 +12,8 @@ import CoreData
 class EmployeeListController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UIScrollViewDelegate, NSFetchedResultsControllerDelegate, Toastable {
     
     //  MARK: - Variables
-    var employeeList = [EmployeeDetails]()
-    var searchedEmployee = [EmployeeDetails]()
+    var employeeListArray = [EmployeeDetails]()
+    var filteredEmployeeArray = [EmployeeDetails]()
     var refreshControl = UIRefreshControl()
     let progress = Progress(totalUnitCount: 100)
 
@@ -86,7 +86,7 @@ class EmployeeListController: UIViewController, UITableViewDelegate, UITableView
         employeeTableView.register(nib, forCellReuseIdentifier: CUSTOMEMPLOYEECELLNAME)
         employeeTableView.dataSource = self
         employeeTableView.delegate = self
-        searchedEmployee = employeeList
+        filteredEmployeeArray = employeeListArray
     }
     
     func showSearchBar() {
@@ -120,11 +120,11 @@ class EmployeeListController: UIViewController, UITableViewDelegate, UITableView
                 self.showToast(controller: self, message: error.localizedDescription, seconds: 1.6)
             }
             else if data != nil {
-                self.employeeList = data as! [EmployeeDetails]
-                self.searchedEmployee = self.employeeList
+                self.employeeListArray = data as! [EmployeeDetails]
+                self.filteredEmployeeArray = self.employeeListArray
                 DispatchQueue.main.async {
                     
-                    for employees in self.employeeList {
+                    for employees in self.employeeListArray {
                         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
                         let managedContext = appDelegate.persistentContainer.viewContext
                         let entity = NSEntityDescription.entity(forEntityName: "Employees", in: managedContext)
@@ -157,17 +157,26 @@ class EmployeeListController: UIViewController, UITableViewDelegate, UITableView
             if let error = responseError {
                 self.showToast(controller: self, message: error.localizedDescription, seconds: 1.6)
                 DispatchQueue.main.async {
-                    self.loader.isHidden = true
-                    let alert = UILabel(frame: CGRect(x: 0, y: 0, width: self.employeeTableView.bounds.size.width, height: self.employeeTableView.bounds.size.height))
+                    let alert = UILabel(frame: CGRect(x: 0, y: 0, width: self.employeeTableView.bounds.size.width, height: (self.tabBarController?.tabBar.frame.height)! + (self.navigationController?.navigationBar.frame.height)! + (self.navigationItem.searchController?.searchBar.frame.height)!  - (self.employeeTableView.frame.height)))
                     alert.text = "Pull down to retry."
                     alert.textAlignment = .center
                     self.employeeTableView.tableHeaderView = alert
+                    self.loader.isHidden = true
+                    Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true) { (timer) in
+                        if self.progress.completedUnitCount == 100 {
+                            timer.invalidate()
+                            self.progressBar.isHidden = true
+                        }else{
+                            self.progress.completedUnitCount += 1
+                            self.progressBar.setProgress(Float(self.progress.fractionCompleted), animated: true)
+                        }
+                    }
                 }
             }else{
                 if data != nil {
                     DispatchQueue.global().async {
-                        self.employeeList = data as! [EmployeeDetails]
-                        self.searchedEmployee = self.employeeList
+                        self.employeeListArray = data as! [EmployeeDetails]
+                        self.filteredEmployeeArray = self.employeeListArray
                         
                         DispatchQueue.main.async {
                             Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true) { (timer) in
@@ -207,12 +216,12 @@ class EmployeeListController: UIViewController, UITableViewDelegate, UITableView
 extension EmployeeListController {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return searchedEmployee.count
+        return filteredEmployeeArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CUSTOMEMPLOYEECELLNAME) as! CustomEmployeeCell
-        cell.configureCell(employeeData: searchedEmployee[indexPath.row])
+        cell.configureCell(employeeData: filteredEmployeeArray[indexPath.row])
         return cell
     }
     
@@ -222,7 +231,7 @@ extension EmployeeListController {
         
         let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "EmployeeDetailsControllers") as! EmployeeDetailsControllers
-        controller.employeeDetails = searchedEmployee[indexPath.row]
+        controller.employeeDetails = filteredEmployeeArray[indexPath.row]
         self.navigationController?.pushViewController(controller, animated: true)
     }
     
@@ -231,13 +240,13 @@ extension EmployeeListController {
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        searchedEmployee.removeAll()
-        for employee in employeeList {
+        filteredEmployeeArray.removeAll()
+        for employee in employeeListArray {
             if (employee.name?.range(of: searchText, options: .caseInsensitive) != nil || employee.id?.range(of: searchText, options:  .caseInsensitive) != nil) {
-                searchedEmployee.append(employee)
+                filteredEmployeeArray.append(employee)
             }
             else if searchText == BLANKSTRING {
-                searchedEmployee = employeeList
+                filteredEmployeeArray = employeeListArray
             }
         }
         employeeTableView.reloadData()
