@@ -23,6 +23,7 @@ class CustomEmployeeCell: UITableViewCell {
     //  MARK:- LifeCycle
     override func awakeFromNib() {
         super.awakeFromNib()
+        selectionStyle = .none
         // Initialization code
     }
     

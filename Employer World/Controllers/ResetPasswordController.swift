@@ -60,15 +60,9 @@ class ResetPasswordController: UIViewController, UserDataValidation, Toastable {
                 let validationURL = "https://qa.curiousworld.com/api/v3/Validate/Email?_format=json"
                 let parameters = ["mail" : userNameTF.text!]
                 
-                NetworkManager.sharedInstance.profileApi(urlString: validationURL, parameters: parameters, completion: { (data, responseError) in
-                    if responseError != nil {
-                        DispatchQueue.main.async {
-                            self.userNameChecker.textColor = UIColor.blue
-                            self.userNameChecker.text = CheckStatus.unknown.rawValue
-                        }
-                    }
-                    
-                    if data != nil {
+                NetworkManager.sharedInstance.profileApi(urlString: validationURL, parameters: parameters, completion: { result in
+                    switch result {
+                    case .success(let data):
                         DispatchQueue.global().async {
                             let status = data as! ProfileModel
                             
@@ -78,6 +72,11 @@ class ResetPasswordController: UIViewController, UserDataValidation, Toastable {
                                     self.userNameChecker.text = CheckStatus.correct.rawValue
                                 }
                             }
+                        }
+                    case .failure( _):
+                        DispatchQueue.main.async {
+                            self.userNameChecker.textColor = UIColor.blue
+                            self.userNameChecker.text = CheckStatus.unknown.rawValue
                         }
                     }
                 })
@@ -94,20 +93,19 @@ class ResetPasswordController: UIViewController, UserDataValidation, Toastable {
             let forgetURL = "https://qa.curiousworld.com/api/v3/ForgetPassword?_format=json"
             let parameters = ["mail" :  userNameTF.text!]
             
-            NetworkManager.sharedInstance.profileApi(urlString: forgetURL, parameters: parameters, completion: { (data, responseError) in
-                if let error = responseError {
+            NetworkManager.sharedInstance.profileApi(urlString: forgetURL, parameters: parameters, completion: { result in
+                switch result {
+                case .success(let data):
                     DispatchQueue.global().async {
-                        self.showToast(controller: self, message: error.localizedDescription)
-                    }
-                } else {
-                    if data != nil {
-                        DispatchQueue.global().async {
-                            let forgetResponse = data as! ProfileModel
-                            self.showToast(controller: self, message: forgetResponse.Status.message!, seconds: 2)
+                        let forgetResponse = data as! ProfileModel
+                        self.showToast(controller: self, message: forgetResponse.Status.message!, seconds: 2)
+                        DispatchQueue.main.async {
                             self.resetPassword()
                         }
-                    } else {
-                        self.showToast(controller: self, message: "Invalid email entered", seconds: 1.2)
+                    }
+                case .failure(let error):
+                    DispatchQueue.global().async {
+                        self.showToast(controller: self, message: error.localizedDescription)
                     }
                 }
             })
@@ -119,10 +117,10 @@ class ResetPasswordController: UIViewController, UserDataValidation, Toastable {
     
     
     @IBAction func resetPassword() {
-        self.willMove(toParent: nil)
-        self.view.removeFromSuperview()
-        self.removeFromParent()
-        self.navigationController?.navigationBar.topItem?.title = "Login"
+            self.willMove(toParent: nil)
+            self.view.removeFromSuperview()
+            self.removeFromParent()
+            self.navigationController?.navigationBar.topItem?.title = "Login"
     }
     
 }
