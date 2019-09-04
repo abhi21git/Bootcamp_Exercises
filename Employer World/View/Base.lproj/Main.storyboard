@@ -1575,7 +1575,8 @@ We reserve all rights to terminate accounts, edit or remove content and cancel o
                 <navigationController extendedLayoutIncludesOpaqueBars="YES" id="Z2f-rX-6iM" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="EMPLOYEES" image="EmployeeList" id="8nB-tE-7c6"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="7N7-Vc-1nE">
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="7N7-Vc-1nE">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1694,7 +1695,7 @@ We reserve all rights to terminate accounts, edit or remove content and cancel o
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress" returnKeyType="continue" enablesReturnKeyAutomatically="YES" textContentType="email"/>
                                                 <connections>
-                                                    <action selector="userNameValidation" destination="JfZ-fQ-F3P" eventType="editingDidEnd" id="dRP-dr-lu2"/>
+                                                    <action selector="userNameValidation" destination="JfZ-fQ-F3P" eventType="editingChanged" id="pDh-DW-Jit"/>
                                                 </connections>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KRB-fD-7Oq">
@@ -1714,7 +1715,7 @@ We reserve all rights to terminate accounts, edit or remove content and cancel o
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="forgetPassword" destination="JfZ-fQ-F3P" eventType="touchUpInside" id="dDy-ib-XEy"/>
+                                                    <action selector="forgetPassword" destination="JfZ-fQ-F3P" eventType="touchUpInside" id="UhZ-9B-fEh"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CUw-Ii-jZH">

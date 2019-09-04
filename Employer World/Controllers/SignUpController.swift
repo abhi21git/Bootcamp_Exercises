@@ -71,9 +71,9 @@ class SignUpController: UIViewController, UserDataValidation, Toastable {
         
         let parameters = ["mail" : emailTF.text!]
         
-        NetworkManager.sharedInstance.profileApi(urlString: EMAILVALIDATIONURL, parameters: parameters, completion: { (data, responseError) in
-            
-            if data != nil {
+        NetworkManager.sharedInstance.profileApi(urlString: EMAILVALIDATIONURL, parameters: parameters, completion: { result in
+            switch result {
+            case .success(let data):
                 DispatchQueue.global().async {
                     let status = data as! ProfileModel
                     DispatchQueue.main.async {
@@ -87,6 +87,7 @@ class SignUpController: UIViewController, UserDataValidation, Toastable {
                         }
                     }
                 }
+            case .failure( _): break
             }
         })
     }
@@ -131,25 +132,20 @@ class SignUpController: UIViewController, UserDataValidation, Toastable {
                 "password" : passwordTF.text ?? BLANKSTRING
             ]
             
-            NetworkManager.sharedInstance.profileApi(urlString: SIGNUPURL, parameters: parameters) { (data, responseError) in
-                if let error = responseError {
-                    self.showToast(controller: self, message: error.localizedDescription)
-                    
-                } else {
-                    if data != nil {
-                        DispatchQueue.global().async {
-                            let signupResponse = data as! ProfileModel
-                            self.showToast(controller: self, message: signupResponse.Status.message!, seconds: 2)
-                            DispatchQueue.main.async {
-                                if signupResponse.Status.statusCode == 1 {
-                                    self.login()
-                                }
+            NetworkManager.sharedInstance.profileApi(urlString: SIGNUPURL, parameters: parameters) { result in
+                switch result {
+                case .success(let data):
+                    DispatchQueue.global().async {
+                        let signupResponse = data as! ProfileModel
+                        self.showToast(controller: self, message: signupResponse.Status.message!, seconds: 2)
+                        DispatchQueue.main.async {
+                            if signupResponse.Status.statusCode == 1 {
+                                self.login()
                             }
                         }
                     }
-                    else {
-                        self.showToast(controller: self, message: "Invalid response!")
-                    }
+                case .failure(let error):
+                    self.showToast(controller: self, message: error.localizedDescription)
                 }
             }
         }

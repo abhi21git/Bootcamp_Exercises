@@ -34,7 +34,7 @@ class LoginController: UIViewController, UserDataValidation, Toastable {
     func configureUI() {
         userNameTF.becomeFirstResponder()
         self.navigationItem.title = LOGINTITLE
-        navigationController?.navigationBar.addBlurEffect()
+//        navigationController?.navigationBar.addBlurEffect()
         loader.isHidden = true
         loginButton.roundedCornersWithBorder(cornerRadius: 4)
         loader.roundedCornersWithBorder(cornerRadius: loader.frame.height/6)
@@ -91,14 +91,9 @@ class LoginController: UIViewController, UserDataValidation, Toastable {
             if isValidEmail(testStr: userNameTF.text!) {
                 let parameters = ["mail" : userNameTF.text!]
                 
-                NetworkManager.sharedInstance.profileApi(urlString: EMAILVALIDATIONURL, parameters: parameters, completion: { (data, responseError) in
-                    if responseError != nil {
-                        DispatchQueue.main.async {
-                            self.userNameChecker.textColor = UIColor.blue
-                            self.userNameChecker.text = CheckStatus.unknown.rawValue
-                        }
-                    }
-                    if data != nil {
+                NetworkManager.sharedInstance.profileApi(urlString: EMAILVALIDATIONURL, parameters: parameters, completion: { result in
+                    switch result {
+                    case .success(let data):
                         DispatchQueue.global().async {
                             let status = data as! ProfileModel
                             
@@ -108,6 +103,11 @@ class LoginController: UIViewController, UserDataValidation, Toastable {
                                     self.userNameChecker.text = CheckStatus.correct.rawValue
                                 }
                             }
+                        }
+                    case .failure( _):
+                        DispatchQueue.main.async {
+                            self.userNameChecker.textColor = UIColor.blue
+                            self.userNameChecker.text = CheckStatus.unknown.rawValue
                         }
                     }
                 })
@@ -160,35 +160,31 @@ class LoginController: UIViewController, UserDataValidation, Toastable {
             
             let parametersData = getPostDataAttributes(params: loginParam)
             
-            NetworkManager.sharedInstance.logIn(urlString: LOGINURL, parameters: parametersData, completion: { (data, responseError) in
-                if let error = responseError {
+            NetworkManager.sharedInstance.logIn(urlString: LOGINURL, parameters: parametersData, completion: { result in
+                switch result {
+                case .success(let data):
+                    DispatchQueue.global().async {
+                        let loginResponse = data as! LoginModel
+                        DispatchQueue.main.async {
+                            let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+                            let profileVC = storyboard.instantiateViewController(withIdentifier: "ProfileController") as! ProfileController
+                            profileVC.profileData = loginResponse
+                            self.addChild(profileVC)
+                            self.view.addSubview(profileVC.view)
+                            profileVC.didMove(toParent: self)
+                            
+                            self.loader.isHidden = true
+                            self.userNameTF.text = BLANKSTRING
+                            self.passwordTF.text = BLANKSTRING
+                            self.userNameChecker.text = CheckStatus.none.rawValue
+                            self.passwordChecker.text = CheckStatus.none.rawValue
+                        }
+                    }
+                case .failure(let error):
                     self.showToast(controller: self, message: error.localizedDescription)
                     DispatchQueue.main.async {
                         self.userNameChecker.text = CheckStatus.unknown.rawValue
                         self.passwordChecker.text = CheckStatus.unknown.rawValue
-                    }
-                    
-                } else {
-                    if data != nil {
-                        DispatchQueue.global().async {
-                            let loginResponse = data as! LoginModel
-                            DispatchQueue.main.async {
-                                let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
-                                let profileVC = storyboard.instantiateViewController(withIdentifier: "ProfileController") as! ProfileController
-                                profileVC.profileData = loginResponse
-                                self.addChild(profileVC)
-                                self.view.addSubview(profileVC.view)
-                                profileVC.didMove(toParent: self)
-                                
-                                self.loader.isHidden = true
-                                self.userNameTF.text = BLANKSTRING
-                                self.passwordTF.text = BLANKSTRING
-                                self.userNameChecker.text = CheckStatus.none.rawValue
-                                self.passwordChecker.text = CheckStatus.none.rawValue                                
-                            }
-                        }
-                    } else {
-                        self.showToast(controller: self, message: "Cannot Login")
                     }
                 }
             })
@@ -219,38 +215,29 @@ class LoginController: UIViewController, UserDataValidation, Toastable {
 //        }
 //        alert.addAction(UIAlertAction(title: "Reset", style: .destructive, handler: {action in
 //            self.loader.isHidden = false
-//            
+//
 //            let parameters = ["mail" :  alert.textFields![0].text!]
-//            
-//            NetworkManager.sharedInstance.profileApi(urlString: FORGOTEMAILURL, parameters: parameters, completion: { (data, responseError) in
-//                if let error = responseError {
+//
+//            NetworkManager.sharedInstance.profileApi(urlString: FORGOTEMAILURL, parameters: parameters, completion: { result in
+//                switch result {
+//                case .success(let data):
+//                    DispatchQueue.global().async {
+//                        let forgetResponse = data as! ProfileModel
+//                        DispatchQueue.main.async {
+//                            self.loader.isHidden = true
+//                            self.showToast(controller: self, message: forgetResponse.Status.message!, seconds: 2)
+//                        }
+//                    }
+//                case .failure(let error):
 //                    DispatchQueue.main.async {
 //                        self.loader.isHidden = true
 //                        self.showToast(controller: self, message: error.localizedDescription)
-//                    }
-//                }
-//                else {
-//                    if data != nil {
-//                        DispatchQueue.global().async {
-//                            let forgetResponse = data as! ProfileModel
-//                            DispatchQueue.main.async {
-//                                self.loader.isHidden = true
-//                                self.showToast(controller: self, message: forgetResponse.Status.message!, seconds: 2)
-//                            }
-//                        }
-//                    }
-//                    else {
-//                        DispatchQueue.main.async {
-//                            self.loader.isHidden = true
-//                            self.showToast(controller: self, message: "Invalid email entered", seconds: 1.2)
-//                        }
 //                    }
 //                }
 //            })
 //        }))
 //        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
 //        present(alert, animated: true, completion: nil)
-        
     }
     
     

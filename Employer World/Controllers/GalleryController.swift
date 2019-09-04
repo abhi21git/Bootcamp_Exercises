@@ -68,7 +68,7 @@ class GalleryController: UIViewController, NSFetchedResultsControllerDelegate, T
             refreshControl.attributedTitle = NSAttributedString(string: PULLTOREFRESHMESSAGE)
             refreshControl.addTarget(self, action: #selector(refresh), for: UIControl.Event.valueChanged)
             galleryView.refreshControl = refreshControl
-            navigationController?.navigationBar.addBlurEffect()
+//            navigationController?.navigationBar.addBlurEffect()
         }
         else {
             self.navigationItem.title = GOOGLEIMAGESEARCHTITLE
@@ -106,25 +106,23 @@ class GalleryController: UIViewController, NSFetchedResultsControllerDelegate, T
     
     func imageSearch() {
         let urlString = "\(GOOGLECUSTOMSEARCHSBASEURL)?q=\(query)&key=\(GOOGLEKEY)&cx=\(GOOGLECX)&searchType=image&start=\(start)&num=\(num)"
-        NetworkManager.sharedInstance.googleImageSearch(urlString: urlString, completion: {(data, responseError) in
-            
-            if let error = responseError {
-                self.showToast(controller: self, message: error.localizedDescription)
-            }else{
-                if data != nil {
-                    DispatchQueue.global().async {
-                        self.googleImagesResponse = [data as! GoogleImages]
-                        for elements in self.googleImagesResponse {
-                            for items in elements.items!{
-                                self.imageURL.append(items.imageLink!)
-                                self.thumbnailURL.append((items.imageDetails?.thumbnailLink)!)
-                            }
-                        }
-                        DispatchQueue.main.async {
-                            self.galleryView.reloadData()
+        NetworkManager.sharedInstance.googleImageSearch(urlString: urlString, completion: {result in
+            switch result {
+            case .success(let data):
+                DispatchQueue.global().async {
+                    self.googleImagesResponse = [data as! GoogleImages]
+                    for elements in self.googleImagesResponse {
+                        for items in elements.items!{
+                            self.imageURL.append(items.imageLink!)
+                            self.thumbnailURL.append((items.imageDetails?.thumbnailLink)!)
                         }
                     }
+                    DispatchQueue.main.async {
+                        self.galleryView.reloadData()
+                    }
                 }
+            case .failure(let error):
+                self.showToast(controller: self, message: error.localizedDescription)
             }
         })
     }
