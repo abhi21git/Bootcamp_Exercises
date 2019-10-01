@@ -47,11 +47,11 @@ class ProfileController: UIViewController {
             subscriptionLabel.text = UserDefault.string(forKey: "subscription")
         }
         
-        if UserDefault.bool(forKey: LOGINKEY) {
+        switch UserDefault.bool(forKey: LOGINKEY) {
+		case true:
             loadData()
-        }
-        else {
-            UserDefault.setValue(profileData.Data.firstName ?? BLANKSTRING, forKey: "fname")
+		case false:
+			UserDefault.setValue(profileData.Data.firstName ?? BLANKSTRING, forKey: "fname")
             UserDefault.setValue(profileData.Data.lastName ?? BLANKSTRING, forKey: "lname")
             UserDefault.setValue(profileData.Data.userID ?? BLANKSTRING, forKey: "uid")
             UserDefault.setValue(profileData.Data.subscriptionStatus ?? BLANKSTRING, forKey: "subscription")

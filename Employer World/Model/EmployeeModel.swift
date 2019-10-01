@@ -11,7 +11,7 @@ import Foundation
 //Model used in loadEmployees()
 struct EmployeeDetails: Decodable {
     let id: String?
-    let name: String?
+	let name: String?
     let salary: String?
     let age: String?
     let profileImage: String?

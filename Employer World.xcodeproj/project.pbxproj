@@ -43,7 +43,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		460D5307226F364D0020DE92 /* CustomSegment.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomSegment.xib; sourceTree = "<group>"; };
+		460D5307226F364D0020DE92 /* CustomSegment.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = CustomSegment.xib; path = ../View/CustomSegment.xib; sourceTree = "<group>"; };
 		460D530A226F36C60020DE92 /* CustomSegment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegment.swift; sourceTree = "<group>"; wrapsLines = 1; };
 		461026F522AE6345001F70EA /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; wrapsLines = 1; };
 		461DF06222E6EB0B007F5CCA /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = "Employer World/Protocols/Constants.swift"; sourceTree = SOURCE_ROOT; };
@@ -60,9 +60,9 @@
 		46BEB52B22E86369002E63BB /* ValidationProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationProtocol.swift; sourceTree = "<group>"; };
 		46C4CFDB22B7A41700CC7E3F /* ToastableProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastableProtocol.swift; sourceTree = "<group>"; };
 		46C6FBB42269D4720099E17C /* CustomEmployeeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomEmployeeCell.swift; sourceTree = "<group>"; wrapsLines = 1; };
-		46C6FBB52269D4720099E17C /* CustomEmployeeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomEmployeeCell.xib; sourceTree = "<group>"; };
+		46C6FBB52269D4720099E17C /* CustomEmployeeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = CustomEmployeeCell.xib; path = ../View/CustomEmployeeCell.xib; sourceTree = "<group>"; };
 		46C6FBB82269D4B10099E17C /* CustomGalleryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomGalleryCell.swift; sourceTree = "<group>"; wrapsLines = 1; };
-		46C6FBB92269D4B10099E17C /* CollectionGalleryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionGalleryCell.xib; sourceTree = "<group>"; };
+		46C6FBB92269D4B10099E17C /* CollectionGalleryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = CollectionGalleryCell.xib; path = ../View/CollectionGalleryCell.xib; sourceTree = "<group>"; };
 		46C6FBBC2269E5140099E17C /* SignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		46C6FBBE2269E6FA0099E17C /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		46C6FBC4226D8FBC0099E17C /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; wrapsLines = 1; };
@@ -100,22 +100,15 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
-		46246CC322C1F7D0004E564F /* XIBs */ = {
-			isa = PBXGroup;
-			children = (
-				46C6FBB52269D4720099E17C /* CustomEmployeeCell.xib */,
-				46C6FBB92269D4B10099E17C /* CollectionGalleryCell.xib */,
-				460D5307226F364D0020DE92 /* CustomSegment.xib */,
-			);
-			name = XIBs;
-			sourceTree = "<group>";
-		};
 		46246CC422C1F7E5004E564F /* XIB Classes */ = {
 			isa = PBXGroup;
 			children = (
-				46C6FBB42269D4720099E17C /* CustomEmployeeCell.swift */,
-				46C6FBB82269D4B10099E17C /* CustomGalleryCell.swift */,
 				460D530A226F36C60020DE92 /* CustomSegment.swift */,
+				460D5307226F364D0020DE92 /* CustomSegment.xib */,
+				46C6FBB42269D4720099E17C /* CustomEmployeeCell.swift */,
+				46C6FBB52269D4720099E17C /* CustomEmployeeCell.xib */,
+				46C6FBB82269D4B10099E17C /* CustomGalleryCell.swift */,
+				46C6FBB92269D4B10099E17C /* CollectionGalleryCell.xib */,
 			);
 			name = "XIB Classes";
 			sourceTree = "<group>";
@@ -156,7 +149,6 @@
 			children = (
 				46FF2D232268D1620006BE82 /* LaunchScreen.storyboard */,
 				46FF2D1B2268D15F0006BE82 /* Main.storyboard */,
-				46246CC322C1F7D0004E564F /* XIBs */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -393,13 +385,13 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -453,7 +445,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -472,7 +464,7 @@
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "$(SRCROOT)/Employer World/SupportingFiles/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -493,7 +485,7 @@
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "$(SRCROOT)/Employer World/SupportingFiles/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

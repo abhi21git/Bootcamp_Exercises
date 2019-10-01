@@ -260,12 +260,14 @@ class LoginController: UIViewController, UserDataValidation, Toastable {
 extension LoginController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if textField == userNameTF {
+		switch textField {
+		case userNameTF:
             userNameTF.resignFirstResponder()
             passwordTF.becomeFirstResponder()
-        }
-        else if textField == passwordTF {
+		case passwordTF:
             passwordTF.resignFirstResponder()
+		default:
+			textField.resignFirstResponder()
         }
         return true
     }

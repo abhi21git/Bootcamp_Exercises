@@ -55,7 +55,7 @@ class EmployeeListController: UIViewController, UITableViewDelegate, UITableView
     func configureUI() {
         self.navigationItem.title = APPTITLE
         self.definesPresentationContext = true
-        self.tabBarController?.tabBar.elevateView()
+//        self.tabBarController?.tabBar.elevateView()
         loader.roundedCornersWithBorder(cornerRadius: loader.frame.height/6)
         refreshControl.attributedTitle = NSAttributedString(string: PULLTOREFRESHMESSAGE)
         refreshControl.addTarget(self, action: #selector(refresh), for: UIControl.Event.valueChanged)
@@ -86,11 +86,10 @@ class EmployeeListController: UIViewController, UITableViewDelegate, UITableView
     func showSearchBar() {
         let searchController = UISearchController(searchResultsController: nil)
         searchController.searchBar.delegate = self
-        searchController.dimsBackgroundDuringPresentation = false
         searchController.hidesNavigationBarDuringPresentation = true
-        searchController.searchBar.tintColor = UIColor.black
+        searchController.searchBar.tintColor = UIColor.label
         searchController.searchBar.setBackgroundImage(UIImage(), for: .any, barMetrics: .default)
-        searchController.searchBar.backgroundColor = UIColor.white
+        searchController.searchBar.backgroundColor = UIColor.systemBackground
         searchController.searchBar.sizeToFit()
         searchController.searchBar.returnKeyType = UIReturnKeyType.search
         searchController.searchBar.placeholder = "Search employee name or ID"
@@ -221,7 +220,7 @@ extension EmployeeListController {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 //        employeeFetching()
-        directEmployeeFetching //remove later
+        directEmployeeFetching() //remove later
         
         let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "EmployeeDetailsControllers") as! EmployeeDetailsControllers

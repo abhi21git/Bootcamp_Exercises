@@ -13,7 +13,7 @@ extension UINavigationBar {
     func addBlurEffect() {
         isTranslucent = true
         setBackgroundImage(UIImage(), for: .default)
-        let statusBarHeight: CGFloat = UIApplication.shared.statusBarFrame.height
+		let statusBarHeight: CGFloat = window?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0
         var blurFrame = bounds
         blurFrame.size.height += statusBarHeight
         blurFrame.origin.y -= statusBarHeight

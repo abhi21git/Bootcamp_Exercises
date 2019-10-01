@@ -63,7 +63,7 @@ class EmployeeDetailsControllers: UIViewController, Toastable {
     }
     
     func loadEmployeeDetails() {
-        nameLabel.text = employeeDetails?.name ?? ""
+		nameLabel.text = employeeDetails?.name?.capitalized ?? ""
         ageLabel.text = employeeDetails?.age ?? ""
         salaryLabel.text = employeeDetails?.salary ?? ""
         empIDLabel.text = employeeDetails?.id ?? ""
@@ -169,12 +169,12 @@ class EmployeeDetailsControllers: UIViewController, Toastable {
     }
     
     @objc func addToMapSegmentAction() {
-        if droppingPins {
+		switch droppingPins {
+		case true:
             droppingPins = false
             mapSegmentAction(addAnnotation: true)
             showToast(controller: self, message: "Dropping annotation enabled")
-        }
-        else {
+		case false:
             droppingPins = true
             mapSegmentAction(addAnnotation: false)
             showToast(controller: self, message: "Dropping annotation disabled")
@@ -197,7 +197,7 @@ extension EmployeeDetailsControllers: UIImagePickerControllerDelegate, UINavigat
             entity?.employeeName = nameLabel.text
             entity?.imageURL = "\(imageName.lastPathComponent)"
             entity?.thumbnailURL = "\(imageName.lastPathComponent)"
-            //.lastpathComponent will save the last component from image address that is its name
+            //lastpathComponent will save the last component from image address that is its name
             
             appDelegate?.saveContext()
         }

@@ -35,7 +35,7 @@ import UIKit
     private func initialSetUps() {
         //register nib
         let bundle = Bundle(for: type(of: self))
-        //        let bundle = Bundle(for: CustomSegment.self)
+//        let bundle = Bundle(for: CustomSegment.self)
         let nib = UINib(nibName: "CustomSegment", bundle: bundle)
         if let view = nib.instantiate(withOwner: self, options: nil).first as? UIView {
             view.frame = self.bounds
@@ -49,33 +49,27 @@ import UIKit
     
     //  MARK: - Functions
     func gallerySegmentSelected() {
-        let addImage = UIImage(named: "AddIcon")
-        let selectedAddImage = UIImage(named: "AddSelectedIcon")
-        
-        galleryButton.backgroundColor = UIColor.gray
-        galleryButton.tintColor = UIColor.white
-        addToGalleryButton.backgroundColor = UIColor.gray
-        addToGalleryButton.setImage(selectedAddImage, for: .normal)
-        
-        mapButton.backgroundColor = UIColor.white
-        mapButton.tintColor = UIColor.black
-        addToMapButton.backgroundColor = UIColor.white
-        addToMapButton.setImage(addImage, for: .normal)
+        galleryButton.backgroundColor = UIColor.tertiarySystemBackground
+        galleryButton.tintColor = UIColor.label
+        addToGalleryButton.backgroundColor = UIColor.tertiarySystemBackground
+		addToGalleryButton.tintColor = UIColor.label
+		
+        mapButton.backgroundColor = UIColor.secondaryLabel
+        mapButton.tintColor = UIColor.systemBackground
+        addToMapButton.backgroundColor = UIColor.secondaryLabel
+		addToMapButton.tintColor = UIColor.systemBackground
     }
     
     func mapSegmentSelected() {
-        let addImage = UIImage(named: "AddIcon")
-        let selectedAddImage = UIImage(named: "AddSelectedIcon")
-        
-        mapButton.backgroundColor = UIColor.gray
-        mapButton.tintColor = UIColor.white
-        addToMapButton.backgroundColor = UIColor.gray
-        addToMapButton.setImage(selectedAddImage, for: .normal)
-        
-        galleryButton.backgroundColor = UIColor.white
-        galleryButton.tintColor = UIColor.black
-        addToGalleryButton.backgroundColor = UIColor.white
-        addToGalleryButton.setImage(addImage, for: .normal)
+		mapButton.backgroundColor = UIColor.tertiarySystemBackground
+        mapButton.tintColor = UIColor.label
+        addToMapButton.backgroundColor = UIColor.tertiarySystemBackground
+		addToMapButton.tintColor = UIColor.label
+
+        galleryButton.backgroundColor = UIColor.secondaryLabel
+        galleryButton.tintColor = UIColor.systemBackground
+        addToGalleryButton.backgroundColor = UIColor.secondaryLabel
+		addToGalleryButton.tintColor = UIColor.systemBackground
     }
     
     
