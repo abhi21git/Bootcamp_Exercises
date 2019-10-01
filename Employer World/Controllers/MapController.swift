@@ -139,7 +139,7 @@ class MapController: UIViewController, CLLocationManagerDelegate, MKMapViewDeleg
     
     //  MARK: - IBActions
     @IBAction func findMe() {
-        currentLocationButton.roatateView(duration: 0.3, roatation: 0.25)
+		//TODO: - Add ripple effect
         setupCoreLocation()
     }
     

@@ -162,25 +162,24 @@ class SignUpController: UIViewController, UserDataValidation, Toastable {
 extension SignUpController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if textField == firstNameTF {
+        switch textField{
+		case firstNameTF:
             firstNameTF.resignFirstResponder()
             lastNameTF.becomeFirstResponder()
-        }
-        if textField == lastNameTF {
+		case lastNameTF:
             lastNameTF.resignFirstResponder()
             emailTF.becomeFirstResponder()
-        }
-        if textField == emailTF {
+		case emailTF:
             emailTF.resignFirstResponder()
             passwordTF.becomeFirstResponder()
-        }
-        if textField == passwordTF {
+		case passwordTF:
             passwordTF.resignFirstResponder()
             confirmPasswordTF.becomeFirstResponder()
-        }
-        if textField == confirmPasswordTF {
+		case confirmPasswordTF:
             confirmPasswordTF.resignFirstResponder()
-        }
+		default:
+			break
+		}
         return true
     }
     

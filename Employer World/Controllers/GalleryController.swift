@@ -48,6 +48,9 @@ class GalleryController: UIViewController, NSFetchedResultsControllerDelegate, T
         
         collectionViewHandling()
         configureUI()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         loadImages()
     }
     
@@ -94,9 +97,8 @@ class GalleryController: UIViewController, NSFetchedResultsControllerDelegate, T
     func showSearchBar() {
         let searchController = UISearchController(searchResultsController: nil)
         searchController.searchBar.delegate = self
-        searchController.dimsBackgroundDuringPresentation = false
         searchController.hidesNavigationBarDuringPresentation = false
-        searchController.searchBar.tintColor = UIColor.black
+        searchController.searchBar.tintColor = UIColor.label
         searchController.searchBar.sizeToFit()
         searchController.searchBar.returnKeyType = UIReturnKeyType.search
         searchController.searchBar.placeholder = "Search for images on Google"
