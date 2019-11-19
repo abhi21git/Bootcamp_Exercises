@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1Ub-nz-OwS">
-    <device id="retina6_1" orientation="portrait" appearance="dark"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1Ub-nz-OwS">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -12,17 +12,17 @@
             <objects>
                 <viewController storyboardIdentifier="EmployeeListController" extendedLayoutIncludesOpaqueBars="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="EmployeeListController" customModule="Employer_World" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5Rd-fa-fb2">
-                                <rect key="frame" x="0.0" y="90" width="414" height="723"/>
+                                <rect key="frame" x="0.0" y="2" width="414" height="723"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="separatorInset" minX="60" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <sections/>
                             </tableView>
                             <activityIndicatorView contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="QWh-fG-R08">
-                                <rect key="frame" x="177" y="534.5" width="60" height="60"/>
+                                <rect key="frame" x="177" y="424.5" width="60" height="60"/>
                                 <color key="backgroundColor" white="0.33000000000000002" alpha="0.7011183647260274" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="SIS-sM-RnD"/>
@@ -30,7 +30,7 @@
                                 </constraints>
                             </activityIndicatorView>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="eNT-LX-Hha">
-                                <rect key="frame" x="0.0" y="88" width="414" height="2"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="2"/>
                                 <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </progressView>
                         </subviews>
@@ -48,6 +48,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" title="Employer World" id="yFo-WR-nBY"/>
                     <connections>
                         <outlet property="employeeTableView" destination="5Rd-fa-fb2" id="sbD-Pa-FfY"/>
@@ -1351,8 +1352,9 @@ We reserve all rights to terminate accounts, edit or remove content and cancel o
         <scene sceneID="ULv-DC-CMc">
             <objects>
                 <tabBarController storyboardIdentifier="RootTabBarController" extendedLayoutIncludesOpaqueBars="YES" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="m3E-cP-ckR" customClass="RootTabBarController" customModule="Employer_World" customModuleProvider="target" sceneMemberID="viewController">
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <toolbarItems/>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="LFt-GS-hv5">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1385,7 +1387,7 @@ We reserve all rights to terminate accounts, edit or remove content and cancel o
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="639.5"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="person.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="bXk-Ec-Ehu">
-                                                <rect key="frame" x="162" y="80.5" width="90" height="89.5"/>
+                                                <rect key="frame" x="162" y="80.5" width="90" height="89"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="tintColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <constraints>
@@ -1568,7 +1570,6 @@ We reserve all rights to terminate accounts, edit or remove content and cancel o
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <tabBarItem key="tabBarItem" title="EMPLOYEES" image="person.3.fill" catalog="system" id="8nB-tE-7c6"/>
                     <toolbarItems/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="7N7-Vc-1nE">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1794,9 +1795,9 @@ We reserve all rights to terminate accounts, edit or remove content and cancel o
     <resources>
         <image name="User" width="30" height="30"/>
         <image name="location.north.fill" catalog="system" width="54" height="64"/>
-        <image name="map.fill" catalog="system" width="64" height="54"/>
-        <image name="person.3.fill" catalog="system" width="72" height="35"/>
-        <image name="person.circle.fill" catalog="system" width="64" height="62"/>
+        <image name="map.fill" catalog="system" width="64" height="56"/>
+        <image name="person.3.fill" catalog="system" width="71" height="34"/>
+        <image name="person.circle.fill" catalog="system" width="64" height="60"/>
         <image name="person.fill" catalog="system" width="64" height="60"/>
         <image name="square.grid.2x2.fill" catalog="system" width="64" height="56"/>
     </resources>

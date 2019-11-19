@@ -229,8 +229,13 @@ extension EmployeeListController {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 60 // to keep the height of cell fixed
-    }
+        return 60 //to keep the height of cell fixed
+	}
+	
+	func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
+		searchBar.showsCancelButton = true
+		return true
+	}
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         filteredEmployeeArray.removeAll()
@@ -247,9 +252,9 @@ extension EmployeeListController {
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.text = BLANKSTRING
+		searchBar.resignFirstResponder()
+		employeeTableView.reloadData()
         searchBar.showsCancelButton = false
-        employeeTableView.reloadSections([0], with: .fade)
-        
     }
     
 }

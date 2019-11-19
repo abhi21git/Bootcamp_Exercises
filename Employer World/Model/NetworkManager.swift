@@ -12,7 +12,7 @@ typealias JSON = [String: Any]
 typealias HANDLER = (Result<Any, Error>) -> ()
 
 enum ServiceError: Error {
-    //    case noInternetConnection
+//    case noInternetConnection
     case customError(String)
     case other
 }
@@ -30,7 +30,7 @@ class NetworkManager {
     static let sharedInstance = NetworkManager() // to make this class singleton
 	
 	
-	// function which will load employees
+	//function which will load employees
 	func loadEmployees(urlString: String, completion: @escaping (HANDLER)){
         guard let url = URL(string: urlString) else { return }
         var request = URLRequest(url: url)
